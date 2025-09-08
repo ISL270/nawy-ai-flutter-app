@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'property_type.dart';
+import 'package:nawy_app/app/features/search/domain/entities/property_type.dart';
 
 part 'property_type_dto.g.dart';
 
@@ -8,19 +8,19 @@ part 'property_type_dto.g.dart';
 class PropertyTypeDto {
   @JsonKey(name: 'id')
   final int id;
-  
+
   @JsonKey(name: 'name')
   final String name;
-  
+
   @JsonKey(name: 'icon')
   final PropertyTypeIconDto? icon;
-  
+
   @JsonKey(name: 'has_land_area')
   final bool? hasLandArea;
-  
+
   @JsonKey(name: 'has_mandatory_garden_area')
   final bool? hasMandatoryGardenArea;
-  
+
   @JsonKey(name: 'manual_ranking')
   final int? manualRanking;
 
@@ -68,6 +68,7 @@ class PropertyTypeIconDto {
 
   const PropertyTypeIconDto({required this.url});
 
-  factory PropertyTypeIconDto.fromJson(Map<String, dynamic> json) => _$PropertyTypeIconDtoFromJson(json);
+  factory PropertyTypeIconDto.fromJson(Map<String, dynamic> json) =>
+      _$PropertyTypeIconDtoFromJson(json);
   Map<String, dynamic> toJson() => _$PropertyTypeIconDtoToJson(this);
 }

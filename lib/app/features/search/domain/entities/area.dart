@@ -7,12 +7,7 @@ class Area extends Equatable {
   final String? slug;
   final Map<String, String>? translations;
 
-  const Area({
-    required this.id,
-    required this.name,
-    this.slug,
-    this.translations,
-  });
+  const Area({required this.id, required this.name, this.slug, this.translations});
 
   @override
   List<Object?> get props => [id, name, slug, translations];

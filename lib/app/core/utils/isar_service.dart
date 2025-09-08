@@ -1,10 +1,10 @@
 import 'package:isar/isar.dart';
+import 'package:nawy_app/app/features/search/data/local/area_isar.dart';
+import 'package:nawy_app/app/features/search/data/local/compound_isar.dart';
+import 'package:nawy_app/app/features/search/data/local/developer_isar.dart';
+import 'package:nawy_app/app/features/search/data/local/property_isar.dart';
+import 'package:nawy_app/app/features/search/data/local/property_type_isar.dart';
 import 'package:path_provider/path_provider.dart';
-import '../models/area/area_isar.dart';
-import '../models/compound/compound_isar.dart';
-import '../models/property/property_isar.dart';
-import '../models/property_type/property_type_isar.dart';
-import '../models/developer/developer_isar.dart';
 
 class IsarService {
   static final IsarService _instance = IsarService._internal();
@@ -16,17 +16,14 @@ class IsarService {
 
   Future<void> initialize() async {
     final dir = await getApplicationDocumentsDirectory();
-    
-    _isar = await Isar.open(
-      [
-        AreaIsarSchema,
-        CompoundIsarSchema,
-        PropertyIsarSchema,
-        PropertyTypeIsarSchema,
-        DeveloperIsarSchema,
-      ],
-      directory: dir.path,
-    );
+
+    _isar = await Isar.open([
+      AreaIsarSchema,
+      CompoundIsarSchema,
+      PropertyIsarSchema,
+      PropertyTypeIsarSchema,
+      DeveloperIsarSchema,
+    ], directory: dir.path);
   }
 
   Future<void> close() async {

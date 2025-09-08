@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import '../../../../core/models/property_type/property_type_dto.dart';
+import 'package:nawy_app/app/features/search/data/sources/remote/models/property_type_dto.dart';
 
 part 'filter_options.g.dart';
 
@@ -7,25 +7,25 @@ part 'filter_options.g.dart';
 class FilterOptions {
   @JsonKey(name: 'min_bedrooms')
   final int minBedrooms;
-  
+
   @JsonKey(name: 'max_bedrooms')
   final int maxBedrooms;
-  
+
   @JsonKey(name: 'min_price_list')
   final List<int> minPriceList;
-  
+
   @JsonKey(name: 'max_price_list')
   final List<int> maxPriceList;
-  
+
   @JsonKey(name: 'property_types')
   final List<PropertyTypeDto>? propertyTypes;
-  
+
   @JsonKey(name: 'amenities')
   final List<Amenity>? amenities;
-  
+
   @JsonKey(name: 'sortings')
   final List<SortOption>? sortings;
-  
+
   @JsonKey(name: 'sale_types')
   final List<String>? saleTypes;
 
@@ -48,18 +48,14 @@ class FilterOptions {
 class Amenity {
   @JsonKey(name: 'id')
   final int id;
-  
+
   @JsonKey(name: 'name')
   final String name;
-  
+
   @JsonKey(name: 'image_path')
   final String? imagePath;
 
-  Amenity({
-    required this.id,
-    required this.name,
-    this.imagePath,
-  });
+  Amenity({required this.id, required this.name, this.imagePath});
 
   factory Amenity.fromJson(Map<String, dynamic> json) => _$AmenityFromJson(json);
   Map<String, dynamic> toJson() => _$AmenityToJson(this);
@@ -69,18 +65,14 @@ class Amenity {
 class SortOption {
   @JsonKey(name: 'key')
   final String key;
-  
+
   @JsonKey(name: 'value')
   final String value;
-  
+
   @JsonKey(name: 'direction')
   final String direction;
 
-  SortOption({
-    required this.key,
-    required this.value,
-    required this.direction,
-  });
+  SortOption({required this.key, required this.value, required this.direction});
 
   factory SortOption.fromJson(Map<String, dynamic> json) => _$SortOptionFromJson(json);
   Map<String, dynamic> toJson() => _$SortOptionToJson(this);

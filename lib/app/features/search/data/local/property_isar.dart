@@ -1,5 +1,5 @@
 import 'package:isar/isar.dart';
-import 'property.dart';
+import 'package:nawy_app/app/features/search/domain/entities/property.dart';
 
 part 'property_isar.g.dart';
 
@@ -7,7 +7,7 @@ part 'property_isar.g.dart';
 @Collection()
 class PropertyIsar {
   Id isarId = Isar.autoIncrement;
-  
+
   late int id;
   late String name;
   String? slug;

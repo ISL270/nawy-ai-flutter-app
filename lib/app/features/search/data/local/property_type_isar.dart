@@ -1,5 +1,5 @@
 import 'package:isar/isar.dart';
-import 'property_type.dart';
+import 'package:nawy_app/app/features/search/domain/entities/property_type.dart';
 
 part 'property_type_isar.g.dart';
 
@@ -7,7 +7,7 @@ part 'property_type_isar.g.dart';
 @Collection()
 class PropertyTypeIsar {
   Id isarId = Isar.autoIncrement;
-  
+
   late int id;
   late String name;
   String? iconUrl;

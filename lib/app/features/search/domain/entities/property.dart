@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
-import '../area/area.dart';
-import '../developer/developer.dart';
-import '../property_type/property_type.dart';
+import 'package:nawy_app/app/features/search/domain/entities/area.dart';
+import 'package:nawy_app/app/features/search/domain/entities/developer.dart';
+import 'package:nawy_app/app/features/search/domain/entities/property_type.dart';
 
 /// Domain entity for Property - pure business logic model
 class Property extends Equatable {
@@ -85,24 +85,24 @@ class Property extends Equatable {
 
   @override
   List<Object?> get props => [
-        id,
-        name,
-        slug,
-        propertyType,
-        compound,
-        area,
-        developer,
-        image,
-        finishing,
-        minUnitArea,
-        maxUnitArea,
-        minPrice,
-        maxPrice,
-        currency,
-        maxInstallmentYears,
-        maxInstallmentYearsMonths,
-        isFavorite,
-      ];
+    id,
+    name,
+    slug,
+    propertyType,
+    compound,
+    area,
+    developer,
+    image,
+    finishing,
+    minUnitArea,
+    maxUnitArea,
+    minPrice,
+    maxPrice,
+    currency,
+    maxInstallmentYears,
+    maxInstallmentYearsMonths,
+    isFavorite,
+  ];
 
   @override
   String toString() => 'Property(id: $id, name: $name, isFavorite: $isFavorite)';
@@ -129,15 +129,7 @@ class PropertyCompound extends Equatable {
   });
 
   @override
-  List<Object?> get props => [
-        id,
-        name,
-        latitude,
-        longitude,
-        slug,
-        sponsored,
-        nawyOrganizationId,
-      ];
+  List<Object?> get props => [id, name, latitude, longitude, slug, sponsored, nawyOrganizationId];
 
   @override
   String toString() => 'PropertyCompound(id: $id, name: $name)';

@@ -1,8 +1,8 @@
 import 'package:json_annotation/json_annotation.dart';
-import '../area/area_dto.dart';
-import '../developer/developer_dto.dart';
-import '../property_type/property_type_dto.dart';
-import 'property.dart';
+import 'package:nawy_app/app/features/search/data/sources/remote/models/area_dto.dart';
+import 'package:nawy_app/app/features/search/data/sources/remote/models/developer_dto.dart';
+import 'package:nawy_app/app/features/search/data/sources/remote/models/property_type_dto.dart';
+import 'package:nawy_app/app/features/search/domain/entities/property.dart';
 
 part 'property_dto.g.dart';
 
@@ -11,49 +11,49 @@ part 'property_dto.g.dart';
 class PropertyDto {
   @JsonKey(name: 'id')
   final int id;
-  
+
   @JsonKey(name: 'slug')
   final String? slug;
-  
+
   @JsonKey(name: 'name')
   final String name;
-  
+
   @JsonKey(name: 'property_type')
   final PropertyTypeDto? propertyType;
-  
+
   @JsonKey(name: 'compound')
   final PropertyCompoundDto? compound;
-  
+
   @JsonKey(name: 'area')
   final AreaDto? area;
-  
+
   @JsonKey(name: 'developer')
   final DeveloperDto? developer;
-  
+
   @JsonKey(name: 'image')
   final String? image;
-  
+
   @JsonKey(name: 'finishing')
   final String? finishing;
-  
+
   @JsonKey(name: 'min_unit_area')
   final double? minUnitArea;
-  
+
   @JsonKey(name: 'max_unit_area')
   final double? maxUnitArea;
-  
+
   @JsonKey(name: 'min_price')
   final double? minPrice;
-  
+
   @JsonKey(name: 'max_price')
   final double? maxPrice;
-  
+
   @JsonKey(name: 'currency')
   final String? currency;
-  
+
   @JsonKey(name: 'max_installment_years')
   final int? maxInstallmentYears;
-  
+
   @JsonKey(name: 'max_installment_years_months')
   final String? maxInstallmentYearsMonths;
 
@@ -108,7 +108,9 @@ class PropertyDto {
       id: entity.id,
       name: entity.name,
       slug: entity.slug,
-      propertyType: entity.propertyType != null ? PropertyTypeDto.fromEntity(entity.propertyType!) : null,
+      propertyType: entity.propertyType != null
+          ? PropertyTypeDto.fromEntity(entity.propertyType!)
+          : null,
       compound: entity.compound != null ? PropertyCompoundDto.fromEntity(entity.compound!) : null,
       area: entity.area != null ? AreaDto.fromEntity(entity.area!) : null,
       developer: entity.developer != null ? DeveloperDto.fromEntity(entity.developer!) : null,
@@ -129,22 +131,22 @@ class PropertyDto {
 class PropertyCompoundDto {
   @JsonKey(name: 'id')
   final int id;
-  
+
   @JsonKey(name: 'lat')
   final double? lat;
-  
+
   @JsonKey(name: 'long')
   final double? long;
-  
+
   @JsonKey(name: 'name')
   final String name;
-  
+
   @JsonKey(name: 'slug')
   final String? slug;
-  
+
   @JsonKey(name: 'sponsored')
   final int? sponsored;
-  
+
   @JsonKey(name: 'nawy_organization_id')
   final int? nawyOrganizationId;
 
@@ -158,7 +160,8 @@ class PropertyCompoundDto {
     this.nawyOrganizationId,
   });
 
-  factory PropertyCompoundDto.fromJson(Map<String, dynamic> json) => _$PropertyCompoundDtoFromJson(json);
+  factory PropertyCompoundDto.fromJson(Map<String, dynamic> json) =>
+      _$PropertyCompoundDtoFromJson(json);
   Map<String, dynamic> toJson() => _$PropertyCompoundDtoToJson(this);
 
   /// Convert API model to domain entity

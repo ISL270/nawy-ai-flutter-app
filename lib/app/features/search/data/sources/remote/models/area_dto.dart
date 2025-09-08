@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'area.dart';
+import 'package:nawy_app/app/features/search/domain/entities/area.dart';
 
 part 'area_dto.g.dart';
 
@@ -8,34 +8,24 @@ part 'area_dto.g.dart';
 class AreaDto {
   @JsonKey(name: 'id')
   final int id;
-  
+
   @JsonKey(name: 'name')
   final String name;
-  
+
   @JsonKey(name: 'slug')
   final String? slug;
-  
+
   @JsonKey(name: 'all_slugs')
   final Map<String, String>? allSlugs;
 
-  const AreaDto({
-    required this.id,
-    required this.name,
-    this.slug,
-    this.allSlugs,
-  });
+  const AreaDto({required this.id, required this.name, this.slug, this.allSlugs});
 
   factory AreaDto.fromJson(Map<String, dynamic> json) => _$AreaDtoFromJson(json);
   Map<String, dynamic> toJson() => _$AreaDtoToJson(this);
 
   /// Convert API model to domain entity
   Area toEntity() {
-    return Area(
-      id: id,
-      name: name,
-      slug: slug,
-      translations: allSlugs,
-    );
+    return Area(id: id, name: name, slug: slug, translations: allSlugs);
   }
 
   /// Create API model from domain entity

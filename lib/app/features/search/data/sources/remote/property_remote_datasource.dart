@@ -1,10 +1,10 @@
 import 'package:dio/dio.dart';
-import '../../../../core/constants/api_constants.dart';
-import '../../../../core/models/area/area_dto.dart';
-import '../../../../core/models/compound/compound_dto.dart';
-import '../models/filter_options.dart';
-import '../models/search_response.dart';
-import '../../../../core/utils/dio_client.dart';
+import 'package:nawy_app/app/core/constants/api_constants.dart';
+import 'package:nawy_app/app/core/utils/dio_client.dart';
+import 'package:nawy_app/app/features/search/data/sources/remote/models/area_dto.dart';
+import 'package:nawy_app/app/features/search/data/sources/remote/models/compound_dto.dart';
+import 'package:nawy_app/app/features/search/data/sources/remote/models/filter_options.dart';
+import 'package:nawy_app/app/features/search/data/sources/remote/models/search_response.dart';
 
 abstract class PropertyRemoteDataSource {
   Future<List<AreaDto>> getAreas();
@@ -71,31 +71,31 @@ class PropertyRemoteDataSourceImpl implements PropertyRemoteDataSource {
     try {
       // Build query parameters
       final Map<String, dynamic> queryParams = {};
-      
+
       if (areaIds != null && areaIds.isNotEmpty) {
         queryParams['area_ids'] = areaIds.join(',');
       }
-      
+
       if (compoundIds != null && compoundIds.isNotEmpty) {
         queryParams['compound_ids'] = compoundIds.join(',');
       }
-      
+
       if (minPrice != null) {
         queryParams['min_price'] = minPrice;
       }
-      
+
       if (maxPrice != null) {
         queryParams['max_price'] = maxPrice;
       }
-      
+
       if (minBedrooms != null) {
         queryParams['min_bedrooms'] = minBedrooms;
       }
-      
+
       if (maxBedrooms != null) {
         queryParams['max_bedrooms'] = maxBedrooms;
       }
-      
+
       if (propertyTypeIds != null && propertyTypeIds.isNotEmpty) {
         queryParams['property_type_ids'] = propertyTypeIds.join(',');
       }
@@ -104,7 +104,7 @@ class PropertyRemoteDataSourceImpl implements PropertyRemoteDataSource {
         ApiConstants.propertiesSearch,
         queryParameters: queryParams,
       );
-      
+
       return SearchResponse.fromJson(response.data);
     } on DioException catch (e) {
       throw _handleDioException(e);

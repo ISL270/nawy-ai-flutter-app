@@ -1,5 +1,5 @@
-import '../../../../core/models/compound/compound.dart';
-import '../../../../core/models/property/property.dart';
+import 'package:nawy_app/app/features/search/domain/entities/compound.dart';
+import 'package:nawy_app/app/features/search/domain/entities/property.dart';
 
 abstract class FavoritesRepository {
   Future<List<Property>> getFavoriteProperties();

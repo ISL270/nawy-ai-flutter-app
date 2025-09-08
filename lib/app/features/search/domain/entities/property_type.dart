@@ -20,13 +20,13 @@ class PropertyType extends Equatable {
 
   @override
   List<Object?> get props => [
-        id,
-        name,
-        iconUrl,
-        hasLandArea,
-        hasMandatoryGardenArea,
-        manualRanking,
-      ];
+    id,
+    name,
+    iconUrl,
+    hasLandArea,
+    hasMandatoryGardenArea,
+    manualRanking,
+  ];
 
   @override
   String toString() => 'PropertyType(id: $id, name: $name)';

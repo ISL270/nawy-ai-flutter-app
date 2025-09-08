@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
-import '../area/area_dto.dart';
-import 'compound.dart';
+import 'package:nawy_app/app/features/search/data/sources/remote/models/area_dto.dart';
+import 'package:nawy_app/app/features/search/domain/entities/compound.dart';
 
 part 'compound_dto.g.dart';
 
@@ -9,31 +9,31 @@ part 'compound_dto.g.dart';
 class CompoundDto {
   @JsonKey(name: 'id')
   final int id;
-  
+
   @JsonKey(name: 'area_id')
   final int areaId;
-  
+
   @JsonKey(name: 'developer_id')
   final int? developerId;
-  
+
   @JsonKey(name: 'name')
   final String name;
-  
+
   @JsonKey(name: 'slug')
   final String? slug;
-  
+
   @JsonKey(name: 'updated_at')
   final String? updatedAt;
-  
+
   @JsonKey(name: 'image_path')
   final String? imagePath;
-  
+
   @JsonKey(name: 'nawy_organization_id')
   final int? nawyOrganizationId;
-  
+
   @JsonKey(name: 'has_offers')
   final bool? hasOffers;
-  
+
   @JsonKey(name: 'area')
   final AreaDto? area;
 

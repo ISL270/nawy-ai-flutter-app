@@ -7,12 +7,7 @@ class Developer extends Equatable {
   final String? slug;
   final String? logoPath;
 
-  const Developer({
-    required this.id,
-    required this.name,
-    this.slug,
-    this.logoPath,
-  });
+  const Developer({required this.id, required this.name, this.slug, this.logoPath});
 
   @override
   List<Object?> get props => [id, name, slug, logoPath];

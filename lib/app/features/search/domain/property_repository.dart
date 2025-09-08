@@ -1,7 +1,7 @@
-import '../../../../core/models/area/area.dart';
-import '../../../../core/models/compound/compound.dart';
-import '../../data/models/filter_options.dart';
-import '../../data/models/search_response.dart';
+import 'package:nawy_app/app/features/search/data/sources/remote/models/filter_options.dart';
+import 'package:nawy_app/app/features/search/data/sources/remote/models/search_response.dart';
+import 'package:nawy_app/app/features/search/domain/entities/area.dart';
+import 'package:nawy_app/app/features/search/domain/entities/compound.dart';
 
 abstract class PropertyRepository {
   Future<List<Area>> getAreas();

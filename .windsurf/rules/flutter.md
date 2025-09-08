@@ -6,92 +6,124 @@ trigger: always_on
 
 ## Folder structure
 lib/
-├── main.dart              # Application entry point
+├── main.dart               # Application entry point
 ├── app/
-│   ├── core/             # Shared core functionality
-│   │   ├── models/       # Base models
-│   │   ├── utils/        # Utility functions
-│   │   └── constants/    # App constants
-│   ├── features/         # Application features
-│   │   ├── feature_name/ # Each feature module
-│   │   │   ├── data/    # Data layer (sources: local/remote)
-│   │   │   ├── domain/  # Business logic (repositories/entities)
-│   │   │   └── presentation/ # UI layer (bloc/pages/widgets)
-│   └── widgets/         # Shared widgets
+│   ├── core/               # Shared core functionality
+│   │   ├── constants/      # App-wide constants
+│   │   ├── utils/          # Utility functions & extensions
+│   │   ├── widgets/        # Shared, reusable widgets
+│   │   └── common/         # Shared types (e.g., Failure, PaginatedResponse)
+│   └── features/           # Application features (modular)
+│       └── feature_name/
+│           ├── domain/     # Business logic (entities, repositories)
+│           │   ├── entity.dart
+│           │   └── feature_repository.dart
+│           │
+│           ├── data/       # Data layer (sources + models)
+│           │   ├── remote/
+│           │   │   ├── feature_remote_source.dart
+│           │   │   └── feature_dto.dart
+│           │   │
+│           │   ├── local/
+│           │   │   ├── feature_local_source.dart
+│           │   │   └── feature_isar.dart
+│           │   │
+│           │   └── feature_repository_impl.dart
+│           │
+│           └── presentation/ # UI layer (bloc/pages/widgets)
 
-Key principles:
-- Feature-first approach with isolated modules
-- Clean Architecture within each feature
-- Shared code in core/
-- Common widgets in widgets/
+**Key principles:**
+- **Feature-first**: Each feature is isolated and self-contained.  
+- **Clean Architecture**: 
+  - `domain` = pure business logic  
+  - `data` = implementations (remote/local + repository impl)  
+  - `presentation` = UI with state management  
+- **Shared code**: Placed in `core/`  
+- **Common UI**: Shared widgets live in `core/widgets/`  
+
+---
 
 ## Packages
 - **State management:** Prefer **BLoC**  
-  - Clear separation of concerns  
-  - Testable, predictable state transitions  
+  - Separation of concerns  
+  - Testable, predictable state  
   - Strong ecosystem support  
 
 - **Local persistence:** Prefer **Isar**  
   - High-performance, schema-based storage  
-  - Well-suited for offline-first apps  
-  - Strong Dart/Flutter integration  
+  - Excellent offline-first support  
 
 - **Networking:** Prefer **Dio**  
-  - Flexible request/response handling  
-  - Built-in interceptors for logging, auth, retries  
-  - Rich ecosystem of plugins  
+  - Rich interceptors (logging, auth, retries)  
+  - Strong ecosystem of plugins  
 
-- **Dependency injection:** Prefer **get_it** (with `injectable` for code-gen)  
+- **Dependency injection:** Prefer **get_it** (+ `injectable`)  
   - Decoupled service management  
   - Test-friendly  
-  - Scales well with feature-based architecture  
+  - Scales with feature-first architecture  
 
 - **Testing:** Prefer **mocktail** and **bloc_test**  
-  - Simplifies mocking  
-  - Provides clear patterns for bloc-driven tests  
+  - Simplified mocking  
+  - Strong bloc-driven testing patterns  
+
+---
 
 ## Models
-Each model should have three versions, with clear naming for separation of concerns:
+Each feature model should have **three versions**:
 
 - **Domain model (business logic)** → `User`  
   - Pure, framework-agnostic  
-  - Contains only business-related fields and logic  
+  - Contains only business-related fields  
 
 - **API model (JSON-serializable)** → `UserDto`  
   - Handles mapping from/to API responses  
-  - Keeps external quirks (naming, types) away from domain  
+  - Keeps external quirks out of the domain layer  
 
 - **Persistence model (Isar)** → `UserIsar`  
   - Annotated with `@collection`  
   - Optimized for local storage  
 
+- Each model lives **with its source** in the same folder:  
+  - `remote/` → API models (Dto)  
+  - `local/` → persistence models (Isar)  
+  - `domain/` → domain entities  
+
+---
+
+## Sources & Repositories
+- **Remote sources** → `UserRemoteSource`  
+- **Local sources** → `UserLocalSource`  
+- **Repository interface** → `UserRepository` (in domain)  
+- **Repository implementation** → `UserRepositoryImpl` (in data)  
+
+---
+
 ## UI
-- Prefer creating separate widgets over helper methods, **default to creating new widgets** for:
-  - Any component with internal state
-  - Anything needing context-specific logic
-  - Complex or reusable visual elements
-- Reserve helper methods for **small, purely presentational, stateless code fragments** (e.g., small text spans, quick paddings).
+- Prefer **creating widgets** over helper methods. Default to creating a widget if:  
+  - It has internal state  
+  - It needs context-specific logic  
+  - It’s a complex or reusable visual element  
 
-## AI tooling: When to use the Dart & Flutter MCP server
+- Use **helper methods only** for:  
+  - Tiny, stateless code fragments  
+  - Inline formatting (e.g., text spans, padding shortcuts)  
 
-Use the Dart & Flutter MCP server when you want your AI assistant to act with your project’s real context and official tooling, not just suggest code. It exposes tools over MCP (Model Context Protocol) so the assistant can inspect, run, and modify your Dart/Flutter project safely and repeatably.
+---
 
-- **Fix runtime/layout issues fast:** When you hit a RenderFlex overflow or other runtime/UI error, ask the assistant to inspect runtime errors, read the widget tree, and propose/apply a minimal fix. Keep/undo after review.
+## AI Tooling: Dart & Flutter MCP Server
+Use the Dart & Flutter MCP server when you want your AI assistant to operate with your project’s **real context + official tooling**, not just suggest code.  
 
-- **Code-aware troubleshooting:** When static analysis flags errors or you suspect missing imports/symbols, have the assistant resolve symbols, fetch docs/signatures, apply quick-fixes, and re-check analysis.
+- **Fix runtime/layout issues fast**: e.g. inspect widget tree, propose/apply minimal fixes.  
+- **Code-aware troubleshooting**: resolve symbols, imports, re-check analysis.  
+- **Package discovery/integration**: search pub.dev, add package, scaffold usage code.  
+- **Test-driven iteration**: run tests, analyze failures, apply targeted changes.  
+- **App introspection**: query runtime state, hot reload, fetch current errors.  
+- **Consistent hygiene**: run formatter/analysis with official tooling.  
+- **Scoped refactors**: rename symbols, extract widgets, move files safely.  
+- **Onboarding**: surface repo conventions, scaffold starter code.  
 
-- **Package discovery and integration:** When adding a new capability (e.g., charts, auth, storage), use the assistant to search pub.dev, compare options, add the chosen package to pubspec, run pub get, and scaffold minimal usage code.
+**When not to use it**  
+- Large, risky rewrites → break them into smaller, reviewed steps.  
+- Clients without Tools/Resources → fall back to normal chat suggestions.  
 
-- **Test-driven iteration:** When changing behavior, let the assistant run tests, read failures, and propose targeted code changes until tests pass. Use this for red-green-refactor loops.
-
-- **Dev-time app introspection:** When debugging behavior in a running app, ask to query runtime state, trigger hot reload, or fetch current errors directly through tooling rather than manual print-debugging.
-
-- **Consistent formatting and hygiene:** When preparing a PR, ask the assistant to run formatter/analysis via the same config as dart format and the analysis server for consistent diffs.
-
-- **Project-wide refactors (incremental):** For scoped, mechanical refactors (rename symbols, extract widgets, move files with import updates), let the assistant plan and apply steps using official tooling, then review the diff.
-
-- **Onboarding and repo conventions:** For new contributors or fresh modules, have the assistant read the repo, surface conventions, and generate starter code aligned with analysis options and formatter settings.
-
-### When not to use it
-- **Large, risky rewrites:** Prefer manual design + smaller, reviewed MCP-driven steps instead of a single sweeping change.
-- **Clients without Tools/Resources support:** If your MCP client cannot expose Tools/Resources, fall back to normal chat suggestions.
+---

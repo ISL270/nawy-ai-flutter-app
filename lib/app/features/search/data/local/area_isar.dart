@@ -1,5 +1,5 @@
 import 'package:isar/isar.dart';
-import 'area.dart';
+import 'package:nawy_app/app/features/search/domain/entities/area.dart';
 
 part 'area_isar.g.dart';
 
@@ -7,22 +7,17 @@ part 'area_isar.g.dart';
 @Collection()
 class AreaIsar {
   Id isarId = Isar.autoIncrement;
-  
+
   late int id;
   late String name;
   String? slug;
-  
+
   // Isar doesn't support Map<String, String> directly, so we store as JSON string
   String? translationsJson;
 
   AreaIsar();
 
-  AreaIsar._({
-    required this.id,
-    required this.name,
-    this.slug,
-    this.translationsJson,
-  });
+  AreaIsar._({required this.id, required this.name, this.slug, this.translationsJson});
 
   /// Convert persistence model to domain entity
   Area toEntity() {
@@ -33,12 +28,7 @@ class AreaIsar {
       translations = null; // TODO: Implement JSON parsing if needed
     }
 
-    return Area(
-      id: id,
-      name: name,
-      slug: slug,
-      translations: translations,
-    );
+    return Area(id: id, name: name, slug: slug, translations: translations);
   }
 
   /// Create persistence model from domain entity

@@ -1,5 +1,5 @@
 import 'package:isar/isar.dart';
-import 'compound.dart';
+import 'package:nawy_app/app/features/search/domain/entities/compound.dart';
 
 part 'compound_isar.g.dart';
 
@@ -7,7 +7,7 @@ part 'compound_isar.g.dart';
 @Collection()
 class CompoundIsar {
   Id isarId = Isar.autoIncrement;
-  
+
   late int id;
   late int areaId;
   late String name;

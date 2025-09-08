@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import '../area/area.dart';
+import 'package:nawy_app/app/features/search/domain/entities/area.dart';
 
 /// Domain entity for Compound - used in business logic
 class Compound extends Equatable {
@@ -59,18 +59,18 @@ class Compound extends Equatable {
 
   @override
   List<Object?> get props => [
-        id,
-        areaId,
-        name,
-        slug,
-        imagePath,
-        developerId,
-        updatedAt,
-        nawyOrganizationId,
-        hasOffers,
-        area,
-        isFavorite,
-      ];
+    id,
+    areaId,
+    name,
+    slug,
+    imagePath,
+    developerId,
+    updatedAt,
+    nawyOrganizationId,
+    hasOffers,
+    area,
+    isFavorite,
+  ];
 
   @override
   String toString() => 'Compound(id: $id, name: $name, isFavorite: $isFavorite)';
