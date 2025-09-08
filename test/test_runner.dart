@@ -1,9 +1,10 @@
 import 'dart:io';
+import 'package:flutter/foundation.dart';
 
 /// Test Runner Script - Automated test execution for API model validation
 /// Run this script regularly to catch API changes early
 void main() async {
-  print('🧪 Running API Model Validation Tests...\n');
+  debugPrint('🧪 Running API Model Validation Tests...\n');
   
   final testSuites = [
     'test/features/search/data/sources/remote/api_contract_test.dart',
@@ -16,7 +17,7 @@ void main() async {
   bool allTestsPassed = true;
   
   for (final testSuite in testSuites) {
-    print('📋 Running: $testSuite');
+    debugPrint('📋 Running: $testSuite');
     
     final result = await Process.run(
       'flutter',
@@ -25,22 +26,22 @@ void main() async {
     );
     
     if (result.exitCode == 0) {
-      print('✅ PASSED\n');
+      debugPrint('✅ PASSED\n');
     } else {
-      print('❌ FAILED');
-      print('STDOUT: ${result.stdout}');
-      print('STDERR: ${result.stderr}\n');
+      debugPrint('❌ FAILED');
+      debugPrint('STDOUT: ${result.stdout}');
+      debugPrint('STDERR: ${result.stderr}\n');
       allTestsPassed = false;
     }
   }
   
-  print('=' * 50);
+  debugPrint('=' * 50);
   if (allTestsPassed) {
-    print('🎉 All API model validation tests PASSED!');
-    print('Your models are in sync with the API.');
+    debugPrint('🎉 All API model validation tests PASSED!');
+    debugPrint('Your models are in sync with the API.');
   } else {
-    print('⚠️  Some tests FAILED!');
-    print('Please review the failures and update your models accordingly.');
+    debugPrint('⚠️  Some tests FAILED!');
+    debugPrint('Please review the failures and update your models accordingly.');
     exit(1);
   }
 }

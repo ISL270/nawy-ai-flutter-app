@@ -1,6 +1,7 @@
 import 'dart:convert';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:http/http.dart' as http;
+import 'package:dio/dio.dart';
 
 /// API Monitoring Tests - Detect API changes and new fields
 /// Run these tests regularly to catch API evolution early
@@ -23,8 +24,9 @@ void main() {
       };
 
       // Act
-      final response = await http.get(Uri.parse('$baseUrl/properties-search.json'));
-      final data = json.decode(response.body);
+      final dio = Dio();
+      final response = await dio.get('$baseUrl/properties-search.json');
+      final data = response.data;
       final properties = data['values'] as List;
 
       if (properties.isNotEmpty) {
@@ -37,13 +39,13 @@ void main() {
 
         // Assert
         if (newFields.isNotEmpty) {
-          print('🆕 NEW FIELDS DETECTED: $newFields');
-          print('Consider adding these to PropertyDto model');
+          addTearDown(() => debugPrint('🆕 NEW FIELDS DETECTED: $newFields'));
+          addTearDown(() => debugPrint('Consider adding these to PropertyDto model'));
         }
         
         if (missingFields.isNotEmpty) {
-          print('⚠️ MISSING FIELDS: $missingFields');
-          print('These fields might have been removed from the API');
+          addTearDown(() => debugPrint('⚠️ MISSING FIELDS: $missingFields'));
+          addTearDown(() => debugPrint('These fields might have been removed from the API'));
         }
 
         // This test will pass but log warnings for manual review
@@ -62,8 +64,9 @@ void main() {
       };
 
       // Act
-      final response = await http.get(Uri.parse('$baseUrl/properties-search.json'));
-      final data = json.decode(response.body);
+      final dio = Dio();
+      final response = await dio.get('$baseUrl/properties-search.json');
+      final data = response.data;
 
       // Assert
       for (final entry in expectedStructure.entries) {
@@ -97,13 +100,14 @@ void main() {
       ];
 
       for (final endpoint in endpoints) {
-        final response = await http.get(Uri.parse(endpoint['url'] as String));
-        final size = response.body.length;
+        final dio = Dio();
+        final response = await dio.get(endpoint['url'] as String);
+        final size = json.encode(response.data).length;
         final maxSize = endpoint['maxSize'] as int;
         
         if (size > maxSize) {
-          print('⚠️ ${endpoint['name']} response size ($size bytes) exceeds expected max ($maxSize bytes)');
-          print('Consider implementing pagination or optimizing the response');
+          addTearDown(() => debugPrint('⚠️ ${endpoint['name']} response size ($size bytes) exceeds expected max ($maxSize bytes)'));
+          addTearDown(() => debugPrint('Consider implementing pagination or optimizing the response'));
         }
         
         expect(response.statusCode, 200);
@@ -118,8 +122,9 @@ void main() {
       };
 
       // Act
-      final response = await http.get(Uri.parse('$baseUrl/properties-search.json'));
-      final data = json.decode(response.body);
+      final dio = Dio();
+      final response = await dio.get('$baseUrl/properties-search.json');
+      final data = response.data;
       final properties = data['values'] as List;
 
       // Assert
@@ -137,8 +142,9 @@ void main() {
 
     test('Monitor nested object structures', () async {
       // Act
-      final response = await http.get(Uri.parse('$baseUrl/properties-search.json'));
-      final data = json.decode(response.body);
+      final dio = Dio();
+      final response = await dio.get('$baseUrl/properties-search.json');
+      final data = response.data;
       final properties = data['values'] as List;
 
       if (properties.isNotEmpty) {

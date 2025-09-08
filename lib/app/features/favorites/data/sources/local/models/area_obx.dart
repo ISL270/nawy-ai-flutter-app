@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'package:objectbox/objectbox.dart';
 import 'package:nawy_app/app/features/search/domain/models/area.dart';
 
@@ -26,10 +27,14 @@ class AreaObx {
   /// Convert persistence model to domain entity
   Area toEntity() {
     Map<String, String>? translations;
-    if (translationsJson != null) {
-      // Parse JSON string back to Map (you might want to use dart:convert)
-      // For now, keeping it simple
-      translations = null; // TODO: Implement JSON parsing if needed
+    if (translationsJson != null && translationsJson!.isNotEmpty) {
+      try {
+        final decoded = json.decode(translationsJson!) as Map<String, dynamic>;
+        translations = decoded.map((key, value) => MapEntry(key, value.toString()));
+      } catch (e) {
+        // If JSON parsing fails, return null translations
+        translations = null;
+      }
     }
 
     return Area(id: areaId, name: name, slug: slug, translations: translations);
@@ -38,10 +43,13 @@ class AreaObx {
   /// Create persistence model from domain entity
   factory AreaObx.fromEntity(Area entity) {
     String? translationsJson;
-    if (entity.translations != null) {
-      // Convert Map to JSON string (you might want to use dart:convert)
-      // For now, keeping it simple
-      translationsJson = null; // TODO: Implement JSON serialization if needed
+    if (entity.translations != null && entity.translations!.isNotEmpty) {
+      try {
+        translationsJson = json.encode(entity.translations);
+      } catch (e) {
+        // If JSON encoding fails, store null
+        translationsJson = null;
+      }
     }
 
     return AreaObx._(

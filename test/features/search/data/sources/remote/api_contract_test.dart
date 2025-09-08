@@ -1,6 +1,5 @@
-import 'dart:convert';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:http/http.dart' as http;
+import 'package:dio/dio.dart';
 import 'package:nawy_app/app/features/search/data/sources/remote/models/property_dto.dart';
 import 'package:nawy_app/app/features/search/data/sources/remote/models/area_dto.dart';
 import 'package:nawy_app/app/features/search/data/sources/remote/models/compound_dto.dart';
@@ -15,12 +14,13 @@ void main() {
 
     test('Properties Search API contract validation', () async {
       // Arrange
-      final response = await http.get(Uri.parse('$baseUrl/properties-search.json'));
+      final dio = Dio();
+      final response = await dio.get('$baseUrl/properties-search.json');
       
       // Assert API is accessible
       expect(response.statusCode, 200);
       
-      final data = json.decode(response.body);
+      final data = response.data;
       
       // Validate SearchResponse structure
       expect(data, isA<Map<String, dynamic>>());
@@ -56,12 +56,13 @@ void main() {
 
     test('Areas API contract validation', () async {
       // Arrange
-      final response = await http.get(Uri.parse('$baseUrl/areas.json'));
+      final dio = Dio();
+      final response = await dio.get('$baseUrl/areas.json');
       
       // Assert
       expect(response.statusCode, 200);
       
-      final data = json.decode(response.body);
+      final data = response.data;
       expect(data, isA<List>());
       
       if ((data as List).isNotEmpty) {
@@ -78,12 +79,13 @@ void main() {
 
     test('Compounds API contract validation', () async {
       // Arrange
-      final response = await http.get(Uri.parse('$baseUrl/compounds.json'));
+      final dio = Dio();
+      final response = await dio.get('$baseUrl/compounds.json');
       
       // Assert
       expect(response.statusCode, 200);
       
-      final data = json.decode(response.body);
+      final data = response.data;
       expect(data, isA<List>());
       
       if ((data as List).isNotEmpty) {
@@ -100,12 +102,13 @@ void main() {
 
     test('Filter Options API contract validation', () async {
       // Arrange
-      final response = await http.get(Uri.parse('$baseUrl/properties-get-filter-options.json'));
+      final dio = Dio();
+      final response = await dio.get('$baseUrl/properties-get-filter-options.json');
       
       // Assert
       expect(response.statusCode, 200);
       
-      final data = json.decode(response.body);
+      final data = response.data;
       expect(data, isA<Map<String, dynamic>>());
       
       // Test FilterOptions deserialization
@@ -118,8 +121,9 @@ void main() {
 
     test('API field coverage validation', () async {
       // This test validates that we're not missing any fields from the API
-      final response = await http.get(Uri.parse('$baseUrl/properties-search.json'));
-      final data = json.decode(response.body);
+      final dio = Dio();
+      final response = await dio.get('$baseUrl/properties-search.json');
+      final data = response.data;
       final properties = data['values'] as List;
       
       if (properties.isNotEmpty) {
