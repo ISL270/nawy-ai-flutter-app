@@ -3,7 +3,7 @@ import 'area.dart';
 
 part 'area_isar.g.dart';
 
-/// Persistence model for Area - handles local storage with Isar
+/// Persistence model for Area - reference data for favorited items (not stored independently)
 @Collection()
 class AreaIsar {
   Id isarId = Isar.autoIncrement;

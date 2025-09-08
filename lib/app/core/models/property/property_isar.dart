@@ -3,7 +3,7 @@ import 'property.dart';
 
 part 'property_isar.g.dart';
 
-/// Persistence model for Property - handles local storage with Isar
+/// Persistence model for Property - handles local storage of favorited properties only
 @Collection()
 class PropertyIsar {
   Id isarId = Isar.autoIncrement;

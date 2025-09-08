@@ -3,7 +3,7 @@ import 'compound.dart';
 
 part 'compound_isar.g.dart';
 
-/// Persistence model for Compound - handles local storage with Isar
+/// Persistence model for Compound - handles local storage of favorited compounds only
 @Collection()
 class CompoundIsar {
   Id isarId = Isar.autoIncrement;

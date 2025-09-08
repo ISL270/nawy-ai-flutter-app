@@ -75,5 +75,6 @@ Each entity follows a three-layer model pattern:
 ## Data Strategy
 
 - **Online-first**: All property search and browsing requires internet connection
-- **Selective Local Storage**: Only favorited items are persisted locally using Isar
-- **Favorites Access**: Users can view their saved properties/compounds offline in the favorites tab
+- **No General Offline Support**: App requires internet for all search and browsing functionality
+- **Favorites-Only Local Storage**: Only favorited properties and compounds are saved locally using Isar
+- **Offline Favorites Access**: Users can view their favorited items in the favorites tab without internet

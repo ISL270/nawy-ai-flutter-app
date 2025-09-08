@@ -3,7 +3,7 @@ import 'developer.dart';
 
 part 'developer_isar.g.dart';
 
-/// Persistence model for Developer - handles local storage with Isar
+/// Persistence model for Developer - reference data for favorited items (not stored independently)
 @Collection()
 class DeveloperIsar {
   Id isarId = Isar.autoIncrement;
