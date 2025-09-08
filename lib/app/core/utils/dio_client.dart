@@ -1,12 +1,13 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import '../constants/api_constants.dart';
+import 'app_logger.dart';
 
 @singleton
 class DioClient {
-  static final DioClient _instance = DioClient._internal();
-  factory DioClient() => _instance;
-  DioClient._internal();
+  final AppLogger _logger;
+  
+  DioClient(this._logger);
 
   late final Dio _dio;
 
@@ -30,7 +31,7 @@ class DioClient {
       logPrint: (object) {
         // Only log in debug mode
         assert(() {
-          print(object);
+          _logger.debug(object.toString());
           return true;
         }());
       },
@@ -76,7 +77,7 @@ class DioClient {
     
     // Log error for debugging
     assert(() {
-      print('API Error: $errorMessage');
+      _logger.error('API Error: $errorMessage', error);
       return true;
     }());
   }
