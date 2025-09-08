@@ -14,11 +14,11 @@ import 'package:objectbox/internal.dart'
 import 'package:objectbox/objectbox.dart' as obx;
 import 'package:objectbox_flutter_libs/objectbox_flutter_libs.dart';
 
-import 'app/features/search/data/local/area_obx.dart';
-import 'app/features/search/data/local/compound_obx.dart';
-import 'app/features/search/data/local/developer_obx.dart';
-import 'app/features/search/data/local/property_obx.dart';
-import 'app/features/search/data/local/property_type_obx.dart';
+import 'app/features/favorites/data/sources/local/models/area_obx.dart';
+import 'app/features/favorites/data/sources/local/models/compound_obx.dart';
+import 'app/features/favorites/data/sources/local/models/developer_obx.dart';
+import 'app/features/favorites/data/sources/local/models/property_obx.dart';
+import 'app/features/favorites/data/sources/local/models/property_type_obx.dart';
 
 export 'package:objectbox/objectbox.dart'; // so that callers only have to import this file
 

@@ -57,6 +57,60 @@ class PropertyDto {
   @JsonKey(name: 'max_installment_years_months')
   final String? maxInstallmentYearsMonths;
 
+  @JsonKey(name: 'min_installments')
+  final int? minInstallments;
+
+  @JsonKey(name: 'min_down_payment')
+  final int? minDownPayment;
+
+  @JsonKey(name: 'number_of_bathrooms')
+  final int? numberOfBathrooms;
+
+  @JsonKey(name: 'number_of_bedrooms')
+  final int? numberOfBedrooms;
+
+  @JsonKey(name: 'min_ready_by')
+  final String? minReadyBy;
+
+  @JsonKey(name: 'sponsored')
+  final int? sponsored;
+
+  @JsonKey(name: 'new_property')
+  final bool? newProperty;
+
+  @JsonKey(name: 'resale')
+  final bool? resale;
+
+  @JsonKey(name: 'financing')
+  final bool? financing;
+
+  @JsonKey(name: 'has_offers')
+  final bool? hasOffers;
+
+  @JsonKey(name: 'offer_title')
+  final String? offerTitle;
+
+  @JsonKey(name: 'limited_time_offer')
+  final bool? limitedTimeOffer;
+
+  @JsonKey(name: 'favorite')
+  final bool? favorite;
+
+  @JsonKey(name: 'ranking_type')
+  final String? rankingType;
+
+  @JsonKey(name: 'recommended_financing')
+  final int? recommendedFinancing;
+
+  @JsonKey(name: 'property_ranking')
+  final double? propertyRanking;
+
+  @JsonKey(name: 'compound_ranking')
+  final int? compoundRanking;
+
+  @JsonKey(name: 'tags')
+  final List<dynamic>? tags;
+
   const PropertyDto({
     required this.id,
     required this.name,
@@ -74,6 +128,24 @@ class PropertyDto {
     this.currency,
     this.maxInstallmentYears,
     this.maxInstallmentYearsMonths,
+    this.minInstallments,
+    this.minDownPayment,
+    this.numberOfBathrooms,
+    this.numberOfBedrooms,
+    this.minReadyBy,
+    this.sponsored,
+    this.newProperty,
+    this.resale,
+    this.financing,
+    this.hasOffers,
+    this.offerTitle,
+    this.limitedTimeOffer,
+    this.favorite,
+    this.rankingType,
+    this.recommendedFinancing,
+    this.propertyRanking,
+    this.compoundRanking,
+    this.tags,
   });
 
   factory PropertyDto.fromJson(Map<String, dynamic> json) => _$PropertyDtoFromJson(json);
@@ -98,7 +170,24 @@ class PropertyDto {
       currency: currency,
       maxInstallmentYears: maxInstallmentYears,
       maxInstallmentYearsMonths: maxInstallmentYearsMonths,
-      isFavorite: false, // Default value, will be set from persistence layer
+      minInstallments: minInstallments,
+      minDownPayment: minDownPayment,
+      numberOfBathrooms: numberOfBathrooms,
+      numberOfBedrooms: numberOfBedrooms,
+      minReadyBy: minReadyBy,
+      sponsored: sponsored,
+      newProperty: newProperty ?? false,
+      resale: resale ?? false,
+      financing: financing ?? false,
+      hasOffers: hasOffers ?? false,
+      offerTitle: offerTitle,
+      limitedTimeOffer: limitedTimeOffer ?? false,
+      rankingType: rankingType,
+      recommendedFinancing: recommendedFinancing,
+      propertyRanking: propertyRanking,
+      compoundRanking: compoundRanking,
+      tags: tags,
+      isFavorite: favorite ?? false, // Use API favorite or default to false
     );
   }
 
@@ -123,6 +212,24 @@ class PropertyDto {
       currency: entity.currency,
       maxInstallmentYears: entity.maxInstallmentYears,
       maxInstallmentYearsMonths: entity.maxInstallmentYearsMonths,
+      minInstallments: entity.minInstallments,
+      minDownPayment: entity.minDownPayment,
+      numberOfBathrooms: entity.numberOfBathrooms,
+      numberOfBedrooms: entity.numberOfBedrooms,
+      minReadyBy: entity.minReadyBy,
+      sponsored: entity.sponsored,
+      newProperty: entity.newProperty,
+      resale: entity.resale,
+      financing: entity.financing,
+      hasOffers: entity.hasOffers,
+      offerTitle: entity.offerTitle,
+      limitedTimeOffer: entity.limitedTimeOffer,
+      favorite: entity.isFavorite,
+      rankingType: entity.rankingType,
+      recommendedFinancing: entity.recommendedFinancing,
+      propertyRanking: entity.propertyRanking,
+      compoundRanking: entity.compoundRanking,
+      tags: entity.tags,
     );
   }
 }

@@ -21,6 +21,23 @@ class Property extends Equatable {
   final String? currency;
   final int? maxInstallmentYears;
   final String? maxInstallmentYearsMonths;
+  final int? minInstallments;
+  final int? minDownPayment;
+  final int? numberOfBathrooms;
+  final int? numberOfBedrooms;
+  final String? minReadyBy;
+  final int? sponsored;
+  final bool newProperty;
+  final bool resale;
+  final bool financing;
+  final bool hasOffers;
+  final String? offerTitle;
+  final bool limitedTimeOffer;
+  final String? rankingType;
+  final int? recommendedFinancing;
+  final double? propertyRanking;
+  final int? compoundRanking;
+  final List<dynamic>? tags;
   final bool isFavorite;
 
   const Property({
@@ -40,6 +57,23 @@ class Property extends Equatable {
     this.currency,
     this.maxInstallmentYears,
     this.maxInstallmentYearsMonths,
+    this.minInstallments,
+    this.minDownPayment,
+    this.numberOfBathrooms,
+    this.numberOfBedrooms,
+    this.minReadyBy,
+    this.sponsored,
+    this.newProperty = false,
+    this.resale = false,
+    this.financing = false,
+    this.hasOffers = false,
+    this.offerTitle,
+    this.limitedTimeOffer = false,
+    this.rankingType,
+    this.recommendedFinancing,
+    this.propertyRanking,
+    this.compoundRanking,
+    this.tags,
     this.isFavorite = false,
   });
 
@@ -60,6 +94,23 @@ class Property extends Equatable {
     String? currency,
     int? maxInstallmentYears,
     String? maxInstallmentYearsMonths,
+    int? minInstallments,
+    int? minDownPayment,
+    int? numberOfBathrooms,
+    int? numberOfBedrooms,
+    String? minReadyBy,
+    int? sponsored,
+    bool? newProperty,
+    bool? resale,
+    bool? financing,
+    bool? hasOffers,
+    String? offerTitle,
+    bool? limitedTimeOffer,
+    String? rankingType,
+    int? recommendedFinancing,
+    double? propertyRanking,
+    int? compoundRanking,
+    List<dynamic>? tags,
     bool? isFavorite,
   }) {
     return Property(
@@ -79,6 +130,23 @@ class Property extends Equatable {
       currency: currency ?? this.currency,
       maxInstallmentYears: maxInstallmentYears ?? this.maxInstallmentYears,
       maxInstallmentYearsMonths: maxInstallmentYearsMonths ?? this.maxInstallmentYearsMonths,
+      minInstallments: minInstallments ?? this.minInstallments,
+      minDownPayment: minDownPayment ?? this.minDownPayment,
+      numberOfBathrooms: numberOfBathrooms ?? this.numberOfBathrooms,
+      numberOfBedrooms: numberOfBedrooms ?? this.numberOfBedrooms,
+      minReadyBy: minReadyBy ?? this.minReadyBy,
+      sponsored: sponsored ?? this.sponsored,
+      newProperty: newProperty ?? this.newProperty,
+      resale: resale ?? this.resale,
+      financing: financing ?? this.financing,
+      hasOffers: hasOffers ?? this.hasOffers,
+      offerTitle: offerTitle ?? this.offerTitle,
+      limitedTimeOffer: limitedTimeOffer ?? this.limitedTimeOffer,
+      rankingType: rankingType ?? this.rankingType,
+      recommendedFinancing: recommendedFinancing ?? this.recommendedFinancing,
+      propertyRanking: propertyRanking ?? this.propertyRanking,
+      compoundRanking: compoundRanking ?? this.compoundRanking,
+      tags: tags ?? this.tags,
       isFavorite: isFavorite ?? this.isFavorite,
     );
   }
@@ -101,6 +169,23 @@ class Property extends Equatable {
     currency,
     maxInstallmentYears,
     maxInstallmentYearsMonths,
+    minInstallments,
+    minDownPayment,
+    numberOfBathrooms,
+    numberOfBedrooms,
+    minReadyBy,
+    sponsored,
+    newProperty,
+    resale,
+    financing,
+    hasOffers,
+    offerTitle,
+    limitedTimeOffer,
+    rankingType,
+    recommendedFinancing,
+    propertyRanking,
+    compoundRanking,
+    tags,
     isFavorite,
   ];
 
