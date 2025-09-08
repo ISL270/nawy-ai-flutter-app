@@ -237,13 +237,29 @@ void main() {
         final filterOptionsJson = {
           'min_bedrooms': 1,
           'max_bedrooms': 5,
-          'min_price': 500000,
-          'max_price': 10000000,
+          'min_price_list': [500000],
+          'max_price_list': [10000000],
           'property_types': [
-            {'id': 1, 'name': 'Apartment'},
-            {'id': 2, 'name': 'Villa'},
+            {
+              'id': 1, 
+              'name': 'Apartment',
+              'icon': {'url': 'https://example.com/apartment.png'},
+              'has_land_area': false,
+              'has_mandatory_garden_area': false,
+              'manual_ranking': 1
+            },
+            {
+              'id': 2, 
+              'name': 'Villa',
+              'icon': {'url': 'https://example.com/villa.png'},
+              'has_land_area': true,
+              'has_mandatory_garden_area': true,
+              'manual_ranking': 2
+            },
           ],
-          'finishings': ['finished', 'semi_finished'],
+          'amenities': [],
+          'sortings': [],
+          'sale_types': [],
         };
 
         when(() => mockDio.get(any())).thenAnswer(
