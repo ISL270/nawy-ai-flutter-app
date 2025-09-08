@@ -41,6 +41,4 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 
-# Analysis options (IDE-specific)
-analysis_options.yaml
 {{ ... }}
