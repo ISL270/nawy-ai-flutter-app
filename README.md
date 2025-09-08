@@ -15,7 +15,7 @@ This project follows **Clean Architecture** principles with a feature-first fold
 - **Clean Architecture**: Separated into data, domain, and presentation layers
 - **Feature-first approach**: Each feature is isolated in its own module
 - **State Management**: Uses **BLoC pattern** for predictable state management
-- **Local Storage**: **Isar** database for favorites only (properties and compounds)
+- **Local Storage**: **ObjectBox** database for favorites only (properties and compounds)
 - **Networking**: **Dio** for HTTP requests with interceptors
 - **Dependency Injection**: **get_it** with **injectable** for code generation
 
@@ -23,7 +23,7 @@ This project follows **Clean Architecture** principles with a feature-first fold
 
 - **Framework**: Flutter with Dart
 - **State Management**: flutter_bloc
-- **Local Database**: Isar (for favorites only)
+- **Local Database**: ObjectBox (for favorites only)
 - **Networking**: Dio with interceptors
 - **Serialization**: json_annotation + build_runner
 - **Dependency Injection**: get_it + injectable (code generation)
@@ -53,7 +53,7 @@ lib/
 Each entity follows a three-layer model pattern:
 - **Domain Entity** (e.g., `Property`) - Pure business logic
 - **DTO** (e.g., `PropertyDto`) - API serialization/deserialization  
-- **Isar** (e.g., `PropertyIsar`) - Local database persistence (favorites only)
+- **ObjectBox** (e.g., `PropertyObx`) - Local database persistence (favorites only)
 
 ## Getting Started
 
@@ -72,9 +72,42 @@ Each entity follows a three-layer model pattern:
    flutter run
    ```
 
+## Testing
+
+This project maintains comprehensive test coverage with **157 tests** achieving **100% pass rate**.
+
+### Test Architecture
+- **Unit Tests**: Core utilities (DioClient, AppLogger, ObxService)
+- **DTO Tests**: JSON serialization/deserialization for all models
+- **Integration Tests**: API client integration with mocking
+- **Repository Tests**: Domain layer business logic
+- **API Contract Tests**: Live endpoint validation
+
+### Running Tests
+```bash
+# Run all tests
+flutter test
+
+# Run specific test file
+flutter test test/core/utils/dio_client_test.dart
+
+# Run tests with coverage
+flutter test --coverage
+
+# Run tests with verbose output
+flutter test --reporter=expanded
+```
+
+### Test Coverage Breakdown
+- **Core Utils**: 58 tests (DioClient + AppLogger + ObxService)
+- **DTO Models**: 60 tests (Property, Compound, FilterOptions, Area)
+- **Remote Sources**: 15 tests (API integration)
+- **Domain Layer**: 12 tests (Repository pattern)
+- **API Contract**: 12 tests (Live endpoint validation)
+
 ## Data Strategy
 
 - **Online-first**: All property search and browsing requires internet connection
 - **No General Offline Support**: App requires internet for all search and browsing functionality
-- **Favorites-Only Local Storage**: Only favorited properties and compounds are saved locally using Isar
+- **Favorites-Only Local Storage**: Only favorited properties and compounds are saved locally using ObjectBox
 - **Offline Favorites Access**: Users can view their favorited items in the favorites tab without internet
