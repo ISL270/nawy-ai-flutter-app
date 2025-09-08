@@ -7,9 +7,6 @@ import 'package:nawy_app/app/features/search/data/local/property_type_isar.dart'
 import 'package:path_provider/path_provider.dart';
 
 class IsarService {
-  static final IsarService _instance = IsarService._internal();
-  factory IsarService() => _instance;
-  IsarService._internal();
 
   late Isar _isar;
   Isar get isar => _isar;

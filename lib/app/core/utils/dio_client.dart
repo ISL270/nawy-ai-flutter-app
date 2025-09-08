@@ -1,6 +1,8 @@
 import 'package:dio/dio.dart';
+import 'package:injectable/injectable.dart';
 import '../constants/api_constants.dart';
 
+@singleton
 class DioClient {
   static final DioClient _instance = DioClient._internal();
   factory DioClient() => _instance;

@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:injectable/injectable.dart';
 import 'package:nawy_app/app/core/constants/api_constants.dart';
 import 'package:nawy_app/app/core/utils/dio_client.dart';
 import 'package:nawy_app/app/features/search/data/sources/remote/models/area_dto.dart';
@@ -21,6 +22,7 @@ abstract class PropertyRemoteDataSource {
   });
 }
 
+@Injectable(as: PropertyRemoteDataSource)
 class PropertyRemoteDataSourceImpl implements PropertyRemoteDataSource {
   final DioClient _dioClient;
 
