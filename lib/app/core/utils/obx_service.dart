@@ -1,8 +1,8 @@
-import 'package:nawy_app/app/features/search/data/local/area_obx.dart';
-import 'package:nawy_app/app/features/search/data/local/compound_obx.dart';
-import 'package:nawy_app/app/features/search/data/local/developer_obx.dart';
-import 'package:nawy_app/app/features/search/data/local/property_obx.dart';
-import 'package:nawy_app/app/features/search/data/local/property_type_obx.dart';
+import 'package:nawy_app/app/features/favorites/data/sources/local/models/area_obx.dart';
+import 'package:nawy_app/app/features/favorites/data/sources/local/models/compound_obx.dart';
+import 'package:nawy_app/app/features/favorites/data/sources/local/models/developer_obx.dart';
+import 'package:nawy_app/app/features/favorites/data/sources/local/models/property_obx.dart';
+import 'package:nawy_app/app/features/favorites/data/sources/local/models/property_type_obx.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart' as p;
 
