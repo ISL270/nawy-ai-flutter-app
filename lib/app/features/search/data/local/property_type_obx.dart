@@ -1,24 +1,23 @@
-import 'package:isar/isar.dart';
-import 'package:nawy_app/app/features/search/domain/models/property_type.dart';
-
-part 'property_type_isar.g.dart';
+import 'package:objectbox/objectbox.dart';
+import 'package:nawy_app/app/features/search/domain/models/property_type.dart' as domain;
 
 /// Persistence model for PropertyType - reference data for favorited items (not stored independently)
-@Collection()
-class PropertyTypeIsar {
-  Id isarId = Isar.autoIncrement;
+@Entity()
+class PropertyTypeObx {
+  @Id()
+  int id = 0;
 
-  late int id;
+  late int propertyTypeId;
   late String name;
   String? iconUrl;
   bool hasLandArea = false;
   bool hasMandatoryGardenArea = false;
   int? manualRanking;
 
-  PropertyTypeIsar();
+  PropertyTypeObx();
 
-  PropertyTypeIsar._({
-    required this.id,
+  PropertyTypeObx._({
+    required this.propertyTypeId,
     required this.name,
     this.iconUrl,
     this.hasLandArea = false,
@@ -27,9 +26,9 @@ class PropertyTypeIsar {
   });
 
   /// Convert persistence model to domain entity
-  PropertyType toEntity() {
-    return PropertyType(
-      id: id,
+  domain.PropertyType toEntity() {
+    return domain.PropertyType(
+      id: propertyTypeId,
       name: name,
       iconUrl: iconUrl,
       hasLandArea: hasLandArea,
@@ -39,9 +38,9 @@ class PropertyTypeIsar {
   }
 
   /// Create persistence model from domain entity
-  factory PropertyTypeIsar.fromEntity(PropertyType entity) {
-    return PropertyTypeIsar._(
-      id: entity.id,
+  factory PropertyTypeObx.fromEntity(domain.PropertyType entity) {
+    return PropertyTypeObx._(
+      propertyTypeId: entity.id,
       name: entity.name,
       iconUrl: entity.iconUrl,
       hasLandArea: entity.hasLandArea,

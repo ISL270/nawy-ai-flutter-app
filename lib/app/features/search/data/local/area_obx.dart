@@ -1,23 +1,27 @@
-import 'package:isar/isar.dart';
+import 'package:objectbox/objectbox.dart';
 import 'package:nawy_app/app/features/search/domain/models/area.dart';
 
-part 'area_isar.g.dart';
-
 /// Persistence model for Area - reference data for favorited items (not stored independently)
-@Collection()
-class AreaIsar {
-  Id isarId = Isar.autoIncrement;
+@Entity()
+class AreaObx {
+  @Id()
+  int id = 0;
 
-  late int id;
+  late int areaId;
   late String name;
   String? slug;
 
-  // Isar doesn't support Map<String, String> directly, so we store as JSON string
+  // ObjectBox doesn't support Map<String, String> directly, so we store as JSON string
   String? translationsJson;
 
-  AreaIsar();
+  AreaObx();
 
-  AreaIsar._({required this.id, required this.name, this.slug, this.translationsJson});
+  AreaObx._({
+    required this.areaId,
+    required this.name,
+    this.slug,
+    this.translationsJson,
+  });
 
   /// Convert persistence model to domain entity
   Area toEntity() {
@@ -28,11 +32,11 @@ class AreaIsar {
       translations = null; // TODO: Implement JSON parsing if needed
     }
 
-    return Area(id: id, name: name, slug: slug, translations: translations);
+    return Area(id: areaId, name: name, slug: slug, translations: translations);
   }
 
   /// Create persistence model from domain entity
-  factory AreaIsar.fromEntity(Area entity) {
+  factory AreaObx.fromEntity(Area entity) {
     String? translationsJson;
     if (entity.translations != null) {
       // Convert Map to JSON string (you might want to use dart:convert)
@@ -40,8 +44,8 @@ class AreaIsar {
       translationsJson = null; // TODO: Implement JSON serialization if needed
     }
 
-    return AreaIsar._(
-      id: entity.id,
+    return AreaObx._(
+      areaId: entity.id,
       name: entity.name,
       slug: entity.slug,
       translationsJson: translationsJson,

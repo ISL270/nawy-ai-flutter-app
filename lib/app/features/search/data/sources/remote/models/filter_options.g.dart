@@ -43,22 +43,22 @@ Map<String, dynamic> _$FilterOptionsToJson(FilterOptions instance) =>
     };
 
 Amenity _$AmenityFromJson(Map<String, dynamic> json) => Amenity(
-      id: (json['id'] as num).toInt(),
-      name: json['name'] as String,
-      imagePath: json['image_path'] as String?,
-    );
+  id: (json['id'] as num).toInt(),
+  name: json['name'] as String,
+  imagePath: json['image_path'] as String?,
+);
 
 Map<String, dynamic> _$AmenityToJson(Amenity instance) => <String, dynamic>{
-      'id': instance.id,
-      'name': instance.name,
-      'image_path': instance.imagePath,
-    };
+  'id': instance.id,
+  'name': instance.name,
+  'image_path': instance.imagePath,
+};
 
 SortOption _$SortOptionFromJson(Map<String, dynamic> json) => SortOption(
-      key: json['key'] as String,
-      value: json['value'] as String,
-      direction: json['direction'] as String,
-    );
+  key: json['key'] as String,
+  value: json['value'] as String,
+  direction: json['direction'] as String,
+);
 
 Map<String, dynamic> _$SortOptionToJson(SortOption instance) =>
     <String, dynamic>{

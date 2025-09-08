@@ -1,14 +1,13 @@
-import 'package:isar/isar.dart';
-import 'package:nawy_app/app/features/search/domain/models/property.dart';
-
-part 'property_isar.g.dart';
+import 'package:objectbox/objectbox.dart';
+import 'package:nawy_app/app/features/search/domain/models/property.dart' as domain;
 
 /// Persistence model for Property - handles local storage of favorited properties only
-@Collection()
-class PropertyIsar {
-  Id isarId = Isar.autoIncrement;
+@Entity()
+class PropertyObx {
+  @Id()
+  int id = 0;
 
-  late int id;
+  late int propertyId;
   late String name;
   String? slug;
   String? image;
@@ -28,10 +27,10 @@ class PropertyIsar {
   int? developerId;
   int? compoundId;
 
-  PropertyIsar();
+  PropertyObx();
 
-  PropertyIsar._({
-    required this.id,
+  PropertyObx._({
+    required this.propertyId,
     required this.name,
     this.slug,
     this.image,
@@ -51,9 +50,9 @@ class PropertyIsar {
   });
 
   /// Convert persistence model to domain entity
-  Property toEntity() {
-    return Property(
-      id: id,
+  domain.Property toEntity() {
+    return domain.Property(
+      id: propertyId,
       name: name,
       slug: slug,
       propertyType: null, // Relationships handled separately
@@ -74,9 +73,9 @@ class PropertyIsar {
   }
 
   /// Create persistence model from domain entity
-  factory PropertyIsar.fromEntity(Property entity) {
-    return PropertyIsar._(
-      id: entity.id,
+  factory PropertyObx.fromEntity(domain.Property entity) {
+    return PropertyObx._(
+      propertyId: entity.id,
       name: entity.name,
       slug: entity.slug,
       image: entity.image,

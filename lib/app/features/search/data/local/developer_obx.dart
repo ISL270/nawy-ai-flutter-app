@@ -1,31 +1,35 @@
-import 'package:isar/isar.dart';
+import 'package:objectbox/objectbox.dart';
 import 'package:nawy_app/app/features/search/domain/models/developer.dart';
 
-part 'developer_isar.g.dart';
-
 /// Persistence model for Developer - reference data for favorited items (not stored independently)
-@Collection()
-class DeveloperIsar {
-  Id isarId = Isar.autoIncrement;
+@Entity()
+class DeveloperObx {
+  @Id()
+  int id = 0;
 
-  late int id;
+  late int developerId;
   late String name;
   String? slug;
   String? logoPath;
 
-  DeveloperIsar();
+  DeveloperObx();
 
-  DeveloperIsar._({required this.id, required this.name, this.slug, this.logoPath});
+  DeveloperObx._({
+    required this.developerId,
+    required this.name,
+    this.slug,
+    this.logoPath,
+  });
 
   /// Convert persistence model to domain entity
   Developer toEntity() {
-    return Developer(id: id, name: name, slug: slug, logoPath: logoPath);
+    return Developer(id: developerId, name: name, slug: slug, logoPath: logoPath);
   }
 
   /// Create persistence model from domain entity
-  factory DeveloperIsar.fromEntity(Developer entity) {
-    return DeveloperIsar._(
-      id: entity.id,
+  factory DeveloperObx.fromEntity(Developer entity) {
+    return DeveloperObx._(
+      developerId: entity.id,
       name: entity.name,
       slug: entity.slug,
       logoPath: entity.logoPath,

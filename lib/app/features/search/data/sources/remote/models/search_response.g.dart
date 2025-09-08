@@ -35,7 +35,4 @@ PropertyTypeCount _$PropertyTypeCountFromJson(Map<String, dynamic> json) =>
     );
 
 Map<String, dynamic> _$PropertyTypeCountToJson(PropertyTypeCount instance) =>
-    <String, dynamic>{
-      'id': instance.id,
-      'count': instance.count,
-    };
+    <String, dynamic>{'id': instance.id, 'count': instance.count};

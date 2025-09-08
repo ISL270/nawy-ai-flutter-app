@@ -7,34 +7,31 @@ part of 'property_dto.dart';
 // **************************************************************************
 
 PropertyDto _$PropertyDtoFromJson(Map<String, dynamic> json) => PropertyDto(
-      id: (json['id'] as num).toInt(),
-      name: json['name'] as String,
-      slug: json['slug'] as String?,
-      propertyType: json['property_type'] == null
-          ? null
-          : PropertyTypeDto.fromJson(
-              json['property_type'] as Map<String, dynamic>),
-      compound: json['compound'] == null
-          ? null
-          : PropertyCompoundDto.fromJson(
-              json['compound'] as Map<String, dynamic>),
-      area: json['area'] == null
-          ? null
-          : AreaDto.fromJson(json['area'] as Map<String, dynamic>),
-      developer: json['developer'] == null
-          ? null
-          : DeveloperDto.fromJson(json['developer'] as Map<String, dynamic>),
-      image: json['image'] as String?,
-      finishing: json['finishing'] as String?,
-      minUnitArea: (json['min_unit_area'] as num?)?.toDouble(),
-      maxUnitArea: (json['max_unit_area'] as num?)?.toDouble(),
-      minPrice: (json['min_price'] as num?)?.toDouble(),
-      maxPrice: (json['max_price'] as num?)?.toDouble(),
-      currency: json['currency'] as String?,
-      maxInstallmentYears: (json['max_installment_years'] as num?)?.toInt(),
-      maxInstallmentYearsMonths:
-          json['max_installment_years_months'] as String?,
-    );
+  id: (json['id'] as num).toInt(),
+  name: json['name'] as String,
+  slug: json['slug'] as String?,
+  propertyType: json['property_type'] == null
+      ? null
+      : PropertyTypeDto.fromJson(json['property_type'] as Map<String, dynamic>),
+  compound: json['compound'] == null
+      ? null
+      : PropertyCompoundDto.fromJson(json['compound'] as Map<String, dynamic>),
+  area: json['area'] == null
+      ? null
+      : AreaDto.fromJson(json['area'] as Map<String, dynamic>),
+  developer: json['developer'] == null
+      ? null
+      : DeveloperDto.fromJson(json['developer'] as Map<String, dynamic>),
+  image: json['image'] as String?,
+  finishing: json['finishing'] as String?,
+  minUnitArea: (json['min_unit_area'] as num?)?.toDouble(),
+  maxUnitArea: (json['max_unit_area'] as num?)?.toDouble(),
+  minPrice: (json['min_price'] as num?)?.toDouble(),
+  maxPrice: (json['max_price'] as num?)?.toDouble(),
+  currency: json['currency'] as String?,
+  maxInstallmentYears: (json['max_installment_years'] as num?)?.toInt(),
+  maxInstallmentYearsMonths: json['max_installment_years_months'] as String?,
+);
 
 Map<String, dynamic> _$PropertyDtoToJson(PropertyDto instance) =>
     <String, dynamic>{
@@ -68,13 +65,13 @@ PropertyCompoundDto _$PropertyCompoundDtoFromJson(Map<String, dynamic> json) =>
     );
 
 Map<String, dynamic> _$PropertyCompoundDtoToJson(
-        PropertyCompoundDto instance) =>
-    <String, dynamic>{
-      'id': instance.id,
-      'lat': instance.lat,
-      'long': instance.long,
-      'name': instance.name,
-      'slug': instance.slug,
-      'sponsored': instance.sponsored,
-      'nawy_organization_id': instance.nawyOrganizationId,
-    };
+  PropertyCompoundDto instance,
+) => <String, dynamic>{
+  'id': instance.id,
+  'lat': instance.lat,
+  'long': instance.long,
+  'name': instance.name,
+  'slug': instance.slug,
+  'sponsored': instance.sponsored,
+  'nawy_organization_id': instance.nawyOrganizationId,
+};

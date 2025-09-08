@@ -29,12 +29,8 @@ Map<String, dynamic> _$PropertyTypeDtoToJson(PropertyTypeDto instance) =>
     };
 
 PropertyTypeIconDto _$PropertyTypeIconDtoFromJson(Map<String, dynamic> json) =>
-    PropertyTypeIconDto(
-      url: json['url'] as String,
-    );
+    PropertyTypeIconDto(url: json['url'] as String);
 
 Map<String, dynamic> _$PropertyTypeIconDtoToJson(
-        PropertyTypeIconDto instance) =>
-    <String, dynamic>{
-      'url': instance.url,
-    };
+  PropertyTypeIconDto instance,
+) => <String, dynamic>{'url': instance.url};
