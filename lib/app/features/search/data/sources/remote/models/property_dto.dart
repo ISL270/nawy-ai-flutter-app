@@ -2,7 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 import 'package:nawy_app/app/features/search/data/sources/remote/models/area_dto.dart';
 import 'package:nawy_app/app/features/search/data/sources/remote/models/developer_dto.dart';
 import 'package:nawy_app/app/features/search/data/sources/remote/models/property_type_dto.dart';
-import 'package:nawy_app/app/features/search/domain/entities/property.dart';
+import 'package:nawy_app/app/features/search/domain/models/property.dart';
 
 part 'property_dto.g.dart';
 

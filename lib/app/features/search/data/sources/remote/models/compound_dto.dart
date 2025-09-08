@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:nawy_app/app/features/search/data/sources/remote/models/area_dto.dart';
-import 'package:nawy_app/app/features/search/domain/entities/compound.dart';
+import 'package:nawy_app/app/features/search/domain/models/compound.dart';
 
 part 'compound_dto.g.dart';
 

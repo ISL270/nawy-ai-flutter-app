@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:nawy_app/app/features/search/domain/entities/area.dart';
+import 'package:nawy_app/app/features/search/domain/models/area.dart';
 
 /// Domain entity for Compound - used in business logic
 class Compound extends Equatable {

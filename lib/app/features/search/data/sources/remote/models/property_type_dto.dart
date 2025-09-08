@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:nawy_app/app/features/search/domain/entities/property_type.dart';
+import 'package:nawy_app/app/features/search/domain/models/property_type.dart';
 
 part 'property_type_dto.g.dart';
 

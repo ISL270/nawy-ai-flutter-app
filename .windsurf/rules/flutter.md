@@ -17,18 +17,16 @@ lib/
 │       └── feature_name/
 │           ├── domain/     # Business logic (entities, repositories)
 │           │   ├── entity.dart
-│           │   └── feature_repository.dart
+│           │   └── feature_repository.dart    # The only repository (concrete)
 │           │
 │           ├── data/       # Data layer (sources + models)
 │           │   ├── remote/
 │           │   │   ├── feature_remote_source.dart
 │           │   │   └── feature_dto.dart
 │           │   │
-│           │   ├── local/
-│           │   │   ├── feature_local_source.dart
-│           │   │   └── feature_isar.dart
-│           │   │
-│           │   └── feature_repository_impl.dart
+│           │   └── local/
+│           │       ├── feature_local_source.dart
+│           │       └── feature_isar.dart
 │           │
 │           └── presentation/ # UI layer (bloc/pages/widgets)
 

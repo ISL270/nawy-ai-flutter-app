@@ -10,12 +10,10 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
-import 'package:nawy_app/app/core/injection/injection_module.dart' as _i8;
+import 'package:nawy_app/app/core/injection/injection_module.dart' as _i7;
 import 'package:nawy_app/app/core/utils/dio_client.dart' as _i3;
 import 'package:nawy_app/app/core/utils/isar_service.dart' as _i4;
-import 'package:nawy_app/app/features/search/data/repositories/property_repository_impl.dart'
-    as _i7;
-import 'package:nawy_app/app/features/search/data/sources/remote/property_remote_datasource.dart'
+import 'package:nawy_app/app/features/search/data/sources/remote/property_remote_source.dart'
     as _i5;
 import 'package:nawy_app/app/features/search/domain/property_repository.dart'
     as _i6;
@@ -37,12 +35,12 @@ extension GetItInjectableX on _i1.GetIt {
       () => injectionModule.isarService,
       preResolve: true,
     );
-    gh.factory<_i5.PropertyRemoteDataSource>(
-        () => _i5.PropertyRemoteDataSourceImpl(gh<_i3.DioClient>()));
-    gh.factory<_i6.PropertyRepository>(
-        () => _i7.PropertyRepositoryImpl(gh<_i5.PropertyRemoteDataSource>()));
+    gh.singleton<_i5.PropertyRemoteSource>(
+        () => _i5.PropertyRemoteSource(gh<_i3.DioClient>()));
+    gh.singleton<_i6.PropertyRepository>(
+        () => _i6.PropertyRepository(gh<_i5.PropertyRemoteSource>()));
     return this;
   }
 }
 
-class _$InjectionModule extends _i8.InjectionModule {}
+class _$InjectionModule extends _i7.InjectionModule {}

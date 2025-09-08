@@ -7,28 +7,12 @@ import 'package:nawy_app/app/features/search/data/sources/remote/models/compound
 import 'package:nawy_app/app/features/search/data/sources/remote/models/filter_options.dart';
 import 'package:nawy_app/app/features/search/data/sources/remote/models/search_response.dart';
 
-abstract class PropertyRemoteDataSource {
-  Future<List<AreaDto>> getAreas();
-  Future<List<CompoundDto>> getCompounds();
-  Future<FilterOptions> getFilterOptions();
-  Future<SearchResponse> searchProperties({
-    List<int>? areaIds,
-    List<int>? compoundIds,
-    int? minPrice,
-    int? maxPrice,
-    int? minBedrooms,
-    int? maxBedrooms,
-    List<int>? propertyTypeIds,
-  });
-}
-
-@Injectable(as: PropertyRemoteDataSource)
-class PropertyRemoteDataSourceImpl implements PropertyRemoteDataSource {
+@singleton
+class PropertyRemoteSource {
   final DioClient _dioClient;
 
-  PropertyRemoteDataSourceImpl(this._dioClient);
+  PropertyRemoteSource(this._dioClient);
 
-  @override
   Future<List<AreaDto>> getAreas() async {
     try {
       final response = await _dioClient.dio.get(ApiConstants.areas);
@@ -39,7 +23,6 @@ class PropertyRemoteDataSourceImpl implements PropertyRemoteDataSource {
     }
   }
 
-  @override
   Future<List<CompoundDto>> getCompounds() async {
     try {
       final response = await _dioClient.dio.get(ApiConstants.compounds);
@@ -50,7 +33,6 @@ class PropertyRemoteDataSourceImpl implements PropertyRemoteDataSource {
     }
   }
 
-  @override
   Future<FilterOptions> getFilterOptions() async {
     try {
       final response = await _dioClient.dio.get(ApiConstants.filterOptions);
@@ -60,7 +42,6 @@ class PropertyRemoteDataSourceImpl implements PropertyRemoteDataSource {
     }
   }
 
-  @override
   Future<SearchResponse> searchProperties({
     List<int>? areaIds,
     List<int>? compoundIds,

@@ -1,5 +1,5 @@
 import 'package:isar/isar.dart';
-import 'package:nawy_app/app/features/search/domain/entities/compound.dart';
+import 'package:nawy_app/app/features/search/domain/models/compound.dart';
 
 part 'compound_isar.g.dart';
 
