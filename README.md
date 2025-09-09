@@ -2,7 +2,7 @@
   <table>
     <tr>
       <td>
-        <img src="nawy_logo.png" alt="Nawy Logo" width="150" height="150" style="object-fit: cover;">
+        <img src="assets/nawy_logo.png" alt="Nawy Logo" width="150" height="150" style="object-fit: cover;">
       </td>
       <td>
         <div>
@@ -37,6 +37,25 @@ Revolutionary AI-powered real estate search app with conversational property dis
 - **⚡ Advanced Filtering**: Area, compound, price, bedrooms, and property type filters
 - **❤️ Favorites**: Save properties locally for offline access
 - **📱 Modern UI**: Clean, responsive interface following Flutter best practices
+
+## 📱 Screenshots
+
+<div align="center">
+  <table>
+    <tr>
+      <td align="center">
+        <img src="assets/property_search.png" alt="Property Search" width="300">
+        <br>
+        <strong>Property Search & Results</strong>
+      </td>
+      <td align="center">
+        <img src="assets/filters.png" alt="Advanced Filters" width="300">
+        <br>
+        <strong>Advanced Filtering Options</strong>
+      </td>
+    </tr>
+  </table>
+</div>
 
 ## 🏗️ Architecture
 
