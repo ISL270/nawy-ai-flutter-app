@@ -7,11 +7,8 @@ class FavouritesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Favourites'),
-        centerTitle: true,
-      ),
-      body: const Center(
+      body: const SafeArea(
+        child: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -38,6 +35,7 @@ class FavouritesPage extends StatelessWidget {
               ),
             ),
           ],
+        ),
         ),
       ),
     );

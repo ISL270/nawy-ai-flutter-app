@@ -170,11 +170,34 @@ class PropertyList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Column(
       children: [
         // Results header
-        PropertyResultsHeader(propertyCount: properties.length, isLoading: isLoading),
-
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 4),
+          child: Row(
+            children: [
+              Text(
+                '${properties.length} ${properties.length == 1 ? 'property' : 'properties'} found',
+                style: theme.textTheme.bodyMedium?.copyWith(
+                  fontWeight: FontWeight.w500,
+                  color: theme.colorScheme.onSurfaceVariant,
+                ),
+              ),
+              const Spacer(),
+              if (isLoading)
+                SizedBox(
+                  width: 16,
+                  height: 16,
+                  child: CircularProgressIndicator(
+                    strokeWidth: 2,
+                    color: theme.colorScheme.primary,
+                  ),
+                ),
+            ],
+          ),
+        ),
         // Property list
         Expanded(
           child: ListView.builder(
@@ -199,80 +222,6 @@ class PropertyList extends StatelessWidget {
           ),
         ),
       ],
-    );
-  }
-}
-
-/// Results header widget for property list
-class PropertyResultsHeader extends StatelessWidget {
-  final int propertyCount;
-  final bool isLoading;
-
-  const PropertyResultsHeader({super.key, required this.propertyCount, this.isLoading = false});
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-      decoration: BoxDecoration(
-        color: theme.colorScheme.surfaceContainerHighest.withOpacity(0.3),
-        border: Border(bottom: BorderSide(color: theme.colorScheme.outline.withOpacity(0.2))),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              Text(
-                '$propertyCount ${propertyCount == 1 ? 'property' : 'properties'} found',
-                style: theme.textTheme.bodyMedium?.copyWith(
-                  fontWeight: FontWeight.w500,
-                  color: theme.colorScheme.onSurfaceVariant,
-                ),
-              ),
-              const Spacer(),
-              if (isLoading)
-                SizedBox(
-                  width: 16,
-                  height: 16,
-                  child: CircularProgressIndicator(
-                    strokeWidth: 2,
-                    color: theme.colorScheme.primary,
-                  ),
-                ),
-            ],
-          ),
-          // Demo API limitation notice
-          if (propertyCount == 12) ...[
-            const SizedBox(height: 8),
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-              decoration: BoxDecoration(
-                color: theme.colorScheme.primaryContainer.withOpacity(0.5),
-                borderRadius: BorderRadius.circular(8),
-                border: Border.all(color: theme.colorScheme.primary.withOpacity(0.3), width: 1),
-              ),
-              child: Row(
-                children: [
-                  Icon(Icons.info_outline, size: 16, color: theme.colorScheme.primary),
-                  const SizedBox(width: 8),
-                  Expanded(
-                    child: Text(
-                      'Demo API limitation: Always returns the same 12 properties regardless of search filters. This is a server-side limitation, not an app issue.',
-                      style: theme.textTheme.bodySmall?.copyWith(
-                        color: theme.colorScheme.onPrimaryContainer,
-                        fontSize: 12,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ],
-      ),
     );
   }
 }

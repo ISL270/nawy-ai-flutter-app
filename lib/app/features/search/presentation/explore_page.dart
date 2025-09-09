@@ -29,15 +29,11 @@ class _ExplorePageContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Explore Properties'),
-        centerTitle: true,
-        elevation: 0,
-      ),
-      body: BlocBuilder<SearchBloc, SearchState>(
-        builder: (context, state) {
-          return Column(
-            children: [
+      body: SafeArea(
+        child: BlocBuilder<SearchBloc, SearchState>(
+          builder: (context, state) {
+            return Column(
+              children: [
               // Search bar
               SearchBarWidget(
                 hintText: 'Search properties...',
@@ -55,6 +51,7 @@ class _ExplorePageContent extends StatelessWidget {
             ],
           );
         },
+        ),
       ),
     );
   }
