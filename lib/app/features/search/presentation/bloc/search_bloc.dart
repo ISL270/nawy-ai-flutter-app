@@ -1,9 +1,12 @@
+import 'dart:async';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nawy_app/app/core/models/status.dart';
-import 'package:nawy_app/app/features/search/data/sources/remote/models/filter_options.dart';
+import 'package:nawy_app/app/core/utils/error_handler.dart';
+import 'package:nawy_app/app/features/search/domain/models/search_filters.dart';
 import 'package:nawy_app/app/features/search/domain/models/area.dart';
 import 'package:nawy_app/app/features/search/domain/models/compound.dart';
-import 'package:nawy_app/app/features/search/domain/models/search_filters.dart';
+import 'package:nawy_app/app/features/search/data/sources/remote/models/filter_options.dart';
 import 'package:nawy_app/app/features/search/domain/property_repository.dart';
 import 'package:nawy_app/app/features/search/presentation/bloc/search_event.dart';
 import 'package:nawy_app/app/features/search/presentation/bloc/search_state.dart';
@@ -42,13 +45,15 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
       );
 
       emit(state.copyWith(status: const Success(null), initialData: initialData));
+    } on AppException catch (error) {
+      emit(state.copyWith(status: Failure(error.message, error.originalException)));
     } catch (error) {
-      final errorMessage = _getErrorMessage(error);
-      emit(
-        state.copyWith(
-          status: Failure(errorMessage, error is Exception ? error : Exception(error.toString())),
+      emit(state.copyWith(
+        status: Failure(
+          'Something went wrong. Please try again.',
+          error is Exception ? error : Exception(error.toString()),
         ),
-      );
+      ));
     }
   }
 
@@ -59,26 +64,24 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
     try {
       final searchResponse = await _repository.searchProperties(
         areaIds: event.filters.selectedAreaIds.isEmpty ? null : event.filters.selectedAreaIds,
-        compoundIds: event.filters.selectedCompoundIds.isEmpty
-            ? null
-            : event.filters.selectedCompoundIds,
+        compoundIds: event.filters.selectedCompoundIds.isEmpty ? null : event.filters.selectedCompoundIds,
         minPrice: event.filters.minPrice,
         maxPrice: event.filters.maxPrice,
         minBedrooms: event.filters.minBedrooms,
         maxBedrooms: event.filters.maxBedrooms,
-        propertyTypeIds: event.filters.selectedPropertyTypeIds.isEmpty
-            ? null
-            : event.filters.selectedPropertyTypeIds,
+        propertyTypeIds: event.filters.selectedPropertyTypeIds.isEmpty ? null : event.filters.selectedPropertyTypeIds,
       );
 
       emit(state.copyWith(status: const Success(null), searchResults: searchResponse));
+    } on AppException catch (error) {
+      emit(state.copyWith(status: Failure(error.message, error.originalException)));
     } catch (error) {
-      final errorMessage = _getErrorMessage(error);
-      emit(
-        state.copyWith(
-          status: Failure(errorMessage, error is Exception ? error : Exception(error.toString())),
+      emit(state.copyWith(
+        status: Failure(
+          'Something went wrong. Please try again.',
+          error is Exception ? error : Exception(error.toString()),
         ),
-      );
+      ));
     }
   }
 
@@ -95,24 +98,5 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
   /// Handles resetting the entire search state
   void _onResetSearch(ResetSearchEvent event, Emitter<SearchState> emit) {
     emit(SearchState.initial());
-  }
-
-  /// Extracts user-friendly error messages from exceptions
-  String _getErrorMessage(dynamic error) {
-    if (error.toString().contains('SocketException') ||
-        error.toString().contains('NetworkException')) {
-      return 'No internet connection. Please check your network and try again.';
-    }
-
-    if (error.toString().contains('TimeoutException')) {
-      return 'Request timed out. Please try again.';
-    }
-
-    if (error.toString().contains('FormatException')) {
-      return 'Invalid data received from server. Please try again.';
-    }
-
-    // Generic error message for unknown errors
-    return 'Something went wrong. Please try again.';
   }
 }

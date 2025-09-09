@@ -6,14 +6,15 @@ import 'app_logger.dart';
 @singleton
 class DioClient {
   final AppLogger _logger;
-  
-  DioClient(this._logger);
-
   late final Dio _dio;
+  
+  DioClient(this._logger) {
+    _initialize();
+  }
 
   Dio get dio => _dio;
 
-  void initialize() {
+  void _initialize() {
     _dio = Dio(BaseOptions(
       baseUrl: ApiConstants.baseUrl,
       connectTimeout: Duration(milliseconds: ApiConstants.connectTimeout),

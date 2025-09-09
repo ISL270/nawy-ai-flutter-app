@@ -19,10 +19,7 @@ void main() {
     });
 
     test('should initialize Dio with correct base configuration', () {
-      // Act
-      dioClient.initialize();
-
-      // Assert
+      // Assert - DioClient auto-initializes in constructor
       expect(dioClient.dio.options.baseUrl, equals(ApiConstants.baseUrl));
       expect(
         dioClient.dio.options.connectTimeout,
@@ -37,29 +34,21 @@ void main() {
     });
 
     test('should add interceptors during initialization', () {
-      // Act
-      dioClient.initialize();
-
-      // Assert
+      // Assert - DioClient auto-initializes in constructor
       expect(dioClient.dio.interceptors.length, greaterThan(0));
       expect(dioClient.dio.interceptors.any((i) => i is LogInterceptor), isTrue);
       expect(dioClient.dio.interceptors.any((i) => i is InterceptorsWrapper), isTrue);
     });
 
-    test('should handle multiple initialization attempts', () {
-      // Act & Assert - First initialization should work
-      expect(() => dioClient.initialize(), returnsNormally);
-      
-      // Second initialization should throw because of late final field
-      expect(() => dioClient.initialize(), throwsA(anything));
+    test('should auto-initialize on construction', () {
+      // Assert - DioClient should be ready to use immediately after construction
+      expect(dioClient.dio, isA<Dio>());
+      expect(dioClient.dio.options.baseUrl, equals(ApiConstants.baseUrl));
     });
 
     group('Configuration Validation', () {
       test('should have correct timeout values', () {
-        // Act
-        dioClient.initialize();
-
-        // Assert
+        // Assert - DioClient auto-initializes in constructor
         expect(
           dioClient.dio.options.connectTimeout?.inMilliseconds,
           equals(ApiConstants.connectTimeout),
@@ -71,10 +60,7 @@ void main() {
       });
 
       test('should have correct headers', () {
-        // Act
-        dioClient.initialize();
-
-        // Assert
+        // Assert - DioClient auto-initializes in constructor
         final headers = dioClient.dio.options.headers;
         expect(headers['Content-Type'], equals('application/json'));
         expect(headers['Accept'], equals('application/json'));
@@ -82,9 +68,6 @@ void main() {
     });
 
     group('HTTP Methods Support', () {
-      setUp(() {
-        dioClient.initialize();
-      });
 
       test('should provide access to Dio instance for HTTP methods', () {
         // Assert - Verify that dio instance is accessible and has expected methods
@@ -94,9 +77,6 @@ void main() {
     });
 
     group('Logging Integration', () {
-      setUp(() {
-        dioClient.initialize();
-      });
 
       test('should configure LogInterceptor with correct settings', () {
         // Arrange
@@ -122,10 +102,7 @@ void main() {
 
     group('Integration with API Constants', () {
       test('should use correct configuration from ApiConstants', () {
-        // Act
-        dioClient.initialize();
-
-        // Assert - Verify configuration matches ApiConstants
+        // Assert - Verify configuration matches ApiConstants (auto-initialized)
         expect(dioClient.dio.options.baseUrl, equals(ApiConstants.baseUrl));
         expect(
           dioClient.dio.options.connectTimeout?.inMilliseconds,
@@ -140,8 +117,7 @@ void main() {
 
     group('Singleton Behavior', () {
       test('should maintain singleton pattern through dependency injection', () {
-        // Act
-        dioClient.initialize();
+        // Act - Get dio instance multiple times
         final dio1 = dioClient.dio;
         final dio2 = dioClient.dio;
 

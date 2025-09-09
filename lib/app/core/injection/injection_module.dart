@@ -19,4 +19,5 @@ abstract class InjectionModule {
     logger.initialize();
     return logger;
   }
+
 }

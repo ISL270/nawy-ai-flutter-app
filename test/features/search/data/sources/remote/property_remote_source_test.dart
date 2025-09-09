@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:nawy_app/app/core/utils/dio_client.dart';
+import 'package:nawy_app/app/core/utils/error_handler.dart';
 import 'package:nawy_app/app/features/search/data/sources/remote/property_remote_source.dart';
 
 class MockDioClient extends Mock implements DioClient {}
@@ -241,20 +242,20 @@ void main() {
           'max_price_list': [10000000],
           'property_types': [
             {
-              'id': 1, 
+              'id': 1,
               'name': 'Apartment',
               'icon': {'url': 'https://example.com/apartment.png'},
               'has_land_area': false,
               'has_mandatory_garden_area': false,
-              'manual_ranking': 1
+              'manual_ranking': 1,
             },
             {
-              'id': 2, 
+              'id': 2,
               'name': 'Villa',
               'icon': {'url': 'https://example.com/villa.png'},
               'has_land_area': true,
               'has_mandatory_garden_area': true,
-              'manual_ranking': 2
+              'manual_ranking': 2,
             },
           ],
           'amenities': [],
@@ -294,7 +295,9 @@ void main() {
         // Act & Assert
         expect(
           () => remoteSource.getAreas(),
-          throwsA(predicate((e) => e is Exception && e.toString().contains('Connection timeout'))),
+          throwsA(
+            predicate((e) => e is AppException && e.message.contains('Something went wrong')),
+          ),
         );
       });
 
@@ -311,7 +314,9 @@ void main() {
         // Act & Assert
         expect(
           () => remoteSource.getAreas(),
-          throwsA(predicate((e) => e is Exception && e.toString().contains('Server error: 500'))),
+          throwsA(
+            predicate((e) => e is AppException && e.message.contains('Something went wrong')),
+          ),
         );
       });
 
@@ -328,7 +333,7 @@ void main() {
         expect(
           () => remoteSource.getAreas(),
           throwsA(
-            predicate((e) => e is Exception && e.toString().contains('No internet connection')),
+            predicate((e) => e is AppException && e.message.contains('Something went wrong')),
           ),
         );
       });

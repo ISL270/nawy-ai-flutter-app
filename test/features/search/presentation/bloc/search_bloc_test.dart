@@ -1,7 +1,12 @@
+import 'dart:async';
+import 'dart:io';
+
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:nawy_app/app/core/models/status.dart';
+import 'package:nawy_app/app/core/utils/app_logger.dart';
+import 'package:nawy_app/app/core/utils/error_handler.dart';
 import 'package:nawy_app/app/features/search/data/sources/remote/models/filter_options.dart';
 import 'package:nawy_app/app/features/search/data/sources/remote/models/search_response.dart';
 import 'package:nawy_app/app/features/search/domain/models/area.dart';
@@ -11,12 +16,13 @@ import 'package:nawy_app/app/features/search/domain/property_repository.dart';
 import 'package:nawy_app/app/features/search/presentation/bloc/search_bloc_exports.dart';
 
 class MockPropertyRepository extends Mock implements PropertyRepository {}
+class MockAppLogger extends Mock implements AppLogger {}
 
 void main() {
   group('SearchBloc', () {
     late SearchBloc searchBloc;
     late MockPropertyRepository mockRepository;
-
+  
     // Test data
     final testAreas = <Area>[
       const Area(id: 1, name: 'New Cairo'),
@@ -115,7 +121,10 @@ void main() {
       blocTest<SearchBloc, SearchState>(
         'emits network error message for SocketException',
         build: () {
-          when(() => mockRepository.getAreas()).thenThrow(Exception('SocketException: Network unreachable'));
+          when(() => mockRepository.getAreas()).thenThrow(AppException(
+            'No internet connection. Please check your network and try again.',
+            SocketException('Network unreachable'),
+          ));
           when(() => mockRepository.getCompounds()).thenAnswer((_) async => testCompounds);
           when(() => mockRepository.getFilterOptions()).thenAnswer((_) async => testFilterOptions);
           return searchBloc;
@@ -179,7 +188,10 @@ void main() {
             minBedrooms: any(named: 'minBedrooms'),
             maxBedrooms: any(named: 'maxBedrooms'),
             propertyTypeIds: any(named: 'propertyTypeIds'),
-          )).thenThrow(Exception('TimeoutException: Request timeout'));
+          )).thenThrow(AppException(
+            'Request timed out. Please try again.',
+            TimeoutException('Request timeout', const Duration(seconds: 30)),
+          ));
           return searchBloc;
         },
         act: (bloc) => bloc.add(const SearchPropertiesEvent(testFilters)),
@@ -282,7 +294,10 @@ void main() {
       blocTest<SearchBloc, SearchState>(
         'handles FormatException with appropriate message',
         build: () {
-          when(() => mockRepository.getAreas()).thenThrow(Exception('FormatException: Invalid JSON'));
+          when(() => mockRepository.getAreas()).thenThrow(AppException(
+            'Invalid data received from server. Please try again.',
+            const FormatException('Invalid JSON'),
+          ));
           when(() => mockRepository.getCompounds()).thenAnswer((_) async => testCompounds);
           when(() => mockRepository.getFilterOptions()).thenAnswer((_) async => testFilterOptions);
           return searchBloc;
