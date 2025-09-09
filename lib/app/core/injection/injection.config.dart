@@ -15,6 +15,12 @@ import 'package:nawy_app/app/core/injection/injection_module.dart' as _i601;
 import 'package:nawy_app/app/core/utils/app_logger.dart' as _i921;
 import 'package:nawy_app/app/core/utils/dio_client.dart' as _i997;
 import 'package:nawy_app/app/core/utils/obx_service.dart' as _i664;
+import 'package:nawy_app/app/features/favorites/data/favorites_repository.dart'
+    as _i823;
+import 'package:nawy_app/app/features/favorites/data/sources/local/favorites_local_source.dart'
+    as _i134;
+import 'package:nawy_app/app/features/favorites/presentation/bloc/favorites_bloc.dart'
+    as _i565;
 import 'package:nawy_app/app/features/search/data/sources/remote/property_remote_source.dart'
     as _i32;
 import 'package:nawy_app/app/features/search/domain/property_repository.dart'
@@ -37,6 +43,18 @@ extension GetItInjectableX on _i174.GetIt {
       preResolve: true,
     );
     gh.singleton<_i997.DioClient>(() => _i997.DioClient(gh<_i921.AppLogger>()));
+    gh.factory<_i134.FavoritesLocalSource>(
+      () => _i134.FavoritesLocalSource(gh<_i664.ObxService>()),
+    );
+    gh.singleton<_i823.FavoritesRepository>(
+      () => _i823.FavoritesRepository(gh<_i134.FavoritesLocalSource>()),
+    );
+    gh.factory<_i565.FavoritesBloc>(
+      () => _i565.FavoritesBloc(
+        gh<_i823.FavoritesRepository>(),
+        gh<_i921.AppLogger>(),
+      ),
+    );
     gh.singleton<_i32.PropertyRemoteSource>(
       () => _i32.PropertyRemoteSource(gh<_i997.DioClient>()),
     );

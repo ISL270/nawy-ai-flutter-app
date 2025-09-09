@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nawy_app/app/features/search/domain/models/property.dart';
 import 'package:nawy_app/app/features/search/presentation/widgets/property_card.dart';
+import 'package:nawy_app/app/features/favorites/presentation/bloc/favorites_bloc_exports.dart';
 
 /// Property list view widget for displaying search results
 class PropertyListView extends StatelessWidget {
@@ -213,10 +215,19 @@ class PropertyList extends StatelessWidget {
               }
 
               final property = properties[index];
-              return PropertyCard(
-                property: property,
-                onTap: () => onPropertyTap?.call(property),
-                onFavoriteToggle: () => onFavoriteToggle?.call(property),
+              return BlocBuilder<FavoritesBloc, FavoritesState>(
+                builder: (context, favoritesState) {
+                  // Update property with current favorite status
+                  final updatedProperty = property.copyWith(
+                    isFavorite: favoritesState.isPropertyFavorite(property.id),
+                  );
+                  
+                  return PropertyCard(
+                    property: updatedProperty,
+                    onTap: () => onPropertyTap?.call(property),
+                    onFavoriteToggle: () => onFavoriteToggle?.call(property),
+                  );
+                },
               );
             },
           ),

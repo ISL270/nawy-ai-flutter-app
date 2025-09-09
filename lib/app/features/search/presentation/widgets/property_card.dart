@@ -300,7 +300,7 @@ class PropertyPriceAndFavorite extends StatelessWidget {
           onPressed: onFavoriteToggle,
           icon: Icon(
             property.isFavorite ? Icons.favorite : Icons.favorite_border,
-            color: property.isFavorite ? Colors.red : theme.colorScheme.primary,
+            color: theme.colorScheme.primary,
             size: 28,
           ),
           visualDensity: VisualDensity.compact,

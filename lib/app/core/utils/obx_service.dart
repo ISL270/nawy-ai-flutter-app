@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'package:nawy_app/app/features/favorites/data/sources/local/models/area_obx.dart';
 import 'package:nawy_app/app/features/favorites/data/sources/local/models/compound_obx.dart';
 import 'package:nawy_app/app/features/favorites/data/sources/local/models/developer_obx.dart';
@@ -27,9 +28,16 @@ class ObxService {
 
   Future<void> initialize() async {
     final docsDir = await getApplicationDocumentsDirectory();
+    final dbPath = p.join(docsDir.path, "nawy-objectbox");
+    
+    // Ensure the directory exists
+    final dbDir = Directory(dbPath);
+    if (!await dbDir.exists()) {
+      await dbDir.create(recursive: true);
+    }
     
     // Create ObjectBox store with generated openStore function
-    _store = await openStore(directory: p.join(docsDir.path, "nawy-objectbox"));
+    _store = await openStore(directory: dbPath);
     
     // Initialize boxes for each entity
     _propertyBox = _store.box<PropertyObx>();

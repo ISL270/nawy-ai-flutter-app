@@ -7,6 +7,7 @@ import 'package:nawy_app/app/features/search/presentation/widgets/search_bar_wid
 import 'package:nawy_app/app/features/search/presentation/widgets/property_list_view.dart';
 import 'package:nawy_app/app/features/search/presentation/widgets/filter_bottom_sheet.dart';
 import 'package:nawy_app/app/features/search/domain/models/search_filters.dart';
+import 'package:nawy_app/app/features/favorites/presentation/bloc/favorites_bloc_exports.dart';
 
 /// Explore page - Main property search and discovery page
 class ExplorePage extends StatelessWidget {
@@ -142,11 +143,17 @@ class _ExplorePageContent extends StatelessWidget {
   }
 
   void _onFavoriteToggle(BuildContext context, property) {
-    // TODO: Implement favorite toggle functionality
+    final favoritesBloc = context.read<FavoritesBloc>();
+    final isFavorite = favoritesBloc.state.isPropertyFavorite(property.id);
+    
+    // Toggle favorite status
+    favoritesBloc.add(TogglePropertyFavoriteEvent(property));
+    
+    // Show feedback to user
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(
-          property.isFavorite 
+          isFavorite 
               ? 'Removed "${property.name}" from favorites'
               : 'Added "${property.name}" to favorites',
         ),

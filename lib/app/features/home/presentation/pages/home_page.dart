@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:material_symbols_icons/symbols.dart';
+import 'package:nawy_app/app/core/injection/injection.dart';
+import 'package:nawy_app/app/features/favorites/data/favorites_repository.dart';
+import 'package:nawy_app/app/features/favorites/presentation/bloc/favorites_bloc_exports.dart';
 
 import '../../../search/presentation/explore_page.dart';
 import 'ai_chat_page.dart';
@@ -27,9 +31,12 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: IndexedStack(index: _currentIndex, children: _pages),
-      bottomNavigationBar: NavigationBar(
+    return BlocProvider(
+      create: (context) => FavoritesBloc(getIt<FavoritesRepository>(), getIt())
+        ..add(const LoadFavoritesEvent()),
+      child: Scaffold(
+        body: IndexedStack(index: _currentIndex, children: _pages),
+        bottomNavigationBar: NavigationBar(
         selectedIndex: _currentIndex,
         onDestinationSelected: (index) {
           setState(() {
@@ -62,6 +69,7 @@ class _HomePageState extends State<HomePage> {
             label: 'Settings',
           ),
         ],
+        ),
       ),
     );
   }
