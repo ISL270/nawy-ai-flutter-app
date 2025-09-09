@@ -13,6 +13,9 @@ final class SearchState extends Equatable {
   // Current search filters
   final SearchFilters currentFilters;
 
+  // Current search query
+  final String? searchQuery;
+
   // Initial data (areas, compounds, filter options)
   final InitialData? initialData;
 
@@ -22,6 +25,7 @@ final class SearchState extends Equatable {
   const SearchState._({
     required this.status,
     required this.currentFilters,
+    this.searchQuery,
     required this.initialData,
     required this.searchResults,
   });
@@ -31,6 +35,7 @@ final class SearchState extends Equatable {
     : this._(
         status: const Initial(),
         currentFilters: const SearchFilters(),
+        searchQuery: null,
         initialData: null,
         searchResults: null,
       );
@@ -41,6 +46,7 @@ final class SearchState extends Equatable {
   SearchState _copyWith({
     VoidStatus? status,
     SearchFilters? currentFilters,
+    String? searchQuery,
     InitialData? initialData,
     SearchResponse? searchResults,
     bool clearSearchResults = false,
@@ -48,6 +54,7 @@ final class SearchState extends Equatable {
     return SearchState._(
       status: status ?? this.status,
       currentFilters: currentFilters ?? this.currentFilters,
+      searchQuery: searchQuery ?? this.searchQuery,
       initialData: initialData ?? this.initialData,
       searchResults: clearSearchResults ? null : (searchResults ?? this.searchResults),
     );
@@ -57,6 +64,7 @@ final class SearchState extends Equatable {
   SearchState copyWith({
     VoidStatus? status,
     SearchFilters? currentFilters,
+    String? searchQuery,
     InitialData? initialData,
     SearchResponse? searchResults,
     bool clearSearchResults = false,
@@ -64,6 +72,7 @@ final class SearchState extends Equatable {
     return _copyWith(
       status: status,
       currentFilters: currentFilters,
+      searchQuery: searchQuery,
       initialData: initialData,
       searchResults: searchResults,
       clearSearchResults: clearSearchResults,
@@ -81,7 +90,7 @@ final class SearchState extends Equatable {
   String? get errorMessage => status.isFailure ? (status as Failure).message : null;
 
   @override
-  List<Object?> get props => [status, currentFilters, initialData, searchResults];
+  List<Object?> get props => [status, currentFilters, searchQuery, initialData, searchResults];
 }
 
 /// Container class for initial data needed for search functionality

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'explore_page.dart';
+import '../../../search/presentation/explore_page.dart';
 import 'ai_chat_page.dart';
 import 'favourites_page.dart';
 import 'settings_page.dart';

@@ -23,6 +23,17 @@ class SearchPropertiesEvent extends SearchEvent {
   List<Object?> get props => [filters];
 }
 
+/// Event to search properties with text query and filters
+class SearchWithQueryEvent extends SearchEvent {
+  final String query;
+  final SearchFilters filters;
+
+  const SearchWithQueryEvent(this.query, this.filters);
+
+  @override
+  List<Object?> get props => [query, filters];
+}
+
 /// Event to update search filters
 class UpdateFiltersEvent extends SearchEvent {
   final SearchFilters filters;

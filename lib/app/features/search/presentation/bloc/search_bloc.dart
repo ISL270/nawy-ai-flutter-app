@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nawy_app/app/core/models/status.dart';
 import 'package:nawy_app/app/core/utils/error_handler.dart';
+import 'package:nawy_app/app/core/models/bloc_event_transformers.dart';
 import 'package:nawy_app/app/features/search/domain/models/search_filters.dart';
 import 'package:nawy_app/app/features/search/domain/models/area.dart';
 import 'package:nawy_app/app/features/search/domain/models/compound.dart';
@@ -17,6 +18,10 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
   SearchBloc(this._repository) : super(SearchState.initial()) {
     on<LoadInitialDataEvent>(_onLoadInitialData);
     on<SearchPropertiesEvent>(_onSearchProperties);
+    on<SearchWithQueryEvent>(
+      _onSearchWithQuery,
+      transformer: EventTransformers.debounce(const Duration(milliseconds: 500)),
+    );
     on<UpdateFiltersEvent>(_onUpdateFilters);
     on<ClearFiltersEvent>(_onClearFilters);
     on<ResetSearchEvent>(_onResetSearch);
@@ -60,6 +65,38 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
   /// Handles searching properties with current filters
   Future<void> _onSearchProperties(SearchPropertiesEvent event, Emitter<SearchState> emit) async {
     emit(state.copyWith(status: const Loading(), currentFilters: event.filters));
+
+    try {
+      final searchResponse = await _repository.searchProperties(
+        areaIds: event.filters.selectedAreaIds.isEmpty ? null : event.filters.selectedAreaIds,
+        compoundIds: event.filters.selectedCompoundIds.isEmpty ? null : event.filters.selectedCompoundIds,
+        minPrice: event.filters.minPrice,
+        maxPrice: event.filters.maxPrice,
+        minBedrooms: event.filters.minBedrooms,
+        maxBedrooms: event.filters.maxBedrooms,
+        propertyTypeIds: event.filters.selectedPropertyTypeIds.isEmpty ? null : event.filters.selectedPropertyTypeIds,
+      );
+
+      emit(state.copyWith(status: const Success(null), searchResults: searchResponse));
+    } on AppException catch (error) {
+      emit(state.copyWith(status: Failure(error.message, error.originalException)));
+    } catch (error) {
+      emit(state.copyWith(
+        status: Failure(
+          'Something went wrong. Please try again.',
+          error is Exception ? error : Exception(error.toString()),
+        ),
+      ));
+    }
+  }
+
+  /// Handles searching properties with text query and filters
+  Future<void> _onSearchWithQuery(SearchWithQueryEvent event, Emitter<SearchState> emit) async {
+    emit(state.copyWith(
+      status: const Loading(), 
+      currentFilters: event.filters,
+      searchQuery: event.query,
+    ));
 
     try {
       final searchResponse = await _repository.searchProperties(
