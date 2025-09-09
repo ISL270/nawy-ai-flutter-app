@@ -1,29 +1,25 @@
 import 'dart:convert';
+
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mocktail/mocktail.dart';
 import 'package:nawy_app/app/core/utils/app_logger.dart';
-import 'package:nawy_app/app/core/utils/dio_client.dart';
 import 'package:nawy_app/app/core/utils/error_handler.dart';
-import 'package:nawy_app/app/features/search/data/sources/remote/models/search_response.dart';
 import 'package:nawy_app/app/features/search/data/sources/remote/models/area_dto.dart';
 import 'package:nawy_app/app/features/search/data/sources/remote/models/compound_dto.dart';
 import 'package:nawy_app/app/features/search/data/sources/remote/models/filter_options.dart';
 import 'package:nawy_app/app/features/search/data/sources/remote/models/property_type_dto.dart';
-
-class MockDioClient extends Mock implements DioClient {}
+import 'package:nawy_app/app/features/search/data/sources/remote/models/search_response.dart';
 
 /// Test version of PropertyRemoteSource that uses in-memory data instead of assets
 class TestPropertyRemoteSource {
-  final DioClient _dioClient;
   final SearchResponse _testSearchResponse;
-  
-  TestPropertyRemoteSource(this._dioClient, this._testSearchResponse);
-  
+
+  TestPropertyRemoteSource(this._testSearchResponse);
+
   Future<List<AreaDto>> getAreas() async {
     return await ErrorHandler.executeWithTimeout(
       () async {
         final Map<int, String> uniqueAreas = <int, String>{};
-        
+
         // Extract unique areas with their actual names from properties
         for (final property in _testSearchResponse.properties) {
           if (property.area?.id != null && property.area?.name != null) {
@@ -45,7 +41,7 @@ class TestPropertyRemoteSource {
     return await ErrorHandler.executeWithTimeout(
       () async {
         final Map<int, CompoundDto> uniqueCompounds = <int, CompoundDto>{};
-        
+
         // Extract unique compounds with their actual names from properties
         for (final property in _testSearchResponse.properties) {
           if (property.compound?.id != null && property.compound?.name != null) {
@@ -200,24 +196,21 @@ class TestPropertyRemoteSource {
 void main() {
   group('PropertyRemoteSource Tests', () {
     late TestPropertyRemoteSource remoteSource;
-    late MockDioClient mockDioClient;
     late AppLogger appLogger;
 
     setUpAll(() {
       // Initialize Flutter test environment
       TestWidgetsFlutterBinding.ensureInitialized();
-      
+
       // Initialize AppLogger for error handling
       appLogger = AppLogger();
       appLogger.initialize();
     });
 
     setUp(() {
-      mockDioClient = MockDioClient();
-      
       // Create test search response with mock data
       final testSearchResponse = _createTestSearchResponse();
-      remoteSource = TestPropertyRemoteSource(mockDioClient, testSearchResponse);
+      remoteSource = TestPropertyRemoteSource(testSearchResponse);
     });
 
     group('getAreas', () {
@@ -230,11 +223,11 @@ void main() {
         expect(result.length, equals(4)); // 4 unique areas in mock data
         expect(result.first.id, isA<int>());
         expect(result.first.name, isA<String>());
-        
+
         // Verify areas are unique
         final areaIds = result.map((area) => area.id).toSet();
         expect(areaIds.length, equals(result.length));
-        
+
         // Verify specific areas from mock data
         final areaNames = result.map((area) => area.name).toSet();
         expect(areaNames, contains('El Sheikh Zayed'));
@@ -255,11 +248,11 @@ void main() {
         expect(result.first.id, isA<int>());
         expect(result.first.name, isA<String>());
         expect(result.first.areaId, isA<int>());
-        
+
         // Verify compounds are unique
         final compoundIds = result.map((compound) => compound.id).toSet();
         expect(compoundIds.length, equals(result.length));
-        
+
         // Verify specific compounds from mock data
         final compoundNames = result.map((compound) => compound.name).toSet();
         expect(compoundNames, contains('ZED West'));
@@ -280,11 +273,17 @@ void main() {
         expect(allProperties.properties, isNotEmpty);
         expect(allProperties.totalProperties, equals(5)); // 5 properties in mock data
         expect(allProperties.properties.length, equals(5));
-        
+
         // Filtered results should be less than or equal to all results
-        expect(filteredByArea.properties.length, lessThanOrEqualTo(allProperties.properties.length));
-        expect(filteredByArea.properties.length, equals(2)); // 2 properties in area 1 (El Sheikh Zayed)
-        
+        expect(
+          filteredByArea.properties.length,
+          lessThanOrEqualTo(allProperties.properties.length),
+        );
+        expect(
+          filteredByArea.properties.length,
+          equals(2),
+        ); // 2 properties in area 1 (El Sheikh Zayed)
+
         // All filtered properties should have the specified area ID
         for (final property in filteredByArea.properties) {
           expect(property.area?.id, equals(1));
@@ -301,7 +300,7 @@ void main() {
         expect(result.properties.length, equals(5));
         expect(result.properties.first.id, isA<int>());
         expect(result.properties.first.name, isA<String>());
-        
+
         // Verify specific properties from mock data
         final propertyNames = result.properties.map((p) => p.name).toList();
         expect(propertyNames, contains('Luxury Apartment in ZED'));
@@ -321,7 +320,7 @@ void main() {
         expect(result.totalProperties, equals(5)); // 5 properties in mock data
         expect(result.properties.length, equals(5));
       });
-      
+
       test('should filter by price range correctly', () async {
         // Act
         final allProperties = await remoteSource.searchProperties();
@@ -332,16 +331,22 @@ void main() {
 
         // Assert
         expect(allProperties.properties.length, equals(5));
-        expect(filteredProperties.properties.length, lessThanOrEqualTo(allProperties.properties.length));
-        expect(filteredProperties.properties.length, equals(2)); // Properties 1 and 5 match this range
-        
+        expect(
+          filteredProperties.properties.length,
+          lessThanOrEqualTo(allProperties.properties.length),
+        );
+        expect(
+          filteredProperties.properties.length,
+          equals(2),
+        ); // Properties 1 and 5 match this range
+
         // All filtered properties should be within price range
         for (final property in filteredProperties.properties) {
           expect(property.minPrice, greaterThanOrEqualTo(2000000));
           expect(property.maxPrice, lessThanOrEqualTo(8000000));
         }
       });
-      
+
       test('should filter by bedroom count correctly', () async {
         // Act
         final allProperties = await remoteSource.searchProperties();
@@ -352,9 +357,15 @@ void main() {
 
         // Assert
         expect(allProperties.properties.length, equals(5));
-        expect(filteredProperties.properties.length, lessThanOrEqualTo(allProperties.properties.length));
-        expect(filteredProperties.properties.length, equals(3)); // Properties 1, 2, and 5 have 2-4 bedrooms
-        
+        expect(
+          filteredProperties.properties.length,
+          lessThanOrEqualTo(allProperties.properties.length),
+        );
+        expect(
+          filteredProperties.properties.length,
+          equals(3),
+        ); // Properties 1, 2, and 5 have 2-4 bedrooms
+
         // All filtered properties should be within bedroom range
         for (final property in filteredProperties.properties) {
           if (property.numberOfBedrooms != null) {
@@ -378,13 +389,13 @@ void main() {
         expect(result.maxPriceList, isNotEmpty);
         expect(result.propertyTypes, isNotEmpty);
         expect(result.propertyTypes!.length, equals(3)); // 3 property types in mock data
-        
+
         // Verify property types have required fields and specific values
         final propertyTypeNames = result.propertyTypes!.map((pt) => pt.name).toSet();
         expect(propertyTypeNames, contains('Apartment'));
         expect(propertyTypeNames, contains('Villa'));
         expect(propertyTypeNames, contains('Chalet'));
-        
+
         for (final propertyType in result.propertyTypes!) {
           expect(propertyType.id, isA<int>());
           expect(propertyType.name, isA<String>());
@@ -397,10 +408,10 @@ void main() {
         // Act
         final areas1 = await remoteSource.getAreas();
         final areas2 = await remoteSource.getAreas();
-        
+
         final compounds1 = await remoteSource.getCompounds();
         final compounds2 = await remoteSource.getCompounds();
-        
+
         final filterOptions1 = await remoteSource.getFilterOptions();
         final filterOptions2 = await remoteSource.getFilterOptions();
 
@@ -412,25 +423,25 @@ void main() {
         expect(filterOptions1.minBedrooms, equals(filterOptions2.minBedrooms));
         expect(filterOptions1.maxBedrooms, equals(filterOptions2.maxBedrooms));
       });
-      
+
       test('should have valid relationships between data', () async {
         // Act
         final areas = await remoteSource.getAreas();
         final compounds = await remoteSource.getCompounds();
         final properties = await remoteSource.searchProperties();
-        
+
         // Assert - All compounds should reference valid areas
         final areaIds = areas.map((area) => area.id).toSet();
         expect(areaIds, equals({1, 2, 3, 4})); // Expected area IDs from mock data
-        
+
         for (final compound in compounds) {
           expect(areaIds, contains(compound.areaId));
         }
-        
+
         // All properties should have valid areas and compounds
         final compoundIds = compounds.map((compound) => compound.id).toSet();
         expect(compoundIds, equals({1, 2, 3, 4, 5})); // Expected compound IDs from mock data
-        
+
         for (final property in properties.properties) {
           if (property.area?.id != null) {
             expect(areaIds, contains(property.area!.id));
@@ -440,30 +451,33 @@ void main() {
           }
         }
       });
-      
+
       test('should filter by property type correctly', () async {
         // Act - Filter by Apartment type (id: 1)
         final allProperties = await remoteSource.searchProperties();
         final apartmentProperties = await remoteSource.searchProperties(propertyTypeIds: [1]);
-        
+
         // Assert
         expect(allProperties.properties.length, equals(5));
-        expect(apartmentProperties.properties.length, equals(2)); // Properties 1 and 3 are apartments
-        
+        expect(
+          apartmentProperties.properties.length,
+          equals(2),
+        ); // Properties 1 and 3 are apartments
+
         // All filtered properties should be apartments
         for (final property in apartmentProperties.properties) {
           expect(property.propertyType?.id, equals(1));
           expect(property.propertyType?.name, equals('Apartment'));
         }
       });
-      
+
       test('should handle multiple filters simultaneously', () async {
         // Act - Filter by area 1 (El Sheikh Zayed) and Villa type (id: 2)
         final filteredProperties = await remoteSource.searchProperties(
           areaIds: [1],
           propertyTypeIds: [2],
         );
-        
+
         // Assert - Should return property 4 (Spacious Villa in Compound X)
         expect(filteredProperties.properties.length, equals(1));
         expect(filteredProperties.properties.first.name, equals('Spacious Villa in Compound X'));
