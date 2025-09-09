@@ -26,6 +26,7 @@ class PropertyRepository {
   }
 
   Future<SearchResponse> searchProperties({
+    String? searchQuery,
     List<int>? areaIds,
     List<int>? compoundIds,
     int? minPrice,
@@ -35,6 +36,7 @@ class PropertyRepository {
     List<int>? propertyTypeIds,
   }) async {
     return await _remoteSource.searchProperties(
+      searchQuery: searchQuery,
       areaIds: areaIds,
       compoundIds: compoundIds,
       minPrice: minPrice,

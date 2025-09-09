@@ -100,6 +100,7 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
 
     try {
       final searchResponse = await _repository.searchProperties(
+        searchQuery: event.query.trim().isEmpty ? null : event.query.trim(),
         areaIds: event.filters.selectedAreaIds.isEmpty ? null : event.filters.selectedAreaIds,
         compoundIds: event.filters.selectedCompoundIds.isEmpty ? null : event.filters.selectedCompoundIds,
         minPrice: event.filters.minPrice,

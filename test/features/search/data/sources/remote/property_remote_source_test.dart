@@ -105,6 +105,7 @@ class TestPropertyRemoteSource {
   }
 
   Future<SearchResponse> searchProperties({
+    String? searchQuery,
     List<int>? areaIds,
     List<int>? compoundIds,
     int? minPrice,
@@ -115,67 +116,72 @@ class TestPropertyRemoteSource {
   }) async {
     return await ErrorHandler.executeWithTimeout(
       () async {
-        List<dynamic> filteredProperties = List.from(_testSearchResponse.properties);
+        // Apply all filters together using a single where clause for better performance and correctness
+        final filteredProperties = _testSearchResponse.properties.where((property) {
+          // Apply text search filter (search in property title, area name, compound name)
+          if (searchQuery != null && searchQuery.trim().isNotEmpty) {
+            final query = searchQuery.trim().toLowerCase();
+            final propertyName = property.name.toLowerCase();
+            final areaName = property.area?.name.toLowerCase() ?? '';
+            final compoundName = property.compound?.name.toLowerCase() ?? '';
+            
+            final matchesTextSearch = propertyName.contains(query) || 
+                                    areaName.contains(query) || 
+                                    compoundName.contains(query);
+            
+            if (!matchesTextSearch) return false;
+          }
 
-        // Apply area filter
-        if (areaIds != null && areaIds.isNotEmpty) {
-          filteredProperties = filteredProperties
-              .where((property) => property.area?.id != null && areaIds.contains(property.area!.id))
-              .toList();
-        }
+          // Apply area filter
+          if (areaIds != null && areaIds.isNotEmpty) {
+            if (property.area?.id == null || !areaIds.contains(property.area!.id)) {
+              return false;
+            }
+          }
 
-        // Apply compound filter
-        if (compoundIds != null && compoundIds.isNotEmpty) {
-          filteredProperties = filteredProperties
-              .where(
-                (property) =>
-                    property.compound?.id != null && compoundIds.contains(property.compound!.id),
-              )
-              .toList();
-        }
+          // Apply compound filter
+          if (compoundIds != null && compoundIds.isNotEmpty) {
+            if (property.compound?.id == null || !compoundIds.contains(property.compound!.id)) {
+              return false;
+            }
+          }
 
-        // Apply price range filter
-        if (minPrice != null) {
-          filteredProperties = filteredProperties
-              .where((property) => property.minPrice != null && property.minPrice! >= minPrice)
-              .toList();
-        }
+          // Apply price range filter
+          if (minPrice != null) {
+            if (property.minPrice == null || property.minPrice! < minPrice) {
+              return false;
+            }
+          }
 
-        if (maxPrice != null) {
-          filteredProperties = filteredProperties
-              .where((property) => property.maxPrice != null && property.maxPrice! <= maxPrice)
-              .toList();
-        }
+          if (maxPrice != null) {
+            if (property.maxPrice == null || property.maxPrice! > maxPrice) {
+              return false;
+            }
+          }
 
-        // Apply bedroom filter
-        if (minBedrooms != null) {
-          filteredProperties = filteredProperties
-              .where(
-                (property) =>
-                    property.numberOfBedrooms != null && property.numberOfBedrooms! >= minBedrooms,
-              )
-              .toList();
-        }
+          // Apply bedroom filter
+          if (minBedrooms != null) {
+            if (property.numberOfBedrooms == null || property.numberOfBedrooms! < minBedrooms) {
+              return false;
+            }
+          }
 
-        if (maxBedrooms != null) {
-          filteredProperties = filteredProperties
-              .where(
-                (property) =>
-                    property.numberOfBedrooms != null && property.numberOfBedrooms! <= maxBedrooms,
-              )
-              .toList();
-        }
+          if (maxBedrooms != null) {
+            if (property.numberOfBedrooms == null || property.numberOfBedrooms! > maxBedrooms) {
+              return false;
+            }
+          }
 
-        // Apply property type filter
-        if (propertyTypeIds != null && propertyTypeIds.isNotEmpty) {
-          filteredProperties = filteredProperties
-              .where(
-                (property) =>
-                    property.propertyType?.id != null &&
-                    propertyTypeIds.contains(property.propertyType!.id),
-              )
-              .toList();
-        }
+          // Apply property type filter
+          if (propertyTypeIds != null && propertyTypeIds.isNotEmpty) {
+            if (property.propertyType?.id == null || !propertyTypeIds.contains(property.propertyType!.id)) {
+              return false;
+            }
+          }
+
+          // If all filters pass, include this property
+          return true;
+        }).toList();
 
         return SearchResponse(
           totalCompounds: _testSearchResponse.totalCompounds,
@@ -483,6 +489,168 @@ void main() {
         expect(filteredProperties.properties.first.name, equals('Spacious Villa in Compound X'));
         expect(filteredProperties.properties.first.area?.id, equals(1));
         expect(filteredProperties.properties.first.propertyType?.id, equals(2));
+      });
+
+      test('should filter by text search query in property name, area, and compound', () async {
+        // Test searching by property name
+        final nameResult = await remoteSource.searchProperties(searchQuery: 'luxury');
+        expect(nameResult.properties.length, equals(1));
+        expect(nameResult.properties.first.name, equals('Luxury Apartment in ZED'));
+        
+        // Test searching by area name (case insensitive)
+        final areaResult = await remoteSource.searchProperties(searchQuery: 'ZAYED');
+        expect(areaResult.properties.length, equals(2)); // Properties 1 and 4 are in El Sheikh Zayed
+        
+        // Test searching by compound name
+        final compoundResult = await remoteSource.searchProperties(searchQuery: 'bloomfields');
+        expect(compoundResult.properties.length, equals(1));
+        expect(compoundResult.properties.first.name, equals('Modern Villa in Bloomfields'));
+        
+        // Test partial matching
+        final partialResult = await remoteSource.searchProperties(searchQuery: 'villa');
+        expect(partialResult.properties.length, equals(2)); // Properties 2 and 4 contain 'villa'
+        
+        // Test empty query returns all properties
+        final emptyResult = await remoteSource.searchProperties(searchQuery: '');
+        expect(emptyResult.properties.length, equals(5));
+        
+        // Test whitespace-only query returns all properties
+        final whitespaceResult = await remoteSource.searchProperties(searchQuery: '   ');
+        expect(whitespaceResult.properties.length, equals(5));
+        
+        // Test non-existent query returns empty results
+        final noMatchResult = await remoteSource.searchProperties(searchQuery: 'nonexistent');
+        expect(noMatchResult.properties.length, equals(0));
+        
+        // Test combining text search with other filters
+        final combinedResult = await remoteSource.searchProperties(
+          searchQuery: 'villa',
+          areaIds: [1], // El Sheikh Zayed
+        );
+        expect(combinedResult.properties.length, equals(1)); // Only property 4 matches both
+        expect(combinedResult.properties.first.name, equals('Spacious Villa in Compound X'));
+      });
+
+      test('should handle complex combined filtering scenarios correctly', () async {
+        // Test 1: Text search + Area filter + Property type filter
+        final textAreaTypeResult = await remoteSource.searchProperties(
+          searchQuery: 'apartment',
+          areaIds: [1], // El Sheikh Zayed
+          propertyTypeIds: [1], // Apartment
+        );
+        expect(textAreaTypeResult.properties.length, equals(1)); // Property 1: Luxury Apartment in ZED
+        expect(textAreaTypeResult.properties.first.name, equals('Luxury Apartment in ZED'));
+        expect(textAreaTypeResult.properties.first.area?.id, equals(1));
+        expect(textAreaTypeResult.properties.first.propertyType?.id, equals(1));
+
+        // Test 2: Text search + Price range filter
+        final textPriceResult = await remoteSource.searchProperties(
+          searchQuery: 'villa',
+          minPrice: 10000000, // Only expensive villas
+        );
+        expect(textPriceResult.properties.length, equals(1)); // Property 4: Spacious Villa (15M-18M)
+        expect(textPriceResult.properties.first.name, equals('Spacious Villa in Compound X'));
+        expect(textPriceResult.properties.first.minPrice, greaterThanOrEqualTo(10000000));
+
+        // Test 3: Text search + Bedroom filter
+        final textBedroomResult = await remoteSource.searchProperties(
+          searchQuery: 'apartment',
+          minBedrooms: 2,
+          maxBedrooms: 2,
+        );
+        expect(textBedroomResult.properties.length, equals(1)); // Property 1: 2-bedroom apartment
+        expect(textBedroomResult.properties.first.name, equals('Luxury Apartment in ZED'));
+        expect(textBedroomResult.properties.first.numberOfBedrooms, equals(2));
+
+        // Test 4: Text search + Compound filter
+        final textCompoundResult = await remoteSource.searchProperties(
+          searchQuery: 'modern',
+          compoundIds: [2], // Bloomfields
+        );
+        expect(textCompoundResult.properties.length, equals(1)); // Property 2: Modern Villa in Bloomfields
+        expect(textCompoundResult.properties.first.name, equals('Modern Villa in Bloomfields'));
+        expect(textCompoundResult.properties.first.compound?.id, equals(2));
+
+        // Test 5: Multiple filters with text search (should return empty if no match)
+        final noMatchResult = await remoteSource.searchProperties(
+          searchQuery: 'apartment',
+          propertyTypeIds: [2], // Villa type - conflicts with apartment search
+        );
+        expect(noMatchResult.properties.length, equals(0)); // No apartments that are villas
+
+        // Test 6: All filters combined with realistic scenario
+        final allFiltersResult = await remoteSource.searchProperties(
+          searchQuery: 'zayed', // Search in area name
+          areaIds: [1], // El Sheikh Zayed
+          minPrice: 2000000,
+          maxPrice: 20000000,
+          minBedrooms: 2,
+          propertyTypeIds: [1, 2], // Apartment or Villa
+        );
+        expect(allFiltersResult.properties.length, equals(2)); // Properties 1 and 4 match all criteria
+        
+        // Verify both properties match all criteria
+        for (final property in allFiltersResult.properties) {
+          expect(property.area?.id, equals(1));
+          expect(property.minPrice, greaterThanOrEqualTo(2000000));
+          expect(property.maxPrice, lessThanOrEqualTo(20000000));
+          expect(property.numberOfBedrooms, greaterThanOrEqualTo(2));
+          expect([1, 2], contains(property.propertyType?.id));
+        }
+      });
+
+      test('should maintain filter independence - text search should not override other filters', () async {
+        // Test that searching for a term that appears in multiple areas
+        // but filtering by specific area only returns properties from that area
+        final independentResult = await remoteSource.searchProperties(
+          searchQuery: 'apartment', // Appears in properties from different areas
+          areaIds: [3], // New Cairo only
+        );
+        expect(independentResult.properties.length, equals(1)); // Only property 3 in New Cairo
+        expect(independentResult.properties.first.name, equals('Cozy Apartment in New Cairo'));
+        expect(independentResult.properties.first.area?.id, equals(3));
+
+        // Test that price filter works correctly with text search
+        final priceIndependentResult = await remoteSource.searchProperties(
+          searchQuery: 'villa', // Multiple villas exist
+          maxPrice: 15000000, // Only cheaper villas (Property 2: 12M max, Property 4: 18M max)
+        );
+        expect(priceIndependentResult.properties.length, equals(1)); // Property 2: Modern Villa (8M-12M max)
+        expect(priceIndependentResult.properties.first.name, equals('Modern Villa in Bloomfields'));
+        expect(priceIndependentResult.properties.first.maxPrice, lessThanOrEqualTo(15000000));
+      });
+
+      test('should handle edge cases in combined filtering', () async {
+        // Test empty text search with filters (should apply only filters)
+        final emptyTextResult = await remoteSource.searchProperties(
+          searchQuery: '', // Empty search
+          areaIds: [1], // El Sheikh Zayed
+        );
+        expect(emptyTextResult.properties.length, equals(2)); // Properties 1 and 4
+
+        // Test whitespace-only text search with filters
+        final whitespaceTextResult = await remoteSource.searchProperties(
+          searchQuery: '   ', // Whitespace only
+          propertyTypeIds: [1], // Apartments only
+        );
+        expect(whitespaceTextResult.properties.length, equals(2)); // Properties 1 and 3
+
+        // Test text search with empty filter arrays (should be ignored)
+        final emptyFiltersResult = await remoteSource.searchProperties(
+          searchQuery: 'luxury',
+          areaIds: [], // Empty array should be ignored
+          compoundIds: [], // Empty array should be ignored
+          propertyTypeIds: [], // Empty array should be ignored
+        );
+        expect(emptyFiltersResult.properties.length, equals(1)); // Property 1: Luxury Apartment
+        expect(emptyFiltersResult.properties.first.name, equals('Luxury Apartment in ZED'));
+
+        // Test conflicting filters that should return no results
+        final conflictingResult = await remoteSource.searchProperties(
+          searchQuery: 'apartment',
+          minPrice: 50000000, // Price too high for any apartment
+        );
+        expect(conflictingResult.properties.length, equals(0));
       });
     });
   });

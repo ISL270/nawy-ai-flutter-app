@@ -8,7 +8,6 @@ import 'package:nawy_app/app/core/utils/error_handler.dart';
 import 'package:nawy_app/app/features/search/data/sources/remote/models/area_dto.dart';
 import 'package:nawy_app/app/features/search/data/sources/remote/models/compound_dto.dart';
 import 'package:nawy_app/app/features/search/data/sources/remote/models/filter_options.dart';
-import 'package:nawy_app/app/features/search/data/sources/remote/models/property_dto.dart';
 import 'package:nawy_app/app/features/search/data/sources/remote/models/property_type_dto.dart';
 import 'package:nawy_app/app/features/search/data/sources/remote/models/search_response.dart';
 
@@ -68,7 +67,7 @@ class PropertyRemoteSource {
       () async {
         final searchResponse = await _loadSearchResponseFromLocal();
         final Map<int, String> uniqueAreas = <int, String>{};
-        
+
         // Extract unique areas with their actual names from properties
         for (final property in searchResponse.properties) {
           if (property.area?.id != null && property.area?.name != null) {
@@ -107,7 +106,7 @@ class PropertyRemoteSource {
       () async {
         final searchResponse = await _loadSearchResponseFromLocal();
         final Map<int, CompoundDto> uniqueCompounds = <int, CompoundDto>{};
-        
+
         // Extract unique compounds with their actual names from properties
         for (final property in searchResponse.properties) {
           if (property.compound?.id != null && property.compound?.name != null) {
@@ -186,6 +185,7 @@ class PropertyRemoteSource {
   }
 
   Future<SearchResponse> searchProperties({
+    String? searchQuery,
     List<int>? areaIds,
     List<int>? compoundIds,
     int? minPrice,
@@ -249,67 +249,73 @@ class PropertyRemoteSource {
     return await ErrorHandler.executeWithTimeout(
       () async {
         final searchResponse = await _loadSearchResponseFromLocal();
-        List<PropertyDto> filteredProperties = List.from(searchResponse.properties);
+        
+        // Apply all filters together using a single where clause for better performance and correctness
+        final filteredProperties = searchResponse.properties.where((property) {
+          // Apply text search filter (search in property title, area name, compound name)
+          if (searchQuery != null && searchQuery.trim().isNotEmpty) {
+            final query = searchQuery.trim().toLowerCase();
+            final propertyName = property.name.toLowerCase();
+            final areaName = property.area?.name.toLowerCase() ?? '';
+            final compoundName = property.compound?.name.toLowerCase() ?? '';
+            
+            final matchesTextSearch = propertyName.contains(query) || 
+                                    areaName.contains(query) || 
+                                    compoundName.contains(query);
+            
+            if (!matchesTextSearch) return false;
+          }
 
-        // Apply area filter
-        if (areaIds != null && areaIds.isNotEmpty) {
-          filteredProperties = filteredProperties
-              .where((property) => property.area?.id != null && areaIds.contains(property.area!.id))
-              .toList();
-        }
+          // Apply area filter
+          if (areaIds != null && areaIds.isNotEmpty) {
+            if (property.area?.id == null || !areaIds.contains(property.area!.id)) {
+              return false;
+            }
+          }
 
-        // Apply compound filter
-        if (compoundIds != null && compoundIds.isNotEmpty) {
-          filteredProperties = filteredProperties
-              .where(
-                (property) =>
-                    property.compound?.id != null && compoundIds.contains(property.compound!.id),
-              )
-              .toList();
-        }
+          // Apply compound filter
+          if (compoundIds != null && compoundIds.isNotEmpty) {
+            if (property.compound?.id == null || !compoundIds.contains(property.compound!.id)) {
+              return false;
+            }
+          }
 
-        // Apply price range filter
-        if (minPrice != null) {
-          filteredProperties = filteredProperties
-              .where((property) => property.minPrice != null && property.minPrice! >= minPrice)
-              .toList();
-        }
+          // Apply price range filter
+          if (minPrice != null) {
+            if (property.minPrice == null || property.minPrice! < minPrice) {
+              return false;
+            }
+          }
 
-        if (maxPrice != null) {
-          filteredProperties = filteredProperties
-              .where((property) => property.maxPrice != null && property.maxPrice! <= maxPrice)
-              .toList();
-        }
+          if (maxPrice != null) {
+            if (property.maxPrice == null || property.maxPrice! > maxPrice) {
+              return false;
+            }
+          }
 
-        // Apply bedroom filter
-        if (minBedrooms != null) {
-          filteredProperties = filteredProperties
-              .where(
-                (property) =>
-                    property.numberOfBedrooms != null && property.numberOfBedrooms! >= minBedrooms,
-              )
-              .toList();
-        }
+          // Apply bedroom filter
+          if (minBedrooms != null) {
+            if (property.numberOfBedrooms == null || property.numberOfBedrooms! < minBedrooms) {
+              return false;
+            }
+          }
 
-        if (maxBedrooms != null) {
-          filteredProperties = filteredProperties
-              .where(
-                (property) =>
-                    property.numberOfBedrooms != null && property.numberOfBedrooms! <= maxBedrooms,
-              )
-              .toList();
-        }
+          if (maxBedrooms != null) {
+            if (property.numberOfBedrooms == null || property.numberOfBedrooms! > maxBedrooms) {
+              return false;
+            }
+          }
 
-        // Apply property type filter
-        if (propertyTypeIds != null && propertyTypeIds.isNotEmpty) {
-          filteredProperties = filteredProperties
-              .where(
-                (property) =>
-                    property.propertyType?.id != null &&
-                    propertyTypeIds.contains(property.propertyType!.id),
-              )
-              .toList();
-        }
+          // Apply property type filter
+          if (propertyTypeIds != null && propertyTypeIds.isNotEmpty) {
+            if (property.propertyType?.id == null || !propertyTypeIds.contains(property.propertyType!.id)) {
+              return false;
+            }
+          }
+
+          // If all filters pass, include this property
+          return true;
+        }).toList();
 
         return SearchResponse(
           totalCompounds: searchResponse.totalCompounds,

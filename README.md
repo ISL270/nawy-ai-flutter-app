@@ -4,7 +4,8 @@ Real estate property search application built with Flutter. Features property se
 
 ## Features
 
-- **Property Search**: Advanced filtering by area, compound, price, bedrooms, property type
+- **Text Search**: Search properties by name, area, or compound with real-time filtering
+- **Advanced Filtering**: Filter by area, compound, price, bedrooms, property type
 - **Favorites**: Save properties and compounds locally for offline access in favorites tab
 - **Real-time Data**: API integration for live property data
 
@@ -90,6 +91,7 @@ The search feature uses an improved BLoC pattern with enhanced state management:
 **SearchEvent Classes**
 - `LoadInitialDataEvent` - Loads areas, compounds, filter options concurrently
 - `SearchPropertiesEvent` - Searches properties with filters
+- `SearchWithQueryEvent` - Searches properties with text query and filters (debounced)
 - `UpdateFiltersEvent` - Updates filters without triggering search
 - `ClearFiltersEvent` - Clears all applied filters
 - `ResetSearchEvent` - Resets entire search state
@@ -98,11 +100,12 @@ The search feature uses an improved BLoC pattern with enhanced state management:
 - **Constructor Injection**: Repository dependency injection (not added to DI container)
 - **Concurrent Loading**: Uses `Future.wait()` for parallel initial data loading
 - **Smart Parameter Handling**: Converts empty filter lists to `null` for API calls
+- **Text Search Integration**: Debounced text search with 500ms delay to optimize performance
 - **Comprehensive Error Handling**: Network, timeout, format exceptions with user-friendly messages
 
 ## Testing
 
-This project maintains comprehensive test coverage with **174 tests** achieving **100% pass rate**.
+This project maintains comprehensive test coverage with **187 tests** achieving **100% pass rate**.
 
 ### Test Architecture
 - **Unit Tests**: Core utilities (DioClient, AppLogger, ObxService)
@@ -130,10 +133,11 @@ flutter test --reporter=expanded
 ### Test Coverage Breakdown
 - **Core Utils**: 58 tests (DioClient + AppLogger + ObxService)
 - **DTO Models**: 60 tests (Property, Compound, FilterOptions, Area)
-- **Remote Sources**: 15 tests (API integration)
+- **Remote Sources**: 13 tests (API integration + text search functionality)
 - **Domain Layer**: 12 tests (Repository pattern)
 - **BLoC Layer**: 17 tests (SearchBloc business logic with bloc_test)
 - **API Contract**: 12 tests (Live endpoint validation)
+- **Text Search**: Comprehensive testing of search functionality across property names, areas, and compounds
 
 ### BLoC Testing with bloc_test
 ```bash
@@ -148,6 +152,45 @@ flutter test test/features/search/presentation/bloc/search_bloc_test.dart
 # - State convenience getters validation
 # - Error message mapping verification
 ```
+
+## Text Search Implementation
+
+The app features comprehensive text search functionality that allows users to find properties by typing search terms.
+
+### Search Capabilities
+- **Property Names**: Search within property titles (e.g., "Luxury Apartment", "Modern Villa")
+- **Area Names**: Search by location names (e.g., "El Sheikh Zayed", "New Cairo")
+- **Compound Names**: Search by development names (e.g., "ZED West", "Bloomfields")
+
+### Search Features
+- **Case-Insensitive**: "VILLA" and "villa" return identical results
+- **Partial Matching**: "zayed" matches "El Sheikh Zayed"
+- **Real-time Filtering**: Results update as you type with 500ms debounce
+- **Combined Search**: Text search works alongside area, price, and bedroom filters
+- **Smart Query Handling**: Empty/whitespace queries return all properties
+
+### Technical Implementation
+```dart
+// Text search logic searches across multiple fields
+if (searchQuery != null && searchQuery.trim().isNotEmpty) {
+  final query = searchQuery.trim().toLowerCase();
+  filteredProperties = filteredProperties.where((property) {
+    final propertyName = property.name?.toLowerCase() ?? '';
+    final areaName = property.area?.name?.toLowerCase() ?? '';
+    final compoundName = property.compound?.name?.toLowerCase() ?? '';
+    
+    return propertyName.contains(query) || 
+           areaName.contains(query) || 
+           compoundName.contains(query);
+  }).toList();
+}
+```
+
+### Search Architecture
+- **SearchBloc**: Handles `SearchWithQueryEvent` with debounced input processing
+- **PropertyRepository**: Passes search queries to data sources
+- **PropertyRemoteSource**: Implements client-side text filtering logic
+- **SearchBarWidget**: Triggers search events on text input changes
 
 ## Data Strategy
 
