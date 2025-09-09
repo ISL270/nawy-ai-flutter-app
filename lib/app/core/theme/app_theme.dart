@@ -3,14 +3,12 @@ import 'package:flutter/material.dart';
 /// Nawy App Theme Configuration
 ///
 /// Brand Colors:
-/// - Primary: #1C3D5C (Deep Navy)
-/// - Secondary: #0169A1 (Bright Blue)
-/// - Accent: #FC5600 (Vibrant Orange)
+/// - Primary: #0169A1 (Bright Blue)
+/// - Secondary: #FC5600 (Vibrant Orange)
 /// - Support: #7AC7BD (Teal)
 /// - Neutral: #000000 (Black)
 class AppTheme {
   // Brand Colors
-  static const Color deepNavy = Color(0xFF1C3D5C);
   static const Color brightBlue = Color(0xFF0169A1);
   static const Color vibrantOrange = Color(0xFFFC5600);
   static const Color supportTeal = Color(0xFF7AC7BD);
@@ -23,9 +21,9 @@ class AppTheme {
 
     // Color Scheme
     colorScheme: const ColorScheme.light(
-      primary: deepNavy,
+      primary: brightBlue,
       onPrimary: white,
-      secondary: brightBlue,
+      secondary: vibrantOrange,
       onSecondary: white,
       tertiary: vibrantOrange,
       onTertiary: white,
