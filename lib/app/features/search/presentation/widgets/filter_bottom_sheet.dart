@@ -41,7 +41,7 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    
+
     return Container(
       height: MediaQuery.of(context).size.height * 0.85,
       decoration: BoxDecoration(
@@ -52,7 +52,7 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
         children: [
           // Header
           const FilterBottomSheetHeader(),
-          
+
           // Filters content
           Expanded(
             child: SingleChildScrollView(
@@ -70,9 +70,9 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
                       });
                     },
                   ),
-                  
+
                   const SizedBox(height: 24),
-                  
+
                   // Compounds filter
                   CompoundsFilterSection(
                     compounds: widget.compounds,
@@ -83,9 +83,9 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
                       });
                     },
                   ),
-                  
+
                   const SizedBox(height: 24),
-                  
+
                   // Property types filter
                   PropertyTypesFilterSection(
                     propertyTypes: widget.propertyTypes,
@@ -96,9 +96,9 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
                       });
                     },
                   ),
-                  
+
                   const SizedBox(height: 24),
-                  
+
                   // Price range filter
                   PriceRangeFilterSection(
                     priceOptions: widget.priceOptions,
@@ -115,9 +115,9 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
                       });
                     },
                   ),
-                  
+
                   const SizedBox(height: 24),
-                  
+
                   // Bedrooms filter
                   BedroomsFilterSection(
                     bedroomOptions: widget.bedroomOptions,
@@ -134,13 +134,13 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
                       });
                     },
                   ),
-                  
+
                   const SizedBox(height: 100), // Space for bottom buttons
                 ],
               ),
             ),
           ),
-          
+
           // Bottom buttons
           FilterBottomButtons(filters: _filters),
         ],
@@ -154,11 +154,7 @@ class FilterItem {
   final String name;
   final bool isSelected;
 
-  const FilterItem({
-    required this.id,
-    required this.name,
-    required this.isSelected,
-  });
+  const FilterItem({required this.id, required this.name, required this.isSelected});
 }
 
 /// Filter bottom sheet header widget
@@ -168,23 +164,17 @@ class FilterBottomSheetHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    
+
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        border: Border(
-          bottom: BorderSide(
-            color: theme.colorScheme.outline.withOpacity(0.2),
-          ),
-        ),
+        border: Border(bottom: BorderSide(color: theme.colorScheme.outline.withOpacity(0.2))),
       ),
       child: Row(
         children: [
           Text(
             'Filter Properties',
-            style: theme.textTheme.titleLarge?.copyWith(
-              fontWeight: FontWeight.w600,
-            ),
+            style: theme.textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w600),
           ),
           const Spacer(),
           IconButton(
@@ -215,11 +205,15 @@ class AreasFilterSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiSelectFilterWidget(
       title: 'Areas',
-      items: areas.map((area) => FilterItem(
-        id: area.id,
-        name: area.name,
-        isSelected: selectedAreaIds.contains(area.id),
-      )).toList(),
+      items: areas
+          .map(
+            (area) => FilterItem(
+              id: area.id,
+              name: area.name,
+              isSelected: selectedAreaIds.contains(area.id),
+            ),
+          )
+          .toList(),
       onSelectionChanged: onSelectionChanged,
     );
   }
@@ -242,11 +236,15 @@ class CompoundsFilterSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiSelectFilterWidget(
       title: 'Compounds',
-      items: compounds.map((compound) => FilterItem(
-        id: compound.id,
-        name: compound.name,
-        isSelected: selectedCompoundIds.contains(compound.id),
-      )).toList(),
+      items: compounds
+          .map(
+            (compound) => FilterItem(
+              id: compound.id,
+              name: compound.name,
+              isSelected: selectedCompoundIds.contains(compound.id),
+            ),
+          )
+          .toList(),
       onSelectionChanged: onSelectionChanged,
     );
   }
@@ -269,11 +267,15 @@ class PropertyTypesFilterSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiSelectFilterWidget(
       title: 'Property Types',
-      items: propertyTypes.map((type) => FilterItem(
-        id: type.id,
-        name: type.name,
-        isSelected: selectedPropertyTypeIds.contains(type.id),
-      )).toList(),
+      items: propertyTypes
+          .map(
+            (type) => FilterItem(
+              id: type.id,
+              name: type.name,
+              isSelected: selectedPropertyTypeIds.contains(type.id),
+            ),
+          )
+          .toList(),
       onSelectionChanged: onSelectionChanged,
     );
   }
@@ -299,40 +301,74 @@ class PriceRangeFilterSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    
+
+    // Get actual min and max from API price options only
+    if (priceOptions.isEmpty) {
+      return const SizedBox.shrink(); // Don't show price filter if no options
+    }
+
+    final minOption = priceOptions.first.toDouble();
+    final maxOption = priceOptions.last.toDouble();
+
+    // Current range values
+    final currentMin = (minPrice ?? minOption.toInt()).toDouble();
+    final currentMax = (maxPrice ?? maxOption.toInt()).toDouble();
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
           'Price Range',
-          style: theme.textTheme.titleMedium?.copyWith(
-            fontWeight: FontWeight.w600,
-          ),
+          style: theme.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w600),
         ),
         const SizedBox(height: 12),
+
+        // Range values display
         Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Expanded(
-              child: PriceDropdownWidget(
-                label: 'Min Price',
-                value: minPrice,
-                priceOptions: priceOptions,
-                onChanged: onMinPriceChanged,
+            Text(
+              _formatPrice(currentMin),
+              style: theme.textTheme.bodyMedium?.copyWith(
+                color: theme.colorScheme.primary,
+                fontWeight: FontWeight.w500,
               ),
             ),
-            const SizedBox(width: 16),
-            Expanded(
-              child: PriceDropdownWidget(
-                label: 'Max Price',
-                value: maxPrice,
-                priceOptions: priceOptions,
-                onChanged: onMaxPriceChanged,
+            Text(
+              _formatPrice(currentMax),
+              style: theme.textTheme.bodyMedium?.copyWith(
+                color: theme.colorScheme.primary,
+                fontWeight: FontWeight.w500,
               ),
             ),
           ],
         ),
+        const SizedBox(height: 8),
+
+        // Range slider
+        RangeSlider(
+          values: RangeValues(currentMin, currentMax),
+          min: minOption,
+          max: maxOption,
+          divisions: 20,
+          labels: RangeLabels(_formatPrice(currentMin), _formatPrice(currentMax)),
+          onChanged: (RangeValues values) {
+            onMinPriceChanged(values.start.round());
+            onMaxPriceChanged(values.end.round());
+          },
+        ),
       ],
     );
+  }
+
+  String _formatPrice(double price) {
+    if (price >= 1000000) {
+      return '${(price / 1000000).toStringAsFixed(1)}M EGP';
+    } else if (price >= 1000) {
+      return '${(price / 1000).toStringAsFixed(0)}K EGP';
+    } else {
+      return '${price.toStringAsFixed(0)} EGP';
+    }
   }
 }
 
@@ -356,40 +392,70 @@ class BedroomsFilterSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    
+
+    // Get actual min and max from bedroom options, with fallbacks
+    final minOption = bedroomOptions.isNotEmpty ? bedroomOptions.first.toDouble() : 1.0;
+    final maxOption = bedroomOptions.isNotEmpty ? bedroomOptions.last.toDouble() : 6.0;
+
+    // Use actual bedroom options length for divisions, or default to 5
+    final divisions = bedroomOptions.length > 1 ? bedroomOptions.length - 1 : 5;
+
+    // Current range values
+    final currentMin = (minBedrooms ?? minOption.toInt()).toDouble();
+    final currentMax = (maxBedrooms ?? maxOption.toInt()).toDouble();
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          'Bedrooms',
-          style: theme.textTheme.titleMedium?.copyWith(
-            fontWeight: FontWeight.w600,
-          ),
-        ),
+        Text('Bedrooms', style: theme.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w600)),
         const SizedBox(height: 12),
+
+        // Range values display
         Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Expanded(
-              child: BedroomDropdownWidget(
-                label: 'Min Bedrooms',
-                value: minBedrooms,
-                bedroomOptions: bedroomOptions,
-                onChanged: onMinBedroomsChanged,
+            Text(
+              _formatBedrooms(currentMin.toInt()),
+              style: theme.textTheme.bodyMedium?.copyWith(
+                color: theme.colorScheme.primary,
+                fontWeight: FontWeight.w500,
               ),
             ),
-            const SizedBox(width: 16),
-            Expanded(
-              child: BedroomDropdownWidget(
-                label: 'Max Bedrooms',
-                value: maxBedrooms,
-                bedroomOptions: bedroomOptions,
-                onChanged: onMaxBedroomsChanged,
+            Text(
+              _formatBedrooms(currentMax.toInt()),
+              style: theme.textTheme.bodyMedium?.copyWith(
+                color: theme.colorScheme.primary,
+                fontWeight: FontWeight.w500,
               ),
             ),
           ],
         ),
+        const SizedBox(height: 8),
+
+        // Range slider
+        RangeSlider(
+          values: RangeValues(currentMin, currentMax),
+          min: minOption,
+          max: maxOption,
+          divisions: divisions,
+          labels: RangeLabels(
+            _formatBedrooms(currentMin.toInt()),
+            _formatBedrooms(currentMax.toInt()),
+          ),
+          onChanged: (RangeValues values) {
+            onMinBedroomsChanged(values.start.round());
+            onMaxBedroomsChanged(values.end.round());
+          },
+        ),
       ],
     );
+  }
+
+  String _formatBedrooms(int bedrooms) {
+    if (bedrooms >= 6) {
+      return '6+ BR';
+    }
+    return '$bedrooms BR';
   }
 }
 
@@ -402,16 +468,12 @@ class FilterBottomButtons extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    
+
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: theme.colorScheme.surface,
-        border: Border(
-          top: BorderSide(
-            color: theme.colorScheme.outline.withOpacity(0.2),
-          ),
-        ),
+        border: Border(top: BorderSide(color: theme.colorScheme.outline.withOpacity(0.2))),
       ),
       child: SafeArea(
         child: Row(
@@ -460,134 +522,41 @@ class MultiSelectFilterWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          title,
-          style: theme.textTheme.titleMedium?.copyWith(
-            fontWeight: FontWeight.w600,
-          ),
-        ),
+        Text(title, style: theme.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w600)),
         const SizedBox(height: 12),
         Wrap(
           spacing: 8,
           runSpacing: 8,
-          children: items.map((item) => FilterChip(
-            label: Text(item.name),
-            selected: item.isSelected,
-            onSelected: (selected) {
-              final currentSelection = items
-                  .where((i) => i.isSelected)
-                  .map((i) => i.id)
-                  .toList();
-              
-              if (selected) {
-                currentSelection.add(item.id);
-              } else {
-                currentSelection.remove(item.id);
-              }
-              
-              onSelectionChanged(currentSelection);
-            },
-            selectedColor: theme.colorScheme.primary.withOpacity(0.2),
-            checkmarkColor: theme.colorScheme.primary,
-          )).toList(),
+          children: items
+              .map(
+                (item) => FilterChip(
+                  label: Text(item.name),
+                  selected: item.isSelected,
+                  onSelected: (selected) {
+                    final currentSelection = items
+                        .where((i) => i.isSelected)
+                        .map((i) => i.id)
+                        .toList();
+
+                    if (selected) {
+                      currentSelection.add(item.id);
+                    } else {
+                      currentSelection.remove(item.id);
+                    }
+
+                    onSelectionChanged(currentSelection);
+                  },
+                  selectedColor: theme.colorScheme.primary.withOpacity(0.2),
+                  checkmarkColor: theme.colorScheme.primary,
+                ),
+              )
+              .toList(),
         ),
       ],
-    );
-  }
-}
-
-/// Price dropdown widget
-class PriceDropdownWidget extends StatelessWidget {
-  final String label;
-  final int? value;
-  final List<int> priceOptions;
-  final Function(int?) onChanged;
-
-  const PriceDropdownWidget({
-    super.key,
-    required this.label,
-    required this.value,
-    required this.priceOptions,
-    required this.onChanged,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return DropdownButtonFormField<int?>(
-      value: value,
-      decoration: InputDecoration(
-        labelText: label,
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(8),
-        ),
-        contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-      ),
-      items: [
-        const DropdownMenuItem<int?>(
-          value: null,
-          child: Text('Any'),
-        ),
-        ...priceOptions.map((price) => DropdownMenuItem<int?>(
-          value: price,
-          child: Text(_formatPrice(price.toDouble())),
-        )),
-      ],
-      onChanged: onChanged,
-    );
-  }
-
-  String _formatPrice(double price) {
-    if (price >= 1000000) {
-      return '${(price / 1000000).toStringAsFixed(1)}M EGP';
-    } else if (price >= 1000) {
-      return '${(price / 1000).toStringAsFixed(0)}K EGP';
-    } else {
-      return '${price.toStringAsFixed(0)} EGP';
-    }
-  }
-}
-
-/// Bedroom dropdown widget
-class BedroomDropdownWidget extends StatelessWidget {
-  final String label;
-  final int? value;
-  final List<int> bedroomOptions;
-  final Function(int?) onChanged;
-
-  const BedroomDropdownWidget({
-    super.key,
-    required this.label,
-    required this.value,
-    required this.bedroomOptions,
-    required this.onChanged,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return DropdownButtonFormField<int?>(
-      value: value,
-      decoration: InputDecoration(
-        labelText: label,
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(8),
-        ),
-        contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-      ),
-      items: [
-        const DropdownMenuItem<int?>(
-          value: null,
-          child: Text('Any'),
-        ),
-        ...bedroomOptions.map((bedrooms) => DropdownMenuItem<int?>(
-          value: bedrooms,
-          child: Text('$bedrooms BR'),
-        )),
-      ],
-      onChanged: onChanged,
     );
   }
 }
