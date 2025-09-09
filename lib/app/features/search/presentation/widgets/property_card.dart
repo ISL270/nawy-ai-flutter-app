@@ -104,7 +104,7 @@ class PropertyImagePlaceholder extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(Icons.home, size: 48, color: theme.colorScheme.onSurfaceVariant.withOpacity(0.5)),
+            Icon(Icons.home, size: 48, color: theme.colorScheme.primary.withOpacity(0.5)),
             const SizedBox(height: 8),
             Text(
               'No Image',
@@ -158,7 +158,7 @@ class PropertyLocationInfo extends StatelessWidget {
 
     return Row(
       children: [
-        Icon(Icons.location_on_outlined, size: 18, color: theme.colorScheme.onSurfaceVariant),
+        Icon(Icons.location_on_outlined, size: 18, color: theme.colorScheme.primary),
         const SizedBox(width: 6),
         Expanded(
           child: Text(
@@ -267,7 +267,7 @@ class PropertyDetailChip extends StatelessWidget {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Icon(icon, size: 14, color: theme.colorScheme.onSurfaceVariant),
+          Icon(icon, size: 14, color: theme.colorScheme.primary),
           const SizedBox(width: 4),
           Text(
             label,
@@ -300,7 +300,7 @@ class PropertyPriceAndFavorite extends StatelessWidget {
           onPressed: onFavoriteToggle,
           icon: Icon(
             property.isFavorite ? Icons.favorite : Icons.favorite_border,
-            color: property.isFavorite ? Colors.red : theme.colorScheme.onSurfaceVariant,
+            color: property.isFavorite ? Colors.red : theme.colorScheme.primary,
             size: 28,
           ),
           visualDensity: VisualDensity.compact,
@@ -372,7 +372,7 @@ class PropertyDetailItem extends StatelessWidget {
     final content = Row(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Icon(icon, size: 19, color: theme.colorScheme.onSurfaceVariant),
+        Icon(icon, size: 19, color: theme.colorScheme.primary),
         const SizedBox(width: 6),
         Text(
           text,

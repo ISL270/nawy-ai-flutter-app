@@ -11,7 +11,6 @@ class AppTheme {
   // Brand Colors
   static const Color brightBlue = Color(0xFF0169A1);
   static const Color vibrantOrange = Color(0xFFFC5600);
-  static const Color supportTeal = Color(0xFF7AC7BD);
   static const Color neutralBlack = Color(0xFF000000);
   static const Color white = Color(0xFFFFFFFF);
 

@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:material_symbols_icons/symbols.dart';
+
 import '../../../search/presentation/explore_page.dart';
 import 'ai_chat_page.dart';
 import 'favourites_page.dart';
 import 'settings_page.dart';
 
 /// Home page with bottom navigation bar
-/// Contains four main sections: Explore, AI Chat, Favourites, Settings
+/// Contains four main sections: Explore, AI Assistant, Favourites, Settings
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -26,10 +28,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: IndexedStack(
-        index: _currentIndex,
-        children: _pages,
-      ),
+      body: IndexedStack(index: _currentIndex, children: _pages),
       bottomNavigationBar: NavigationBar(
         selectedIndex: _currentIndex,
         onDestinationSelected: (index) {
@@ -37,6 +36,10 @@ class _HomePageState extends State<HomePage> {
             _currentIndex = index;
           });
         },
+        backgroundColor: Colors.grey.shade200,
+        surfaceTintColor: Colors.transparent,
+        shadowColor: Colors.black,
+        elevation: 8,
         destinations: const [
           NavigationDestination(
             icon: Icon(Icons.explore_outlined),
@@ -44,9 +47,9 @@ class _HomePageState extends State<HomePage> {
             label: 'Explore',
           ),
           NavigationDestination(
-            icon: Icon(Icons.chat_outlined),
-            selectedIcon: Icon(Icons.chat),
-            label: 'AI Chat',
+            icon: Icon(Symbols.wand_stars),
+            selectedIcon: Icon(Symbols.wand_stars, fill: 1),
+            label: 'AI Assistant',
           ),
           NavigationDestination(
             icon: Icon(Icons.favorite_outline),
