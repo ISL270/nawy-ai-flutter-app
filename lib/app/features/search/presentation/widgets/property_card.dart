@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:nawy_app/app/features/search/domain/models/property.dart';
 
 /// Property card widget for displaying property information in search results
@@ -72,14 +73,13 @@ class PropertyImage extends StatelessWidget {
       child: property.image != null
           ? ClipRRect(
               borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
-              child: Image.network(
-                property.image!,
+              child: CachedNetworkImage(
+                imageUrl: property.image!,
                 fit: BoxFit.cover,
-                errorBuilder: (context, error, stackTrace) => const PropertyImagePlaceholder(),
-                loadingBuilder: (context, child, loadingProgress) {
-                  if (loadingProgress == null) return child;
-                  return const PropertyImagePlaceholder();
-                },
+                placeholder: (context, url) => const PropertyImagePlaceholder(),
+                errorWidget: (context, url, error) => const PropertyImagePlaceholder(),
+                fadeInDuration: const Duration(milliseconds: 300),
+                fadeOutDuration: const Duration(milliseconds: 100),
               ),
             )
           : const PropertyImagePlaceholder(),
