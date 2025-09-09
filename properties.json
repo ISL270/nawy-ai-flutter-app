@@ -813,7 +813,7 @@
       },
       "area": {
         "id": 1,
-        "name": "Area 1"
+        "name": "6th of October City"
       },
       "developer": {
         "id": 1,
@@ -877,7 +877,7 @@
       },
       "area": {
         "id": 2,
-        "name": "Area 2"
+        "name": "New Cairo"
       },
       "developer": {
         "id": 2,
@@ -941,7 +941,7 @@
       },
       "area": {
         "id": 3,
-        "name": "Area 3"
+        "name": "North Coast"
       },
       "developer": {
         "id": 3,
@@ -1005,7 +1005,7 @@
       },
       "area": {
         "id": 4,
-        "name": "Area 4"
+        "name": "Ain Sokhna"
       },
       "developer": {
         "id": 4,
@@ -1069,7 +1069,7 @@
       },
       "area": {
         "id": 5,
-        "name": "Area 5"
+        "name": "El Gouna"
       },
       "developer": {
         "id": 5,
@@ -1133,7 +1133,7 @@
       },
       "area": {
         "id": 6,
-        "name": "Area 6"
+        "name": "Somabay"
       },
       "developer": {
         "id": 1,
@@ -1197,7 +1197,7 @@
       },
       "area": {
         "id": 7,
-        "name": "Area 7"
+        "name": "Europe"
       },
       "developer": {
         "id": 2,
@@ -1261,7 +1261,7 @@
       },
       "area": {
         "id": 8,
-        "name": "Area 8"
+        "name": "El Shorouk"
       },
       "developer": {
         "id": 3,
@@ -1325,7 +1325,7 @@
       },
       "area": {
         "id": 9,
-        "name": "Area 9"
+        "name": "New Capital City"
       },
       "developer": {
         "id": 4,
@@ -1389,7 +1389,7 @@
       },
       "area": {
         "id": 10,
-        "name": "Area 10"
+        "name": "Mostakbal City"
       },
       "developer": {
         "id": 5,
@@ -1453,7 +1453,7 @@
       },
       "area": {
         "id": 1,
-        "name": "Area 1"
+        "name": "6th of October City"
       },
       "developer": {
         "id": 1,
@@ -1517,7 +1517,7 @@
       },
       "area": {
         "id": 2,
-        "name": "Area 2"
+        "name": "New Cairo"
       },
       "developer": {
         "id": 2,
@@ -1581,7 +1581,7 @@
       },
       "area": {
         "id": 3,
-        "name": "Area 3"
+        "name": "North Coast"
       },
       "developer": {
         "id": 3,
@@ -1645,7 +1645,7 @@
       },
       "area": {
         "id": 4,
-        "name": "Area 4"
+        "name": "Ain Sokhna"
       },
       "developer": {
         "id": 4,
@@ -1709,7 +1709,7 @@
       },
       "area": {
         "id": 5,
-        "name": "Area 5"
+        "name": "El Gouna"
       },
       "developer": {
         "id": 5,
@@ -1773,7 +1773,7 @@
       },
       "area": {
         "id": 6,
-        "name": "Area 6"
+        "name": "Somabay"
       },
       "developer": {
         "id": 1,
@@ -1837,7 +1837,7 @@
       },
       "area": {
         "id": 7,
-        "name": "Area 7"
+        "name": "Europe"
       },
       "developer": {
         "id": 2,
@@ -1901,7 +1901,7 @@
       },
       "area": {
         "id": 8,
-        "name": "Area 8"
+        "name": "El Shorouk"
       },
       "developer": {
         "id": 3,
@@ -1965,7 +1965,7 @@
       },
       "area": {
         "id": 9,
-        "name": "Area 9"
+        "name": "New Capital City"
       },
       "developer": {
         "id": 4,
@@ -2029,7 +2029,7 @@
       },
       "area": {
         "id": 10,
-        "name": "Area 10"
+        "name": "Mostakbal City"
       },
       "developer": {
         "id": 5,
@@ -2093,7 +2093,7 @@
       },
       "area": {
         "id": 1,
-        "name": "Area 1"
+        "name": "6th of October City"
       },
       "developer": {
         "id": 1,
@@ -2157,7 +2157,7 @@
       },
       "area": {
         "id": 2,
-        "name": "Area 2"
+        "name": "New Cairo"
       },
       "developer": {
         "id": 2,
@@ -2221,7 +2221,7 @@
       },
       "area": {
         "id": 3,
-        "name": "Area 3"
+        "name": "North Coast"
       },
       "developer": {
         "id": 3,
@@ -2285,7 +2285,7 @@
       },
       "area": {
         "id": 4,
-        "name": "Area 4"
+        "name": "Ain Sokhna"
       },
       "developer": {
         "id": 4,
@@ -2349,7 +2349,7 @@
       },
       "area": {
         "id": 5,
-        "name": "Area 5"
+        "name": "El Gouna"
       },
       "developer": {
         "id": 5,
@@ -2413,7 +2413,7 @@
       },
       "area": {
         "id": 6,
-        "name": "Area 6"
+        "name": "Somabay"
       },
       "developer": {
         "id": 1,
@@ -2477,7 +2477,7 @@
       },
       "area": {
         "id": 7,
-        "name": "Area 7"
+        "name": "Europe"
       },
       "developer": {
         "id": 2,
@@ -2541,7 +2541,7 @@
       },
       "area": {
         "id": 8,
-        "name": "Area 8"
+        "name": "El Shorouk"
       },
       "developer": {
         "id": 3,
@@ -2605,7 +2605,7 @@
       },
       "area": {
         "id": 9,
-        "name": "Area 9"
+        "name": "New Capital City"
       },
       "developer": {
         "id": 4,
@@ -2669,7 +2669,7 @@
       },
       "area": {
         "id": 10,
-        "name": "Area 10"
+        "name": "Mostakbal City"
       },
       "developer": {
         "id": 5,
@@ -2733,7 +2733,7 @@
       },
       "area": {
         "id": 1,
-        "name": "Area 1"
+        "name": "6th of October City"
       },
       "developer": {
         "id": 1,
@@ -2797,7 +2797,7 @@
       },
       "area": {
         "id": 2,
-        "name": "Area 2"
+        "name": "New Cairo"
       },
       "developer": {
         "id": 2,
@@ -2861,7 +2861,7 @@
       },
       "area": {
         "id": 3,
-        "name": "Area 3"
+        "name": "North Coast"
       },
       "developer": {
         "id": 3,
@@ -2925,7 +2925,7 @@
       },
       "area": {
         "id": 4,
-        "name": "Area 4"
+        "name": "Ain Sokhna"
       },
       "developer": {
         "id": 4,
@@ -2989,7 +2989,7 @@
       },
       "area": {
         "id": 5,
-        "name": "Area 5"
+        "name": "El Gouna"
       },
       "developer": {
         "id": 5,
@@ -3053,7 +3053,7 @@
       },
       "area": {
         "id": 6,
-        "name": "Area 6"
+        "name": "Somabay"
       },
       "developer": {
         "id": 1,
@@ -3117,7 +3117,7 @@
       },
       "area": {
         "id": 7,
-        "name": "Area 7"
+        "name": "Europe"
       },
       "developer": {
         "id": 2,
@@ -3181,7 +3181,7 @@
       },
       "area": {
         "id": 8,
-        "name": "Area 8"
+        "name": "El Shorouk"
       },
       "developer": {
         "id": 3,
@@ -3245,7 +3245,7 @@
       },
       "area": {
         "id": 9,
-        "name": "Area 9"
+        "name": "New Capital City"
       },
       "developer": {
         "id": 4,
@@ -3309,7 +3309,7 @@
       },
       "area": {
         "id": 10,
-        "name": "Area 10"
+        "name": "Mostakbal City"
       },
       "developer": {
         "id": 5,
@@ -3373,7 +3373,7 @@
       },
       "area": {
         "id": 1,
-        "name": "Area 1"
+        "name": "6th of October City"
       },
       "developer": {
         "id": 1,
@@ -3437,7 +3437,7 @@
       },
       "area": {
         "id": 2,
-        "name": "Area 2"
+        "name": "New Cairo"
       },
       "developer": {
         "id": 2,
@@ -3501,7 +3501,7 @@
       },
       "area": {
         "id": 3,
-        "name": "Area 3"
+        "name": "North Coast"
       },
       "developer": {
         "id": 3,
@@ -3565,7 +3565,7 @@
       },
       "area": {
         "id": 4,
-        "name": "Area 4"
+        "name": "Ain Sokhna"
       },
       "developer": {
         "id": 4,
@@ -3629,7 +3629,7 @@
       },
       "area": {
         "id": 5,
-        "name": "Area 5"
+        "name": "El Gouna"
       },
       "developer": {
         "id": 5,
@@ -3693,7 +3693,7 @@
       },
       "area": {
         "id": 6,
-        "name": "Area 6"
+        "name": "Somabay"
       },
       "developer": {
         "id": 1,
@@ -3757,7 +3757,7 @@
       },
       "area": {
         "id": 7,
-        "name": "Area 7"
+        "name": "Europe"
       },
       "developer": {
         "id": 2,
@@ -3821,7 +3821,7 @@
       },
       "area": {
         "id": 8,
-        "name": "Area 8"
+        "name": "El Shorouk"
       },
       "developer": {
         "id": 3,
@@ -3885,7 +3885,7 @@
       },
       "area": {
         "id": 9,
-        "name": "Area 9"
+        "name": "New Capital City"
       },
       "developer": {
         "id": 4,
@@ -3949,7 +3949,7 @@
       },
       "area": {
         "id": 10,
-        "name": "Area 10"
+        "name": "Mostakbal City"
       },
       "developer": {
         "id": 5,
@@ -4013,7 +4013,7 @@
       },
       "area": {
         "id": 1,
-        "name": "Area 1"
+        "name": "6th of October City"
       },
       "developer": {
         "id": 1,
@@ -4077,7 +4077,7 @@
       },
       "area": {
         "id": 2,
-        "name": "Area 2"
+        "name": "New Cairo"
       },
       "developer": {
         "id": 2,
@@ -4141,7 +4141,7 @@
       },
       "area": {
         "id": 3,
-        "name": "Area 3"
+        "name": "North Coast"
       },
       "developer": {
         "id": 3,
@@ -4205,7 +4205,7 @@
       },
       "area": {
         "id": 4,
-        "name": "Area 4"
+        "name": "Ain Sokhna"
       },
       "developer": {
         "id": 4,
@@ -4269,7 +4269,7 @@
       },
       "area": {
         "id": 5,
-        "name": "Area 5"
+        "name": "El Gouna"
       },
       "developer": {
         "id": 5,
@@ -4333,7 +4333,7 @@
       },
       "area": {
         "id": 6,
-        "name": "Area 6"
+        "name": "Somabay"
       },
       "developer": {
         "id": 1,
@@ -4397,7 +4397,7 @@
       },
       "area": {
         "id": 7,
-        "name": "Area 7"
+        "name": "Europe"
       },
       "developer": {
         "id": 2,
@@ -4461,7 +4461,7 @@
       },
       "area": {
         "id": 8,
-        "name": "Area 8"
+        "name": "El Shorouk"
       },
       "developer": {
         "id": 3,
@@ -4525,7 +4525,7 @@
       },
       "area": {
         "id": 9,
-        "name": "Area 9"
+        "name": "New Capital City"
       },
       "developer": {
         "id": 4,
@@ -4589,7 +4589,7 @@
       },
       "area": {
         "id": 10,
-        "name": "Area 10"
+        "name": "Mostakbal City"
       },
       "developer": {
         "id": 5,
@@ -4653,7 +4653,7 @@
       },
       "area": {
         "id": 1,
-        "name": "Area 1"
+        "name": "6th of October City"
       },
       "developer": {
         "id": 1,
@@ -4717,7 +4717,7 @@
       },
       "area": {
         "id": 2,
-        "name": "Area 2"
+        "name": "New Cairo"
       },
       "developer": {
         "id": 2,
@@ -4781,7 +4781,7 @@
       },
       "area": {
         "id": 3,
-        "name": "Area 3"
+        "name": "North Coast"
       },
       "developer": {
         "id": 3,
@@ -4845,7 +4845,7 @@
       },
       "area": {
         "id": 4,
-        "name": "Area 4"
+        "name": "Ain Sokhna"
       },
       "developer": {
         "id": 4,
@@ -4909,7 +4909,7 @@
       },
       "area": {
         "id": 5,
-        "name": "Area 5"
+        "name": "El Gouna"
       },
       "developer": {
         "id": 5,
@@ -4973,7 +4973,7 @@
       },
       "area": {
         "id": 6,
-        "name": "Area 6"
+        "name": "Somabay"
       },
       "developer": {
         "id": 1,
@@ -5037,7 +5037,7 @@
       },
       "area": {
         "id": 7,
-        "name": "Area 7"
+        "name": "Europe"
       },
       "developer": {
         "id": 2,
@@ -5101,7 +5101,7 @@
       },
       "area": {
         "id": 8,
-        "name": "Area 8"
+        "name": "El Shorouk"
       },
       "developer": {
         "id": 3,
@@ -5165,7 +5165,7 @@
       },
       "area": {
         "id": 9,
-        "name": "Area 9"
+        "name": "New Capital City"
       },
       "developer": {
         "id": 4,
@@ -5229,7 +5229,7 @@
       },
       "area": {
         "id": 10,
-        "name": "Area 10"
+        "name": "Mostakbal City"
       },
       "developer": {
         "id": 5,
@@ -5293,7 +5293,7 @@
       },
       "area": {
         "id": 1,
-        "name": "Area 1"
+        "name": "6th of October City"
       },
       "developer": {
         "id": 1,
@@ -5357,7 +5357,7 @@
       },
       "area": {
         "id": 2,
-        "name": "Area 2"
+        "name": "New Cairo"
       },
       "developer": {
         "id": 2,
@@ -5421,7 +5421,7 @@
       },
       "area": {
         "id": 3,
-        "name": "Area 3"
+        "name": "North Coast"
       },
       "developer": {
         "id": 3,
@@ -5485,7 +5485,7 @@
       },
       "area": {
         "id": 4,
-        "name": "Area 4"
+        "name": "Ain Sokhna"
       },
       "developer": {
         "id": 4,
@@ -5549,7 +5549,7 @@
       },
       "area": {
         "id": 5,
-        "name": "Area 5"
+        "name": "El Gouna"
       },
       "developer": {
         "id": 5,
@@ -5613,7 +5613,7 @@
       },
       "area": {
         "id": 6,
-        "name": "Area 6"
+        "name": "Somabay"
       },
       "developer": {
         "id": 1,
@@ -5677,7 +5677,7 @@
       },
       "area": {
         "id": 7,
-        "name": "Area 7"
+        "name": "Europe"
       },
       "developer": {
         "id": 2,
@@ -5741,7 +5741,7 @@
       },
       "area": {
         "id": 8,
-        "name": "Area 8"
+        "name": "El Shorouk"
       },
       "developer": {
         "id": 3,
@@ -5805,7 +5805,7 @@
       },
       "area": {
         "id": 9,
-        "name": "Area 9"
+        "name": "New Capital City"
       },
       "developer": {
         "id": 4,
@@ -5869,7 +5869,7 @@
       },
       "area": {
         "id": 10,
-        "name": "Area 10"
+        "name": "Mostakbal City"
       },
       "developer": {
         "id": 5,
@@ -5933,7 +5933,7 @@
       },
       "area": {
         "id": 1,
-        "name": "Area 1"
+        "name": "6th of October City"
       },
       "developer": {
         "id": 1,
@@ -5997,7 +5997,7 @@
       },
       "area": {
         "id": 2,
-        "name": "Area 2"
+        "name": "New Cairo"
       },
       "developer": {
         "id": 2,
@@ -6061,7 +6061,7 @@
       },
       "area": {
         "id": 3,
-        "name": "Area 3"
+        "name": "North Coast"
       },
       "developer": {
         "id": 3,
@@ -6125,7 +6125,7 @@
       },
       "area": {
         "id": 4,
-        "name": "Area 4"
+        "name": "Ain Sokhna"
       },
       "developer": {
         "id": 4,
@@ -6189,7 +6189,7 @@
       },
       "area": {
         "id": 5,
-        "name": "Area 5"
+        "name": "El Gouna"
       },
       "developer": {
         "id": 5,
@@ -6253,7 +6253,7 @@
       },
       "area": {
         "id": 6,
-        "name": "Area 6"
+        "name": "Somabay"
       },
       "developer": {
         "id": 1,
@@ -6317,7 +6317,7 @@
       },
       "area": {
         "id": 7,
-        "name": "Area 7"
+        "name": "Europe"
       },
       "developer": {
         "id": 2,
@@ -6381,7 +6381,7 @@
       },
       "area": {
         "id": 8,
-        "name": "Area 8"
+        "name": "El Shorouk"
       },
       "developer": {
         "id": 3,

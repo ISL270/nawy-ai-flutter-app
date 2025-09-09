@@ -67,14 +67,19 @@ class PropertyRemoteSource {
     return await ErrorHandler.executeWithTimeout(
       () async {
         final searchResponse = await _loadSearchResponseFromLocal();
-        final Set<int> uniqueAreaIds = searchResponse.properties
-            .map((p) => p.area?.id)
-            .where((id) => id != null)
-            .cast<int>()
-            .toSet();
+        final Map<int, String> uniqueAreas = <int, String>{};
+        
+        // Extract unique areas with their actual names from properties
+        for (final property in searchResponse.properties) {
+          if (property.area?.id != null && property.area?.name != null) {
+            uniqueAreas[property.area!.id] = property.area!.name;
+          }
+        }
 
-        // Create area DTOs based on the areas found in properties
-        return uniqueAreaIds.map((areaId) => AreaDto(id: areaId, name: 'Area $areaId')).toList();
+        // Create area DTOs with actual names
+        return uniqueAreas.entries
+            .map((entry) => AreaDto(id: entry.key, name: entry.value))
+            .toList();
       },
       const Duration(seconds: 10),
       'GetAreas',
@@ -101,22 +106,21 @@ class PropertyRemoteSource {
     return await ErrorHandler.executeWithTimeout(
       () async {
         final searchResponse = await _loadSearchResponseFromLocal();
-        final Set<int> uniqueCompoundIds = searchResponse.properties
-            .map((p) => p.compound?.id)
-            .where((id) => id != null)
-            .cast<int>()
-            .toSet();
+        final Map<int, CompoundDto> uniqueCompounds = <int, CompoundDto>{};
+        
+        // Extract unique compounds with their actual names from properties
+        for (final property in searchResponse.properties) {
+          if (property.compound?.id != null && property.compound?.name != null) {
+            uniqueCompounds[property.compound!.id] = CompoundDto(
+              id: property.compound!.id,
+              name: property.compound!.name,
+              areaId: property.area?.id ?? 1, // Use actual area ID or fallback
+            );
+          }
+        }
 
-        // Create compound DTOs based on the compounds found in properties
-        return uniqueCompoundIds
-            .map(
-              (compoundId) => CompoundDto(
-                id: compoundId,
-                name: 'Compound $compoundId',
-                areaId: 1, // Required field
-              ),
-            )
-            .toList();
+        // Return list of compound DTOs with actual names
+        return uniqueCompounds.values.toList();
       },
       const Duration(seconds: 10),
       'GetCompounds',
