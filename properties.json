@@ -108,7 +108,7 @@
         "nawy_organization_id": null
       },
       "area": {
-        "id": 10,
+        "id": 931,
         "name": "Mostakbal City"
       },
       "developer": {
@@ -158,7 +158,7 @@
       "slug": "46048-villa-for-sale-in-il-monte-galala-with-3-bedrooms-in-ain-sokhna-by-tatweer-misr",
       "name": "Villa for sale in Il Monte Galala with 3 bedrooms in Ain Sokhna by Tatweer Misr",
       "property_type": {
-        "id": 1,
+        "id": 229,
         "name": "Villa",
         "manual_ranking": 2
       },
@@ -172,7 +172,7 @@
         "nawy_organization_id": null
       },
       "area": {
-        "id": 4,
+        "id": 548,
         "name": "Ain Sokhna"
       },
       "developer": {
@@ -222,7 +222,7 @@
       "slug": "46090-chalet-for-sale-in-salt-with-2-bedrooms-in-north-coast-by-tatweer-misr",
       "name": "Chalet for sale in Salt with 2 bedrooms in North Coast by Tatweer Misr",
       "property_type": {
-        "id": 5,
+        "id": 480,
         "name": "Chalet",
         "manual_ranking": 7
       },
@@ -236,7 +236,7 @@
         "nawy_organization_id": null
       },
       "area": {
-        "id": 3,
+        "id": 493,
         "name": "North Coast"
       },
       "developer": {
@@ -300,7 +300,7 @@
         "nawy_organization_id": null
       },
       "area": {
-        "id": 1,
+        "id": 229,
         "name": "6th of October City"
       },
       "developer": {
@@ -364,7 +364,7 @@
         "nawy_organization_id": 2
       },
       "area": {
-        "id": 9,
+        "id": 813,
         "name": "New Capital City"
       },
       "developer": {
@@ -428,7 +428,7 @@
         "nawy_organization_id": null
       },
       "area": {
-        "id": 1,
+        "id": 229,
         "name": "6th of October City"
       },
       "developer": {
@@ -492,7 +492,7 @@
         "nawy_organization_id": null
       },
       "area": {
-        "id": 2,
+        "id": 872,
         "name": "New Cairo"
       },
       "developer": {
@@ -620,7 +620,7 @@
         "nawy_organization_id": null
       },
       "area": {
-        "id": 10,
+        "id": 931,
         "name": "Mostakbal City"
       },
       "developer": {
@@ -670,7 +670,7 @@
       "slug": "46050-villa-for-sale-in-il-monte-galala-with-4-bedrooms-in-ain-sokhna-by-tatweer-misr",
       "name": "Villa for sale in Il Monte Galala with 4 bedrooms in Ain Sokhna by Tatweer Misr",
       "property_type": {
-        "id": 1,
+        "id": 229,
         "name": "Villa",
         "manual_ranking": 2
       },
@@ -684,7 +684,7 @@
         "nawy_organization_id": null
       },
       "area": {
-        "id": 4,
+        "id": 548,
         "name": "Ain Sokhna"
       },
       "developer": {
@@ -734,7 +734,7 @@
       "slug": "46089-chalet-for-sale-in-salt-with-3-bedrooms-in-north-coast-by-tatweer-misr",
       "name": "Chalet for sale in Salt with 3 bedrooms in North Coast by Tatweer Misr",
       "property_type": {
-        "id": 5,
+        "id": 480,
         "name": "Chalet",
         "manual_ranking": 7
       },
@@ -748,7 +748,7 @@
         "nawy_organization_id": null
       },
       "area": {
-        "id": 3,
+        "id": 493,
         "name": "North Coast"
       },
       "developer": {
@@ -795,28 +795,28 @@
     },
     {
       "id": 1000,
-      "slug": "1000-apartment-for-sale-in-compound-1-with-2-bedrooms",
-      "name": "Apartment for sale in Compound 1 with 2 bedrooms",
+      "slug": "1000-apartment-for-sale-in-atrio-with-2-bedrooms",
+      "name": "Apartment for sale in ATRIO with 2 bedrooms",
       "property_type": {
         "id": 21,
         "name": "Apartment",
         "manual_ranking": 1
       },
       "compound": {
-        "id": 1,
+        "id": 229,
         "lat": 30.4069552,
         "long": 31.4406283,
-        "name": "Compound 1",
-        "slug": "1-compound-1",
+        "name": "ATRIO",
+        "slug": "229-atrio",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 1,
+        "id": 229,
         "name": "6th of October City"
       },
       "developer": {
-        "id": 1,
+        "id": 229,
         "name": "Developer 1",
         "slug": "1-developer-1",
         "logo_path": "https://via.placeholder.com/150"
@@ -859,28 +859,28 @@
     },
     {
       "id": 1001,
-      "slug": "1001-villa-for-sale-in-compound-2-with-6-bedrooms",
-      "name": "Villa for sale in Compound 2 with 6 bedrooms",
+      "slug": "1001-villa-for-sale-in-la-vista-ras-el-hekma-with-6-bedrooms",
+      "name": "Villa for sale in La Vista Ras El Hekma with 6 bedrooms",
       "property_type": {
-        "id": 1,
+        "id": 229,
         "name": "Villa",
         "manual_ranking": 2
       },
       "compound": {
-        "id": 2,
+        "id": 872,
         "lat": 29.805416,
         "long": 30.9298523,
-        "name": "Compound 2",
-        "slug": "2-compound-2",
+        "name": "LDP",
+        "slug": "872-ldp",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 2,
+        "id": 872,
         "name": "New Cairo"
       },
       "developer": {
-        "id": 2,
+        "id": 872,
         "name": "Developer 2",
         "slug": "2-developer-2",
         "logo_path": "https://via.placeholder.com/150"
@@ -923,28 +923,28 @@
     },
     {
       "id": 1002,
-      "slug": "1002-chalet-for-sale-in-compound-3-with-3-bedrooms",
-      "name": "Chalet for sale in Compound 3 with 3 bedrooms",
+      "slug": "1002-chalet-for-sale-in-hacienda-bay-with-3-bedrooms",
+      "name": "Chalet for sale in Hacienda Bay with 3 bedrooms",
       "property_type": {
-        "id": 5,
+        "id": 480,
         "name": "Chalet",
         "manual_ranking": 3
       },
       "compound": {
-        "id": 3,
+        "id": 493,
         "lat": 29.6343714,
         "long": 30.5470343,
-        "name": "Compound 3",
-        "slug": "3-compound-3",
+        "name": "Il Latini SED",
+        "slug": "493-il-latini-new-alamein",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 3,
+        "id": 493,
         "name": "North Coast"
       },
       "developer": {
-        "id": 3,
+        "id": 493,
         "name": "Developer 3",
         "slug": "3-developer-3",
         "logo_path": "https://via.placeholder.com/150"
@@ -987,28 +987,28 @@
     },
     {
       "id": 1003,
-      "slug": "1003-duplex-for-sale-in-compound-4-with-4-bedrooms",
-      "name": "Duplex for sale in Compound 4 with 4 bedrooms",
+      "slug": "1003-duplex-for-sale-in-el-gouna-with-4-bedrooms",
+      "name": "Duplex for sale in El Gouna with 4 bedrooms",
       "property_type": {
-        "id": 3,
+        "id": 493,
         "name": "Duplex",
         "manual_ranking": 4
       },
       "compound": {
-        "id": 4,
+        "id": 548,
         "lat": 30.1001853,
         "long": 30.7926291,
-        "name": "Compound 4",
-        "slug": "4-compound-4",
+        "name": "4T4 ",
+        "slug": "548-4t4-new-capital",
         "sponsored": 0,
-        "nawy_organization_id": null
+        "nawy_organization_id": 2
       },
       "area": {
-        "id": 4,
+        "id": 548,
         "name": "Ain Sokhna"
       },
       "developer": {
-        "id": 4,
+        "id": 548,
         "name": "Developer 4",
         "slug": "4-developer-4",
         "logo_path": "https://via.placeholder.com/150"
@@ -1051,28 +1051,28 @@
     },
     {
       "id": 1004,
-      "slug": "1004-studio-for-sale-in-compound-5-with-0-bedrooms",
-      "name": "Studio for sale in Compound 5 with 0 bedrooms",
+      "slug": "1004-studio-for-sale-in-la-vista-topaz-with-0-bedrooms",
+      "name": "Studio for sale in La Vista Topaz with 0 bedrooms",
       "property_type": {
-        "id": 4,
+        "id": 548,
         "name": "Studio",
         "manual_ranking": 5
       },
       "compound": {
-        "id": 5,
+        "id": 480,
         "lat": 29.9623062,
         "long": 30.8826509,
-        "name": "Compound 5",
-        "slug": "5-compound-5",
+        "name": "Atika",
+        "slug": "480-atika",
         "sponsored": 0,
-        "nawy_organization_id": null
+        "nawy_organization_id": 2
       },
       "area": {
-        "id": 5,
+        "id": 480,
         "name": "El Gouna"
       },
       "developer": {
-        "id": 5,
+        "id": 480,
         "name": "Developer 5",
         "slug": "5-developer-5",
         "logo_path": "https://via.placeholder.com/150"
@@ -1115,28 +1115,28 @@
     },
     {
       "id": 1005,
-      "slug": "1005-apartment-for-sale-in-compound-6-with-3-bedrooms",
-      "name": "Apartment for sale in Compound 6 with 3 bedrooms",
+      "slug": "1005-apartment-for-sale-in-cairo-festival-city-with-3-bedrooms",
+      "name": "Apartment for sale in Cairo Festival City with 3 bedrooms",
       "property_type": {
         "id": 21,
         "name": "Apartment",
         "manual_ranking": 1
       },
       "compound": {
-        "id": 6,
+        "id": 461,
         "lat": 30.2637295,
         "long": 31.208958,
-        "name": "Compound 6",
-        "slug": "6-compound-6",
+        "name": "The V Hub",
+        "slug": "461-the-v-hub",
         "sponsored": 0,
-        "nawy_organization_id": null
+        "nawy_organization_id": 2
       },
       "area": {
-        "id": 6,
+        "id": 461,
         "name": "Somabay"
       },
       "developer": {
-        "id": 1,
+        "id": 229,
         "name": "Developer 1",
         "slug": "1-developer-1",
         "logo_path": "https://via.placeholder.com/150"
@@ -1179,28 +1179,28 @@
     },
     {
       "id": 1006,
-      "slug": "1006-villa-for-sale-in-compound-7-with-5-bedrooms",
-      "name": "Villa for sale in Compound 7 with 5 bedrooms",
+      "slug": "1006-villa-for-sale-in-new-giza-with-5-bedrooms",
+      "name": "Villa for sale in New Giza with 5 bedrooms",
       "property_type": {
-        "id": 1,
+        "id": 229,
         "name": "Villa",
         "manual_ranking": 2
       },
       "compound": {
-        "id": 7,
+        "id": 1025,
         "lat": 30.2290452,
         "long": 31.1135171,
-        "name": "Compound 7",
-        "slug": "7-compound-7",
+        "name": "Elite Park",
+        "slug": "1025-elite-park",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 7,
+        "id": 1025,
         "name": "Europe"
       },
       "developer": {
-        "id": 2,
+        "id": 872,
         "name": "Developer 2",
         "slug": "2-developer-2",
         "logo_path": "https://via.placeholder.com/150"
@@ -1243,28 +1243,28 @@
     },
     {
       "id": 1007,
-      "slug": "1007-chalet-for-sale-in-compound-8-with-4-bedrooms",
-      "name": "Chalet for sale in Compound 8 with 4 bedrooms",
+      "slug": "1007-chalet-for-sale-in-la-vista-gardens-with-4-bedrooms",
+      "name": "Chalet for sale in La Vista Gardens with 4 bedrooms",
       "property_type": {
-        "id": 5,
+        "id": 480,
         "name": "Chalet",
         "manual_ranking": 3
       },
       "compound": {
-        "id": 8,
+        "id": 200,
         "lat": 30.1796504,
         "long": 30.9074325,
-        "name": "Compound 8",
-        "slug": "8-compound-8",
+        "name": "AEON Towers",
+        "slug": "200-aeon-towers",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 8,
+        "id": 200,
         "name": "El Shorouk"
       },
       "developer": {
-        "id": 3,
+        "id": 493,
         "name": "Developer 3",
         "slug": "3-developer-3",
         "logo_path": "https://via.placeholder.com/150"
@@ -1307,28 +1307,28 @@
     },
     {
       "id": 1008,
-      "slug": "1008-duplex-for-sale-in-compound-9-with-2-bedrooms",
-      "name": "Duplex for sale in Compound 9 with 2 bedrooms",
+      "slug": "1008-duplex-for-sale-in-cairo-capital-center-with-2-bedrooms",
+      "name": "Duplex for sale in Cairo Capital Center with 2 bedrooms",
       "property_type": {
-        "id": 3,
+        "id": 493,
         "name": "Duplex",
         "manual_ranking": 4
       },
       "compound": {
-        "id": 9,
+        "id": 813,
         "lat": 30.244419,
         "long": 31.2405268,
-        "name": "Compound 9",
-        "slug": "9-compound-9",
+        "name": "205 DownTown ",
+        "slug": "813-205-downtown-metropolis",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 9,
+        "id": 813,
         "name": "New Capital City"
       },
       "developer": {
-        "id": 4,
+        "id": 548,
         "name": "Developer 4",
         "slug": "4-developer-4",
         "logo_path": "https://via.placeholder.com/150"
@@ -1371,28 +1371,28 @@
     },
     {
       "id": 1009,
-      "slug": "1009-studio-for-sale-in-compound-10-with-0-bedrooms",
-      "name": "Studio for sale in Compound 10 with 0 bedrooms",
+      "slug": "1009-studio-for-sale-in-la-vista-el-sokhna-with-0-bedrooms",
+      "name": "Studio for sale in La Vista El Sokhna with 0 bedrooms",
       "property_type": {
-        "id": 4,
+        "id": 548,
         "name": "Studio",
         "manual_ranking": 5
       },
       "compound": {
-        "id": 10,
+        "id": 931,
         "lat": 29.930336,
         "long": 31.0704217,
-        "name": "Compound 10",
-        "slug": "10-compound-10",
+        "name": "205 Arkan Palm",
+        "slug": "931-205-arkan-palm",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 10,
+        "id": 931,
         "name": "Mostakbal City"
       },
       "developer": {
-        "id": 5,
+        "id": 480,
         "name": "Developer 5",
         "slug": "5-developer-5",
         "logo_path": "https://via.placeholder.com/150"
@@ -1435,28 +1435,28 @@
     },
     {
       "id": 1010,
-      "slug": "1010-apartment-for-sale-in-compound-1-with-1-bedroom",
-      "name": "Apartment for sale in Compound 1 with 1 bedroom",
+      "slug": "1010-apartment-for-sale-in-atrio-with-1-bedroom",
+      "name": "Apartment for sale in ATRIO with 1 bedroom",
       "property_type": {
         "id": 21,
         "name": "Apartment",
         "manual_ranking": 1
       },
       "compound": {
-        "id": 1,
+        "id": 229,
         "lat": 30.0346743,
         "long": 30.6474289,
-        "name": "Compound 1",
-        "slug": "1-compound-1",
+        "name": "ATRIO",
+        "slug": "229-atrio",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 1,
+        "id": 229,
         "name": "6th of October City"
       },
       "developer": {
-        "id": 1,
+        "id": 229,
         "name": "Developer 1",
         "slug": "1-developer-1",
         "logo_path": "https://via.placeholder.com/150"
@@ -1499,28 +1499,28 @@
     },
     {
       "id": 1011,
-      "slug": "1011-villa-for-sale-in-compound-2-with-5-bedrooms",
-      "name": "Villa for sale in Compound 2 with 5 bedrooms",
+      "slug": "1011-villa-for-sale-in-la-vista-ras-el-hekma-with-5-bedrooms",
+      "name": "Villa for sale in La Vista Ras El Hekma with 5 bedrooms",
       "property_type": {
-        "id": 1,
+        "id": 229,
         "name": "Villa",
         "manual_ranking": 2
       },
       "compound": {
-        "id": 2,
+        "id": 872,
         "lat": 30.1439358,
         "long": 31.0895933,
-        "name": "Compound 2",
-        "slug": "2-compound-2",
+        "name": "LDP",
+        "slug": "872-ldp",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 2,
+        "id": 872,
         "name": "New Cairo"
       },
       "developer": {
-        "id": 2,
+        "id": 872,
         "name": "Developer 2",
         "slug": "2-developer-2",
         "logo_path": "https://via.placeholder.com/150"
@@ -1563,28 +1563,28 @@
     },
     {
       "id": 1012,
-      "slug": "1012-chalet-for-sale-in-compound-3-with-4-bedrooms",
-      "name": "Chalet for sale in Compound 3 with 4 bedrooms",
+      "slug": "1012-chalet-for-sale-in-hacienda-bay-with-4-bedrooms",
+      "name": "Chalet for sale in Hacienda Bay with 4 bedrooms",
       "property_type": {
-        "id": 5,
+        "id": 480,
         "name": "Chalet",
         "manual_ranking": 3
       },
       "compound": {
-        "id": 3,
+        "id": 493,
         "lat": 29.8149759,
         "long": 31.1180469,
-        "name": "Compound 3",
-        "slug": "3-compound-3",
+        "name": "Il Latini SED",
+        "slug": "493-il-latini-new-alamein",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 3,
+        "id": 493,
         "name": "North Coast"
       },
       "developer": {
-        "id": 3,
+        "id": 493,
         "name": "Developer 3",
         "slug": "3-developer-3",
         "logo_path": "https://via.placeholder.com/150"
@@ -1627,28 +1627,28 @@
     },
     {
       "id": 1013,
-      "slug": "1013-duplex-for-sale-in-compound-4-with-5-bedrooms",
-      "name": "Duplex for sale in Compound 4 with 5 bedrooms",
+      "slug": "1013-duplex-for-sale-in-el-gouna-with-5-bedrooms",
+      "name": "Duplex for sale in El Gouna with 5 bedrooms",
       "property_type": {
-        "id": 3,
+        "id": 493,
         "name": "Duplex",
         "manual_ranking": 4
       },
       "compound": {
-        "id": 4,
+        "id": 548,
         "lat": 30.3196769,
         "long": 31.3856263,
-        "name": "Compound 4",
-        "slug": "4-compound-4",
+        "name": "4T4 ",
+        "slug": "548-4t4-new-capital",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 4,
+        "id": 548,
         "name": "Ain Sokhna"
       },
       "developer": {
-        "id": 4,
+        "id": 548,
         "name": "Developer 4",
         "slug": "4-developer-4",
         "logo_path": "https://via.placeholder.com/150"
@@ -1691,28 +1691,28 @@
     },
     {
       "id": 1014,
-      "slug": "1014-studio-for-sale-in-compound-5-with-0-bedrooms",
-      "name": "Studio for sale in Compound 5 with 0 bedrooms",
+      "slug": "1014-studio-for-sale-in-la-vista-topaz-with-0-bedrooms",
+      "name": "Studio for sale in La Vista Topaz with 0 bedrooms",
       "property_type": {
-        "id": 4,
+        "id": 548,
         "name": "Studio",
         "manual_ranking": 5
       },
       "compound": {
-        "id": 5,
+        "id": 480,
         "lat": 29.9683279,
         "long": 31.486745,
-        "name": "Compound 5",
-        "slug": "5-compound-5",
+        "name": "Atika",
+        "slug": "480-atika",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 5,
+        "id": 480,
         "name": "El Gouna"
       },
       "developer": {
-        "id": 5,
+        "id": 480,
         "name": "Developer 5",
         "slug": "5-developer-5",
         "logo_path": "https://via.placeholder.com/150"
@@ -1755,28 +1755,28 @@
     },
     {
       "id": 1015,
-      "slug": "1015-apartment-for-sale-in-compound-6-with-2-bedrooms",
-      "name": "Apartment for sale in Compound 6 with 2 bedrooms",
+      "slug": "1015-apartment-for-sale-in-cairo-festival-city-with-2-bedrooms",
+      "name": "Apartment for sale in Cairo Festival City with 2 bedrooms",
       "property_type": {
         "id": 21,
         "name": "Apartment",
         "manual_ranking": 1
       },
       "compound": {
-        "id": 6,
+        "id": 461,
         "lat": 30.2383443,
         "long": 31.38041,
-        "name": "Compound 6",
-        "slug": "6-compound-6",
+        "name": "The V Hub",
+        "slug": "461-the-v-hub",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 6,
+        "id": 461,
         "name": "Somabay"
       },
       "developer": {
-        "id": 1,
+        "id": 229,
         "name": "Developer 1",
         "slug": "1-developer-1",
         "logo_path": "https://via.placeholder.com/150"
@@ -1819,28 +1819,28 @@
     },
     {
       "id": 1016,
-      "slug": "1016-villa-for-sale-in-compound-7-with-6-bedrooms",
-      "name": "Villa for sale in Compound 7 with 6 bedrooms",
+      "slug": "1016-villa-for-sale-in-new-giza-with-6-bedrooms",
+      "name": "Villa for sale in New Giza with 6 bedrooms",
       "property_type": {
-        "id": 1,
+        "id": 229,
         "name": "Villa",
         "manual_ranking": 2
       },
       "compound": {
-        "id": 7,
+        "id": 1025,
         "lat": 30.0293263,
         "long": 30.8775482,
-        "name": "Compound 7",
-        "slug": "7-compound-7",
+        "name": "Elite Park",
+        "slug": "1025-elite-park",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 7,
+        "id": 1025,
         "name": "Europe"
       },
       "developer": {
-        "id": 2,
+        "id": 872,
         "name": "Developer 2",
         "slug": "2-developer-2",
         "logo_path": "https://via.placeholder.com/150"
@@ -1883,28 +1883,28 @@
     },
     {
       "id": 1017,
-      "slug": "1017-chalet-for-sale-in-compound-8-with-4-bedrooms",
-      "name": "Chalet for sale in Compound 8 with 4 bedrooms",
+      "slug": "1017-chalet-for-sale-in-la-vista-gardens-with-4-bedrooms",
+      "name": "Chalet for sale in La Vista Gardens with 4 bedrooms",
       "property_type": {
-        "id": 5,
+        "id": 480,
         "name": "Chalet",
         "manual_ranking": 3
       },
       "compound": {
-        "id": 8,
+        "id": 200,
         "lat": 29.6061645,
         "long": 30.9826712,
-        "name": "Compound 8",
-        "slug": "8-compound-8",
+        "name": "AEON Towers",
+        "slug": "200-aeon-towers",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 8,
+        "id": 200,
         "name": "El Shorouk"
       },
       "developer": {
-        "id": 3,
+        "id": 493,
         "name": "Developer 3",
         "slug": "3-developer-3",
         "logo_path": "https://via.placeholder.com/150"
@@ -1947,28 +1947,28 @@
     },
     {
       "id": 1018,
-      "slug": "1018-duplex-for-sale-in-compound-9-with-4-bedrooms",
-      "name": "Duplex for sale in Compound 9 with 4 bedrooms",
+      "slug": "1018-duplex-for-sale-in-cairo-capital-center-with-4-bedrooms",
+      "name": "Duplex for sale in Cairo Capital Center with 4 bedrooms",
       "property_type": {
-        "id": 3,
+        "id": 493,
         "name": "Duplex",
         "manual_ranking": 4
       },
       "compound": {
-        "id": 9,
+        "id": 813,
         "lat": 30.1596572,
         "long": 31.20763,
-        "name": "Compound 9",
-        "slug": "9-compound-9",
+        "name": "205 DownTown ",
+        "slug": "813-205-downtown-metropolis",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 9,
+        "id": 813,
         "name": "New Capital City"
       },
       "developer": {
-        "id": 4,
+        "id": 548,
         "name": "Developer 4",
         "slug": "4-developer-4",
         "logo_path": "https://via.placeholder.com/150"
@@ -2011,28 +2011,28 @@
     },
     {
       "id": 1019,
-      "slug": "1019-studio-for-sale-in-compound-10-with-0-bedrooms",
-      "name": "Studio for sale in Compound 10 with 0 bedrooms",
+      "slug": "1019-studio-for-sale-in-la-vista-el-sokhna-with-0-bedrooms",
+      "name": "Studio for sale in La Vista El Sokhna with 0 bedrooms",
       "property_type": {
-        "id": 4,
+        "id": 548,
         "name": "Studio",
         "manual_ranking": 5
       },
       "compound": {
-        "id": 10,
+        "id": 931,
         "lat": 29.5937229,
         "long": 30.9472285,
-        "name": "Compound 10",
-        "slug": "10-compound-10",
+        "name": "205 Arkan Palm",
+        "slug": "931-205-arkan-palm",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 10,
+        "id": 931,
         "name": "Mostakbal City"
       },
       "developer": {
-        "id": 5,
+        "id": 480,
         "name": "Developer 5",
         "slug": "5-developer-5",
         "logo_path": "https://via.placeholder.com/150"
@@ -2075,28 +2075,28 @@
     },
     {
       "id": 1020,
-      "slug": "1020-apartment-for-sale-in-compound-1-with-1-bedroom",
-      "name": "Apartment for sale in Compound 1 with 1 bedroom",
+      "slug": "1020-apartment-for-sale-in-atrio-with-1-bedroom",
+      "name": "Apartment for sale in ATRIO with 1 bedroom",
       "property_type": {
         "id": 21,
         "name": "Apartment",
         "manual_ranking": 1
       },
       "compound": {
-        "id": 1,
+        "id": 229,
         "lat": 30.4680753,
         "long": 31.2894863,
-        "name": "Compound 1",
-        "slug": "1-compound-1",
+        "name": "ATRIO",
+        "slug": "229-atrio",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 1,
+        "id": 229,
         "name": "6th of October City"
       },
       "developer": {
-        "id": 1,
+        "id": 229,
         "name": "Developer 1",
         "slug": "1-developer-1",
         "logo_path": "https://via.placeholder.com/150"
@@ -2139,28 +2139,28 @@
     },
     {
       "id": 1021,
-      "slug": "1021-villa-for-sale-in-compound-2-with-5-bedrooms",
-      "name": "Villa for sale in Compound 2 with 5 bedrooms",
+      "slug": "1021-villa-for-sale-in-ldp-with-5-bedrooms",
+      "name": "Villa for sale in LDP with 5 bedrooms",
       "property_type": {
-        "id": 1,
+        "id": 229,
         "name": "Villa",
         "manual_ranking": 2
       },
       "compound": {
-        "id": 2,
+        "id": 872,
         "lat": 30.0857181,
         "long": 30.7581304,
-        "name": "Compound 2",
-        "slug": "2-compound-2",
+        "name": "LDP",
+        "slug": "872-ldp",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 2,
+        "id": 872,
         "name": "New Cairo"
       },
       "developer": {
-        "id": 2,
+        "id": 872,
         "name": "Developer 2",
         "slug": "2-developer-2",
         "logo_path": "https://via.placeholder.com/150"
@@ -2203,28 +2203,28 @@
     },
     {
       "id": 1022,
-      "slug": "1022-chalet-for-sale-in-compound-3-with-3-bedrooms",
-      "name": "Chalet for sale in Compound 3 with 3 bedrooms",
+      "slug": "1022-chalet-for-sale-in-il-latini-sed-with-3-bedrooms",
+      "name": "Chalet for sale in Il Latini SED with 3 bedrooms",
       "property_type": {
-        "id": 5,
+        "id": 480,
         "name": "Chalet",
         "manual_ranking": 3
       },
       "compound": {
-        "id": 3,
+        "id": 493,
         "lat": 29.8782546,
         "long": 30.7587333,
-        "name": "Compound 3",
-        "slug": "3-compound-3",
+        "name": "Il Latini SED",
+        "slug": "493-il-latini-new-alamein",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 3,
+        "id": 493,
         "name": "North Coast"
       },
       "developer": {
-        "id": 3,
+        "id": 493,
         "name": "Developer 3",
         "slug": "3-developer-3",
         "logo_path": "https://via.placeholder.com/150"
@@ -2267,28 +2267,28 @@
     },
     {
       "id": 1023,
-      "slug": "1023-duplex-for-sale-in-compound-4-with-3-bedrooms",
-      "name": "Duplex for sale in Compound 4 with 3 bedrooms",
+      "slug": "1023-duplex-for-sale-in-4t4-with-3-bedrooms",
+      "name": "Duplex for sale in 4T4 with 3 bedrooms",
       "property_type": {
-        "id": 3,
+        "id": 493,
         "name": "Duplex",
         "manual_ranking": 4
       },
       "compound": {
-        "id": 4,
+        "id": 548,
         "lat": 29.6437063,
         "long": 30.5337716,
-        "name": "Compound 4",
-        "slug": "4-compound-4",
+        "name": "4T4 ",
+        "slug": "548-4t4-new-capital",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 4,
+        "id": 548,
         "name": "Ain Sokhna"
       },
       "developer": {
-        "id": 4,
+        "id": 548,
         "name": "Developer 4",
         "slug": "4-developer-4",
         "logo_path": "https://via.placeholder.com/150"
@@ -2331,28 +2331,28 @@
     },
     {
       "id": 1024,
-      "slug": "1024-studio-for-sale-in-compound-5-with-0-bedrooms",
-      "name": "Studio for sale in Compound 5 with 0 bedrooms",
+      "slug": "1024-studio-for-sale-in-atika-with-0-bedrooms",
+      "name": "Studio for sale in Atika with 0 bedrooms",
       "property_type": {
-        "id": 4,
+        "id": 548,
         "name": "Studio",
         "manual_ranking": 5
       },
       "compound": {
-        "id": 5,
+        "id": 480,
         "lat": 30.0873307,
         "long": 30.9120355,
-        "name": "Compound 5",
-        "slug": "5-compound-5",
+        "name": "Atika",
+        "slug": "480-atika",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 5,
+        "id": 480,
         "name": "El Gouna"
       },
       "developer": {
-        "id": 5,
+        "id": 480,
         "name": "Developer 5",
         "slug": "5-developer-5",
         "logo_path": "https://via.placeholder.com/150"
@@ -2395,28 +2395,28 @@
     },
     {
       "id": 1025,
-      "slug": "1025-apartment-for-sale-in-compound-6-with-4-bedrooms",
-      "name": "Apartment for sale in Compound 6 with 4 bedrooms",
+      "slug": "1025-apartment-for-sale-in-the-v-hub-with-4-bedrooms",
+      "name": "Apartment for sale in The V Hub with 4 bedrooms",
       "property_type": {
         "id": 21,
         "name": "Apartment",
         "manual_ranking": 1
       },
       "compound": {
-        "id": 6,
+        "id": 461,
         "lat": 30.3172903,
         "long": 31.2544106,
-        "name": "Compound 6",
-        "slug": "6-compound-6",
+        "name": "The V Hub",
+        "slug": "461-the-v-hub",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 6,
+        "id": 461,
         "name": "Somabay"
       },
       "developer": {
-        "id": 1,
+        "id": 229,
         "name": "Developer 1",
         "slug": "1-developer-1",
         "logo_path": "https://via.placeholder.com/150"
@@ -2459,28 +2459,28 @@
     },
     {
       "id": 1026,
-      "slug": "1026-villa-for-sale-in-compound-7-with-6-bedrooms",
-      "name": "Villa for sale in Compound 7 with 6 bedrooms",
+      "slug": "1026-villa-for-sale-in-elite-park-with-6-bedrooms",
+      "name": "Villa for sale in Elite Park with 6 bedrooms",
       "property_type": {
-        "id": 1,
+        "id": 229,
         "name": "Villa",
         "manual_ranking": 2
       },
       "compound": {
-        "id": 7,
+        "id": 1025,
         "lat": 30.1919505,
         "long": 31.4303013,
-        "name": "Compound 7",
-        "slug": "7-compound-7",
+        "name": "Elite Park",
+        "slug": "1025-elite-park",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 7,
+        "id": 1025,
         "name": "Europe"
       },
       "developer": {
-        "id": 2,
+        "id": 872,
         "name": "Developer 2",
         "slug": "2-developer-2",
         "logo_path": "https://via.placeholder.com/150"
@@ -2523,28 +2523,28 @@
     },
     {
       "id": 1027,
-      "slug": "1027-chalet-for-sale-in-compound-8-with-3-bedrooms",
-      "name": "Chalet for sale in Compound 8 with 3 bedrooms",
+      "slug": "1027-chalet-for-sale-in-aeon-towers-with-3-bedrooms",
+      "name": "Chalet for sale in AEON Towers with 3 bedrooms",
       "property_type": {
-        "id": 5,
+        "id": 480,
         "name": "Chalet",
         "manual_ranking": 3
       },
       "compound": {
-        "id": 8,
+        "id": 200,
         "lat": 29.8912353,
         "long": 30.8170559,
-        "name": "Compound 8",
-        "slug": "8-compound-8",
+        "name": "AEON Towers",
+        "slug": "200-aeon-towers",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 8,
+        "id": 200,
         "name": "El Shorouk"
       },
       "developer": {
-        "id": 3,
+        "id": 493,
         "name": "Developer 3",
         "slug": "3-developer-3",
         "logo_path": "https://via.placeholder.com/150"
@@ -2587,28 +2587,28 @@
     },
     {
       "id": 1028,
-      "slug": "1028-duplex-for-sale-in-compound-9-with-2-bedrooms",
-      "name": "Duplex for sale in Compound 9 with 2 bedrooms",
+      "slug": "1028-duplex-for-sale-in-205-downtown-with-2-bedrooms",
+      "name": "Duplex for sale in 205 DownTown with 2 bedrooms",
       "property_type": {
-        "id": 3,
+        "id": 493,
         "name": "Duplex",
         "manual_ranking": 4
       },
       "compound": {
-        "id": 9,
+        "id": 813,
         "lat": 30.0453461,
         "long": 30.5117193,
-        "name": "Compound 9",
-        "slug": "9-compound-9",
+        "name": "205 DownTown ",
+        "slug": "813-205-downtown-metropolis",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 9,
+        "id": 813,
         "name": "New Capital City"
       },
       "developer": {
-        "id": 4,
+        "id": 548,
         "name": "Developer 4",
         "slug": "4-developer-4",
         "logo_path": "https://via.placeholder.com/150"
@@ -2651,28 +2651,28 @@
     },
     {
       "id": 1029,
-      "slug": "1029-studio-for-sale-in-compound-10-with-0-bedrooms",
-      "name": "Studio for sale in Compound 10 with 0 bedrooms",
+      "slug": "1029-studio-for-sale-in-la-vista-el-sokhna-with-0-bedrooms",
+      "name": "Studio for sale in La Vista El Sokhna with 0 bedrooms",
       "property_type": {
-        "id": 4,
+        "id": 548,
         "name": "Studio",
         "manual_ranking": 5
       },
       "compound": {
-        "id": 10,
+        "id": 931,
         "lat": 30.3274129,
         "long": 30.990293,
-        "name": "Compound 10",
-        "slug": "10-compound-10",
+        "name": "205 Arkan Palm",
+        "slug": "931-205-arkan-palm",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 10,
+        "id": 931,
         "name": "Mostakbal City"
       },
       "developer": {
-        "id": 5,
+        "id": 480,
         "name": "Developer 5",
         "slug": "5-developer-5",
         "logo_path": "https://via.placeholder.com/150"
@@ -2715,28 +2715,28 @@
     },
     {
       "id": 1030,
-      "slug": "1030-apartment-for-sale-in-compound-1-with-4-bedrooms",
-      "name": "Apartment for sale in Compound 1 with 4 bedrooms",
+      "slug": "1030-apartment-for-sale-in-atrio-with-4-bedrooms",
+      "name": "Apartment for sale in ATRIO with 4 bedrooms",
       "property_type": {
         "id": 21,
         "name": "Apartment",
         "manual_ranking": 1
       },
       "compound": {
-        "id": 1,
+        "id": 229,
         "lat": 30.0600847,
         "long": 30.8101532,
-        "name": "Compound 1",
-        "slug": "1-compound-1",
+        "name": "ATRIO",
+        "slug": "229-atrio",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 1,
+        "id": 229,
         "name": "6th of October City"
       },
       "developer": {
-        "id": 1,
+        "id": 229,
         "name": "Developer 1",
         "slug": "1-developer-1",
         "logo_path": "https://via.placeholder.com/150"
@@ -2779,28 +2779,28 @@
     },
     {
       "id": 1031,
-      "slug": "1031-villa-for-sale-in-compound-2-with-4-bedrooms",
-      "name": "Villa for sale in Compound 2 with 4 bedrooms",
+      "slug": "1031-villa-for-sale-in-ldp-with-4-bedrooms",
+      "name": "Villa for sale in LDP with 4 bedrooms",
       "property_type": {
-        "id": 1,
+        "id": 229,
         "name": "Villa",
         "manual_ranking": 2
       },
       "compound": {
-        "id": 2,
+        "id": 872,
         "lat": 29.8233121,
         "long": 31.1960232,
-        "name": "Compound 2",
-        "slug": "2-compound-2",
+        "name": "LDP",
+        "slug": "872-ldp",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 2,
+        "id": 872,
         "name": "New Cairo"
       },
       "developer": {
-        "id": 2,
+        "id": 872,
         "name": "Developer 2",
         "slug": "2-developer-2",
         "logo_path": "https://via.placeholder.com/150"
@@ -2843,28 +2843,28 @@
     },
     {
       "id": 1032,
-      "slug": "1032-chalet-for-sale-in-compound-3-with-4-bedrooms",
-      "name": "Chalet for sale in Compound 3 with 4 bedrooms",
+      "slug": "1032-chalet-for-sale-in-il-latini-sed-with-4-bedrooms",
+      "name": "Chalet for sale in Il Latini SED with 4 bedrooms",
       "property_type": {
-        "id": 5,
+        "id": 480,
         "name": "Chalet",
         "manual_ranking": 3
       },
       "compound": {
-        "id": 3,
+        "id": 493,
         "lat": 29.6045276,
         "long": 31.2437772,
-        "name": "Compound 3",
-        "slug": "3-compound-3",
+        "name": "Il Latini SED",
+        "slug": "493-il-latini-new-alamein",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 3,
+        "id": 493,
         "name": "North Coast"
       },
       "developer": {
-        "id": 3,
+        "id": 493,
         "name": "Developer 3",
         "slug": "3-developer-3",
         "logo_path": "https://via.placeholder.com/150"
@@ -2907,28 +2907,28 @@
     },
     {
       "id": 1033,
-      "slug": "1033-duplex-for-sale-in-compound-4-with-3-bedrooms",
-      "name": "Duplex for sale in Compound 4 with 3 bedrooms",
+      "slug": "1033-duplex-for-sale-in-4t4-with-3-bedrooms",
+      "name": "Duplex for sale in 4T4 with 3 bedrooms",
       "property_type": {
-        "id": 3,
+        "id": 493,
         "name": "Duplex",
         "manual_ranking": 4
       },
       "compound": {
-        "id": 4,
+        "id": 548,
         "lat": 30.3481503,
         "long": 30.613386,
-        "name": "Compound 4",
-        "slug": "4-compound-4",
+        "name": "4T4 ",
+        "slug": "548-4t4-new-capital",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 4,
+        "id": 548,
         "name": "Ain Sokhna"
       },
       "developer": {
-        "id": 4,
+        "id": 548,
         "name": "Developer 4",
         "slug": "4-developer-4",
         "logo_path": "https://via.placeholder.com/150"
@@ -2971,28 +2971,28 @@
     },
     {
       "id": 1034,
-      "slug": "1034-studio-for-sale-in-compound-5-with-0-bedrooms",
-      "name": "Studio for sale in Compound 5 with 0 bedrooms",
+      "slug": "1034-studio-for-sale-in-atika-with-0-bedrooms",
+      "name": "Studio for sale in Atika with 0 bedrooms",
       "property_type": {
-        "id": 4,
+        "id": 548,
         "name": "Studio",
         "manual_ranking": 5
       },
       "compound": {
-        "id": 5,
+        "id": 480,
         "lat": 29.7666451,
         "long": 30.6347018,
-        "name": "Compound 5",
-        "slug": "5-compound-5",
+        "name": "Atika",
+        "slug": "480-atika",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 5,
+        "id": 480,
         "name": "El Gouna"
       },
       "developer": {
-        "id": 5,
+        "id": 480,
         "name": "Developer 5",
         "slug": "5-developer-5",
         "logo_path": "https://via.placeholder.com/150"
@@ -3035,28 +3035,28 @@
     },
     {
       "id": 1035,
-      "slug": "1035-apartment-for-sale-in-compound-6-with-4-bedrooms",
-      "name": "Apartment for sale in Compound 6 with 4 bedrooms",
+      "slug": "1035-apartment-for-sale-in-the-v-hub-with-4-bedrooms",
+      "name": "Apartment for sale in The V Hub with 4 bedrooms",
       "property_type": {
         "id": 21,
         "name": "Apartment",
         "manual_ranking": 1
       },
       "compound": {
-        "id": 6,
+        "id": 461,
         "lat": 30.1329346,
         "long": 31.2390729,
-        "name": "Compound 6",
-        "slug": "6-compound-6",
+        "name": "The V Hub",
+        "slug": "461-the-v-hub",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 6,
+        "id": 461,
         "name": "Somabay"
       },
       "developer": {
-        "id": 1,
+        "id": 229,
         "name": "Developer 1",
         "slug": "1-developer-1",
         "logo_path": "https://via.placeholder.com/150"
@@ -3099,28 +3099,28 @@
     },
     {
       "id": 1036,
-      "slug": "1036-villa-for-sale-in-compound-7-with-5-bedrooms",
-      "name": "Villa for sale in Compound 7 with 5 bedrooms",
+      "slug": "1036-villa-for-sale-in-elite-park-with-5-bedrooms",
+      "name": "Villa for sale in Elite Park with 5 bedrooms",
       "property_type": {
-        "id": 1,
+        "id": 229,
         "name": "Villa",
         "manual_ranking": 2
       },
       "compound": {
-        "id": 7,
+        "id": 1025,
         "lat": 30.2270938,
         "long": 31.0800456,
-        "name": "Compound 7",
-        "slug": "7-compound-7",
+        "name": "Elite Park",
+        "slug": "1025-elite-park",
         "sponsored": 0,
-        "nawy_organization_id": null
+        "nawy_organization_id": 2
       },
       "area": {
-        "id": 7,
+        "id": 1025,
         "name": "Europe"
       },
       "developer": {
-        "id": 2,
+        "id": 872,
         "name": "Developer 2",
         "slug": "2-developer-2",
         "logo_path": "https://via.placeholder.com/150"
@@ -3163,28 +3163,28 @@
     },
     {
       "id": 1037,
-      "slug": "1037-chalet-for-sale-in-compound-8-with-3-bedrooms",
-      "name": "Chalet for sale in Compound 8 with 3 bedrooms",
+      "slug": "1037-chalet-for-sale-in-aeon-towers-with-3-bedrooms",
+      "name": "Chalet for sale in AEON Towers with 3 bedrooms",
       "property_type": {
-        "id": 5,
+        "id": 480,
         "name": "Chalet",
         "manual_ranking": 3
       },
       "compound": {
-        "id": 8,
+        "id": 200,
         "lat": 30.1745992,
         "long": 31.0854005,
-        "name": "Compound 8",
-        "slug": "8-compound-8",
+        "name": "AEON Towers",
+        "slug": "200-aeon-towers",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 8,
+        "id": 200,
         "name": "El Shorouk"
       },
       "developer": {
-        "id": 3,
+        "id": 493,
         "name": "Developer 3",
         "slug": "3-developer-3",
         "logo_path": "https://via.placeholder.com/150"
@@ -3227,28 +3227,28 @@
     },
     {
       "id": 1038,
-      "slug": "1038-duplex-for-sale-in-compound-9-with-2-bedrooms",
-      "name": "Duplex for sale in Compound 9 with 2 bedrooms",
+      "slug": "1038-duplex-for-sale-in-205-downtown-with-2-bedrooms",
+      "name": "Duplex for sale in 205 DownTown with 2 bedrooms",
       "property_type": {
-        "id": 3,
+        "id": 493,
         "name": "Duplex",
         "manual_ranking": 4
       },
       "compound": {
-        "id": 9,
+        "id": 813,
         "lat": 30.2175446,
         "long": 31.1910615,
-        "name": "Compound 9",
-        "slug": "9-compound-9",
+        "name": "205 DownTown ",
+        "slug": "813-205-downtown-metropolis",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 9,
+        "id": 813,
         "name": "New Capital City"
       },
       "developer": {
-        "id": 4,
+        "id": 548,
         "name": "Developer 4",
         "slug": "4-developer-4",
         "logo_path": "https://via.placeholder.com/150"
@@ -3291,28 +3291,28 @@
     },
     {
       "id": 1039,
-      "slug": "1039-studio-for-sale-in-compound-10-with-0-bedrooms",
-      "name": "Studio for sale in Compound 10 with 0 bedrooms",
+      "slug": "1039-studio-for-sale-in-la-vista-el-sokhna-with-0-bedrooms",
+      "name": "Studio for sale in La Vista El Sokhna with 0 bedrooms",
       "property_type": {
-        "id": 4,
+        "id": 548,
         "name": "Studio",
         "manual_ranking": 5
       },
       "compound": {
-        "id": 10,
+        "id": 931,
         "lat": 29.6355263,
         "long": 31.3337953,
-        "name": "Compound 10",
-        "slug": "10-compound-10",
+        "name": "205 Arkan Palm",
+        "slug": "931-205-arkan-palm",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 10,
+        "id": 931,
         "name": "Mostakbal City"
       },
       "developer": {
-        "id": 5,
+        "id": 480,
         "name": "Developer 5",
         "slug": "5-developer-5",
         "logo_path": "https://via.placeholder.com/150"
@@ -3355,28 +3355,28 @@
     },
     {
       "id": 1040,
-      "slug": "1040-apartment-for-sale-in-compound-1-with-4-bedrooms",
-      "name": "Apartment for sale in Compound 1 with 4 bedrooms",
+      "slug": "1040-apartment-for-sale-in-atrio-with-4-bedrooms",
+      "name": "Apartment for sale in ATRIO with 4 bedrooms",
       "property_type": {
         "id": 21,
         "name": "Apartment",
         "manual_ranking": 1
       },
       "compound": {
-        "id": 1,
+        "id": 229,
         "lat": 29.5399339,
         "long": 30.8886585,
-        "name": "Compound 1",
-        "slug": "1-compound-1",
+        "name": "ATRIO",
+        "slug": "229-atrio",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 1,
+        "id": 229,
         "name": "6th of October City"
       },
       "developer": {
-        "id": 1,
+        "id": 229,
         "name": "Developer 1",
         "slug": "1-developer-1",
         "logo_path": "https://via.placeholder.com/150"
@@ -3419,28 +3419,28 @@
     },
     {
       "id": 1041,
-      "slug": "1041-villa-for-sale-in-compound-2-with-3-bedrooms",
-      "name": "Villa for sale in Compound 2 with 3 bedrooms",
+      "slug": "1041-villa-for-sale-in-ldp-with-3-bedrooms",
+      "name": "Villa for sale in LDP with 3 bedrooms",
       "property_type": {
-        "id": 1,
+        "id": 229,
         "name": "Villa",
         "manual_ranking": 2
       },
       "compound": {
-        "id": 2,
+        "id": 872,
         "lat": 29.5578269,
         "long": 31.3338056,
-        "name": "Compound 2",
-        "slug": "2-compound-2",
+        "name": "LDP",
+        "slug": "872-ldp",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 2,
+        "id": 872,
         "name": "New Cairo"
       },
       "developer": {
-        "id": 2,
+        "id": 872,
         "name": "Developer 2",
         "slug": "2-developer-2",
         "logo_path": "https://via.placeholder.com/150"
@@ -3483,28 +3483,28 @@
     },
     {
       "id": 1042,
-      "slug": "1042-chalet-for-sale-in-compound-3-with-4-bedrooms",
-      "name": "Chalet for sale in Compound 3 with 4 bedrooms",
+      "slug": "1042-chalet-for-sale-in-il-latini-sed-with-4-bedrooms",
+      "name": "Chalet for sale in Il Latini SED with 4 bedrooms",
       "property_type": {
-        "id": 5,
+        "id": 480,
         "name": "Chalet",
         "manual_ranking": 3
       },
       "compound": {
-        "id": 3,
+        "id": 493,
         "lat": 29.7037799,
         "long": 31.0313162,
-        "name": "Compound 3",
-        "slug": "3-compound-3",
+        "name": "Il Latini SED",
+        "slug": "493-il-latini-new-alamein",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 3,
+        "id": 493,
         "name": "North Coast"
       },
       "developer": {
-        "id": 3,
+        "id": 493,
         "name": "Developer 3",
         "slug": "3-developer-3",
         "logo_path": "https://via.placeholder.com/150"
@@ -3547,28 +3547,28 @@
     },
     {
       "id": 1043,
-      "slug": "1043-duplex-for-sale-in-compound-4-with-5-bedrooms",
-      "name": "Duplex for sale in Compound 4 with 5 bedrooms",
+      "slug": "1043-duplex-for-sale-in-4t4-with-5-bedrooms",
+      "name": "Duplex for sale in 4T4 with 5 bedrooms",
       "property_type": {
-        "id": 3,
+        "id": 493,
         "name": "Duplex",
         "manual_ranking": 4
       },
       "compound": {
-        "id": 4,
+        "id": 548,
         "lat": 29.9649739,
         "long": 30.502701,
-        "name": "Compound 4",
-        "slug": "4-compound-4",
+        "name": "4T4 ",
+        "slug": "548-4t4-new-capital",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 4,
+        "id": 548,
         "name": "Ain Sokhna"
       },
       "developer": {
-        "id": 4,
+        "id": 548,
         "name": "Developer 4",
         "slug": "4-developer-4",
         "logo_path": "https://via.placeholder.com/150"
@@ -3611,28 +3611,28 @@
     },
     {
       "id": 1044,
-      "slug": "1044-studio-for-sale-in-compound-5-with-0-bedrooms",
-      "name": "Studio for sale in Compound 5 with 0 bedrooms",
+      "slug": "1044-studio-for-sale-in-atika-with-0-bedrooms",
+      "name": "Studio for sale in Atika with 0 bedrooms",
       "property_type": {
-        "id": 4,
+        "id": 548,
         "name": "Studio",
         "manual_ranking": 5
       },
       "compound": {
-        "id": 5,
+        "id": 480,
         "lat": 30.2798601,
         "long": 31.1123419,
-        "name": "Compound 5",
-        "slug": "5-compound-5",
+        "name": "Atika",
+        "slug": "480-atika",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 5,
+        "id": 480,
         "name": "El Gouna"
       },
       "developer": {
-        "id": 5,
+        "id": 480,
         "name": "Developer 5",
         "slug": "5-developer-5",
         "logo_path": "https://via.placeholder.com/150"
@@ -3675,28 +3675,28 @@
     },
     {
       "id": 1045,
-      "slug": "1045-apartment-for-sale-in-compound-6-with-2-bedrooms",
-      "name": "Apartment for sale in Compound 6 with 2 bedrooms",
+      "slug": "1045-apartment-for-sale-in-the-v-hub-with-2-bedrooms",
+      "name": "Apartment for sale in The V Hub with 2 bedrooms",
       "property_type": {
         "id": 21,
         "name": "Apartment",
         "manual_ranking": 1
       },
       "compound": {
-        "id": 6,
+        "id": 461,
         "lat": 30.3802796,
         "long": 30.7752485,
-        "name": "Compound 6",
-        "slug": "6-compound-6",
+        "name": "The V Hub",
+        "slug": "461-the-v-hub",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 6,
+        "id": 461,
         "name": "Somabay"
       },
       "developer": {
-        "id": 1,
+        "id": 229,
         "name": "Developer 1",
         "slug": "1-developer-1",
         "logo_path": "https://via.placeholder.com/150"
@@ -3739,28 +3739,28 @@
     },
     {
       "id": 1046,
-      "slug": "1046-villa-for-sale-in-compound-7-with-3-bedrooms",
-      "name": "Villa for sale in Compound 7 with 3 bedrooms",
+      "slug": "1046-villa-for-sale-in-elite-park-with-3-bedrooms",
+      "name": "Villa for sale in Elite Park with 3 bedrooms",
       "property_type": {
-        "id": 1,
+        "id": 229,
         "name": "Villa",
         "manual_ranking": 2
       },
       "compound": {
-        "id": 7,
+        "id": 1025,
         "lat": 29.7191091,
         "long": 31.2583944,
-        "name": "Compound 7",
-        "slug": "7-compound-7",
+        "name": "Elite Park",
+        "slug": "1025-elite-park",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 7,
+        "id": 1025,
         "name": "Europe"
       },
       "developer": {
-        "id": 2,
+        "id": 872,
         "name": "Developer 2",
         "slug": "2-developer-2",
         "logo_path": "https://via.placeholder.com/150"
@@ -3803,28 +3803,28 @@
     },
     {
       "id": 1047,
-      "slug": "1047-chalet-for-sale-in-compound-8-with-2-bedrooms",
-      "name": "Chalet for sale in Compound 8 with 2 bedrooms",
+      "slug": "1047-chalet-for-sale-in-aeon-towers-with-2-bedrooms",
+      "name": "Chalet for sale in AEON Towers with 2 bedrooms",
       "property_type": {
-        "id": 5,
+        "id": 480,
         "name": "Chalet",
         "manual_ranking": 3
       },
       "compound": {
-        "id": 8,
+        "id": 200,
         "lat": 30.3517449,
         "long": 31.2456039,
-        "name": "Compound 8",
-        "slug": "8-compound-8",
+        "name": "AEON Towers",
+        "slug": "200-aeon-towers",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 8,
+        "id": 200,
         "name": "El Shorouk"
       },
       "developer": {
-        "id": 3,
+        "id": 493,
         "name": "Developer 3",
         "slug": "3-developer-3",
         "logo_path": "https://via.placeholder.com/150"
@@ -3867,28 +3867,28 @@
     },
     {
       "id": 1048,
-      "slug": "1048-duplex-for-sale-in-compound-9-with-4-bedrooms",
-      "name": "Duplex for sale in Compound 9 with 4 bedrooms",
+      "slug": "1048-duplex-for-sale-in-205-downtown-with-4-bedrooms",
+      "name": "Duplex for sale in 205 DownTown with 4 bedrooms",
       "property_type": {
-        "id": 3,
+        "id": 493,
         "name": "Duplex",
         "manual_ranking": 4
       },
       "compound": {
-        "id": 9,
+        "id": 813,
         "lat": 29.7681453,
         "long": 31.1635831,
-        "name": "Compound 9",
-        "slug": "9-compound-9",
+        "name": "205 DownTown ",
+        "slug": "813-205-downtown-metropolis",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 9,
+        "id": 813,
         "name": "New Capital City"
       },
       "developer": {
-        "id": 4,
+        "id": 548,
         "name": "Developer 4",
         "slug": "4-developer-4",
         "logo_path": "https://via.placeholder.com/150"
@@ -3931,28 +3931,28 @@
     },
     {
       "id": 1049,
-      "slug": "1049-studio-for-sale-in-compound-10-with-0-bedrooms",
-      "name": "Studio for sale in Compound 10 with 0 bedrooms",
+      "slug": "1049-studio-for-sale-in-la-vista-el-sokhna-with-0-bedrooms",
+      "name": "Studio for sale in La Vista El Sokhna with 0 bedrooms",
       "property_type": {
-        "id": 4,
+        "id": 548,
         "name": "Studio",
         "manual_ranking": 5
       },
       "compound": {
-        "id": 10,
+        "id": 931,
         "lat": 29.9071952,
         "long": 30.6582438,
-        "name": "Compound 10",
-        "slug": "10-compound-10",
+        "name": "205 Arkan Palm",
+        "slug": "931-205-arkan-palm",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 10,
+        "id": 931,
         "name": "Mostakbal City"
       },
       "developer": {
-        "id": 5,
+        "id": 480,
         "name": "Developer 5",
         "slug": "5-developer-5",
         "logo_path": "https://via.placeholder.com/150"
@@ -3995,28 +3995,28 @@
     },
     {
       "id": 1050,
-      "slug": "1050-apartment-for-sale-in-compound-1-with-2-bedrooms",
-      "name": "Apartment for sale in Compound 1 with 2 bedrooms",
+      "slug": "1050-apartment-for-sale-in-atrio-with-2-bedrooms",
+      "name": "Apartment for sale in ATRIO with 2 bedrooms",
       "property_type": {
         "id": 21,
         "name": "Apartment",
         "manual_ranking": 1
       },
       "compound": {
-        "id": 1,
+        "id": 229,
         "lat": 29.5504101,
         "long": 30.6345659,
-        "name": "Compound 1",
-        "slug": "1-compound-1",
+        "name": "ATRIO",
+        "slug": "229-atrio",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 1,
+        "id": 229,
         "name": "6th of October City"
       },
       "developer": {
-        "id": 1,
+        "id": 229,
         "name": "Developer 1",
         "slug": "1-developer-1",
         "logo_path": "https://via.placeholder.com/150"
@@ -4059,28 +4059,28 @@
     },
     {
       "id": 1051,
-      "slug": "1051-villa-for-sale-in-compound-2-with-4-bedrooms",
-      "name": "Villa for sale in Compound 2 with 4 bedrooms",
+      "slug": "1051-villa-for-sale-in-ldp-with-4-bedrooms",
+      "name": "Villa for sale in LDP with 4 bedrooms",
       "property_type": {
-        "id": 1,
+        "id": 229,
         "name": "Villa",
         "manual_ranking": 2
       },
       "compound": {
-        "id": 2,
+        "id": 872,
         "lat": 29.6324431,
         "long": 31.1397393,
-        "name": "Compound 2",
-        "slug": "2-compound-2",
+        "name": "LDP",
+        "slug": "872-ldp",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 2,
+        "id": 872,
         "name": "New Cairo"
       },
       "developer": {
-        "id": 2,
+        "id": 872,
         "name": "Developer 2",
         "slug": "2-developer-2",
         "logo_path": "https://via.placeholder.com/150"
@@ -4123,28 +4123,28 @@
     },
     {
       "id": 1052,
-      "slug": "1052-chalet-for-sale-in-compound-3-with-2-bedrooms",
-      "name": "Chalet for sale in Compound 3 with 2 bedrooms",
+      "slug": "1052-chalet-for-sale-in-il-latini-sed-with-2-bedrooms",
+      "name": "Chalet for sale in Il Latini SED with 2 bedrooms",
       "property_type": {
-        "id": 5,
+        "id": 480,
         "name": "Chalet",
         "manual_ranking": 3
       },
       "compound": {
-        "id": 3,
+        "id": 493,
         "lat": 29.61689,
         "long": 31.4410751,
-        "name": "Compound 3",
-        "slug": "3-compound-3",
+        "name": "Il Latini SED",
+        "slug": "493-il-latini-new-alamein",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 3,
+        "id": 493,
         "name": "North Coast"
       },
       "developer": {
-        "id": 3,
+        "id": 493,
         "name": "Developer 3",
         "slug": "3-developer-3",
         "logo_path": "https://via.placeholder.com/150"
@@ -4187,28 +4187,28 @@
     },
     {
       "id": 1053,
-      "slug": "1053-duplex-for-sale-in-compound-4-with-4-bedrooms",
-      "name": "Duplex for sale in Compound 4 with 4 bedrooms",
+      "slug": "1053-duplex-for-sale-in-4t4-with-4-bedrooms",
+      "name": "Duplex for sale in 4T4 with 4 bedrooms",
       "property_type": {
-        "id": 3,
+        "id": 493,
         "name": "Duplex",
         "manual_ranking": 4
       },
       "compound": {
-        "id": 4,
+        "id": 548,
         "lat": 30.0161322,
         "long": 31.1812697,
-        "name": "Compound 4",
-        "slug": "4-compound-4",
+        "name": "4T4 ",
+        "slug": "548-4t4-new-capital",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 4,
+        "id": 548,
         "name": "Ain Sokhna"
       },
       "developer": {
-        "id": 4,
+        "id": 548,
         "name": "Developer 4",
         "slug": "4-developer-4",
         "logo_path": "https://via.placeholder.com/150"
@@ -4251,28 +4251,28 @@
     },
     {
       "id": 1054,
-      "slug": "1054-studio-for-sale-in-compound-5-with-0-bedrooms",
-      "name": "Studio for sale in Compound 5 with 0 bedrooms",
+      "slug": "1054-studio-for-sale-in-atika-with-0-bedrooms",
+      "name": "Studio for sale in Atika with 0 bedrooms",
       "property_type": {
-        "id": 4,
+        "id": 548,
         "name": "Studio",
         "manual_ranking": 5
       },
       "compound": {
-        "id": 5,
+        "id": 480,
         "lat": 29.8908087,
         "long": 31.3269789,
-        "name": "Compound 5",
-        "slug": "5-compound-5",
+        "name": "Atika",
+        "slug": "480-atika",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 5,
+        "id": 480,
         "name": "El Gouna"
       },
       "developer": {
-        "id": 5,
+        "id": 480,
         "name": "Developer 5",
         "slug": "5-developer-5",
         "logo_path": "https://via.placeholder.com/150"
@@ -4315,28 +4315,28 @@
     },
     {
       "id": 1055,
-      "slug": "1055-apartment-for-sale-in-compound-6-with-1-bedroom",
-      "name": "Apartment for sale in Compound 6 with 1 bedroom",
+      "slug": "1055-apartment-for-sale-in-the-v-hub-with-1-bedroom",
+      "name": "Apartment for sale in The V Hub with 1 bedroom",
       "property_type": {
         "id": 21,
         "name": "Apartment",
         "manual_ranking": 1
       },
       "compound": {
-        "id": 6,
+        "id": 461,
         "lat": 29.9292811,
         "long": 30.8196067,
-        "name": "Compound 6",
-        "slug": "6-compound-6",
+        "name": "The V Hub",
+        "slug": "461-the-v-hub",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 6,
+        "id": 461,
         "name": "Somabay"
       },
       "developer": {
-        "id": 1,
+        "id": 229,
         "name": "Developer 1",
         "slug": "1-developer-1",
         "logo_path": "https://via.placeholder.com/150"
@@ -4379,28 +4379,28 @@
     },
     {
       "id": 1056,
-      "slug": "1056-villa-for-sale-in-compound-7-with-5-bedrooms",
-      "name": "Villa for sale in Compound 7 with 5 bedrooms",
+      "slug": "1056-villa-for-sale-in-elite-park-with-5-bedrooms",
+      "name": "Villa for sale in Elite Park with 5 bedrooms",
       "property_type": {
-        "id": 1,
+        "id": 229,
         "name": "Villa",
         "manual_ranking": 2
       },
       "compound": {
-        "id": 7,
+        "id": 1025,
         "lat": 29.5623534,
         "long": 30.8124072,
-        "name": "Compound 7",
-        "slug": "7-compound-7",
+        "name": "Elite Park",
+        "slug": "1025-elite-park",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 7,
+        "id": 1025,
         "name": "Europe"
       },
       "developer": {
-        "id": 2,
+        "id": 872,
         "name": "Developer 2",
         "slug": "2-developer-2",
         "logo_path": "https://via.placeholder.com/150"
@@ -4443,28 +4443,28 @@
     },
     {
       "id": 1057,
-      "slug": "1057-chalet-for-sale-in-compound-8-with-2-bedrooms",
-      "name": "Chalet for sale in Compound 8 with 2 bedrooms",
+      "slug": "1057-chalet-for-sale-in-aeon-towers-with-2-bedrooms",
+      "name": "Chalet for sale in AEON Towers with 2 bedrooms",
       "property_type": {
-        "id": 5,
+        "id": 480,
         "name": "Chalet",
         "manual_ranking": 3
       },
       "compound": {
-        "id": 8,
+        "id": 200,
         "lat": 30.4930082,
         "long": 31.0828295,
-        "name": "Compound 8",
-        "slug": "8-compound-8",
+        "name": "AEON Towers",
+        "slug": "200-aeon-towers",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 8,
+        "id": 200,
         "name": "El Shorouk"
       },
       "developer": {
-        "id": 3,
+        "id": 493,
         "name": "Developer 3",
         "slug": "3-developer-3",
         "logo_path": "https://via.placeholder.com/150"
@@ -4507,28 +4507,28 @@
     },
     {
       "id": 1058,
-      "slug": "1058-duplex-for-sale-in-compound-9-with-3-bedrooms",
-      "name": "Duplex for sale in Compound 9 with 3 bedrooms",
+      "slug": "1058-duplex-for-sale-in-205-downtown-with-3-bedrooms",
+      "name": "Duplex for sale in 205 DownTown with 3 bedrooms",
       "property_type": {
-        "id": 3,
+        "id": 493,
         "name": "Duplex",
         "manual_ranking": 4
       },
       "compound": {
-        "id": 9,
+        "id": 813,
         "lat": 30.0360385,
         "long": 31.4290495,
-        "name": "Compound 9",
-        "slug": "9-compound-9",
+        "name": "205 DownTown ",
+        "slug": "813-205-downtown-metropolis",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 9,
+        "id": 813,
         "name": "New Capital City"
       },
       "developer": {
-        "id": 4,
+        "id": 548,
         "name": "Developer 4",
         "slug": "4-developer-4",
         "logo_path": "https://via.placeholder.com/150"
@@ -4571,28 +4571,28 @@
     },
     {
       "id": 1059,
-      "slug": "1059-studio-for-sale-in-compound-10-with-0-bedrooms",
-      "name": "Studio for sale in Compound 10 with 0 bedrooms",
+      "slug": "1059-studio-for-sale-in-la-vista-el-sokhna-with-0-bedrooms",
+      "name": "Studio for sale in La Vista El Sokhna with 0 bedrooms",
       "property_type": {
-        "id": 4,
+        "id": 548,
         "name": "Studio",
         "manual_ranking": 5
       },
       "compound": {
-        "id": 10,
+        "id": 931,
         "lat": 30.4310206,
         "long": 31.3886223,
-        "name": "Compound 10",
-        "slug": "10-compound-10",
+        "name": "205 Arkan Palm",
+        "slug": "931-205-arkan-palm",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 10,
+        "id": 931,
         "name": "Mostakbal City"
       },
       "developer": {
-        "id": 5,
+        "id": 480,
         "name": "Developer 5",
         "slug": "5-developer-5",
         "logo_path": "https://via.placeholder.com/150"
@@ -4635,28 +4635,28 @@
     },
     {
       "id": 1060,
-      "slug": "1060-apartment-for-sale-in-compound-1-with-3-bedrooms",
-      "name": "Apartment for sale in Compound 1 with 3 bedrooms",
+      "slug": "1060-apartment-for-sale-in-atrio-with-3-bedrooms",
+      "name": "Apartment for sale in ATRIO with 3 bedrooms",
       "property_type": {
         "id": 21,
         "name": "Apartment",
         "manual_ranking": 1
       },
       "compound": {
-        "id": 1,
+        "id": 229,
         "lat": 30.4497388,
         "long": 30.9731558,
-        "name": "Compound 1",
-        "slug": "1-compound-1",
+        "name": "ATRIO",
+        "slug": "229-atrio",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 1,
+        "id": 229,
         "name": "6th of October City"
       },
       "developer": {
-        "id": 1,
+        "id": 229,
         "name": "Developer 1",
         "slug": "1-developer-1",
         "logo_path": "https://via.placeholder.com/150"
@@ -4699,28 +4699,28 @@
     },
     {
       "id": 1061,
-      "slug": "1061-villa-for-sale-in-compound-2-with-4-bedrooms",
-      "name": "Villa for sale in Compound 2 with 4 bedrooms",
+      "slug": "1061-villa-for-sale-in-ldp-with-4-bedrooms",
+      "name": "Villa for sale in LDP with 4 bedrooms",
       "property_type": {
-        "id": 1,
+        "id": 229,
         "name": "Villa",
         "manual_ranking": 2
       },
       "compound": {
-        "id": 2,
+        "id": 872,
         "lat": 29.6286953,
         "long": 30.6507858,
-        "name": "Compound 2",
-        "slug": "2-compound-2",
+        "name": "LDP",
+        "slug": "872-ldp",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 2,
+        "id": 872,
         "name": "New Cairo"
       },
       "developer": {
-        "id": 2,
+        "id": 872,
         "name": "Developer 2",
         "slug": "2-developer-2",
         "logo_path": "https://via.placeholder.com/150"
@@ -4763,28 +4763,28 @@
     },
     {
       "id": 1062,
-      "slug": "1062-chalet-for-sale-in-compound-3-with-3-bedrooms",
-      "name": "Chalet for sale in Compound 3 with 3 bedrooms",
+      "slug": "1062-chalet-for-sale-in-il-latini-sed-with-3-bedrooms",
+      "name": "Chalet for sale in Il Latini SED with 3 bedrooms",
       "property_type": {
-        "id": 5,
+        "id": 480,
         "name": "Chalet",
         "manual_ranking": 3
       },
       "compound": {
-        "id": 3,
+        "id": 493,
         "lat": 30.1895477,
         "long": 31.1929757,
-        "name": "Compound 3",
-        "slug": "3-compound-3",
+        "name": "Il Latini SED",
+        "slug": "493-il-latini-new-alamein",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 3,
+        "id": 493,
         "name": "North Coast"
       },
       "developer": {
-        "id": 3,
+        "id": 493,
         "name": "Developer 3",
         "slug": "3-developer-3",
         "logo_path": "https://via.placeholder.com/150"
@@ -4827,28 +4827,28 @@
     },
     {
       "id": 1063,
-      "slug": "1063-duplex-for-sale-in-compound-4-with-3-bedrooms",
-      "name": "Duplex for sale in Compound 4 with 3 bedrooms",
+      "slug": "1063-duplex-for-sale-in-4t4-with-3-bedrooms",
+      "name": "Duplex for sale in 4T4 with 3 bedrooms",
       "property_type": {
-        "id": 3,
+        "id": 493,
         "name": "Duplex",
         "manual_ranking": 4
       },
       "compound": {
-        "id": 4,
+        "id": 548,
         "lat": 30.2056642,
         "long": 31.3335601,
-        "name": "Compound 4",
-        "slug": "4-compound-4",
+        "name": "4T4 ",
+        "slug": "548-4t4-new-capital",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 4,
+        "id": 548,
         "name": "Ain Sokhna"
       },
       "developer": {
-        "id": 4,
+        "id": 548,
         "name": "Developer 4",
         "slug": "4-developer-4",
         "logo_path": "https://via.placeholder.com/150"
@@ -4891,28 +4891,28 @@
     },
     {
       "id": 1064,
-      "slug": "1064-studio-for-sale-in-compound-5-with-0-bedrooms",
-      "name": "Studio for sale in Compound 5 with 0 bedrooms",
+      "slug": "1064-studio-for-sale-in-atika-with-0-bedrooms",
+      "name": "Studio for sale in Atika with 0 bedrooms",
       "property_type": {
-        "id": 4,
+        "id": 548,
         "name": "Studio",
         "manual_ranking": 5
       },
       "compound": {
-        "id": 5,
+        "id": 480,
         "lat": 29.8219552,
         "long": 30.9342926,
-        "name": "Compound 5",
-        "slug": "5-compound-5",
+        "name": "Atika",
+        "slug": "480-atika",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 5,
+        "id": 480,
         "name": "El Gouna"
       },
       "developer": {
-        "id": 5,
+        "id": 480,
         "name": "Developer 5",
         "slug": "5-developer-5",
         "logo_path": "https://via.placeholder.com/150"
@@ -4955,28 +4955,28 @@
     },
     {
       "id": 1065,
-      "slug": "1065-apartment-for-sale-in-compound-6-with-4-bedrooms",
-      "name": "Apartment for sale in Compound 6 with 4 bedrooms",
+      "slug": "1065-apartment-for-sale-in-the-v-hub-with-4-bedrooms",
+      "name": "Apartment for sale in The V Hub with 4 bedrooms",
       "property_type": {
         "id": 21,
         "name": "Apartment",
         "manual_ranking": 1
       },
       "compound": {
-        "id": 6,
+        "id": 461,
         "lat": 29.7091906,
         "long": 30.5915716,
-        "name": "Compound 6",
-        "slug": "6-compound-6",
+        "name": "The V Hub",
+        "slug": "461-the-v-hub",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 6,
+        "id": 461,
         "name": "Somabay"
       },
       "developer": {
-        "id": 1,
+        "id": 229,
         "name": "Developer 1",
         "slug": "1-developer-1",
         "logo_path": "https://via.placeholder.com/150"
@@ -5019,28 +5019,28 @@
     },
     {
       "id": 1066,
-      "slug": "1066-villa-for-sale-in-compound-7-with-6-bedrooms",
-      "name": "Villa for sale in Compound 7 with 6 bedrooms",
+      "slug": "1066-villa-for-sale-in-elite-park-with-6-bedrooms",
+      "name": "Villa for sale in Elite Park with 6 bedrooms",
       "property_type": {
-        "id": 1,
+        "id": 229,
         "name": "Villa",
         "manual_ranking": 2
       },
       "compound": {
-        "id": 7,
+        "id": 1025,
         "lat": 30.455417,
         "long": 31.4648191,
-        "name": "Compound 7",
-        "slug": "7-compound-7",
+        "name": "Elite Park",
+        "slug": "1025-elite-park",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 7,
+        "id": 1025,
         "name": "Europe"
       },
       "developer": {
-        "id": 2,
+        "id": 872,
         "name": "Developer 2",
         "slug": "2-developer-2",
         "logo_path": "https://via.placeholder.com/150"
@@ -5083,28 +5083,28 @@
     },
     {
       "id": 1067,
-      "slug": "1067-chalet-for-sale-in-compound-8-with-4-bedrooms",
-      "name": "Chalet for sale in Compound 8 with 4 bedrooms",
+      "slug": "1067-chalet-for-sale-in-aeon-towers-with-4-bedrooms",
+      "name": "Chalet for sale in AEON Towers with 4 bedrooms",
       "property_type": {
-        "id": 5,
+        "id": 480,
         "name": "Chalet",
         "manual_ranking": 3
       },
       "compound": {
-        "id": 8,
+        "id": 200,
         "lat": 30.1152327,
         "long": 31.2020031,
-        "name": "Compound 8",
-        "slug": "8-compound-8",
+        "name": "AEON Towers",
+        "slug": "200-aeon-towers",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 8,
+        "id": 200,
         "name": "El Shorouk"
       },
       "developer": {
-        "id": 3,
+        "id": 493,
         "name": "Developer 3",
         "slug": "3-developer-3",
         "logo_path": "https://via.placeholder.com/150"
@@ -5147,28 +5147,28 @@
     },
     {
       "id": 1068,
-      "slug": "1068-duplex-for-sale-in-compound-9-with-2-bedrooms",
-      "name": "Duplex for sale in Compound 9 with 2 bedrooms",
+      "slug": "1068-duplex-for-sale-in-205-downtown-with-2-bedrooms",
+      "name": "Duplex for sale in 205 DownTown with 2 bedrooms",
       "property_type": {
-        "id": 3,
+        "id": 493,
         "name": "Duplex",
         "manual_ranking": 4
       },
       "compound": {
-        "id": 9,
+        "id": 813,
         "lat": 29.5074678,
         "long": 31.4701826,
-        "name": "Compound 9",
-        "slug": "9-compound-9",
+        "name": "205 DownTown ",
+        "slug": "813-205-downtown-metropolis",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 9,
+        "id": 813,
         "name": "New Capital City"
       },
       "developer": {
-        "id": 4,
+        "id": 548,
         "name": "Developer 4",
         "slug": "4-developer-4",
         "logo_path": "https://via.placeholder.com/150"
@@ -5211,28 +5211,28 @@
     },
     {
       "id": 1069,
-      "slug": "1069-studio-for-sale-in-compound-10-with-0-bedrooms",
-      "name": "Studio for sale in Compound 10 with 0 bedrooms",
+      "slug": "1069-studio-for-sale-in-la-vista-el-sokhna-with-0-bedrooms",
+      "name": "Studio for sale in La Vista El Sokhna with 0 bedrooms",
       "property_type": {
-        "id": 4,
+        "id": 548,
         "name": "Studio",
         "manual_ranking": 5
       },
       "compound": {
-        "id": 10,
+        "id": 931,
         "lat": 30.0214279,
         "long": 31.0947123,
-        "name": "Compound 10",
-        "slug": "10-compound-10",
+        "name": "205 Arkan Palm",
+        "slug": "931-205-arkan-palm",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 10,
+        "id": 931,
         "name": "Mostakbal City"
       },
       "developer": {
-        "id": 5,
+        "id": 480,
         "name": "Developer 5",
         "slug": "5-developer-5",
         "logo_path": "https://via.placeholder.com/150"
@@ -5275,28 +5275,28 @@
     },
     {
       "id": 1070,
-      "slug": "1070-apartment-for-sale-in-compound-1-with-2-bedrooms",
-      "name": "Apartment for sale in Compound 1 with 2 bedrooms",
+      "slug": "1070-apartment-for-sale-in-atrio-with-2-bedrooms",
+      "name": "Apartment for sale in ATRIO with 2 bedrooms",
       "property_type": {
         "id": 21,
         "name": "Apartment",
         "manual_ranking": 1
       },
       "compound": {
-        "id": 1,
+        "id": 229,
         "lat": 29.9443953,
         "long": 31.1292401,
-        "name": "Compound 1",
-        "slug": "1-compound-1",
+        "name": "ATRIO",
+        "slug": "229-atrio",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 1,
+        "id": 229,
         "name": "6th of October City"
       },
       "developer": {
-        "id": 1,
+        "id": 229,
         "name": "Developer 1",
         "slug": "1-developer-1",
         "logo_path": "https://via.placeholder.com/150"
@@ -5339,28 +5339,28 @@
     },
     {
       "id": 1071,
-      "slug": "1071-villa-for-sale-in-compound-2-with-5-bedrooms",
-      "name": "Villa for sale in Compound 2 with 5 bedrooms",
+      "slug": "1071-villa-for-sale-in-ldp-with-5-bedrooms",
+      "name": "Villa for sale in LDP with 5 bedrooms",
       "property_type": {
-        "id": 1,
+        "id": 229,
         "name": "Villa",
         "manual_ranking": 2
       },
       "compound": {
-        "id": 2,
+        "id": 872,
         "lat": 29.5020768,
         "long": 30.5001812,
-        "name": "Compound 2",
-        "slug": "2-compound-2",
+        "name": "LDP",
+        "slug": "872-ldp",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 2,
+        "id": 872,
         "name": "New Cairo"
       },
       "developer": {
-        "id": 2,
+        "id": 872,
         "name": "Developer 2",
         "slug": "2-developer-2",
         "logo_path": "https://via.placeholder.com/150"
@@ -5403,28 +5403,28 @@
     },
     {
       "id": 1072,
-      "slug": "1072-chalet-for-sale-in-compound-3-with-2-bedrooms",
-      "name": "Chalet for sale in Compound 3 with 2 bedrooms",
+      "slug": "1072-chalet-for-sale-in-il-latini-sed-with-2-bedrooms",
+      "name": "Chalet for sale in Il Latini SED with 2 bedrooms",
       "property_type": {
-        "id": 5,
+        "id": 480,
         "name": "Chalet",
         "manual_ranking": 3
       },
       "compound": {
-        "id": 3,
+        "id": 493,
         "lat": 30.0975357,
         "long": 31.2527909,
-        "name": "Compound 3",
-        "slug": "3-compound-3",
+        "name": "Il Latini SED",
+        "slug": "493-il-latini-new-alamein",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 3,
+        "id": 493,
         "name": "North Coast"
       },
       "developer": {
-        "id": 3,
+        "id": 493,
         "name": "Developer 3",
         "slug": "3-developer-3",
         "logo_path": "https://via.placeholder.com/150"
@@ -5467,28 +5467,28 @@
     },
     {
       "id": 1073,
-      "slug": "1073-duplex-for-sale-in-compound-4-with-4-bedrooms",
-      "name": "Duplex for sale in Compound 4 with 4 bedrooms",
+      "slug": "1073-duplex-for-sale-in-4t4-with-4-bedrooms",
+      "name": "Duplex for sale in 4T4 with 4 bedrooms",
       "property_type": {
-        "id": 3,
+        "id": 493,
         "name": "Duplex",
         "manual_ranking": 4
       },
       "compound": {
-        "id": 4,
+        "id": 548,
         "lat": 30.1168844,
         "long": 31.0810794,
-        "name": "Compound 4",
-        "slug": "4-compound-4",
+        "name": "4T4 ",
+        "slug": "548-4t4-new-capital",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 4,
+        "id": 548,
         "name": "Ain Sokhna"
       },
       "developer": {
-        "id": 4,
+        "id": 548,
         "name": "Developer 4",
         "slug": "4-developer-4",
         "logo_path": "https://via.placeholder.com/150"
@@ -5531,28 +5531,28 @@
     },
     {
       "id": 1074,
-      "slug": "1074-studio-for-sale-in-compound-5-with-0-bedrooms",
-      "name": "Studio for sale in Compound 5 with 0 bedrooms",
+      "slug": "1074-studio-for-sale-in-atika-with-0-bedrooms",
+      "name": "Studio for sale in Atika with 0 bedrooms",
       "property_type": {
-        "id": 4,
+        "id": 548,
         "name": "Studio",
         "manual_ranking": 5
       },
       "compound": {
-        "id": 5,
+        "id": 480,
         "lat": 29.7319612,
         "long": 31.013069,
-        "name": "Compound 5",
-        "slug": "5-compound-5",
+        "name": "Atika",
+        "slug": "480-atika",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 5,
+        "id": 480,
         "name": "El Gouna"
       },
       "developer": {
-        "id": 5,
+        "id": 480,
         "name": "Developer 5",
         "slug": "5-developer-5",
         "logo_path": "https://via.placeholder.com/150"
@@ -5595,28 +5595,28 @@
     },
     {
       "id": 1075,
-      "slug": "1075-apartment-for-sale-in-compound-6-with-2-bedrooms",
-      "name": "Apartment for sale in Compound 6 with 2 bedrooms",
+      "slug": "1075-apartment-for-sale-in-the-v-hub-with-2-bedrooms",
+      "name": "Apartment for sale in The V Hub with 2 bedrooms",
       "property_type": {
         "id": 21,
         "name": "Apartment",
         "manual_ranking": 1
       },
       "compound": {
-        "id": 6,
+        "id": 461,
         "lat": 29.6987907,
         "long": 30.6970455,
-        "name": "Compound 6",
-        "slug": "6-compound-6",
+        "name": "The V Hub",
+        "slug": "461-the-v-hub",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 6,
+        "id": 461,
         "name": "Somabay"
       },
       "developer": {
-        "id": 1,
+        "id": 229,
         "name": "Developer 1",
         "slug": "1-developer-1",
         "logo_path": "https://via.placeholder.com/150"
@@ -5659,28 +5659,28 @@
     },
     {
       "id": 1076,
-      "slug": "1076-villa-for-sale-in-compound-7-with-5-bedrooms",
-      "name": "Villa for sale in Compound 7 with 5 bedrooms",
+      "slug": "1076-villa-for-sale-in-elite-park-with-5-bedrooms",
+      "name": "Villa for sale in Elite Park with 5 bedrooms",
       "property_type": {
-        "id": 1,
+        "id": 229,
         "name": "Villa",
         "manual_ranking": 2
       },
       "compound": {
-        "id": 7,
+        "id": 1025,
         "lat": 30.4349229,
         "long": 31.1513894,
-        "name": "Compound 7",
-        "slug": "7-compound-7",
+        "name": "Elite Park",
+        "slug": "1025-elite-park",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 7,
+        "id": 1025,
         "name": "Europe"
       },
       "developer": {
-        "id": 2,
+        "id": 872,
         "name": "Developer 2",
         "slug": "2-developer-2",
         "logo_path": "https://via.placeholder.com/150"
@@ -5723,28 +5723,28 @@
     },
     {
       "id": 1077,
-      "slug": "1077-chalet-for-sale-in-compound-8-with-2-bedrooms",
-      "name": "Chalet for sale in Compound 8 with 2 bedrooms",
+      "slug": "1077-chalet-for-sale-in-aeon-towers-with-2-bedrooms",
+      "name": "Chalet for sale in AEON Towers with 2 bedrooms",
       "property_type": {
-        "id": 5,
+        "id": 480,
         "name": "Chalet",
         "manual_ranking": 3
       },
       "compound": {
-        "id": 8,
+        "id": 200,
         "lat": 29.928706,
         "long": 30.8151285,
-        "name": "Compound 8",
-        "slug": "8-compound-8",
+        "name": "AEON Towers",
+        "slug": "200-aeon-towers",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 8,
+        "id": 200,
         "name": "El Shorouk"
       },
       "developer": {
-        "id": 3,
+        "id": 493,
         "name": "Developer 3",
         "slug": "3-developer-3",
         "logo_path": "https://via.placeholder.com/150"
@@ -5787,28 +5787,28 @@
     },
     {
       "id": 1078,
-      "slug": "1078-duplex-for-sale-in-compound-9-with-4-bedrooms",
-      "name": "Duplex for sale in Compound 9 with 4 bedrooms",
+      "slug": "1078-duplex-for-sale-in-205-downtown-with-4-bedrooms",
+      "name": "Duplex for sale in 205 DownTown with 4 bedrooms",
       "property_type": {
-        "id": 3,
+        "id": 493,
         "name": "Duplex",
         "manual_ranking": 4
       },
       "compound": {
-        "id": 9,
+        "id": 813,
         "lat": 30.2702258,
         "long": 31.3662726,
-        "name": "Compound 9",
-        "slug": "9-compound-9",
+        "name": "205 DownTown ",
+        "slug": "813-205-downtown-metropolis",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 9,
+        "id": 813,
         "name": "New Capital City"
       },
       "developer": {
-        "id": 4,
+        "id": 548,
         "name": "Developer 4",
         "slug": "4-developer-4",
         "logo_path": "https://via.placeholder.com/150"
@@ -5851,28 +5851,28 @@
     },
     {
       "id": 1079,
-      "slug": "1079-studio-for-sale-in-compound-10-with-0-bedrooms",
-      "name": "Studio for sale in Compound 10 with 0 bedrooms",
+      "slug": "1079-studio-for-sale-in-la-vista-el-sokhna-with-0-bedrooms",
+      "name": "Studio for sale in La Vista El Sokhna with 0 bedrooms",
       "property_type": {
-        "id": 4,
+        "id": 548,
         "name": "Studio",
         "manual_ranking": 5
       },
       "compound": {
-        "id": 10,
+        "id": 931,
         "lat": 29.8547766,
         "long": 30.8859165,
-        "name": "Compound 10",
-        "slug": "10-compound-10",
+        "name": "205 Arkan Palm",
+        "slug": "931-205-arkan-palm",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 10,
+        "id": 931,
         "name": "Mostakbal City"
       },
       "developer": {
-        "id": 5,
+        "id": 480,
         "name": "Developer 5",
         "slug": "5-developer-5",
         "logo_path": "https://via.placeholder.com/150"
@@ -5915,28 +5915,28 @@
     },
     {
       "id": 1080,
-      "slug": "1080-apartment-for-sale-in-compound-1-with-3-bedrooms",
-      "name": "Apartment for sale in Compound 1 with 3 bedrooms",
+      "slug": "1080-apartment-for-sale-in-atrio-with-3-bedrooms",
+      "name": "Apartment for sale in ATRIO with 3 bedrooms",
       "property_type": {
         "id": 21,
         "name": "Apartment",
         "manual_ranking": 1
       },
       "compound": {
-        "id": 1,
+        "id": 229,
         "lat": 29.9348275,
         "long": 31.0653677,
-        "name": "Compound 1",
-        "slug": "1-compound-1",
+        "name": "ATRIO",
+        "slug": "229-atrio",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 1,
+        "id": 229,
         "name": "6th of October City"
       },
       "developer": {
-        "id": 1,
+        "id": 229,
         "name": "Developer 1",
         "slug": "1-developer-1",
         "logo_path": "https://via.placeholder.com/150"
@@ -5979,28 +5979,28 @@
     },
     {
       "id": 1081,
-      "slug": "1081-villa-for-sale-in-compound-2-with-4-bedrooms",
-      "name": "Villa for sale in Compound 2 with 4 bedrooms",
+      "slug": "1081-villa-for-sale-in-ldp-with-4-bedrooms",
+      "name": "Villa for sale in LDP with 4 bedrooms",
       "property_type": {
-        "id": 1,
+        "id": 229,
         "name": "Villa",
         "manual_ranking": 2
       },
       "compound": {
-        "id": 2,
+        "id": 872,
         "lat": 29.956857,
         "long": 30.5814866,
-        "name": "Compound 2",
-        "slug": "2-compound-2",
+        "name": "LDP",
+        "slug": "872-ldp",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 2,
+        "id": 872,
         "name": "New Cairo"
       },
       "developer": {
-        "id": 2,
+        "id": 872,
         "name": "Developer 2",
         "slug": "2-developer-2",
         "logo_path": "https://via.placeholder.com/150"
@@ -6043,28 +6043,28 @@
     },
     {
       "id": 1082,
-      "slug": "1082-chalet-for-sale-in-compound-3-with-2-bedrooms",
-      "name": "Chalet for sale in Compound 3 with 2 bedrooms",
+      "slug": "1082-chalet-for-sale-in-il-latini-sed-with-2-bedrooms",
+      "name": "Chalet for sale in Il Latini SED with 2 bedrooms",
       "property_type": {
-        "id": 5,
+        "id": 480,
         "name": "Chalet",
         "manual_ranking": 3
       },
       "compound": {
-        "id": 3,
+        "id": 493,
         "lat": 30.2082029,
         "long": 31.4548194,
-        "name": "Compound 3",
-        "slug": "3-compound-3",
+        "name": "Il Latini SED",
+        "slug": "493-il-latini-new-alamein",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 3,
+        "id": 493,
         "name": "North Coast"
       },
       "developer": {
-        "id": 3,
+        "id": 493,
         "name": "Developer 3",
         "slug": "3-developer-3",
         "logo_path": "https://via.placeholder.com/150"
@@ -6107,28 +6107,28 @@
     },
     {
       "id": 1083,
-      "slug": "1083-duplex-for-sale-in-compound-4-with-2-bedrooms",
-      "name": "Duplex for sale in Compound 4 with 2 bedrooms",
+      "slug": "1083-duplex-for-sale-in-4t4-with-2-bedrooms",
+      "name": "Duplex for sale in 4T4 with 2 bedrooms",
       "property_type": {
-        "id": 3,
+        "id": 493,
         "name": "Duplex",
         "manual_ranking": 4
       },
       "compound": {
-        "id": 4,
+        "id": 548,
         "lat": 30.3061817,
         "long": 31.1440624,
-        "name": "Compound 4",
-        "slug": "4-compound-4",
+        "name": "4T4 ",
+        "slug": "548-4t4-new-capital",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 4,
+        "id": 548,
         "name": "Ain Sokhna"
       },
       "developer": {
-        "id": 4,
+        "id": 548,
         "name": "Developer 4",
         "slug": "4-developer-4",
         "logo_path": "https://via.placeholder.com/150"
@@ -6171,28 +6171,28 @@
     },
     {
       "id": 1084,
-      "slug": "1084-studio-for-sale-in-compound-5-with-0-bedrooms",
-      "name": "Studio for sale in Compound 5 with 0 bedrooms",
+      "slug": "1084-studio-for-sale-in-atika-with-0-bedrooms",
+      "name": "Studio for sale in Atika with 0 bedrooms",
       "property_type": {
-        "id": 4,
+        "id": 548,
         "name": "Studio",
         "manual_ranking": 5
       },
       "compound": {
-        "id": 5,
+        "id": 480,
         "lat": 29.7449595,
         "long": 30.7232794,
-        "name": "Compound 5",
-        "slug": "5-compound-5",
+        "name": "Atika",
+        "slug": "480-atika",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 5,
+        "id": 480,
         "name": "El Gouna"
       },
       "developer": {
-        "id": 5,
+        "id": 480,
         "name": "Developer 5",
         "slug": "5-developer-5",
         "logo_path": "https://via.placeholder.com/150"
@@ -6235,28 +6235,28 @@
     },
     {
       "id": 1085,
-      "slug": "1085-apartment-for-sale-in-compound-6-with-2-bedrooms",
-      "name": "Apartment for sale in Compound 6 with 2 bedrooms",
+      "slug": "1085-apartment-for-sale-in-the-v-hub-with-2-bedrooms",
+      "name": "Apartment for sale in The V Hub with 2 bedrooms",
       "property_type": {
         "id": 21,
         "name": "Apartment",
         "manual_ranking": 1
       },
       "compound": {
-        "id": 6,
+        "id": 461,
         "lat": 29.7037304,
         "long": 30.8197408,
-        "name": "Compound 6",
-        "slug": "6-compound-6",
+        "name": "The V Hub",
+        "slug": "461-the-v-hub",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 6,
+        "id": 461,
         "name": "Somabay"
       },
       "developer": {
-        "id": 1,
+        "id": 229,
         "name": "Developer 1",
         "slug": "1-developer-1",
         "logo_path": "https://via.placeholder.com/150"
@@ -6299,28 +6299,28 @@
     },
     {
       "id": 1086,
-      "slug": "1086-villa-for-sale-in-compound-7-with-5-bedrooms",
-      "name": "Villa for sale in Compound 7 with 5 bedrooms",
+      "slug": "1086-villa-for-sale-in-elite-park-with-5-bedrooms",
+      "name": "Villa for sale in Elite Park with 5 bedrooms",
       "property_type": {
-        "id": 1,
+        "id": 229,
         "name": "Villa",
         "manual_ranking": 2
       },
       "compound": {
-        "id": 7,
+        "id": 1025,
         "lat": 29.6456131,
         "long": 31.3167844,
-        "name": "Compound 7",
-        "slug": "7-compound-7",
+        "name": "Elite Park",
+        "slug": "1025-elite-park",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 7,
+        "id": 1025,
         "name": "Europe"
       },
       "developer": {
-        "id": 2,
+        "id": 872,
         "name": "Developer 2",
         "slug": "2-developer-2",
         "logo_path": "https://via.placeholder.com/150"
@@ -6363,28 +6363,28 @@
     },
     {
       "id": 1087,
-      "slug": "1087-chalet-for-sale-in-compound-8-with-3-bedrooms",
-      "name": "Chalet for sale in Compound 8 with 3 bedrooms",
+      "slug": "1087-chalet-for-sale-in-aeon-towers-with-3-bedrooms",
+      "name": "Chalet for sale in AEON Towers with 3 bedrooms",
       "property_type": {
-        "id": 5,
+        "id": 480,
         "name": "Chalet",
         "manual_ranking": 3
       },
       "compound": {
-        "id": 8,
+        "id": 200,
         "lat": 30.2456805,
         "long": 30.8749521,
-        "name": "Compound 8",
-        "slug": "8-compound-8",
+        "name": "AEON Towers",
+        "slug": "200-aeon-towers",
         "sponsored": 0,
         "nawy_organization_id": null
       },
       "area": {
-        "id": 8,
+        "id": 200,
         "name": "El Shorouk"
       },
       "developer": {
-        "id": 3,
+        "id": 493,
         "name": "Developer 3",
         "slug": "3-developer-3",
         "logo_path": "https://via.placeholder.com/150"
