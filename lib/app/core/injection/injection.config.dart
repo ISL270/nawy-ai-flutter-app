@@ -43,6 +43,9 @@ extension GetItInjectableX on _i174.GetIt {
       preResolve: true,
     );
     gh.singleton<_i997.DioClient>(() => _i997.DioClient(gh<_i921.AppLogger>()));
+    gh.singleton<_i32.PropertyRemoteSource>(
+      () => _i32.PropertyRemoteSource(gh<_i997.DioClient>()),
+    );
     gh.factory<_i134.FavoritesLocalSource>(
       () => _i134.FavoritesLocalSource(gh<_i664.ObxService>()),
     );
@@ -54,9 +57,6 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i823.FavoritesRepository>(),
         gh<_i921.AppLogger>(),
       ),
-    );
-    gh.singleton<_i32.PropertyRemoteSource>(
-      () => _i32.PropertyRemoteSource(gh<_i997.DioClient>()),
     );
     gh.singleton<_i938.PropertyRepository>(
       () => _i938.PropertyRepository(gh<_i32.PropertyRemoteSource>()),

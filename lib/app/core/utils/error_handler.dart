@@ -34,23 +34,19 @@ class ErrorHandler {
     final errorMessage = _mapErrorToUserMessage(error);
     
     // Log error with context
-    assert(() {
-      if (error is SocketException) {
-        _logger?.warning('$context - Network error: ${error.message}');
-      } else if (error is TimeoutException) {
-        _logger?.error('$context - Timeout: ${error.message}');
-      } else if (error is FormatException) {
-        _logger?.error('$context - Format error: ${error.message}');
-      } else {
-        _logger?.fatal('$context - Unexpected error: $error');
-      }
-      
-      if (stackTrace != null) {
-        _logger?.debug('Stack trace: $stackTrace');
-      }
-      
-      return true;
-    }());
+    if (error is SocketException) {
+      _logger?.warning('$context - Network error: ${error.message}');
+    } else if (error is TimeoutException) {
+      _logger?.error('$context - Timeout: ${error.message}');
+    } else if (error is FormatException) {
+      _logger?.error('$context - Format error: ${error.message}');
+    } else {
+      _logger?.fatal('$context - Unexpected error: $error');
+    }
+    
+    if (stackTrace != null) {
+      _logger?.error('Stack trace: $stackTrace');
+    }
 
     return errorMessage;
   }
@@ -104,10 +100,8 @@ class ErrorHandler {
       final result = await operation().timeout(
         timeout,
         onTimeout: () {
-          assert(() {
-            _logger?.error('$operationName - Timeout after ${timeout.inSeconds} seconds');
-            return true;
-          }());
+          // Log timeout errors using the logger
+          _logger?.error('$operationName - Timeout after ${timeout.inSeconds} seconds');
           throw TimeoutException('$operationName timed out', timeout);
         },
       );
@@ -119,6 +113,9 @@ class ErrorHandler {
 
       return result;
     } catch (error, stackTrace) {
+      // Log errors using the logger
+      _logger?.error('$operationName - Error: $error', error, stackTrace);
+      
       // Re-throw with context for upper layers to handle
       throw _wrapErrorWithContext(error, operationName, stackTrace);
     }

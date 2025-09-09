@@ -17,7 +17,7 @@ class AppLogger {
         printEmojis: true, // Print an emoji for each log message
         dateTimeFormat: DateTimeFormat.none, // No timestamp in logs
       ),
-      level: Level.info, // Changed to info level to reduce debug noise
+      level: Level.debug, // Changed to debug level to show all logs including errors
     );
   }
 

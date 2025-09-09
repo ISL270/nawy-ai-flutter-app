@@ -155,3 +155,28 @@ flutter test test/features/search/presentation/bloc/search_bloc_test.dart
 - **No General Offline Support**: App requires internet for all search and browsing functionality
 - **Favorites-Only Local Storage**: Only favorited properties and compounds are saved locally using ObjectBox
 - **Offline Favorites Access**: Users can view their favorited items in the favorites tab without internet
+
+## API Implementation Note
+
+**Important**: The provided API endpoints don't function as expected for a proper search application, which required implementing a workaround:
+
+### API Limitations Discovered
+- **Properties Search**: Always returns the same 12 static properties regardless of any search filters
+- **No Server-Side Filtering**: All query parameters (area_ids, compound_ids, price ranges, bedrooms, etc.) are completely ignored
+- **Static JSON Files**: The API serves static JSON files instead of dynamic server responses
+- **No Pagination**: No server-side pagination functionality is implemented
+
+### Workaround Implementation
+To demonstrate proper search and filtering functionality that would work with a real API, we implemented:
+
+- **Local Data Source**: Created `properties.json` with 100 realistic properties matching the exact API response structure
+- **Client-Side Filtering**: Implemented comprehensive search and filtering logic in `PropertyRemoteSource`
+- **Preserved Network Code**: All original API integration code is preserved and commented out with detailed explanations
+- **Production Ready**: The architecture is ready to switch back to network calls when a properly functioning API is available
+
+### Files Modified for Workaround
+- `lib/app/features/search/data/sources/remote/property_remote_source.dart` - Contains both commented network implementation and working local implementation
+- `properties.json` - 100 properties in exact API format for demonstration
+- All original network integration code is preserved and can be easily restored
+
+This approach demonstrates both proper API integration patterns and functional search/filtering capabilities that would work with a real backend API.
