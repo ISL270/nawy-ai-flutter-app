@@ -12,12 +12,12 @@ class PropertyCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-      elevation: 2,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      margin: const EdgeInsets.symmetric(horizontal: 22, vertical: 12),
+      elevation: 4,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
       child: InkWell(
         onTap: onTap,
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(24),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -26,31 +26,22 @@ class PropertyCard extends StatelessWidget {
 
             // Property details
             Padding(
-              padding: const EdgeInsets.all(16),
+              padding: const EdgeInsets.all(18),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // Property name and favorite button
-                  PropertyHeader(
-                    property: property,
-                    onFavoriteToggle: onFavoriteToggle,
-                  ),
+                  // Property name only
+                  PropertyTitle(property: property),
 
-                  const SizedBox(height: 8),
+                  const SizedBox(height: 16),
 
-                  // Location info
-                  if (property.area != null || property.compound != null)
-                    PropertyLocationInfo(property: property),
-
-                  const SizedBox(height: 8),
-
-                  // Property details row
+                  // Property details (location, area, bedrooms, bathrooms)
                   PropertyDetails(property: property),
 
                   const SizedBox(height: 12),
 
-                  // Price and badges
-                  PropertyPriceAndBadges(property: property),
+                  // Price and favorite button
+                  PropertyPriceAndFavorite(property: property, onFavoriteToggle: onFavoriteToggle),
                 ],
               ),
             ),
@@ -75,12 +66,12 @@ class PropertyImage extends StatelessWidget {
       height: 200,
       width: double.infinity,
       decoration: BoxDecoration(
-        borderRadius: const BorderRadius.vertical(top: Radius.circular(12)),
+        borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
         color: theme.colorScheme.surfaceContainerHighest,
       ),
       child: property.image != null
           ? ClipRRect(
-              borderRadius: const BorderRadius.vertical(top: Radius.circular(12)),
+              borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
               child: Image.network(
                 property.image!,
                 fit: BoxFit.cover,
@@ -106,18 +97,14 @@ class PropertyImagePlaceholder extends StatelessWidget {
 
     return Container(
       decoration: BoxDecoration(
-        borderRadius: const BorderRadius.vertical(top: Radius.circular(12)),
+        borderRadius: const BorderRadius.vertical(top: Radius.circular(28)),
         color: theme.colorScheme.surfaceContainerHighest,
       ),
       child: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(
-              Icons.home,
-              size: 48,
-              color: theme.colorScheme.onSurfaceVariant.withOpacity(0.5),
-            ),
+            Icon(Icons.home, size: 48, color: theme.colorScheme.onSurfaceVariant.withOpacity(0.5)),
             const SizedBox(height: 8),
             Text(
               'No Image',
@@ -132,42 +119,21 @@ class PropertyImagePlaceholder extends StatelessWidget {
   }
 }
 
-/// Property header with name and favorite button
-class PropertyHeader extends StatelessWidget {
+/// Property title widget (name only)
+class PropertyTitle extends StatelessWidget {
   final Property property;
-  final VoidCallback? onFavoriteToggle;
 
-  const PropertyHeader({
-    super.key,
-    required this.property,
-    this.onFavoriteToggle,
-  });
+  const PropertyTitle({super.key, required this.property});
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
-    return Row(
-      children: [
-        Expanded(
-          child: Text(
-            property.name,
-            style: theme.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w600),
-            maxLines: 2,
-            overflow: TextOverflow.ellipsis,
-          ),
-        ),
-        IconButton(
-          onPressed: onFavoriteToggle,
-          icon: Icon(
-            property.isFavorite ? Icons.favorite : Icons.favorite_border,
-            color: property.isFavorite
-                ? Colors.red
-                : theme.colorScheme.onSurfaceVariant,
-          ),
-          visualDensity: VisualDensity.compact,
-        ),
-      ],
+    return Text(
+      property.name,
+      style: theme.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w600),
+      maxLines: 2,
+      overflow: TextOverflow.ellipsis,
     );
   }
 }
@@ -192,18 +158,12 @@ class PropertyLocationInfo extends StatelessWidget {
 
     return Row(
       children: [
-        Icon(
-          Icons.location_on,
-          size: 16,
-          color: theme.colorScheme.onSurfaceVariant,
-        ),
-        const SizedBox(width: 4),
+        Icon(Icons.location_on_outlined, size: 18, color: theme.colorScheme.onSurfaceVariant),
+        const SizedBox(width: 6),
         Expanded(
           child: Text(
             locationParts.join(' • '),
-            style: theme.textTheme.bodySmall?.copyWith(
-              color: theme.colorScheme.onSurfaceVariant,
-            ),
+            style: theme.textTheme.bodyMedium?.copyWith(color: theme.colorScheme.onSurfaceVariant),
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
           ),
@@ -221,27 +181,19 @@ class PropertyDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final details = <Widget>[];
+    final locationParts = <String>[];
 
-    // Bedrooms
-    if (property.numberOfBedrooms != null && property.numberOfBedrooms! > 0) {
-      details.add(PropertyDetailChip(
-        icon: Icons.bed,
-        label: '${property.numberOfBedrooms} ${property.numberOfBedrooms == 1 ? 'Bedroom' : 'Bedrooms'}',
-      ));
+    // Get location info
+    if (property.area != null) {
+      locationParts.add(property.area!.name);
+    }
+    if (property.compound != null) {
+      locationParts.add(property.compound!.name);
     }
 
-    // Bathrooms
-    if (property.numberOfBathrooms != null && property.numberOfBathrooms! > 0) {
-      details.add(PropertyDetailChip(
-        icon: Icons.bathtub,
-        label: '${property.numberOfBathrooms} ${property.numberOfBathrooms == 1 ? 'Bathroom' : 'Bathrooms'}',
-      ));
-    }
-
-    // Area
+    // Get area info
+    String? areaText;
     if (property.minUnitArea != null || property.maxUnitArea != null) {
-      String areaText;
       if (property.minUnitArea != null && property.maxUnitArea != null) {
         if (property.minUnitArea == property.maxUnitArea) {
           areaText = '${property.minUnitArea!.toInt()} m²';
@@ -253,14 +205,45 @@ class PropertyDetails extends StatelessWidget {
       } else {
         areaText = '${property.maxUnitArea!.toInt()} m²';
       }
-
-      details.add(PropertyDetailChip(
-        icon: Icons.square_foot,
-        label: areaText,
-      ));
     }
 
-    return Wrap(spacing: 8, runSpacing: 4, children: details);
+    final details = <Widget>[];
+
+    // Location
+    if (locationParts.isNotEmpty) {
+      details.add(
+        PropertyDetailItem(icon: Icons.location_on_outlined, text: locationParts.join(' • ')),
+      );
+    }
+
+    // Area
+    if (areaText != null) {
+      details.add(PropertyDetailItem(icon: Icons.square_foot_outlined, text: areaText));
+    }
+
+    // Bedrooms
+    if (property.numberOfBedrooms != null && property.numberOfBedrooms! > 0) {
+      details.add(
+        PropertyDetailItem(
+          icon: Icons.bed_outlined,
+          text:
+              '${property.numberOfBedrooms} ${property.numberOfBedrooms == 1 ? 'Bedroom' : 'Bedrooms'}',
+        ),
+      );
+    }
+
+    // Bathrooms
+    if (property.numberOfBathrooms != null && property.numberOfBathrooms! > 0) {
+      details.add(
+        PropertyDetailItem(
+          icon: Icons.bathtub_outlined,
+          text:
+              '${property.numberOfBathrooms} ${property.numberOfBathrooms == 1 ? 'Bathroom' : 'Bathrooms'}',
+        ),
+      );
+    }
+
+    return Wrap(spacing: 20, runSpacing: 8, children: details);
   }
 }
 
@@ -269,11 +252,7 @@ class PropertyDetailChip extends StatelessWidget {
   final IconData icon;
   final String label;
 
-  const PropertyDetailChip({
-    super.key,
-    required this.icon,
-    required this.label,
-  });
+  const PropertyDetailChip({super.key, required this.icon, required this.label});
 
   @override
   Widget build(BuildContext context) {
@@ -292,9 +271,7 @@ class PropertyDetailChip extends StatelessWidget {
           const SizedBox(width: 4),
           Text(
             label,
-            style: theme.textTheme.bodySmall?.copyWith(
-              color: theme.colorScheme.onSurfaceVariant,
-            ),
+            style: theme.textTheme.bodySmall?.copyWith(color: theme.colorScheme.onSurfaceVariant),
           ),
         ],
       ),
@@ -302,22 +279,33 @@ class PropertyDetailChip extends StatelessWidget {
   }
 }
 
-/// Property price and badges widget
-class PropertyPriceAndBadges extends StatelessWidget {
+/// Property price and favorite button widget
+class PropertyPriceAndFavorite extends StatelessWidget {
   final Property property;
+  final VoidCallback? onFavoriteToggle;
 
-  const PropertyPriceAndBadges({super.key, required this.property});
+  const PropertyPriceAndFavorite({super.key, required this.property, this.onFavoriteToggle});
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        PropertyPrice(
-          price: property.minPrice?.round() ?? 0,
-          currency: property.currency,
+        Expanded(
+          child: PropertyPrice(price: property.minPrice?.round() ?? 0, currency: property.currency),
         ),
-        PropertyBadges(property: property),
+        IconButton(
+          onPressed: onFavoriteToggle,
+          icon: Icon(
+            property.isFavorite ? Icons.favorite : Icons.favorite_border,
+            color: property.isFavorite ? Colors.red : theme.colorScheme.onSurfaceVariant,
+            size: 28,
+          ),
+          visualDensity: VisualDensity.compact,
+          constraints: const BoxConstraints(minWidth: 44, minHeight: 44),
+        ),
       ],
     );
   }
@@ -349,67 +337,55 @@ class PropertyPrice extends StatelessWidget {
 
     return Text(
       priceText,
-      style: theme.textTheme.titleMedium?.copyWith(
+      style: theme.textTheme.titleLarge?.copyWith(
         fontWeight: FontWeight.bold,
-        color: theme.colorScheme.primary,
+        color: theme.colorScheme.secondary,
       ),
     );
   }
 
   String _formatPrice(double price) {
-    if (price >= 1000000) {
-      return '${(price / 1000000).toStringAsFixed(1)}M';
-    } else if (price >= 1000) {
-      return '${(price / 1000).toStringAsFixed(0)}K';
-    } else {
-      return price.toStringAsFixed(0);
-    }
+    // Format price with thousands separators
+    return price
+        .toStringAsFixed(0)
+        .replaceAllMapped(RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'), (Match match) => '${match[1]},');
   }
 }
 
-/// Property badges widget
-class PropertyBadges extends StatelessWidget {
-  final Property property;
+/// Reusable property detail item widget with icon and text
+class PropertyDetailItem extends StatelessWidget {
+  final IconData icon;
+  final String text;
+  final bool isExpandable;
 
-  const PropertyBadges({super.key, required this.property});
+  const PropertyDetailItem({
+    super.key,
+    required this.icon,
+    required this.text,
+    this.isExpandable = false,
+  });
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final badges = <Widget>[];
 
-    if (property.newProperty) {
-      badges.add(_buildBadge('NEW', theme.colorScheme.primary));
-    }
-
-    if (property.hasOffers) {
-      badges.add(_buildBadge('OFFER', Colors.orange));
-    }
-
-    if (property.resale) {
-      badges.add(_buildBadge('RESALE', theme.colorScheme.secondary));
-    }
-
-    return Row(
-      children: badges.map((badge) => Padding(
-        padding: const EdgeInsets.only(left: 4),
-        child: badge,
-      )).toList(),
+    final content = Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Icon(icon, size: 19, color: theme.colorScheme.onSurfaceVariant),
+        const SizedBox(width: 6),
+        Text(
+          text,
+          style: theme.textTheme.bodyMedium?.copyWith(color: theme.colorScheme.onSurfaceVariant),
+          maxLines: isExpandable ? 1 : null,
+          overflow: isExpandable ? TextOverflow.ellipsis : null,
+        ),
+      ],
     );
-  }
 
-  Widget _buildBadge(String label, Color color) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
-      decoration: BoxDecoration(
-        color: color.withOpacity(0.1),
-        borderRadius: BorderRadius.circular(4),
-        border: Border.all(color: color.withOpacity(0.3)),
-      ),
-      child: Text(
-        label,
-        style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold, color: color),
-      ),
-    );
+    if (isExpandable) {
+      return Expanded(child: content);
+    }
+    return content;
   }
 }

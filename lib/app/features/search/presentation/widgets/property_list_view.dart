@@ -30,10 +30,7 @@ class PropertyListView extends StatelessWidget {
     }
 
     if (errorMessage != null && properties.isEmpty) {
-      return PropertyErrorState(
-        errorMessage: errorMessage,
-        onRetry: onRetry,
-      );
+      return PropertyErrorState(errorMessage: errorMessage, onRetry: onRetry);
     }
 
     if (properties.isEmpty) {
@@ -48,7 +45,6 @@ class PropertyListView extends StatelessWidget {
       scrollController: scrollController,
     );
   }
-
 }
 
 /// Loading state widget for property list
@@ -75,33 +71,23 @@ class PropertyErrorState extends StatelessWidget {
   final String? errorMessage;
   final VoidCallback? onRetry;
 
-  const PropertyErrorState({
-    super.key,
-    this.errorMessage,
-    this.onRetry,
-  });
+  const PropertyErrorState({super.key, this.errorMessage, this.onRetry});
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    
+
     return Center(
       child: Padding(
         padding: const EdgeInsets.all(32),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(
-              Icons.error_outline,
-              size: 64,
-              color: theme.colorScheme.error,
-            ),
+            Icon(Icons.error_outline, size: 64, color: theme.colorScheme.error),
             const SizedBox(height: 16),
             Text(
               'Something went wrong',
-              style: theme.textTheme.titleLarge?.copyWith(
-                fontWeight: FontWeight.w600,
-              ),
+              style: theme.textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w600),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 8),
@@ -132,7 +118,7 @@ class PropertyEmptyState extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    
+
     return Center(
       child: Padding(
         padding: const EdgeInsets.all(32),
@@ -147,9 +133,7 @@ class PropertyEmptyState extends StatelessWidget {
             const SizedBox(height: 16),
             Text(
               'No properties found',
-              style: theme.textTheme.titleLarge?.copyWith(
-                fontWeight: FontWeight.w600,
-              ),
+              style: theme.textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w600),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 8),
@@ -189,11 +173,8 @@ class PropertyList extends StatelessWidget {
     return Column(
       children: [
         // Results header
-        PropertyResultsHeader(
-          propertyCount: properties.length,
-          isLoading: isLoading,
-        ),
-        
+        PropertyResultsHeader(propertyCount: properties.length, isLoading: isLoading),
+
         // Property list
         Expanded(
           child: ListView.builder(
@@ -207,7 +188,7 @@ class PropertyList extends StatelessWidget {
                   child: Center(child: CircularProgressIndicator()),
                 );
               }
-              
+
               final property = properties[index];
               return PropertyCard(
                 property: property,
@@ -227,25 +208,17 @@ class PropertyResultsHeader extends StatelessWidget {
   final int propertyCount;
   final bool isLoading;
 
-  const PropertyResultsHeader({
-    super.key,
-    required this.propertyCount,
-    this.isLoading = false,
-  });
+  const PropertyResultsHeader({super.key, required this.propertyCount, this.isLoading = false});
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    
+
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       decoration: BoxDecoration(
-        color: theme.colorScheme.surfaceVariant.withOpacity(0.3),
-        border: Border(
-          bottom: BorderSide(
-            color: theme.colorScheme.outline.withOpacity(0.2),
-          ),
-        ),
+        color: theme.colorScheme.surfaceContainerHighest.withOpacity(0.3),
+        border: Border(bottom: BorderSide(color: theme.colorScheme.outline.withOpacity(0.2))),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -279,18 +252,11 @@ class PropertyResultsHeader extends StatelessWidget {
               decoration: BoxDecoration(
                 color: theme.colorScheme.primaryContainer.withOpacity(0.5),
                 borderRadius: BorderRadius.circular(8),
-                border: Border.all(
-                  color: theme.colorScheme.primary.withOpacity(0.3),
-                  width: 1,
-                ),
+                border: Border.all(color: theme.colorScheme.primary.withOpacity(0.3), width: 1),
               ),
               child: Row(
                 children: [
-                  Icon(
-                    Icons.info_outline,
-                    size: 16,
-                    color: theme.colorScheme.primary,
-                  ),
+                  Icon(Icons.info_outline, size: 16, color: theme.colorScheme.primary),
                   const SizedBox(width: 8),
                   Expanded(
                     child: Text(
