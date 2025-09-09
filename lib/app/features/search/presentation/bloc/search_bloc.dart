@@ -92,10 +92,13 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
 
   /// Handles searching properties with text query and filters
   Future<void> _onSearchWithQuery(SearchWithQueryEvent event, Emitter<SearchState> emit) async {
+    final isEmptyQuery = event.query.trim().isEmpty;
+    
     emit(state.copyWith(
       status: const Loading(), 
       currentFilters: event.filters,
-      searchQuery: event.query,
+      searchQuery: isEmptyQuery ? null : event.query,
+      clearSearchQuery: isEmptyQuery,
     ));
 
     try {

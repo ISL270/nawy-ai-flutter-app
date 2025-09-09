@@ -534,7 +534,15 @@ class MultiSelectFilterWidget extends StatelessWidget {
           children: items
               .map(
                 (item) => FilterChip(
-                  label: Text(item.name),
+                  label: Text(
+                    item.name,
+                    style: TextStyle(
+                      color: item.isSelected 
+                          ? theme.colorScheme.primary 
+                          : theme.colorScheme.onSurface,
+                      fontWeight: item.isSelected ? FontWeight.w500 : FontWeight.normal,
+                    ),
+                  ),
                   selected: item.isSelected,
                   onSelected: (selected) {
                     final currentSelection = items
@@ -550,8 +558,15 @@ class MultiSelectFilterWidget extends StatelessWidget {
 
                     onSelectionChanged(currentSelection);
                   },
-                  selectedColor: theme.colorScheme.primary.withOpacity(0.2),
-                  checkmarkColor: theme.colorScheme.primary,
+                  backgroundColor: theme.colorScheme.surface,
+                  selectedColor: theme.colorScheme.surface,
+                  side: BorderSide(
+                    color: item.isSelected 
+                        ? theme.colorScheme.primary 
+                        : theme.colorScheme.outline.withOpacity(0.5),
+                    width: item.isSelected ? 1.5 : 1.0,
+                  ),
+                  showCheckmark: false,
                 ),
               )
               .toList(),

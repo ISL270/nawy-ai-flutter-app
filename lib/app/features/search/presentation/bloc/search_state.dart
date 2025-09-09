@@ -50,11 +50,12 @@ final class SearchState extends Equatable {
     InitialData? initialData,
     SearchResponse? searchResults,
     bool clearSearchResults = false,
+    bool clearSearchQuery = false,
   }) {
     return SearchState._(
       status: status ?? this.status,
       currentFilters: currentFilters ?? this.currentFilters,
-      searchQuery: searchQuery ?? this.searchQuery,
+      searchQuery: clearSearchQuery ? null : (searchQuery ?? this.searchQuery),
       initialData: initialData ?? this.initialData,
       searchResults: clearSearchResults ? null : (searchResults ?? this.searchResults),
     );
@@ -68,6 +69,7 @@ final class SearchState extends Equatable {
     InitialData? initialData,
     SearchResponse? searchResults,
     bool clearSearchResults = false,
+    bool clearSearchQuery = false,
   }) {
     return _copyWith(
       status: status,
@@ -76,6 +78,7 @@ final class SearchState extends Equatable {
       initialData: initialData,
       searchResults: searchResults,
       clearSearchResults: clearSearchResults,
+      clearSearchQuery: clearSearchQuery,
     );
   }
 

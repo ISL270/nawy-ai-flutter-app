@@ -134,32 +134,16 @@ class _ExplorePageContent extends StatelessWidget {
 
   void _onPropertyTap(BuildContext context, property) {
     // TODO: Navigate to property details page
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text('Property "${property.name}" tapped'),
-        duration: const Duration(seconds: 2),
-      ),
-    );
+    // Property tap handled silently for now
   }
 
   void _onFavoriteToggle(BuildContext context, property) {
     final favoritesBloc = context.read<FavoritesBloc>();
-    final isFavorite = favoritesBloc.state.isPropertyFavorite(property.id);
     
     // Toggle favorite status
     favoritesBloc.add(TogglePropertyFavoriteEvent(property));
     
-    // Show feedback to user
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(
-          isFavorite 
-              ? 'Removed "${property.name}" from favorites'
-              : 'Added "${property.name}" to favorites',
-        ),
-        duration: const Duration(seconds: 2),
-      ),
-    );
+    // Favorite toggle handled silently - UI will update automatically
   }
 
   List<int> _generatePriceOptions(List<int> minPrices, List<int> maxPrices) {
