@@ -43,4 +43,27 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 
+# IDE files
+*.iml
+.idea/
+nawy_app.iml
+/android/nawy_app_android.iml
+
+# iOS specific
+/ios/Pods/
+/ios/Podfile.lock
+/ios/Runner.xcworkspace/xcuserdata/
+/ios/Runner.xcodeproj/xcuserdata/
+
+# Android specific
+/android/local.properties
+/android/.gradle/
+/android/app/google-services.json
+
+# Firebase config (contains sensitive keys)
+/lib/firebase_options.dart
+
+# Temporary directories
+web_temp/
+
 {{ ... }}
