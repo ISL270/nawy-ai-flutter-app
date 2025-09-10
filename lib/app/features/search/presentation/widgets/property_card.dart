@@ -104,12 +104,12 @@ class PropertyImagePlaceholder extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(Icons.home, size: 48, color: theme.colorScheme.primary.withOpacity(0.5)),
+            Icon(Icons.home, size: 48, color: theme.colorScheme.primary.withValues(alpha: 0.5)),
             const SizedBox(height: 8),
             Text(
               'No Image',
               style: theme.textTheme.bodyMedium?.copyWith(
-                color: theme.colorScheme.onSurfaceVariant.withOpacity(0.7),
+                color: theme.colorScheme.onSurfaceVariant.withValues(alpha: 0.7),
               ),
             ),
           ],

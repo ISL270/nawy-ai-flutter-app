@@ -168,7 +168,7 @@ class FilterBottomSheetHeader extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        border: Border(bottom: BorderSide(color: theme.colorScheme.outline.withOpacity(0.2))),
+        border: Border(bottom: BorderSide(color: theme.colorScheme.outline.withValues(alpha: 0.2))),
       ),
       child: Row(
         children: [
@@ -473,7 +473,7 @@ class FilterBottomButtons extends StatelessWidget {
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: theme.colorScheme.surface,
-        border: Border(top: BorderSide(color: theme.colorScheme.outline.withOpacity(0.2))),
+        border: Border(top: BorderSide(color: theme.colorScheme.outline.withValues(alpha: 0.2))),
       ),
       child: SafeArea(
         child: Row(
@@ -563,7 +563,7 @@ class MultiSelectFilterWidget extends StatelessWidget {
                   side: BorderSide(
                     color: item.isSelected 
                         ? theme.colorScheme.primary 
-                        : theme.colorScheme.outline.withOpacity(0.5),
+                        : theme.colorScheme.outline.withValues(alpha: 0.5),
                     width: item.isSelected ? 1.5 : 1.0,
                   ),
                   showCheckmark: false,

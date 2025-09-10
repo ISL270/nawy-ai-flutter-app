@@ -95,7 +95,7 @@ class _SearchDialogState extends State<SearchDialog> {
                   borderRadius: BorderRadius.circular(12),
                 ),
                 filled: true,
-                fillColor: theme.colorScheme.surfaceVariant.withOpacity(0.3),
+                fillColor: theme.colorScheme.surfaceContainerHighest.withValues(alpha: 0.3),
               ),
               onChanged: (value) => setState(() {}),
             ),

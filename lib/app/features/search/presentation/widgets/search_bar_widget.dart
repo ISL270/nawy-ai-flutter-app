@@ -58,10 +58,10 @@ class _SearchBarWidgetState extends State<SearchBarWidget> {
       decoration: BoxDecoration(
         color: theme.colorScheme.surface,
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: theme.colorScheme.outline.withOpacity(0.2)),
+        border: Border.all(color: theme.colorScheme.outline.withValues(alpha: 0.2)),
         boxShadow: [
           BoxShadow(
-            color: theme.shadowColor.withOpacity(0.1),
+            color: theme.shadowColor.withValues(alpha: 0.1),
             blurRadius: 4,
             offset: const Offset(0, 2),
           ),
@@ -102,7 +102,7 @@ class _SearchBarWidgetState extends State<SearchBarWidget> {
           ),
 
           // Filter button
-          Container(height: 48, width: 1, color: theme.colorScheme.outline.withOpacity(0.2)),
+          Container(height: 48, width: 1, color: theme.colorScheme.outline.withValues(alpha: 0.2)),
           InkWell(
             onTap: widget.onFilterTap,
             borderRadius: const BorderRadius.only(
