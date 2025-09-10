@@ -43,6 +43,13 @@ Real estate property search application built with **Flutter**. Features AI-powe
 
 ---
 
+> **📢 For Reviewers**: 
+> - **AI Features**: Currently in development using Firebase AI and Gemini 2.5 Pro. The AI chat interface is coming soon!
+> - **Easy Testing**: Working on a web deployment version so you can test the app directly in your browser without setting up Firebase or any local environment
+> - **Current Version**: You can run the mobile version locally using the instructions below, or wait for the web version link
+
+---
+
 ## 📱 Screenshots
 
 <div align="center">
