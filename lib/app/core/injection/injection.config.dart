@@ -14,7 +14,7 @@ import 'package:injectable/injectable.dart' as _i526;
 import 'package:nawy_app/app/core/injection/injection_module.dart' as _i601;
 import 'package:nawy_app/app/core/utils/app_logger.dart' as _i921;
 import 'package:nawy_app/app/core/utils/dio_client.dart' as _i997;
-import 'package:nawy_app/app/core/utils/obx_service.dart' as _i664;
+import 'package:nawy_app/app/core/utils/hive_service.dart' as _i789;
 import 'package:nawy_app/app/features/favorites/data/favorites_repository.dart'
     as _i823;
 import 'package:nawy_app/app/features/favorites/data/sources/local/favorites_local_source.dart'
@@ -34,20 +34,20 @@ extension GetItInjectableX on _i174.GetIt {
   }) async {
     final gh = _i526.GetItHelper(this, environment, environmentFilter);
     final injectionModule = _$InjectionModule();
-    await gh.singletonAsync<_i664.ObxService>(
-      () => injectionModule.obxService,
+    await gh.singletonAsync<_i789.HiveService>(
+      () => injectionModule.hiveService,
       preResolve: true,
     );
     await gh.singletonAsync<_i921.AppLogger>(
       () => injectionModule.appLogger,
       preResolve: true,
     );
+    gh.factory<_i134.FavoritesLocalSource>(
+      () => _i134.FavoritesLocalSource(gh<_i789.HiveService>()),
+    );
     gh.singleton<_i997.DioClient>(() => _i997.DioClient(gh<_i921.AppLogger>()));
     gh.singleton<_i32.PropertyRemoteSource>(
       () => _i32.PropertyRemoteSource(gh<_i997.DioClient>()),
-    );
-    gh.factory<_i134.FavoritesLocalSource>(
-      () => _i134.FavoritesLocalSource(gh<_i664.ObxService>()),
     );
     gh.singleton<_i823.FavoritesRepository>(
       () => _i823.FavoritesRepository(gh<_i134.FavoritesLocalSource>()),

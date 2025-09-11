@@ -14,7 +14,7 @@
           <img src="https://img.shields.io/badge/Flutter-02569B?logo=flutter&logoColor=white" alt="Flutter">
           <img src="https://img.shields.io/badge/Dart-0175C2?logo=dart&logoColor=white" alt="Dart">
           <img src="https://img.shields.io/badge/BLoC-FF6B35?logo=flutter&logoColor=white" alt="BLoC">
-          <img src="https://img.shields.io/badge/ObjectBox-34A853?logo=objectbox&logoColor=white" alt="ObjectBox">
+          <img src="https://img.shields.io/badge/Hive%20CE-FF6B35?logo=flutter&logoColor=white" alt="Hive CE">
           <img src="https://img.shields.io/badge/Dio-02569B?logo=dart&logoColor=white" alt="Dio">
           <br><br>
           <img src="https://img.shields.io/badge/tests-187%20passing-brightgreen.svg" alt="Tests">
@@ -77,7 +77,7 @@ Built with modern Flutter practices and feature-first folder structure:
 
 - **Feature-first approach**: Each feature is isolated in its own module  
 - **State Management**: BLoC pattern with improved state management architecture
-- **Local Storage**: ObjectBox database for favorites only (properties and compounds)
+- **Local Storage**: Hive CE database for favorites only (properties and compounds)
 - **Networking**: Dio for HTTP requests with interceptors
 - **Dependency Injection**: get_it with injectable for code generation
 - **Logging**: Professional logging framework with AppLogger service
@@ -85,18 +85,40 @@ Built with modern Flutter practices and feature-first folder structure:
 ### Tech Stack
 - **Framework**: Flutter with Dart
 - **State Management**: flutter_bloc + bloc_test
-- **Local Database**: ObjectBox (for favorites only)
+- **Local Database**: Hive CE (for favorites only) - **Web Compatible**
 - **Networking**: Dio with interceptors
 - **Serialization**: json_annotation + build_runner
 - **Dependency Injection**: get_it + injectable (code generation)
 - **Testing**: mocktail + bloc_test for comprehensive testing
 - **Logging**: logger package with production-safe implementation
 
+### 🔄 Database Migration: ObjectBox → Hive CE
+
+**Why We Migrated:**
+The app integrates **Firebase AI features** for enhanced property search and recommendations. To make testing easier for reviewers (who would otherwise need to create their own Firebase projects), we decided to deploy a **web version** with pre-configured Firebase integration.
+
+**Technical Challenge:**
+- **ObjectBox**: No web support ❌
+- **Isar**: No web support ❌  
+- **Hive CE**: Full web support ✅
+
+**Business Benefits:**
+- 🎯 **Simplified Review Process**: Reviewers can test Firebase AI features instantly via web link
+- 🚀 **No Setup Required**: No need for reviewers to create Firebase projects or configure API keys
+- 🌐 **Instant Access**: Deploy to GitHub Pages for immediate testing
+- 📱 **Cross-Platform**: Same codebase works on mobile, desktop, and web
+
+**Technical Benefits:**
+- ✅ Full web platform compatibility via IndexedDB
+- ✅ Same API across all platforms (mobile/desktop/web)
+- ✅ Zero functionality loss - all favorites features preserved
+- ✅ Enables seamless Firebase integration on web
+
 ### Model Architecture
 Each entity follows a three-layer model pattern:
 - **Domain Entity** (e.g., `Property`) - Pure business logic
 - **DTO** (e.g., `PropertyDto`) - API serialization/deserialization  
-- **ObjectBox** (e.g., `PropertyObx`) - Local database persistence (favorites only)  
+- **Hive** (e.g., `PropertyHive`) - Local database persistence (favorites only)  
 
 ---
 
@@ -119,7 +141,7 @@ lib/
 │   │       ├── domain/     # Business logic (entities, repositories)
 │   │       ├── data/       # Data layer (sources + models)
 │   │       │   ├── remote/ # API sources and DTOs
-│   │       │   └── local/  # Local sources and ObjectBox entities
+│   │       │   └── local/  # Local sources and Hive entities
 │   │       └── presentation/ # UI layer (bloc/pages/widgets)
 │   └── widgets/            # Shared widgets
 ```
@@ -146,7 +168,7 @@ flutter run
 Comprehensive test suite with **187 automated tests** achieving **100% pass rate**:
 
 ### Test Architecture
-- **Unit Tests**: Core utilities (DioClient, AppLogger, ObxService)
+- **Unit Tests**: Core utilities (DioClient, AppLogger, HiveService)
 - **DTO Tests**: JSON serialization/deserialization for all models
 - **Integration Tests**: API client integration with mocking
 - **Repository Tests**: Domain layer business logic
@@ -154,7 +176,7 @@ Comprehensive test suite with **187 automated tests** achieving **100% pass rate
 - **API Contract Tests**: Live endpoint validation
 
 ### Test Coverage Breakdown
-- **Core Utils**: 58 tests (DioClient + AppLogger + ObxService)
+- **Core Utils**: 58 tests (DioClient + AppLogger + HiveService)
 - **DTO Models**: 60 tests (Property, Compound, FilterOptions, Area)
 - **Remote Sources**: 13 tests (API integration + text search functionality)
 - **Domain Layer**: 12 tests (Repository pattern)
@@ -210,19 +232,6 @@ Comprehensive text search functionality allows users to find properties by typin
 - **Smart Query Handling**: Empty/whitespace queries return all properties
 
 ---
-
-## 📊 Data Strategy
-
-- **Online-first**: Live property data via API  
-- **Favorites-only offline support**: ObjectBox for saved properties  
-- **Client-side filtering**: Ensures realistic functionality even with static API responses  
-- **Future-proof**: Network integration preserved for when real endpoints are ready  
-
----
-
-## ⚠️ API Implementation Note
-
-**Important**: The provided API endpoints don't function as expected for a proper search application, which required implementing a workaround:
 
 ### API Limitations Discovered
 - **Properties Search**: Always returns the same 12 static properties regardless of any search filters

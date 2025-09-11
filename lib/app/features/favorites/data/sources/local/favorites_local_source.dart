@@ -1,25 +1,25 @@
 import 'package:injectable/injectable.dart';
-import 'package:nawy_app/app/core/utils/obx_service.dart';
+import 'package:nawy_app/app/core/utils/hive_service.dart';
 import 'package:nawy_app/app/core/utils/error_handler.dart';
-import 'package:nawy_app/app/features/favorites/data/sources/local/models/property_obx.dart';
-import 'package:nawy_app/app/features/favorites/data/sources/local/models/compound_obx.dart';
+import 'package:nawy_app/app/features/favorites/data/sources/local/models/property_hive.dart';
+import 'package:nawy_app/app/features/favorites/data/sources/local/models/compound_hive.dart';
 import 'package:nawy_app/app/features/search/domain/models/property.dart';
 import 'package:nawy_app/app/features/search/domain/models/compound.dart';
 
-/// Local data source for favorites using ObjectBox
+/// Local data source for favorites using Hive
 @injectable
 class FavoritesLocalSource {
-  final ObxService _obxService;
+  final HiveService _hiveService;
 
-  FavoritesLocalSource(this._obxService);
+  FavoritesLocalSource(this._hiveService);
 
   /// Get all favorite properties
   Future<List<Property>> getFavoriteProperties() async {
     return await ErrorHandler.executeWithTimeout(
       () async {
-        final box = _obxService.store.box<PropertyObx>();
-        final propertyObxList = box.getAll();
-        return propertyObxList.map((obx) => obx.toEntity()).toList();
+        final box = _hiveService.propertyBox;
+        final propertyHiveList = box.values.toList();
+        return propertyHiveList.map((hive) => hive.toEntity()).toList();
       },
       const Duration(seconds: 5),
       'GetFavoriteProperties',
@@ -30,9 +30,9 @@ class FavoritesLocalSource {
   Future<List<Compound>> getFavoriteCompounds() async {
     return await ErrorHandler.executeWithTimeout(
       () async {
-        final box = _obxService.store.box<CompoundObx>();
-        final compoundObxList = box.getAll();
-        return compoundObxList.map((obx) => obx.toEntity()).toList();
+        final box = _hiveService.compoundBox;
+        final compoundHiveList = box.values.toList();
+        return compoundHiveList.map((hive) => hive.toEntity()).toList();
       },
       const Duration(seconds: 5),
       'GetFavoriteCompounds',
@@ -43,23 +43,18 @@ class FavoritesLocalSource {
   Future<void> addFavoriteProperty(Property property) async {
     return await ErrorHandler.executeWithTimeout(
       () async {
-        final box = _obxService.store.box<PropertyObx>();
+        final box = _hiveService.propertyBox;
         
-        // Check if already exists
-        final allProperties = box.getAll();
-        final existing = allProperties.firstWhere(
-          (p) => p.propertyId == property.id,
-          orElse: () => PropertyObx(),
-        );
-        
-        if (existing.id != 0) {
+        // Check if already exists using propertyId as key
+        final key = 'property_${property.id}';
+        if (box.containsKey(key)) {
           return; // Already exists
         }
         
         // Create new favorite property with isFavorite = true
         final favoriteProperty = property.copyWith(isFavorite: true);
-        final propertyObx = PropertyObx.fromEntity(favoriteProperty);
-        box.put(propertyObx);
+        final propertyHive = PropertyHive.fromEntity(favoriteProperty);
+        await box.put(key, propertyHive);
       },
       const Duration(seconds: 5),
       'AddFavoriteProperty',
@@ -70,21 +65,16 @@ class FavoritesLocalSource {
   Future<void> addFavoriteCompound(Compound compound) async {
     return await ErrorHandler.executeWithTimeout(
       () async {
-        final box = _obxService.store.box<CompoundObx>();
+        final box = _hiveService.compoundBox;
         
-        // Check if already exists
-        final allCompounds = box.getAll();
-        final existing = allCompounds.firstWhere(
-          (c) => c.compoundId == compound.id,
-          orElse: () => CompoundObx(),
-        );
-        
-        if (existing.id != 0) {
+        // Check if already exists using compoundId as key
+        final key = 'compound_${compound.id}';
+        if (box.containsKey(key)) {
           return; // Already exists
         }
         
-        final compoundObx = CompoundObx.fromEntity(compound);
-        box.put(compoundObx);
+        final compoundHive = CompoundHive.fromEntity(compound);
+        await box.put(key, compoundHive);
       },
       const Duration(seconds: 5),
       'AddFavoriteCompound',
@@ -95,17 +85,9 @@ class FavoritesLocalSource {
   Future<void> removeFavoriteProperty(int propertyId) async {
     return await ErrorHandler.executeWithTimeout(
       () async {
-        final box = _obxService.store.box<PropertyObx>();
-        
-        final allProperties = box.getAll();
-        final existing = allProperties.firstWhere(
-          (p) => p.propertyId == propertyId,
-          orElse: () => PropertyObx(),
-        );
-        
-        if (existing.id != 0) {
-          box.remove(existing.id);
-        }
+        final box = _hiveService.propertyBox;
+        final key = 'property_$propertyId';
+        await box.delete(key);
       },
       const Duration(seconds: 5),
       'RemoveFavoriteProperty',
@@ -116,17 +98,9 @@ class FavoritesLocalSource {
   Future<void> removeFavoriteCompound(int compoundId) async {
     return await ErrorHandler.executeWithTimeout(
       () async {
-        final box = _obxService.store.box<CompoundObx>();
-        
-        final allCompounds = box.getAll();
-        final existing = allCompounds.firstWhere(
-          (c) => c.compoundId == compoundId,
-          orElse: () => CompoundObx(),
-        );
-        
-        if (existing.id != 0) {
-          box.remove(existing.id);
-        }
+        final box = _hiveService.compoundBox;
+        final key = 'compound_$compoundId';
+        await box.delete(key);
       },
       const Duration(seconds: 5),
       'RemoveFavoriteCompound',
@@ -137,9 +111,9 @@ class FavoritesLocalSource {
   Future<bool> isPropertyFavorite(int propertyId) async {
     return await ErrorHandler.executeWithTimeout(
       () async {
-        final box = _obxService.store.box<PropertyObx>();
-        final allProperties = box.getAll();
-        return allProperties.any((p) => p.propertyId == propertyId);
+        final box = _hiveService.propertyBox;
+        final key = 'property_$propertyId';
+        return box.containsKey(key);
       },
       const Duration(seconds: 5),
       'IsPropertyFavorite',
@@ -150,9 +124,9 @@ class FavoritesLocalSource {
   Future<bool> isCompoundFavorite(int compoundId) async {
     return await ErrorHandler.executeWithTimeout(
       () async {
-        final box = _obxService.store.box<CompoundObx>();
-        final allCompounds = box.getAll();
-        return allCompounds.any((c) => c.compoundId == compoundId);
+        final box = _hiveService.compoundBox;
+        final key = 'compound_$compoundId';
+        return box.containsKey(key);
       },
       const Duration(seconds: 5),
       'IsCompoundFavorite',

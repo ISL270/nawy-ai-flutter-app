@@ -1,27 +1,44 @@
-import 'package:objectbox/objectbox.dart';
-import 'package:nawy_app/app/features/search/domain/models/compound.dart';
+import 'package:hive_ce/hive.dart';
+import 'package:nawy_app/app/features/search/domain/models/compound.dart' as domain;
+
+part 'compound_hive.g.dart';
 
 /// Persistence model for Compound - handles local storage of favorited compounds only
-@Entity()
-class CompoundObx {
-  @Id()
-  int id = 0;
-
+@HiveType(typeId: 1)
+class CompoundHive extends HiveObject {
+  @HiveField(0)
   late int compoundId;
+
+  @HiveField(1)
   late int areaId;
+
+  @HiveField(2)
   late String name;
+
+  @HiveField(3)
   String? slug;
+
+  @HiveField(4)
   String? imagePath;
+
+  @HiveField(5)
   int? developerId;
-  @Property(type: PropertyType.date)
+
+  @HiveField(6)
   DateTime? updatedAt;
+
+  @HiveField(7)
   int? nawyOrganizationId;
+
+  @HiveField(8)
   bool hasOffers = false;
+
+  @HiveField(9)
   bool isFavorite = false;
 
-  CompoundObx();
+  CompoundHive();
 
-  CompoundObx._({
+  CompoundHive._({
     required this.compoundId,
     required this.areaId,
     required this.name,
@@ -35,8 +52,8 @@ class CompoundObx {
   });
 
   /// Convert persistence model to domain entity
-  Compound toEntity() {
-    return Compound(
+  domain.Compound toEntity() {
+    return domain.Compound(
       id: compoundId,
       areaId: areaId,
       name: name,
@@ -46,14 +63,13 @@ class CompoundObx {
       updatedAt: updatedAt,
       nawyOrganizationId: nawyOrganizationId,
       hasOffers: hasOffers,
-      area: null, // Area relationship handled separately
       isFavorite: isFavorite,
     );
   }
 
   /// Create persistence model from domain entity
-  factory CompoundObx.fromEntity(Compound entity) {
-    return CompoundObx._(
+  factory CompoundHive.fromEntity(domain.Compound entity) {
+    return CompoundHive._(
       compoundId: entity.id,
       areaId: entity.areaId,
       name: entity.name,
