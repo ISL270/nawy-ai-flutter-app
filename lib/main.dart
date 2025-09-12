@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:nawy_app/app/core/injection/injection.dart';
 import 'package:nawy_app/app/core/theme/app_theme.dart';
+import 'package:nawy_app/app/core/widgets/responsive_wrapper.dart';
 import 'package:nawy_app/app/features/home/presentation/pages/pages.dart';
 import 'package:nawy_app/firebase_options.dart';
 
@@ -23,7 +24,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Nawy Real Estate App',
       theme: AppTheme.lightTheme,
-      home: const HomePage(),
+      home: const ResponsiveWrapper(
+        child: HomePage(),
+      ),
       debugShowCheckedModeBanner: false,
     );
   }
