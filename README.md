@@ -36,8 +36,6 @@ Real estate property search application built with **Flutter**. Features AI-powe
 
 - **🤖 AI Property Assistant** – Natural language property search powered by Firebase AI & Gemini 2.5 Pro:  
   - "Find me a 3-bedroom villa in New Cairo under 5M EGP"
-  - "Show me luxury apartments in Bloomfields"
-  - "What compounds are available in El Sheikh Zayed?"
 - **🔧 Function Calling** – AI can intelligently call property search functions with proper parameters
 - **💬 Custom Chat UI** – Beautiful chat interface with message bubbles, loading states, and auto-scrolling
 - **🔍 Smart Search** – Real-time text search across properties, areas, and compounds
@@ -92,31 +90,12 @@ Built with modern Flutter practices and feature-first folder structure:
 
 ### 🔄 Database Migration: ObjectBox → Hive CE
 
-**Why We Migrated:**
-The app integrates **Firebase AI features** for enhanced property search and recommendations. To make testing easier for reviewers (who would otherwise need to create their own Firebase projects), we decided to deploy a **web version** with pre-configured Firebase integration.
+Migrated from ObjectBox to **Hive CE** for full web platform support, enabling Firebase AI integration deployment without requiring reviewers to set up their own Firebase projects.
 
-**Technical Challenge:**
-- **ObjectBox**: No web support ❌
-- **Isar**: No web support ❌  
-- **Hive CE**: Full web support ✅
-
-**Business Benefits:**
-- 🎯 **Simplified Review Process**: Reviewers can test Firebase AI features instantly via web link
-- 🚀 **No Setup Required**: No need for reviewers to create Firebase projects or configure API keys
-- 🌐 **Instant Access**: Deploy to GitHub Pages for immediate testing
-- 📱 **Cross-Platform**: Same codebase works on mobile, desktop, and web
-
-**Technical Benefits:**
-- ✅ Full web platform compatibility via IndexedDB
-- ✅ Same API across all platforms (mobile/desktop/web)
-- ✅ Zero functionality loss - all favorites features preserved
-- ✅ Enables seamless Firebase integration on web
-
-### Model Architecture
-Each entity follows a three-layer model pattern:
-- **Domain Entity** (e.g., `Property`) - Pure business logic
-- **DTO** (e.g., `PropertyDto`) - API serialization/deserialization  
-- **Hive** (e.g., `PropertyHive`) - Local database persistence (favorites only)  
+**Key Benefits:**
+- ✅ Full web compatibility via IndexedDB
+- ✅ Cross-platform support (mobile/desktop/web)
+- ✅ Seamless Firebase AI integration on web
 
 ---
 
@@ -208,9 +187,6 @@ flutter test --reporter=expanded
 - **💬 Custom Chat UI**: Beautiful message bubbles with loading states and auto-scrolling
 - **🎯 Contextual Responses**: AI understands property search context and provides relevant results
 - **⚡ Real-time Interaction**: Instant responses with proper error handling
-
-
-
 
 ---
 
