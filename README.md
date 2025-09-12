@@ -34,19 +34,17 @@ Real estate property search application built with **Flutter**. Features AI-powe
 
 ## ✨ Features
 
-- **🤖 AI Property Assistant** – Ask in plain language:  
-  “Find me a 3-bedroom villa in New Cairo under 5M EGP”
+- **🤖 AI Property Assistant** – Natural language property search powered by Firebase AI & Gemini 2.5 Pro:  
+  - "Find me a 3-bedroom villa in New Cairo under 5M EGP"
+  - "Show me luxury apartments in Bloomfields"
+  - "What compounds are available in El Sheikh Zayed?"
+- **🔧 Function Calling** – AI can intelligently call property search functions with proper parameters
+- **💬 Custom Chat UI** – Beautiful chat interface with message bubbles, loading states, and auto-scrolling
 - **🔍 Smart Search** – Real-time text search across properties, areas, and compounds
 - **⚡ Advanced Filtering** – Filter by area, compound, price, bedrooms, and property type
 - **❤️ Favorites** – Save properties locally for offline access
-- **📱 Modern UI** – Clean, responsive design following Flutter best practices
-
----
-
-> **📢 For Reviewers**: 
-> - **AI Features**: Currently in development using Firebase AI and Gemini 2.5 Pro. The AI chat interface is coming soon!
-> - **Easy Testing**: Working on a web deployment version so you can test the app directly in your browser without setting up Firebase or any local environment
-> - **Current Version**: You can run the mobile version locally using the instructions below, or wait for the web version link
+- **📱 Modern UI** – Clean, responsive design with iPhone frame simulation on web
+- **🌐 Web Compatible** – Full web deployment with responsive wrapper for desktop/mobile
 
 ---
 
@@ -136,7 +134,7 @@ lib/
 │   ├── features/           # Application features (modular)
 │   │   ├── search/         # Property search feature
 │   │   ├── favorites/      # Favorites management
-│   │   ├── ai_chat/        # AI assistant
+│   │   ├── ai_assistant/   # AI assistant with Firebase AI
 │   │   └── [feature]/      # Each feature module
 │   │       ├── domain/     # Business logic (entities, repositories)
 │   │       ├── data/       # Data layer (sources + models)
@@ -202,16 +200,17 @@ flutter test --reporter=expanded
 
 ## 🤖 AI Assistant
 
-Powered by **Firebase AI Logic** and **Gemini 2.5 Pro** with tool calling:
+**✅ FULLY IMPLEMENTED** - Powered by **Firebase AI** and **Gemini 2.5 Pro** with function calling:
 
-- Natural language property queries  
-- Contextual understanding and memory  
-- Conversational interface via `flutter_chat_ui`  
+### Core Features
+- **🧠 Natural Language Processing**: Ask questions in plain English
+- **🔧 Function Calling**: AI intelligently calls property search functions
+- **💬 Custom Chat UI**: Beautiful message bubbles with loading states and auto-scrolling
+- **🎯 Contextual Responses**: AI understands property search context and provides relevant results
+- **⚡ Real-time Interaction**: Instant responses with proper error handling
 
-**Example queries:**
-- "Show me luxury apartments in Bloomfields"
-- "Find villas under 4M EGP with 4+ bedrooms"
-- "What's available in New Cairo?"
+
+
 
 ---
 
