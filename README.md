@@ -111,7 +111,7 @@ lib/
 │   │   ├── widgets/        # Shared, reusable widgets
 │   │   └── common/         # Shared types (e.g., Status<T>)
 │   ├── features/           # Application features (modular)
-│   │   ├── search/         # Property search feature
+│   │   ├── property_search/ # Property search feature
 │   │   ├── favorites/      # Favorites management
 │   │   ├── ai_assistant/   # AI assistant with Firebase AI
 │   │   └── [feature]/      # Each feature module
@@ -157,7 +157,7 @@ Comprehensive test suite with **187 automated tests** achieving **100% pass rate
 - **DTO Models**: 60 tests (Property, Compound, FilterOptions, Area)
 - **Remote Sources**: 13 tests (API integration + text search functionality)
 - **Domain Layer**: 12 tests (Repository pattern)
-- **BLoC Layer**: 17 tests (SearchBloc business logic with bloc_test)
+- **BLoC Layer**: 17 tests (PropertySearchBloc business logic with bloc_test)
 - **API Contract**: 12 tests (Live endpoint validation)
 - **Text Search**: Comprehensive testing of search functionality
 
@@ -223,7 +223,7 @@ To demonstrate proper search and filtering functionality that would work with a 
 - **Production Ready**: The architecture is ready to switch back to network calls when a properly functioning API is available
 
 ### Files Modified for Workaround
-- `lib/app/features/search/data/sources/remote/property_remote_source.dart` - Contains both commented network implementation and working local implementation
+- `lib/app/features/property_search/data/sources/remote/property_remote_source.dart` - Contains both commented network implementation and working local implementation
 - `properties.json` - 100+ properties in exact API format for demonstration
 - All original network integration code is preserved and can be easily restored
 

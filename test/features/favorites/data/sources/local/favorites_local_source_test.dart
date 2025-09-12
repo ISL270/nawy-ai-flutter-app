@@ -5,8 +5,8 @@ import 'package:nawy_app/app/core/utils/hive_service.dart';
 import 'package:nawy_app/app/features/favorites/data/sources/local/favorites_local_source.dart';
 import 'package:nawy_app/app/features/favorites/data/sources/local/models/compound_hive.dart';
 import 'package:nawy_app/app/features/favorites/data/sources/local/models/property_hive.dart';
-import 'package:nawy_app/app/features/search/domain/models/compound.dart';
-import 'package:nawy_app/app/features/search/domain/models/property.dart';
+import 'package:nawy_app/app/features/property_search/domain/models/compound.dart';
+import 'package:nawy_app/app/features/property_search/domain/models/property.dart';
 
 class MockHiveService extends Mock implements HiveService {}
 class MockPropertyBox extends Mock implements Box<PropertyHive> {}

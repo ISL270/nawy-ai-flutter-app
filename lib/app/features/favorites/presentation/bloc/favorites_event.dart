@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
-import 'package:nawy_app/app/features/search/domain/models/property.dart';
-import 'package:nawy_app/app/features/search/domain/models/compound.dart';
+import 'package:nawy_app/app/features/property_search/domain/models/property.dart';
+import 'package:nawy_app/app/features/property_search/domain/models/compound.dart';
 
 /// Base class for all favorites events
 abstract class FavoritesEvent extends Equatable {

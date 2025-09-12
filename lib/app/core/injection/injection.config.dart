@@ -23,10 +23,10 @@ import 'package:nawy_app/app/features/favorites/data/sources/local/favorites_loc
     as _i134;
 import 'package:nawy_app/app/features/favorites/presentation/bloc/favorites_bloc.dart'
     as _i565;
-import 'package:nawy_app/app/features/search/data/sources/remote/property_remote_source.dart'
-    as _i32;
-import 'package:nawy_app/app/features/search/domain/property_repository.dart'
-    as _i938;
+import 'package:nawy_app/app/features/property_search/data/sources/remote/property_search_remote_source.dart'
+    as _i509;
+import 'package:nawy_app/app/features/property_search/domain/property_search_repository.dart'
+    as _i942;
 
 extension GetItInjectableX on _i174.GetIt {
   // initializes the registration of main-scope dependencies inside of GetIt
@@ -48,23 +48,25 @@ extension GetItInjectableX on _i174.GetIt {
       () => _i134.FavoritesLocalSource(gh<_i789.HiveService>()),
     );
     gh.singleton<_i997.DioClient>(() => _i997.DioClient(gh<_i921.AppLogger>()));
-    gh.singleton<_i32.PropertyRemoteSource>(
-      () => _i32.PropertyRemoteSource(gh<_i997.DioClient>()),
+    gh.singleton<_i509.PropertySearchRemoteSource>(
+      () => _i509.PropertySearchRemoteSource(gh<_i997.DioClient>()),
     );
     gh.singleton<_i823.FavoritesRepository>(
       () => _i823.FavoritesRepository(gh<_i134.FavoritesLocalSource>()),
+    );
+    gh.singleton<_i942.PropertySearchRepository>(
+      () => _i942.PropertySearchRepository(
+        gh<_i509.PropertySearchRemoteSource>(),
+      ),
+    );
+    gh.singleton<_i361.AiService>(
+      () => _i361.AiService(gh<_i942.PropertySearchRepository>()),
     );
     gh.factory<_i565.FavoritesBloc>(
       () => _i565.FavoritesBloc(
         gh<_i823.FavoritesRepository>(),
         gh<_i921.AppLogger>(),
       ),
-    );
-    gh.singleton<_i938.PropertyRepository>(
-      () => _i938.PropertyRepository(gh<_i32.PropertyRemoteSource>()),
-    );
-    gh.singleton<_i361.AiService>(
-      () => _i361.AiService(gh<_i938.PropertyRepository>()),
     );
     return this;
   }

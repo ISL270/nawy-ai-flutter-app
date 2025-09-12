@@ -1,45 +1,45 @@
-import 'package:mocktail/mocktail.dart';
 import 'package:dio/dio.dart';
-import 'package:nawy_app/app/core/utils/dio_client.dart';
+import 'package:mocktail/mocktail.dart';
 import 'package:nawy_app/app/core/utils/app_logger.dart';
-import 'package:nawy_app/app/features/search/data/sources/remote/property_remote_source.dart';
+import 'package:nawy_app/app/core/utils/dio_client.dart';
+import 'package:nawy_app/app/features/property_search/data/sources/remote/property_search_remote_source.dart';
 
 /// Mock classes for testing
 class MockDio extends Mock implements Dio {}
+
 class MockDioClient extends Mock implements DioClient {}
+
 class MockAppLogger extends Mock implements AppLogger {}
-class MockPropertyRemoteSource extends Mock implements PropertyRemoteSource {}
+
+class MockPropertyRemoteSource extends Mock implements PropertySearchRemoteSource {}
 
 /// Test helper utilities for creating mock objects and test data
 class MockHelpers {
   /// Creates a mock Dio instance with common stubbed methods
   static MockDio createMockDio() {
     final mockDio = MockDio();
-    
+
     // Register fallback values for common types
     registerFallbackValue(RequestOptions(path: ''));
-    registerFallbackValue(Response(
-      requestOptions: RequestOptions(path: ''),
-      statusCode: 200,
-    ));
-    
+    registerFallbackValue(Response(requestOptions: RequestOptions(path: ''), statusCode: 200));
+
     return mockDio;
   }
 
   /// Creates a mock DioClient with common stubbed methods
   static MockDioClient createMockDioClient() {
     final mockDioClient = MockDioClient();
-    
+
     // Register fallback values
     registerFallbackValue(RequestOptions(path: ''));
-    
+
     return mockDioClient;
   }
 
   /// Creates a mock AppLogger with stubbed methods
   static MockAppLogger createMockAppLogger() {
     final mockAppLogger = MockAppLogger();
-    
+
     // Stub all logging methods to do nothing by default (void methods don't need thenReturn)
     when(() => mockAppLogger.initialize()).thenReturn;
     when(() => mockAppLogger.debug(any(), any(), any())).thenReturn;
@@ -50,14 +50,14 @@ class MockHelpers {
     when(() => mockAppLogger.logRequest(any(), any(), data: any(named: 'data'))).thenReturn;
     when(() => mockAppLogger.logResponse(any(), any(), any(), data: any(named: 'data'))).thenReturn;
     when(() => mockAppLogger.logError(any(), any(), any())).thenReturn;
-    
+
     return mockAppLogger;
   }
 
   /// Creates a mock PropertyRemoteSource with common stubbed methods
   static MockPropertyRemoteSource createMockPropertyRemoteSource() {
     final mockRemoteSource = MockPropertyRemoteSource();
-    
+
     return mockRemoteSource;
   }
 
@@ -113,9 +113,9 @@ class MockHelpers {
     List<dynamic> positionalArgs, [
     Map<Symbol, dynamic>? namedArgs,
   ]) {
-    verify(() => mock.noSuchMethod(
-      Invocation.method(Symbol(methodName), positionalArgs, namedArgs),
-    )).called(1);
+    verify(
+      () => mock.noSuchMethod(Invocation.method(Symbol(methodName), positionalArgs, namedArgs)),
+    ).called(1);
   }
 
   /// Verifies that a method was never called
@@ -125,23 +125,22 @@ class MockHelpers {
     List<dynamic> positionalArgs, [
     Map<Symbol, dynamic>? namedArgs,
   ]) {
-    verifyNever(() => mock.noSuchMethod(
-      Invocation.method(Symbol(methodName), positionalArgs, namedArgs),
-    ));
+    verifyNever(
+      () => mock.noSuchMethod(Invocation.method(Symbol(methodName), positionalArgs, namedArgs)),
+    );
   }
 
   /// Sets up common fallback values for mocktail
   static void setupFallbackValues() {
     // Register fallback values for common types used in tests
     registerFallbackValue(RequestOptions(path: ''));
-    registerFallbackValue(Response(
-      requestOptions: RequestOptions(path: ''),
-      statusCode: 200,
-    ));
-    registerFallbackValue(DioException(
-      requestOptions: RequestOptions(path: ''),
-      type: DioExceptionType.unknown,
-    ));
+    registerFallbackValue(Response(requestOptions: RequestOptions(path: ''), statusCode: 200));
+    registerFallbackValue(
+      DioException(
+        requestOptions: RequestOptions(path: ''),
+        type: DioExceptionType.unknown,
+      ),
+    );
   }
 
   /// Creates a mock response with proper typing

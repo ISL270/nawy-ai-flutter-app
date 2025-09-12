@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nawy_app/app/features/favorites/presentation/bloc/favorites_bloc_exports.dart';
-import 'package:nawy_app/app/features/search/presentation/widgets/property_card.dart';
+import 'package:nawy_app/app/features/property_search/presentation/widgets/property_card.dart';
 
 /// Favourites page - Saved properties and compounds
 class FavouritesPage extends StatelessWidget {

@@ -1,10 +1,10 @@
 import 'package:firebase_ai/firebase_ai.dart';
 import 'package:injectable/injectable.dart';
-import 'package:nawy_app/app/features/search/domain/property_repository.dart';
+import 'package:nawy_app/app/features/property_search/domain/property_search_repository.dart';
 
 @singleton
 class AiService {
-  final PropertyRepository _propertyRepository;
+  final PropertySearchRepository _propertyRepository;
   late final GenerativeModel _model;
 
   AiService(this._propertyRepository) {

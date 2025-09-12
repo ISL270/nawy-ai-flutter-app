@@ -3,8 +3,8 @@ import 'package:nawy_app/app/core/utils/hive_service.dart';
 import 'package:nawy_app/app/core/utils/error_handler.dart';
 import 'package:nawy_app/app/features/favorites/data/sources/local/models/property_hive.dart';
 import 'package:nawy_app/app/features/favorites/data/sources/local/models/compound_hive.dart';
-import 'package:nawy_app/app/features/search/domain/models/property.dart';
-import 'package:nawy_app/app/features/search/domain/models/compound.dart';
+import 'package:nawy_app/app/features/property_search/domain/models/property.dart';
+import 'package:nawy_app/app/features/property_search/domain/models/compound.dart';
 
 /// Local data source for favorites using Hive
 @injectable

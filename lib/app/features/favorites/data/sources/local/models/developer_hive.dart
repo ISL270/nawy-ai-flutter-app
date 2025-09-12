@@ -1,5 +1,5 @@
 import 'package:hive_ce/hive.dart';
-import 'package:nawy_app/app/features/search/domain/models/developer.dart' as domain;
+import 'package:nawy_app/app/features/property_search/domain/models/developer.dart' as domain;
 
 part 'developer_hive.g.dart';
 

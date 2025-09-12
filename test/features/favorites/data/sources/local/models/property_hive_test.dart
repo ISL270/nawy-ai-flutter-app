@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:nawy_app/app/features/favorites/data/sources/local/models/property_hive.dart';
-import 'package:nawy_app/app/features/search/domain/models/property.dart';
+import 'package:nawy_app/app/features/property_search/domain/models/property.dart';
 
 void main() {
   group('PropertyHive', () {

@@ -1,13 +1,13 @@
-import 'package:nawy_app/app/features/search/data/sources/remote/models/property_dto.dart';
-import 'package:nawy_app/app/features/search/data/sources/remote/models/area_dto.dart';
-import 'package:nawy_app/app/features/search/data/sources/remote/models/compound_dto.dart';
-import 'package:nawy_app/app/features/search/data/sources/remote/models/developer_dto.dart';
-import 'package:nawy_app/app/features/search/data/sources/remote/models/property_type_dto.dart';
-import 'package:nawy_app/app/features/search/data/sources/remote/models/search_response.dart';
-import 'package:nawy_app/app/features/search/data/sources/remote/models/filter_options.dart';
-import 'package:nawy_app/app/features/search/domain/models/property.dart';
-import 'package:nawy_app/app/features/search/domain/models/area.dart';
-import 'package:nawy_app/app/features/search/domain/models/compound.dart';
+import 'package:nawy_app/app/features/property_search/data/sources/remote/models/area_dto.dart';
+import 'package:nawy_app/app/features/property_search/data/sources/remote/models/compound_dto.dart';
+import 'package:nawy_app/app/features/property_search/data/sources/remote/models/developer_dto.dart';
+import 'package:nawy_app/app/features/property_search/data/sources/remote/models/filter_options.dart';
+import 'package:nawy_app/app/features/property_search/data/sources/remote/models/property_dto.dart';
+import 'package:nawy_app/app/features/property_search/data/sources/remote/models/property_type_dto.dart';
+import 'package:nawy_app/app/features/property_search/data/sources/remote/models/property_search_response.dart';
+import 'package:nawy_app/app/features/property_search/domain/models/area.dart';
+import 'package:nawy_app/app/features/property_search/domain/models/compound.dart';
+import 'package:nawy_app/app/features/property_search/domain/models/property.dart';
 
 /// Test data factory for creating consistent test objects across test suites
 class TestData {
@@ -16,28 +16,23 @@ class TestData {
     'id': 1,
     'name': 'New Cairo',
     'slug': 'new-cairo',
-    'all_slugs': {
-      'en': 'new-cairo',
-      'ar': 'القاهرة-الجديدة'
-    }
+    'all_slugs': {'en': 'new-cairo', 'ar': 'القاهرة-الجديدة'},
   };
 
   static const Map<String, dynamic> sampleDeveloperJson = {
     'id': 1,
     'name': 'Emaar Misr',
     'slug': 'emaar-misr',
-    'image_path': '/images/emaar.jpg'
+    'image_path': '/images/emaar.jpg',
   };
 
   static const Map<String, dynamic> samplePropertyTypeJson = {
     'id': 1,
     'name': 'Apartment',
-    'icon': {
-      'url': '/images/apartment.jpg'
-    },
+    'icon': {'url': '/images/apartment.jpg'},
     'has_land_area': false,
     'has_mandatory_garden_area': false,
-    'manual_ranking': null
+    'manual_ranking': null,
   };
 
   static const Map<String, dynamic> sampleCompoundJson = {
@@ -50,7 +45,7 @@ class TestData {
     'image_path': '/images/madinaty.jpg',
     'nawy_organization_id': 1,
     'has_offers': true,
-    'area': sampleAreaJson
+    'area': sampleAreaJson,
   };
 
   static const Map<String, dynamic> samplePropertyJson = {
@@ -91,7 +86,7 @@ class TestData {
     'garden': false,
     'pool': true,
     'gym': true,
-    'maintenance_fee': 500
+    'maintenance_fee': 500,
   };
 
   static const Map<String, dynamic> sampleSearchResponseJson = {
@@ -99,8 +94,8 @@ class TestData {
     'total_properties': 1250,
     'property_type_count': [
       {'property_type_id': 1, 'count': 800},
-      {'property_type_id': 2, 'count': 450}
-    ]
+      {'property_type_id': 2, 'count': 450},
+    ],
   };
 
   static const Map<String, dynamic> sampleFilterOptionsJson = {
@@ -110,20 +105,12 @@ class TestData {
     'max_price_list': [1000000, 2000000, 5000000, 10000000],
     'property_types': [samplePropertyTypeJson],
     'amenities': [
-      {
-        'id': 1,
-        'name': 'Swimming Pool',
-        'image_path': '/images/pool.jpg'
-      }
+      {'id': 1, 'name': 'Swimming Pool', 'image_path': '/images/pool.jpg'},
     ],
     'sortings': [
-      {
-        'key': 'price',
-        'value': 'Price',
-        'direction': 'asc'
-      }
+      {'key': 'price', 'value': 'Price', 'direction': 'asc'},
     ],
-    'sale_types': ['sale', 'rent']
+    'sale_types': ['sale', 'rent'],
   };
 
   // DTO Factory Methods
@@ -147,12 +134,7 @@ class TestData {
     String? slug = 'emaar-misr',
     String? logoPath = '/images/emaar.jpg',
   }) {
-    return DeveloperDto(
-      id: id,
-      name: name,
-      slug: slug,
-      logoPath: logoPath,
-    );
+    return DeveloperDto(id: id, name: name, slug: slug, logoPath: logoPath);
   }
 
   static PropertyCompoundDto createPropertyCompoundDto({
@@ -255,20 +237,19 @@ class TestData {
     );
   }
 
-  static SearchResponse createSearchResponse({
+  static PropertySearchResponse createSearchResponse({
     List<PropertyDto>? properties,
     int totalProperties = 1250,
     List<PropertyTypeCount>? propertyTypeCounts,
   }) {
-    return SearchResponse(
+    return PropertySearchResponse(
       properties: properties ?? [createPropertyDto()],
       totalProperties: totalProperties,
       totalCompounds: 50,
       totalPropertyGroups: 25,
-      propertyTypes: propertyTypeCounts ?? [
-        PropertyTypeCount(id: 1, count: 800),
-        PropertyTypeCount(id: 2, count: 450),
-      ],
+      propertyTypes:
+          propertyTypeCounts ??
+          [PropertyTypeCount(id: 1, count: 800), PropertyTypeCount(id: 2, count: 450)],
     );
   }
 
@@ -288,12 +269,9 @@ class TestData {
       minPriceList: minPriceList ?? [500000, 1000000, 2000000, 5000000],
       maxPriceList: maxPriceList ?? [1000000, 2000000, 5000000, 10000000],
       propertyTypes: propertyTypes ?? [createPropertyTypeDto()],
-      amenities: amenities ?? [
-        Amenity(id: 1, name: 'Swimming Pool', imagePath: '/images/pool.jpg'),
-      ],
-      sortings: sortings ?? [
-        SortOption(key: 'price', value: 'Price', direction: 'asc'),
-      ],
+      amenities:
+          amenities ?? [Amenity(id: 1, name: 'Swimming Pool', imagePath: '/images/pool.jpg')],
+      sortings: sortings ?? [SortOption(key: 'price', value: 'Price', direction: 'asc')],
       saleTypes: saleTypes ?? ['sale', 'rent'],
     );
   }
@@ -399,7 +377,7 @@ class TestData {
     List<int>? propertyTypeIds,
   }) {
     final params = <String, dynamic>{};
-    
+
     if (areaIds != null && areaIds.isNotEmpty) {
       params['area_ids'] = areaIds;
     }
@@ -421,7 +399,7 @@ class TestData {
     if (propertyTypeIds != null && propertyTypeIds.isNotEmpty) {
       params['property_type_ids'] = propertyTypeIds;
     }
-    
+
     return params;
   }
 }
