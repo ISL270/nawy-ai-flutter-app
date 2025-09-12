@@ -9,10 +9,11 @@ import 'package:nawy_app/firebase_options.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+
   // Configure dependency injection and await async dependencies
   await configureDependencies();
 
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const MyApp());
 }
 
@@ -24,9 +25,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Nawy Real Estate App',
       theme: AppTheme.lightTheme,
-      home: const ResponsiveWrapper(
-        child: HomePage(),
-      ),
+      home: const ResponsiveWrapper(child: HomePage()),
       debugShowCheckedModeBanner: false,
     );
   }

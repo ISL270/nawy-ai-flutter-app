@@ -6,7 +6,7 @@ import 'package:nawy_app/app/features/favorites/data/favorites_repository.dart';
 import 'package:nawy_app/app/features/favorites/presentation/bloc/favorites_bloc_exports.dart';
 
 import '../../../search/presentation/explore_page.dart';
-import 'ai_chat_page.dart';
+import '../../../ai_assistant/presentation/pages/ai_assistant_page.dart';
 import 'favourites_page.dart';
 import 'settings_page.dart';
 
@@ -24,7 +24,7 @@ class _HomePageState extends State<HomePage> {
 
   final List<Widget> _pages = [
     const ExplorePage(),
-    const AiChatPage(),
+    const AiAssistantPage(),
     const FavouritesPage(),
     const SettingsPage(),
   ];

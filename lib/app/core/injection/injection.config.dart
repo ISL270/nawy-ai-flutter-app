@@ -15,6 +15,8 @@ import 'package:nawy_app/app/core/injection/injection_module.dart' as _i601;
 import 'package:nawy_app/app/core/utils/app_logger.dart' as _i921;
 import 'package:nawy_app/app/core/utils/dio_client.dart' as _i997;
 import 'package:nawy_app/app/core/utils/hive_service.dart' as _i789;
+import 'package:nawy_app/app/features/ai_assistant/domain/ai_service.dart'
+    as _i361;
 import 'package:nawy_app/app/features/favorites/data/favorites_repository.dart'
     as _i823;
 import 'package:nawy_app/app/features/favorites/data/sources/local/favorites_local_source.dart'
@@ -60,6 +62,9 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.singleton<_i938.PropertyRepository>(
       () => _i938.PropertyRepository(gh<_i32.PropertyRemoteSource>()),
+    );
+    gh.singleton<_i361.AiService>(
+      () => _i361.AiService(gh<_i938.PropertyRepository>()),
     );
     return this;
   }
