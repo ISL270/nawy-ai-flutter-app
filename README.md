@@ -17,7 +17,7 @@
           <img src="https://img.shields.io/badge/Hive%20CE-FF6B35?logo=flutter&logoColor=white" alt="Hive CE">
           <img src="https://img.shields.io/badge/Dio-02569B?logo=dart&logoColor=white" alt="Dio">
           <br><br>
-          <img src="https://img.shields.io/badge/tests-187%20passing-brightgreen.svg" alt="Tests">
+          <img src="https://img.shields.io/badge/tests-285%20passing-brightgreen.svg" alt="Tests">
           <img src="https://img.shields.io/badge/coverage-100%25%20pass%20rate-brightgreen.svg" alt="Coverage">
           <img src="https://img.shields.io/badge/architecture-Clean%20Architecture-blue.svg" alt="Clean Architecture">
         </div>
@@ -30,8 +30,7 @@
 
 🤖 AI-powered real estate search app built with Flutter & Firebase AI. Features natural language property search using Gemini 2.5 Pro, advanced filtering, favorites, and responsive web deployment. Built with Clean Architecture, BLoC pattern, and comprehensive testing.
 
-## 🚀 Live Demo
-**[Try the app live →](https://isl270.github.io/nawy-ai-flutter-app/)**
+**[🚀 Try the app live →](https://isl270.github.io/nawy-ai-flutter-app/)**
 
 ---
 
@@ -150,7 +149,7 @@ flutter run
 
 ## 🧪 Testing
 
-Comprehensive test suite with **187 automated tests** achieving **100% pass rate**:
+Comprehensive test suite with **285 automated tests** achieving **100% pass rate**:
 
 ### Test Architecture
 - **Unit Tests**: Core utilities (DioClient, AppLogger, HiveService)
@@ -161,13 +160,14 @@ Comprehensive test suite with **187 automated tests** achieving **100% pass rate
 - **API Contract Tests**: Live endpoint validation
 
 ### Test Coverage Breakdown
-- **Core Utils**: 58 tests (DioClient + AppLogger + HiveService)
-- **DTO Models**: 60 tests (Property, Compound, FilterOptions, Area)
-- **Remote Sources**: 13 tests (API integration + text search functionality)
-- **Domain Layer**: 12 tests (Repository pattern)
-- **BLoC Layer**: 17 tests (PropertySearchBloc business logic with bloc_test)
-- **API Contract**: 12 tests (Live endpoint validation)
-- **Text Search**: Comprehensive testing of search functionality
+- **Core Utils**: Error handling, DioClient, AppLogger, HiveService
+- **DTO Models**: JSON serialization/deserialization for all models
+- **Remote Sources**: API integration + text search functionality
+- **Domain Layer**: Repository pattern and business logic
+- **BLoC Layer**: State management with bloc_test
+- **AI Assistant**: Firebase AI service and BLoC testing
+- **API Contract**: Live endpoint validation
+- **Favorites**: Local storage and repository testing
 
 ```bash
 # Run all tests
@@ -195,6 +195,13 @@ flutter test --reporter=expanded
 - **💬 Custom Chat UI**: Beautiful message bubbles with loading states and auto-scrolling
 - **🎯 Contextual Responses**: AI understands property search context and provides relevant results
 - **⚡ Real-time Interaction**: Instant responses with proper error handling
+
+### Example Queries
+Try these natural language searches with the AI assistant:
+
+- **Property Search**: *"Find me a 3-bedroom villa in New Cairo under 5 million EGP"*
+- **Discover Areas**: *"What areas do you have available?"* or *"Show me all locations"*
+- **Explore Compounds**: *"What compounds are available in Sheikh Zayed?"*
 
 ---
 
