@@ -61,6 +61,11 @@ Real estate property search application built with **Flutter**. Features AI-powe
         <br>
         <strong>Advanced Filtering Options</strong>
       </td>
+      <td align="center">
+        <img src="assets/ai_assistant.png" alt="AI Assistant" width="300">
+        <br>
+        <strong>AI-Powered Assistant</strong>
+      </td>
     </tr>
   </table>
 </div>
