@@ -187,8 +187,6 @@ flutter test --reporter=expanded
 
 ## 🤖 AI Assistant
 
-**✅ FULLY IMPLEMENTED** - Powered by **Firebase AI** and **Gemini 2.5 Pro** with function calling:
-
 ### Core Features
 - **🧠 Natural Language Processing**: Ask questions in plain English
 - **🔧 Function Calling**: AI intelligently calls property search functions
@@ -223,7 +221,7 @@ Comprehensive text search functionality allows users to find properties by typin
 
 ---
 
-### API Limitations Discovered
+### ⚠️ API Limitations Discovered
 - **Properties Search**: Always returns the same 12 static properties regardless of any search filters
 - **No Server-Side Filtering**: All query parameters (area_ids, compound_ids, price ranges, bedrooms, etc.) are completely ignored
 - **Static JSON Files**: The API serves static JSON files instead of dynamic server responses
