@@ -42,6 +42,7 @@ dev_dependencies:
   analyzer: ^7.7.1
   bloc_test: ^10.0.0
   flutter_native_splash: ^2.4.1
+  flutter_launcher_icons: ^0.14.4
 
 flutter:
   uses-material-design: true
@@ -49,6 +50,7 @@ flutter:
   assets:
     - properties.json
     - assets/nawy_logo.png
+    - assets/app_icon.png
 
 # Flutter Native Splash Configuration
 flutter_native_splash:
@@ -57,3 +59,12 @@ flutter_native_splash:
   web: true
   android: true
   ios: true
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  remove_alpha_ios: true
+  image_path: "assets/app_icon.png"
+  web:
+    generate: true
+    image_path: "assets/app_icon.png"
