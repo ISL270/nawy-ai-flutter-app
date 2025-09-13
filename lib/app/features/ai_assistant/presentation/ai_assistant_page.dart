@@ -61,11 +61,10 @@ class _AiAssistantViewState extends State<_AiAssistantView> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Nawy AI Assistant'),
-        backgroundColor: Theme.of(context).primaryColor,
-        foregroundColor: Colors.white,
         actions: [
           IconButton(
-            icon: const Icon(Icons.refresh),
+            padding: EdgeInsets.only(right: 12),
+            icon: const Icon(Icons.add_comment_outlined),
             onPressed: () {
               context.read<AiAssistantBloc>().add(const StartNewChatEvent());
             },
@@ -82,7 +81,7 @@ class _AiAssistantViewState extends State<_AiAssistantView> {
           if (state.status.isInitial) {
             return const Center(child: CircularProgressIndicator());
           }
-          
+
           return Column(
             children: [
               Expanded(
@@ -91,10 +90,7 @@ class _AiAssistantViewState extends State<_AiAssistantView> {
                         child: Text(
                           'Ask me anything about properties!\n\nI can help you search for properties, find areas, compounds, and filter options.',
                           textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: Colors.grey,
-                          ),
+                          style: TextStyle(fontSize: 16, color: Colors.grey),
                         ),
                       )
                     : ListView.builder(
@@ -116,10 +112,7 @@ class _AiAssistantViewState extends State<_AiAssistantView> {
                       Container(
                         width: 40,
                         height: 40,
-                        decoration: BoxDecoration(
-                          color: Colors.grey[300],
-                          shape: BoxShape.circle,
-                        ),
+                        decoration: BoxDecoration(color: Colors.grey[300], shape: BoxShape.circle),
                         child: const Icon(Icons.smart_toy, color: Colors.grey),
                       ),
                       const SizedBox(width: 12),
@@ -187,10 +180,7 @@ class _AiAssistantViewState extends State<_AiAssistantView> {
                             borderRadius: BorderRadius.circular(25),
                             borderSide: BorderSide(color: Theme.of(context).primaryColor),
                           ),
-                          contentPadding: const EdgeInsets.symmetric(
-                            horizontal: 16,
-                            vertical: 12,
-                          ),
+                          contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
                         ),
                         maxLines: null,
                         textInputAction: TextInputAction.send,
@@ -198,11 +188,17 @@ class _AiAssistantViewState extends State<_AiAssistantView> {
                       ),
                     ),
                     const SizedBox(width: 8),
-                    FloatingActionButton(
-                      onPressed: _sendMessage,
-                      mini: true,
-                      backgroundColor: Theme.of(context).primaryColor,
-                      child: const Icon(Icons.send, color: Colors.white),
+                    GestureDetector(
+                      onTap: _sendMessage,
+                      child: Container(
+                        width: 48,
+                        height: 48,
+                        decoration: BoxDecoration(
+                          color: Theme.of(context).colorScheme.secondary,
+                          shape: BoxShape.circle,
+                        ),
+                        child: const Icon(Icons.send, color: Colors.white, size: 20),
+                      ),
                     ),
                   ],
                 ),
@@ -232,10 +228,7 @@ class _AssistantBubble extends StatelessWidget {
             Container(
               width: 40,
               height: 40,
-              decoration: BoxDecoration(
-                color: Colors.grey[300],
-                shape: BoxShape.circle,
-              ),
+              decoration: BoxDecoration(color: Colors.grey[300], shape: BoxShape.circle),
               child: const Icon(Icons.smart_toy, color: Colors.grey),
             ),
             const SizedBox(width: 12),
@@ -244,9 +237,7 @@ class _AssistantBubble extends StatelessWidget {
             child: Container(
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
-                color: message.isUser 
-                    ? Theme.of(context).primaryColor 
-                    : Colors.grey[200],
+                color: message.isUser ? Theme.of(context).primaryColor : Theme.of(context).colorScheme.surfaceContainerHighest,
                 borderRadius: BorderRadius.circular(16),
               ),
               child: Text(
