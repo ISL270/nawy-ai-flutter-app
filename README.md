@@ -30,6 +30,9 @@
 
 Real estate property search application built with **Flutter**. Features AI-powered search, advanced filtering, and favorites functionality with modern mobile UX.
 
+## 🚀 Live Demo
+**[Try the app live →](https://isl270.github.io/nawy-ai-flutter-app/)**
+
 ---
 
 ## ✨ Features
