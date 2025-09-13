@@ -27,11 +27,14 @@ class _AiAssistantView extends StatefulWidget {
 class _AiAssistantViewState extends State<_AiAssistantView> {
   final TextEditingController _messageController = TextEditingController();
   final ScrollController _scrollController = ScrollController();
+  final FocusNode _messageFocusNode = FocusNode();
+  int _previousMessageCount = 0;
 
   @override
   void dispose() {
     _messageController.dispose();
     _scrollController.dispose();
+    _messageFocusNode.dispose();
     super.dispose();
   }
 
@@ -40,15 +43,18 @@ class _AiAssistantViewState extends State<_AiAssistantView> {
     if (message.isNotEmpty) {
       context.read<AiAssistantBloc>().add(SendMessageEvent(message));
       _messageController.clear();
-      _scrollToBottom();
+      // Keep focus on the text field after sending
+      _messageFocusNode.requestFocus();
+      // Don't scroll here - let the listener handle it
     }
   }
 
   void _scrollToBottom() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (_scrollController.hasClients) {
+        // For reverse ListView, scroll to position 0 (which is the bottom)
         _scrollController.animateTo(
-          _scrollController.position.maxScrollExtent,
+          0.0,
           duration: const Duration(milliseconds: 300),
           curve: Curves.easeOut,
         );
@@ -73,7 +79,9 @@ class _AiAssistantViewState extends State<_AiAssistantView> {
       ),
       body: BlocConsumer<AiAssistantBloc, AiAssistantState>(
         listener: (context, state) {
-          if (state.hasMessages) {
+          // Only scroll when new messages are added
+          if (state.messages.length > _previousMessageCount) {
+            _previousMessageCount = state.messages.length;
             _scrollToBottom();
           }
         },
@@ -104,28 +112,7 @@ class _AiAssistantViewState extends State<_AiAssistantView> {
                         },
                       ),
               ),
-              if (state.isLoading)
-                Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                  child: Row(
-                    children: [
-                      Container(
-                        width: 40,
-                        height: 40,
-                        decoration: BoxDecoration(color: Colors.grey[300], shape: BoxShape.circle),
-                        child: const Icon(Icons.smart_toy, color: Colors.grey),
-                      ),
-                      const SizedBox(width: 12),
-                      const SizedBox(
-                        width: 16,
-                        height: 16,
-                        child: CircularProgressIndicator(strokeWidth: 2),
-                      ),
-                      const SizedBox(width: 8),
-                      const Text('AI is typing...', style: TextStyle(color: Colors.grey)),
-                    ],
-                  ),
-                ),
+              if (state.isLoading) const _TypingIndicator(),
               if (state.hasError)
                 Container(
                   padding: const EdgeInsets.all(16),
@@ -166,6 +153,7 @@ class _AiAssistantViewState extends State<_AiAssistantView> {
                     Expanded(
                       child: TextField(
                         controller: _messageController,
+                        focusNode: _messageFocusNode,
                         decoration: InputDecoration(
                           hintText: 'Type your message...',
                           border: OutlineInputBorder(
@@ -206,6 +194,113 @@ class _AiAssistantViewState extends State<_AiAssistantView> {
             ],
           );
         },
+      ),
+    );
+  }
+}
+
+class _TypingIndicator extends StatefulWidget {
+  const _TypingIndicator();
+
+  @override
+  State<_TypingIndicator> createState() => _TypingIndicatorState();
+}
+
+class _TypingIndicatorState extends State<_TypingIndicator>
+    with TickerProviderStateMixin {
+  late AnimationController _controller;
+  late List<Animation<double>> _dotAnimations;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      duration: const Duration(milliseconds: 1500),
+      vsync: this,
+    );
+
+    // Create staggered animations for 3 dots
+    _dotAnimations = List.generate(3, (index) {
+      return Tween<double>(begin: 0.4, end: 1.0).animate(
+        CurvedAnimation(
+          parent: _controller,
+          curve: Interval(
+            index * 0.2,
+            0.6 + index * 0.2,
+            curve: Curves.easeInOut,
+          ),
+        ),
+      );
+    });
+
+    _controller.repeat();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+      child: Row(
+        children: [
+          Container(
+            width: 40,
+            height: 40,
+            decoration: BoxDecoration(
+              color: Theme.of(context).colorScheme.surfaceContainerHighest,
+              shape: BoxShape.circle,
+            ),
+            child: Icon(
+              Icons.smart_toy,
+              color: Theme.of(context).primaryColor,
+              size: 20,
+            ),
+          ),
+          const SizedBox(width: 12),
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+            decoration: BoxDecoration(
+              color: Theme.of(context).colorScheme.surfaceContainerHighest,
+              borderRadius: BorderRadius.circular(16),
+            ),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                ...List.generate(3, (index) {
+                  return AnimatedBuilder(
+                    animation: _dotAnimations[index],
+                    builder: (context, child) {
+                      return Container(
+                        margin: EdgeInsets.only(
+                          right: index < 2 ? 4 : 0,
+                        ),
+                        child: Opacity(
+                          opacity: _dotAnimations[index].value,
+                          child: Transform.scale(
+                            scale: _dotAnimations[index].value,
+                            child: Container(
+                              width: 8,
+                              height: 8,
+                              decoration: BoxDecoration(
+                                color: Theme.of(context).primaryColor.withOpacity(0.7),
+                                shape: BoxShape.circle,
+                              ),
+                            ),
+                          ),
+                        ),
+                      );
+                    },
+                  );
+                }),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
