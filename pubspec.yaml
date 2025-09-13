@@ -41,9 +41,19 @@ dev_dependencies:
   injectable_generator: ^2.4.2
   analyzer: ^7.7.1
   bloc_test: ^10.0.0
+  flutter_native_splash: ^2.4.1
 
 flutter:
   uses-material-design: true
   
   assets:
     - properties.json
+    - assets/nawy_logo.png
+
+# Flutter Native Splash Configuration
+flutter_native_splash:
+  color: "#0169A1"  # Primary color from AppTheme
+  image: assets/nawy_logo.png
+  web: true
+  android: true
+  ios: true
