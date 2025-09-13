@@ -5,9 +5,9 @@ import 'package:nawy_app/app/core/injection/injection.dart';
 import 'package:nawy_app/app/features/favorites/data/favorites_repository.dart';
 import 'package:nawy_app/app/features/favorites/presentation/bloc/favorites_bloc_exports.dart';
 
-import '../../../ai_assistant/presentation/pages/ai_assistant_page.dart';
-import '../../../property_search/presentation/property_search_page.dart';
-import 'favourites_page.dart';
+import '../ai_assistant/presentation/pages/ai_assistant_page.dart';
+import '../property_search/presentation/property_search_page.dart';
+import '../favorites/presentation/pages/favourites_page.dart';
 import 'settings_page.dart';
 
 /// Home page with bottom navigation bar

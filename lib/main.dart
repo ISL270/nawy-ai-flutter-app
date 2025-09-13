@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:nawy_app/app/core/injection/injection.dart';
 import 'package:nawy_app/app/core/theme/app_theme.dart';
 import 'package:nawy_app/app/core/widgets/responsive_wrapper.dart';
-import 'package:nawy_app/app/features/home/presentation/pages/pages.dart';
+import 'package:nawy_app/app/features/home/home_page.dart';
 import 'package:nawy_app/firebase_options.dart';
 
 void main() async {
