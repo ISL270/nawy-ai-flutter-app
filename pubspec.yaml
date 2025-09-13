@@ -67,4 +67,4 @@ flutter_launcher_icons:
   image_path: "assets/app_icon.png"
   web:
     generate: true
-    image_path: "assets/app_icon.png"
+    image_path: "assets/nawy_logo.png"

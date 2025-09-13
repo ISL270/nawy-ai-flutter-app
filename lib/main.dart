@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Nawy Real Estate App',
+      title: 'Nawy AI',
       theme: AppTheme.lightTheme,
       home: const ResponsiveWrapper(child: HomePage()),
       debugShowCheckedModeBanner: false,
