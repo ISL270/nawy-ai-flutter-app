@@ -141,7 +141,7 @@ class _AiAssistantViewState extends State<_AiAssistantView> {
                   color: Colors.white,
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.grey.withOpacity(0.2),
+                      color: Colors.grey.withValues(alpha: 0.2),
                       spreadRadius: 1,
                       blurRadius: 5,
                       offset: const Offset(0, -2),
@@ -206,29 +206,21 @@ class _TypingIndicator extends StatefulWidget {
   State<_TypingIndicator> createState() => _TypingIndicatorState();
 }
 
-class _TypingIndicatorState extends State<_TypingIndicator>
-    with TickerProviderStateMixin {
+class _TypingIndicatorState extends State<_TypingIndicator> with TickerProviderStateMixin {
   late AnimationController _controller;
   late List<Animation<double>> _dotAnimations;
 
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(
-      duration: const Duration(milliseconds: 1500),
-      vsync: this,
-    );
+    _controller = AnimationController(duration: const Duration(milliseconds: 1500), vsync: this);
 
     // Create staggered animations for 3 dots
     _dotAnimations = List.generate(3, (index) {
       return Tween<double>(begin: 0.4, end: 1.0).animate(
         CurvedAnimation(
           parent: _controller,
-          curve: Interval(
-            index * 0.2,
-            0.6 + index * 0.2,
-            curve: Curves.easeInOut,
-          ),
+          curve: Interval(index * 0.2, 0.6 + index * 0.2, curve: Curves.easeInOut),
         ),
       );
     });
@@ -255,11 +247,7 @@ class _TypingIndicatorState extends State<_TypingIndicator>
               color: Theme.of(context).colorScheme.surfaceContainerHighest,
               shape: BoxShape.circle,
             ),
-            child: Icon(
-              Icons.smart_toy,
-              color: Theme.of(context).primaryColor,
-              size: 20,
-            ),
+            child: Icon(Icons.smart_toy, color: Theme.of(context).primaryColor, size: 20),
           ),
           const SizedBox(width: 12),
           Container(
@@ -276,9 +264,7 @@ class _TypingIndicatorState extends State<_TypingIndicator>
                     animation: _dotAnimations[index],
                     builder: (context, child) {
                       return Container(
-                        margin: EdgeInsets.only(
-                          right: index < 2 ? 4 : 0,
-                        ),
+                        margin: EdgeInsets.only(right: index < 2 ? 4 : 0),
                         child: Opacity(
                           opacity: _dotAnimations[index].value,
                           child: Transform.scale(
@@ -287,7 +273,7 @@ class _TypingIndicatorState extends State<_TypingIndicator>
                               width: 8,
                               height: 8,
                               decoration: BoxDecoration(
-                                color: Theme.of(context).primaryColor.withOpacity(0.7),
+                                color: Theme.of(context).primaryColor.withValues(alpha: 0.7),
                                 shape: BoxShape.circle,
                               ),
                             ),
@@ -332,7 +318,9 @@ class _AssistantBubble extends StatelessWidget {
             child: Container(
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
-                color: message.isUser ? Theme.of(context).primaryColor : Theme.of(context).colorScheme.surfaceContainerHighest,
+                color: message.isUser
+                    ? Theme.of(context).primaryColor
+                    : Theme.of(context).colorScheme.surfaceContainerHighest,
                 borderRadius: BorderRadius.circular(16),
               ),
               child: Text(

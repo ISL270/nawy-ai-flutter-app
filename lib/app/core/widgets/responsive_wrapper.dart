@@ -7,10 +7,7 @@ import 'package:flutter/material.dart';
 class ResponsiveWrapper extends StatelessWidget {
   final Widget child;
 
-  const ResponsiveWrapper({
-    super.key,
-    required this.child,
-  });
+  const ResponsiveWrapper({super.key, required this.child});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +15,7 @@ class ResponsiveWrapper extends StatelessWidget {
     if (kIsWeb && MediaQuery.of(context).size.width > 768) {
       return _DesktopLayout(child: child);
     }
-    
+
     // Mobile layout - use full screen
     return child;
   }
@@ -35,7 +32,7 @@ class _DesktopLayout extends StatelessWidget {
     final scale = (screenSize.height * 0.85) / 812; // Use 85% of screen height
     final phoneWidth = 375 * scale;
     final phoneHeight = 812 * scale;
-    
+
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.primary, // Primary color background
       body: Center(
@@ -46,7 +43,7 @@ class _DesktopLayout extends StatelessWidget {
             borderRadius: BorderRadius.circular(40 * scale),
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withOpacity(0.3),
+                color: Colors.black.withValues(alpha: 0.3),
                 blurRadius: 20,
                 spreadRadius: 5,
                 offset: const Offset(0, 10),
@@ -62,10 +59,7 @@ class _DesktopLayout extends StatelessWidget {
                   gradient: const LinearGradient(
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
-                    colors: [
-                      Color(0xFF2c2c2c),
-                      Color(0xFF1a1a1a),
-                    ],
+                    colors: [Color(0xFF2c2c2c), Color(0xFF1a1a1a)],
                   ),
                 ),
                 padding: EdgeInsets.all(8 * scale),
@@ -101,7 +95,7 @@ class _DesktopLayout extends StatelessWidget {
                     width: 134 * scale,
                     height: 5 * scale,
                     decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.3),
+                      color: Colors.white.withValues(alpha: 0.3),
                       borderRadius: BorderRadius.circular(2.5 * scale),
                     ),
                   ),
@@ -137,9 +131,9 @@ class _TouchScrollBehavior extends MaterialScrollBehavior {
 
   @override
   Set<PointerDeviceKind> get dragDevices => {
-        PointerDeviceKind.touch,
-        PointerDeviceKind.mouse,
-        PointerDeviceKind.stylus,
-        PointerDeviceKind.trackpad,
-      };
+    PointerDeviceKind.touch,
+    PointerDeviceKind.mouse,
+    PointerDeviceKind.stylus,
+    PointerDeviceKind.trackpad,
+  };
 }

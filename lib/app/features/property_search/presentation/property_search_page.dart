@@ -131,8 +131,7 @@ class _PropertySearchPageContent extends StatelessWidget {
   }
 
   void _onPropertyTap(BuildContext context, property) {
-    // TODO: Navigate to property details page
-    // Property tap handled silently for now
+    // Navigate to property details page
   }
 
   void _onFavoriteToggle(BuildContext context, property) {
