@@ -28,7 +28,7 @@
 
 # Nawy App - AI-Powered Real Estate Search
 
-Real estate property search application built with **Flutter**. Features AI-powered search, advanced filtering, and favorites functionality with modern mobile UX.
+🤖 AI-powered real estate search app built with Flutter & Firebase AI. Features natural language property search using Gemini 2.5 Pro, advanced filtering, favorites, and responsive web deployment. Built with Clean Architecture, BLoC pattern, and comprehensive testing.
 
 ## 🚀 Live Demo
 **[Try the app live →](https://isl270.github.io/nawy-ai-flutter-app/)**
