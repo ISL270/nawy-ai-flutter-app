@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:nawy_app/app/core/constants/api_constants.dart';
+import 'package:nawy_ai_app/app/core/constants/api_constants.dart';
 
 void main() {
   group('ApiConstants', () {

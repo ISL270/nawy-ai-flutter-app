@@ -1,10 +1,10 @@
 import 'package:equatable/equatable.dart';
-import 'package:nawy_app/app/core/models/status.dart';
-import 'package:nawy_app/app/features/property_search/data/sources/remote/models/filter_options.dart';
-import 'package:nawy_app/app/features/property_search/data/sources/remote/models/property_search_response.dart';
-import 'package:nawy_app/app/features/property_search/domain/models/area.dart';
-import 'package:nawy_app/app/features/property_search/domain/models/compound.dart';
-import 'package:nawy_app/app/features/property_search/domain/models/property_filters.dart';
+import 'package:nawy_ai_app/app/core/models/status.dart';
+import 'package:nawy_ai_app/app/features/property_search/data/sources/remote/models/filter_options.dart';
+import 'package:nawy_ai_app/app/features/property_search/data/sources/remote/models/property_search_response.dart';
+import 'package:nawy_ai_app/app/features/property_search/domain/models/area.dart';
+import 'package:nawy_ai_app/app/features/property_search/domain/models/compound.dart';
+import 'package:nawy_ai_app/app/features/property_search/domain/models/property_filters.dart';
 
 final class PropertySearchState extends Equatable {
   // Overall loading/error status

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:material_symbols_icons/symbols.dart';
-import 'package:nawy_app/app/core/injection/injection.dart';
-import 'package:nawy_app/app/features/ai_assistant/presentation/ai_assistant_page.dart';
-import 'package:nawy_app/app/features/favorites/data/favorites_repository.dart';
-import 'package:nawy_app/app/features/favorites/presentation/bloc/favorites_bloc.dart';
-import 'package:nawy_app/app/features/favorites/presentation/bloc/favorites_event.dart';
-import 'package:nawy_app/app/features/favorites/presentation/favourites_page.dart';
-import 'package:nawy_app/app/features/property_search/presentation/property_search_page.dart';
+import 'package:nawy_ai_app/app/core/injection/injection.dart';
+import 'package:nawy_ai_app/app/features/ai_assistant/presentation/ai_assistant_page.dart';
+import 'package:nawy_ai_app/app/features/favorites/data/favorites_repository.dart';
+import 'package:nawy_ai_app/app/features/favorites/presentation/bloc/favorites_bloc.dart';
+import 'package:nawy_ai_app/app/features/favorites/presentation/bloc/favorites_event.dart';
+import 'package:nawy_ai_app/app/features/favorites/presentation/favourites_page.dart';
+import 'package:nawy_ai_app/app/features/property_search/presentation/property_search_page.dart';
 
 import 'settings_page.dart';
 

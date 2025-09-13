@@ -1,8 +1,8 @@
 import 'dart:io';
 import 'dart:async';
 
-import 'package:nawy_app/app/core/injection/injection.dart';
-import 'package:nawy_app/app/core/utils/app_logger.dart';
+import 'package:nawy_ai_app/app/core/injection/injection.dart';
+import 'package:nawy_ai_app/app/core/utils/app_logger.dart';
 
 /// Custom exception that preserves original exception type and provides user-friendly message
 class AppException implements Exception {

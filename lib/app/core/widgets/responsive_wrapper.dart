@@ -37,7 +37,7 @@ class _DesktopLayout extends StatelessWidget {
     final phoneHeight = 812 * scale;
     
     return Scaffold(
-      backgroundColor: const Color(0xFF1a1a1a), // Dark background
+      backgroundColor: Theme.of(context).colorScheme.primary, // Primary color background
       body: Center(
         child: Container(
           width: phoneWidth,

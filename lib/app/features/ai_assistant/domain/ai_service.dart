@@ -1,6 +1,6 @@
 import 'package:firebase_ai/firebase_ai.dart';
 import 'package:injectable/injectable.dart';
-import 'package:nawy_app/app/features/property_search/domain/property_search_repository.dart';
+import 'package:nawy_ai_app/app/features/property_search/domain/property_search_repository.dart';
 
 @singleton
 class AiService {

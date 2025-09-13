@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:nawy_app/app/features/property_search/domain/models/property.dart';
-import 'package:nawy_app/app/features/property_search/presentation/widgets/property_card.dart';
-import 'package:nawy_app/app/features/favorites/presentation/bloc/favorites_bloc_exports.dart';
+import 'package:nawy_ai_app/app/features/property_search/domain/models/property.dart';
+import 'package:nawy_ai_app/app/features/property_search/presentation/widgets/property_card.dart';
+import 'package:nawy_ai_app/app/features/favorites/presentation/bloc/favorites_bloc_exports.dart';
 
 /// Property list view widget for displaying search results
 class PropertyListView extends StatelessWidget {

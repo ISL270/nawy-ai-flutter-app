@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:nawy_app/app/features/property_search/data/sources/remote/models/area_dto.dart';
-import 'package:nawy_app/app/features/property_search/domain/models/area.dart';
+import 'package:nawy_ai_app/app/features/property_search/data/sources/remote/models/area_dto.dart';
+import 'package:nawy_ai_app/app/features/property_search/domain/models/area.dart';
 
 /// AreaDto Unit Tests
 /// Tests JSON serialization, deserialization, and domain entity conversion

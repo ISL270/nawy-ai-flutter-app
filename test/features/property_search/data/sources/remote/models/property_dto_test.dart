@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:nawy_app/app/features/property_search/data/sources/remote/models/property_dto.dart';
-import 'package:nawy_app/app/features/property_search/domain/models/property.dart';
+import 'package:nawy_ai_app/app/features/property_search/data/sources/remote/models/property_dto.dart';
+import 'package:nawy_ai_app/app/features/property_search/domain/models/property.dart';
 
 /// PropertyDto Serialization/Deserialization Tests
 /// Ensures JSON mapping works correctly and catches breaking changes

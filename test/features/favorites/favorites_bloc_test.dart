@@ -1,14 +1,14 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:nawy_app/app/core/models/status.dart';
-import 'package:nawy_app/app/core/utils/app_logger.dart';
-import 'package:nawy_app/app/features/favorites/data/favorites_repository.dart';
-import 'package:nawy_app/app/features/favorites/presentation/bloc/favorites_bloc.dart';
-import 'package:nawy_app/app/features/favorites/presentation/bloc/favorites_event.dart';
-import 'package:nawy_app/app/features/favorites/presentation/bloc/favorites_state.dart';
-import 'package:nawy_app/app/features/property_search/domain/models/property.dart';
-import 'package:nawy_app/app/features/property_search/domain/models/compound.dart';
+import 'package:nawy_ai_app/app/core/models/status.dart';
+import 'package:nawy_ai_app/app/core/utils/app_logger.dart';
+import 'package:nawy_ai_app/app/features/favorites/data/favorites_repository.dart';
+import 'package:nawy_ai_app/app/features/favorites/presentation/bloc/favorites_bloc.dart';
+import 'package:nawy_ai_app/app/features/favorites/presentation/bloc/favorites_event.dart';
+import 'package:nawy_ai_app/app/features/favorites/presentation/bloc/favorites_state.dart';
+import 'package:nawy_ai_app/app/features/property_search/domain/models/property.dart';
+import 'package:nawy_ai_app/app/features/property_search/domain/models/compound.dart';
 
 class MockFavoritesRepository extends Mock implements FavoritesRepository {}
 class MockAppLogger extends Mock implements AppLogger {}

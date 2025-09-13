@@ -1,12 +1,12 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:hive_ce_flutter/hive_flutter.dart';
-import 'package:nawy_app/app/core/utils/hive_service.dart';
-import 'package:nawy_app/app/features/favorites/data/sources/local/models/property_hive.dart';
-import 'package:nawy_app/app/features/favorites/data/sources/local/models/compound_hive.dart';
-import 'package:nawy_app/app/features/favorites/data/sources/local/models/area_hive.dart';
-import 'package:nawy_app/app/features/favorites/data/sources/local/models/developer_hive.dart';
-import 'package:nawy_app/app/features/favorites/data/sources/local/models/property_type_hive.dart';
+import 'package:nawy_ai_app/app/core/utils/hive_service.dart';
+import 'package:nawy_ai_app/app/features/favorites/data/sources/local/models/property_hive.dart';
+import 'package:nawy_ai_app/app/features/favorites/data/sources/local/models/compound_hive.dart';
+import 'package:nawy_ai_app/app/features/favorites/data/sources/local/models/area_hive.dart';
+import 'package:nawy_ai_app/app/features/favorites/data/sources/local/models/developer_hive.dart';
+import 'package:nawy_ai_app/app/features/favorites/data/sources/local/models/property_type_hive.dart';
 
 class MockPropertyBox extends Mock implements Box<PropertyHive> {}
 class MockCompoundBox extends Mock implements Box<CompoundHive> {}

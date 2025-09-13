@@ -4,16 +4,16 @@ import 'dart:io';
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:nawy_app/app/core/models/status.dart';
-import 'package:nawy_app/app/core/utils/app_logger.dart';
-import 'package:nawy_app/app/core/utils/error_handler.dart';
-import 'package:nawy_app/app/features/property_search/data/sources/remote/models/filter_options.dart';
-import 'package:nawy_app/app/features/property_search/data/sources/remote/models/property_search_response.dart';
-import 'package:nawy_app/app/features/property_search/domain/models/area.dart';
-import 'package:nawy_app/app/features/property_search/domain/models/compound.dart';
-import 'package:nawy_app/app/features/property_search/domain/models/property_filters.dart';
-import 'package:nawy_app/app/features/property_search/domain/property_search_repository.dart';
-import 'package:nawy_app/app/features/property_search/presentation/bloc/property_search_bloc_exports.dart';
+import 'package:nawy_ai_app/app/core/models/status.dart';
+import 'package:nawy_ai_app/app/core/utils/app_logger.dart';
+import 'package:nawy_ai_app/app/core/utils/error_handler.dart';
+import 'package:nawy_ai_app/app/features/property_search/data/sources/remote/models/filter_options.dart';
+import 'package:nawy_ai_app/app/features/property_search/data/sources/remote/models/property_search_response.dart';
+import 'package:nawy_ai_app/app/features/property_search/domain/models/area.dart';
+import 'package:nawy_ai_app/app/features/property_search/domain/models/compound.dart';
+import 'package:nawy_ai_app/app/features/property_search/domain/models/property_filters.dart';
+import 'package:nawy_ai_app/app/features/property_search/domain/property_search_repository.dart';
+import 'package:nawy_ai_app/app/features/property_search/presentation/bloc/property_search_bloc_exports.dart';
 
 class MockPropertySearchRepository extends Mock implements PropertySearchRepository {}
 

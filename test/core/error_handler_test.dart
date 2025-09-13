@@ -2,9 +2,9 @@ import 'dart:async';
 import 'dart:io';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:nawy_app/app/core/utils/error_handler.dart';
-import 'package:nawy_app/app/core/utils/app_logger.dart';
-import 'package:nawy_app/app/core/injection/injection.dart';
+import 'package:nawy_ai_app/app/core/utils/error_handler.dart';
+import 'package:nawy_ai_app/app/core/utils/app_logger.dart';
+import 'package:nawy_ai_app/app/core/injection/injection.dart';
 
 class MockAppLogger extends Mock implements AppLogger {}
 

@@ -1,9 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:nawy_app/app/core/constants/api_constants.dart';
-import 'package:nawy_app/app/core/utils/app_logger.dart';
-import 'package:nawy_app/app/core/utils/dio_client.dart';
+import 'package:nawy_ai_app/app/core/constants/api_constants.dart';
+import 'package:nawy_ai_app/app/core/utils/app_logger.dart';
+import 'package:nawy_ai_app/app/core/utils/dio_client.dart';
 
 // Mock classes
 class MockAppLogger extends Mock implements AppLogger {}

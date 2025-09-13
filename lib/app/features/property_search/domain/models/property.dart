@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
-import 'package:nawy_app/app/features/property_search/domain/models/area.dart';
-import 'package:nawy_app/app/features/property_search/domain/models/developer.dart';
-import 'package:nawy_app/app/features/property_search/domain/models/property_type.dart';
+import 'package:nawy_ai_app/app/features/property_search/domain/models/area.dart';
+import 'package:nawy_ai_app/app/features/property_search/domain/models/developer.dart';
+import 'package:nawy_ai_app/app/features/property_search/domain/models/property_type.dart';
 
 /// Domain entity for Property - pure business logic model
 class Property extends Equatable {

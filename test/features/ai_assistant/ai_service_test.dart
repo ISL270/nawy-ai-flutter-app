@@ -1,12 +1,12 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:firebase_ai/firebase_ai.dart';
-import 'package:nawy_app/app/features/property_search/domain/property_search_repository.dart';
-import 'package:nawy_app/app/features/property_search/domain/models/area.dart';
-import 'package:nawy_app/app/features/property_search/domain/models/compound.dart';
-import 'package:nawy_app/app/features/property_search/data/sources/remote/models/filter_options.dart';
-import 'package:nawy_app/app/features/property_search/data/sources/remote/models/property_search_response.dart';
-import 'package:nawy_app/app/features/property_search/data/sources/remote/models/property_type_dto.dart';
+import 'package:nawy_ai_app/app/features/property_search/domain/property_search_repository.dart';
+import 'package:nawy_ai_app/app/features/property_search/domain/models/area.dart';
+import 'package:nawy_ai_app/app/features/property_search/domain/models/compound.dart';
+import 'package:nawy_ai_app/app/features/property_search/data/sources/remote/models/filter_options.dart';
+import 'package:nawy_ai_app/app/features/property_search/data/sources/remote/models/property_search_response.dart';
+import 'package:nawy_ai_app/app/features/property_search/data/sources/remote/models/property_type_dto.dart';
 
 class MockPropertySearchRepository extends Mock implements PropertySearchRepository {}
 

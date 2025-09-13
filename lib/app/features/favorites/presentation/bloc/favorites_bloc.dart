@@ -1,10 +1,10 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
-import 'package:nawy_app/app/core/models/status.dart';
-import 'package:nawy_app/app/core/utils/app_logger.dart';
-import 'package:nawy_app/app/features/favorites/data/favorites_repository.dart';
-import 'package:nawy_app/app/features/favorites/presentation/bloc/favorites_event.dart';
-import 'package:nawy_app/app/features/favorites/presentation/bloc/favorites_state.dart';
+import 'package:nawy_ai_app/app/core/models/status.dart';
+import 'package:nawy_ai_app/app/core/utils/app_logger.dart';
+import 'package:nawy_ai_app/app/features/favorites/data/favorites_repository.dart';
+import 'package:nawy_ai_app/app/features/favorites/presentation/bloc/favorites_event.dart';
+import 'package:nawy_ai_app/app/features/favorites/presentation/bloc/favorites_state.dart';
 
 /// BLoC for managing favorites functionality
 @injectable

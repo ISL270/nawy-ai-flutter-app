@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:nawy_app/app/features/property_search/domain/models/property_filters.dart';
+import 'package:nawy_ai_app/app/features/property_search/domain/models/property_filters.dart';
 
 abstract class PropertySearchEvent extends Equatable {
   const PropertySearchEvent();

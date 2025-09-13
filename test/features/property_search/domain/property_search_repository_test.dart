@@ -1,12 +1,12 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:nawy_app/app/features/property_search/data/sources/remote/models/area_dto.dart';
-import 'package:nawy_app/app/features/property_search/data/sources/remote/models/compound_dto.dart';
-import 'package:nawy_app/app/features/property_search/data/sources/remote/models/filter_options.dart';
-import 'package:nawy_app/app/features/property_search/data/sources/remote/models/property_dto.dart';
-import 'package:nawy_app/app/features/property_search/data/sources/remote/models/property_search_response.dart';
-import 'package:nawy_app/app/features/property_search/data/sources/remote/property_search_remote_source.dart';
-import 'package:nawy_app/app/features/property_search/domain/property_search_repository.dart';
+import 'package:nawy_ai_app/app/features/property_search/data/sources/remote/models/area_dto.dart';
+import 'package:nawy_ai_app/app/features/property_search/data/sources/remote/models/compound_dto.dart';
+import 'package:nawy_ai_app/app/features/property_search/data/sources/remote/models/filter_options.dart';
+import 'package:nawy_ai_app/app/features/property_search/data/sources/remote/models/property_dto.dart';
+import 'package:nawy_ai_app/app/features/property_search/data/sources/remote/models/property_search_response.dart';
+import 'package:nawy_ai_app/app/features/property_search/data/sources/remote/property_search_remote_source.dart';
+import 'package:nawy_ai_app/app/features/property_search/domain/property_search_repository.dart';
 
 class MockPropertySearchRemoteSource extends Mock implements PropertySearchRemoteSource {}
 

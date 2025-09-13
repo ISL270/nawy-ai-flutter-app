@@ -1,9 +1,9 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:nawy_app/app/features/favorites/data/favorites_repository.dart';
-import 'package:nawy_app/app/features/favorites/data/sources/local/favorites_local_source.dart';
-import 'package:nawy_app/app/features/property_search/domain/models/property.dart';
-import 'package:nawy_app/app/features/property_search/domain/models/compound.dart';
+import 'package:nawy_ai_app/app/features/favorites/data/favorites_repository.dart';
+import 'package:nawy_ai_app/app/features/favorites/data/sources/local/favorites_local_source.dart';
+import 'package:nawy_ai_app/app/features/property_search/domain/models/property.dart';
+import 'package:nawy_ai_app/app/features/property_search/domain/models/compound.dart';
 
 class MockFavoritesLocalSource extends Mock implements FavoritesLocalSource {}
 

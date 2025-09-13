@@ -1,13 +1,13 @@
 import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:nawy_app/app/core/utils/app_logger.dart';
-import 'package:nawy_app/app/core/utils/error_handler.dart';
-import 'package:nawy_app/app/features/property_search/data/sources/remote/models/area_dto.dart';
-import 'package:nawy_app/app/features/property_search/data/sources/remote/models/compound_dto.dart';
-import 'package:nawy_app/app/features/property_search/data/sources/remote/models/filter_options.dart';
-import 'package:nawy_app/app/features/property_search/data/sources/remote/models/property_search_response.dart';
-import 'package:nawy_app/app/features/property_search/data/sources/remote/models/property_type_dto.dart';
+import 'package:nawy_ai_app/app/core/utils/app_logger.dart';
+import 'package:nawy_ai_app/app/core/utils/error_handler.dart';
+import 'package:nawy_ai_app/app/features/property_search/data/sources/remote/models/area_dto.dart';
+import 'package:nawy_ai_app/app/features/property_search/data/sources/remote/models/compound_dto.dart';
+import 'package:nawy_ai_app/app/features/property_search/data/sources/remote/models/filter_options.dart';
+import 'package:nawy_ai_app/app/features/property_search/data/sources/remote/models/property_search_response.dart';
+import 'package:nawy_ai_app/app/features/property_search/data/sources/remote/models/property_type_dto.dart';
 
 /// Test version of PropertyRemoteSource that uses in-memory data instead of assets
 class TestPropertySearchRemoteSource {

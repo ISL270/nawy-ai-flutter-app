@@ -1,10 +1,10 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:nawy_app/app/core/injection/injection.dart';
-import 'package:nawy_app/app/core/theme/app_theme.dart';
-import 'package:nawy_app/app/core/widgets/responsive_wrapper.dart';
-import 'package:nawy_app/app/features/home/home_page.dart';
-import 'package:nawy_app/firebase_options.dart';
+import 'package:nawy_ai_app/app/core/injection/injection.dart';
+import 'package:nawy_ai_app/app/core/theme/app_theme.dart';
+import 'package:nawy_ai_app/app/core/widgets/responsive_wrapper.dart';
+import 'package:nawy_ai_app/app/features/home/home_page.dart';
+import 'package:nawy_ai_app/firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

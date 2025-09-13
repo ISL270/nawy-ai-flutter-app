@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:nawy_app/app/core/injection/injection.dart';
-import 'package:nawy_app/app/features/favorites/presentation/bloc/favorites_bloc_exports.dart';
-import 'package:nawy_app/app/features/property_search/domain/models/property_filters.dart';
-import 'package:nawy_app/app/features/property_search/domain/property_search_repository.dart';
-import 'package:nawy_app/app/features/property_search/presentation/bloc/property_search_bloc_exports.dart';
-import 'package:nawy_app/app/features/property_search/presentation/widgets/filter_bottom_sheet.dart';
-import 'package:nawy_app/app/features/property_search/presentation/widgets/property_list_view.dart';
-import 'package:nawy_app/app/features/property_search/presentation/widgets/search_bar_widget.dart';
+import 'package:nawy_ai_app/app/core/injection/injection.dart';
+import 'package:nawy_ai_app/app/features/favorites/presentation/bloc/favorites_bloc_exports.dart';
+import 'package:nawy_ai_app/app/features/property_search/domain/models/property_filters.dart';
+import 'package:nawy_ai_app/app/features/property_search/domain/property_search_repository.dart';
+import 'package:nawy_ai_app/app/features/property_search/presentation/bloc/property_search_bloc_exports.dart';
+import 'package:nawy_ai_app/app/features/property_search/presentation/widgets/filter_bottom_sheet.dart';
+import 'package:nawy_ai_app/app/features/property_search/presentation/widgets/property_list_view.dart';
+import 'package:nawy_ai_app/app/features/property_search/presentation/widgets/search_bar_widget.dart';
 
 /// Property Search page - Main property search and discovery page
 class PropertySearchPage extends StatelessWidget {

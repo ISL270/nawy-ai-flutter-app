@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:nawy_app/app/features/property_search/domain/models/property.dart';
+import 'package:nawy_ai_app/app/features/property_search/domain/models/property.dart';
 
 /// Property card widget for displaying property information in search results
 class PropertyCard extends StatelessWidget {

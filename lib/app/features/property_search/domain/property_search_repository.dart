@@ -1,9 +1,9 @@
 import 'package:injectable/injectable.dart';
-import 'package:nawy_app/app/features/property_search/data/sources/remote/models/filter_options.dart';
-import 'package:nawy_app/app/features/property_search/data/sources/remote/models/property_search_response.dart';
-import 'package:nawy_app/app/features/property_search/data/sources/remote/property_search_remote_source.dart';
-import 'package:nawy_app/app/features/property_search/domain/models/area.dart';
-import 'package:nawy_app/app/features/property_search/domain/models/compound.dart';
+import 'package:nawy_ai_app/app/features/property_search/data/sources/remote/models/filter_options.dart';
+import 'package:nawy_ai_app/app/features/property_search/data/sources/remote/models/property_search_response.dart';
+import 'package:nawy_ai_app/app/features/property_search/data/sources/remote/property_search_remote_source.dart';
+import 'package:nawy_ai_app/app/features/property_search/domain/models/area.dart';
+import 'package:nawy_ai_app/app/features/property_search/domain/models/compound.dart';
 
 @singleton
 class PropertySearchRepository {

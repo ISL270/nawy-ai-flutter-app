@@ -1,9 +1,9 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:nawy_app/app/core/models/status.dart';
-import 'package:nawy_app/app/features/ai_assistant/domain/ai_service.dart';
-import 'package:nawy_app/app/features/ai_assistant/presentation/bloc/ai_assistant_bloc.dart';
-import 'package:nawy_app/app/features/ai_assistant/presentation/models/assistant_message.dart';
+import 'package:nawy_ai_app/app/core/models/status.dart';
+import 'package:nawy_ai_app/app/features/ai_assistant/domain/ai_service.dart';
+import 'package:nawy_ai_app/app/features/ai_assistant/presentation/bloc/ai_assistant_bloc.dart';
+import 'package:nawy_ai_app/app/features/ai_assistant/presentation/models/assistant_message.dart';
 
 class MockAiService extends Mock implements AiService {}
 

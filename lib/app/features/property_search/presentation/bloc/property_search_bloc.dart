@@ -1,16 +1,16 @@
 import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:nawy_app/app/core/models/bloc_event_transformers.dart';
-import 'package:nawy_app/app/core/models/status.dart';
-import 'package:nawy_app/app/core/utils/error_handler.dart';
-import 'package:nawy_app/app/features/property_search/data/sources/remote/models/filter_options.dart';
-import 'package:nawy_app/app/features/property_search/domain/models/area.dart';
-import 'package:nawy_app/app/features/property_search/domain/models/compound.dart';
-import 'package:nawy_app/app/features/property_search/domain/models/property_filters.dart';
-import 'package:nawy_app/app/features/property_search/domain/property_search_repository.dart';
-import 'package:nawy_app/app/features/property_search/presentation/bloc/property_search_event.dart';
-import 'package:nawy_app/app/features/property_search/presentation/bloc/property_search_state.dart';
+import 'package:nawy_ai_app/app/core/models/bloc_event_transformers.dart';
+import 'package:nawy_ai_app/app/core/models/status.dart';
+import 'package:nawy_ai_app/app/core/utils/error_handler.dart';
+import 'package:nawy_ai_app/app/features/property_search/data/sources/remote/models/filter_options.dart';
+import 'package:nawy_ai_app/app/features/property_search/domain/models/area.dart';
+import 'package:nawy_ai_app/app/features/property_search/domain/models/compound.dart';
+import 'package:nawy_ai_app/app/features/property_search/domain/models/property_filters.dart';
+import 'package:nawy_ai_app/app/features/property_search/domain/property_search_repository.dart';
+import 'package:nawy_ai_app/app/features/property_search/presentation/bloc/property_search_event.dart';
+import 'package:nawy_ai_app/app/features/property_search/presentation/bloc/property_search_state.dart';
 
 class PropertySearchBloc extends Bloc<PropertySearchEvent, PropertySearchState> {
   final PropertySearchRepository _repository;

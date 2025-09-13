@@ -2,14 +2,14 @@ import 'dart:convert';
 
 import 'package:flutter/services.dart';
 import 'package:injectable/injectable.dart';
-// import 'package:nawy_app/app/core/constants/api_constants.dart'; // Commented out for demo
-import 'package:nawy_app/app/core/utils/dio_client.dart';
-import 'package:nawy_app/app/core/utils/error_handler.dart';
-import 'package:nawy_app/app/features/property_search/data/sources/remote/models/area_dto.dart';
-import 'package:nawy_app/app/features/property_search/data/sources/remote/models/compound_dto.dart';
-import 'package:nawy_app/app/features/property_search/data/sources/remote/models/filter_options.dart';
-import 'package:nawy_app/app/features/property_search/data/sources/remote/models/property_type_dto.dart';
-import 'package:nawy_app/app/features/property_search/data/sources/remote/models/property_search_response.dart';
+// import 'package:nawy_ai_app/app/core/constants/api_constants.dart'; // Commented out for demo
+import 'package:nawy_ai_app/app/core/utils/dio_client.dart';
+import 'package:nawy_ai_app/app/core/utils/error_handler.dart';
+import 'package:nawy_ai_app/app/features/property_search/data/sources/remote/models/area_dto.dart';
+import 'package:nawy_ai_app/app/features/property_search/data/sources/remote/models/compound_dto.dart';
+import 'package:nawy_ai_app/app/features/property_search/data/sources/remote/models/filter_options.dart';
+import 'package:nawy_ai_app/app/features/property_search/data/sources/remote/models/property_type_dto.dart';
+import 'package:nawy_ai_app/app/features/property_search/data/sources/remote/models/property_search_response.dart';
 
 /// IMPORTANT NOTE:
 /// The original API endpoints don't work as expected for a proper demo:

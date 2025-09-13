@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:nawy_app/app/features/property_search/domain/models/area.dart';
-import 'package:nawy_app/app/features/property_search/domain/models/compound.dart';
-import 'package:nawy_app/app/features/property_search/domain/models/property_filters.dart';
-import 'package:nawy_app/app/features/property_search/domain/models/property_type.dart';
-import 'package:nawy_app/app/features/property_search/presentation/bloc/property_search_bloc_exports.dart';
+import 'package:nawy_ai_app/app/features/property_search/domain/models/area.dart';
+import 'package:nawy_ai_app/app/features/property_search/domain/models/compound.dart';
+import 'package:nawy_ai_app/app/features/property_search/domain/models/property_filters.dart';
+import 'package:nawy_ai_app/app/features/property_search/domain/models/property_type.dart';
+import 'package:nawy_ai_app/app/features/property_search/presentation/bloc/property_search_bloc_exports.dart';
 
 /// Filter bottom sheet for property search
 class FilterBottomSheet extends StatefulWidget {

@@ -1,5 +1,5 @@
-name: nawy_app
-description: "A new Flutter project."
+name: nawy_ai_app
+description: "AI-powered real estate search app with Firebase AI & Gemini 2.5 Pro integration for intelligent property discovery."
 publish_to: 'none'
 version: 1.0.0+1
 environment:

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:nawy_app/app/core/injection/injection.dart';
-import 'package:nawy_app/app/features/ai_assistant/domain/ai_service.dart';
-import 'package:nawy_app/app/features/ai_assistant/presentation/bloc/ai_assistant_bloc.dart';
-import 'package:nawy_app/app/features/ai_assistant/presentation/models/assistant_message.dart';
+import 'package:nawy_ai_app/app/core/injection/injection.dart';
+import 'package:nawy_ai_app/app/features/ai_assistant/domain/ai_service.dart';
+import 'package:nawy_ai_app/app/features/ai_assistant/presentation/bloc/ai_assistant_bloc.dart';
+import 'package:nawy_ai_app/app/features/ai_assistant/presentation/models/assistant_message.dart';
 
 class AiAssistantPage extends StatelessWidget {
   const AiAssistantPage({super.key});

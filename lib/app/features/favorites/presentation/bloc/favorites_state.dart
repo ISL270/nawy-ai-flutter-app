@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
-import 'package:nawy_app/app/core/models/status.dart';
-import 'package:nawy_app/app/features/property_search/domain/models/property.dart';
-import 'package:nawy_app/app/features/property_search/domain/models/compound.dart';
+import 'package:nawy_ai_app/app/core/models/status.dart';
+import 'package:nawy_ai_app/app/features/property_search/domain/models/property.dart';
+import 'package:nawy_ai_app/app/features/property_search/domain/models/compound.dart';
 
 /// State for favorites feature
 class FavoritesState extends Equatable {

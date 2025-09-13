@@ -1,9 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:firebase_ai/firebase_ai.dart';
-import 'package:nawy_app/app/core/models/status.dart';
-import 'package:nawy_app/app/features/ai_assistant/domain/ai_service.dart';
-import 'package:nawy_app/app/features/ai_assistant/presentation/models/assistant_message.dart';
+import 'package:nawy_ai_app/app/core/models/status.dart';
+import 'package:nawy_ai_app/app/features/ai_assistant/domain/ai_service.dart';
+import 'package:nawy_ai_app/app/features/ai_assistant/presentation/models/assistant_message.dart';
 
 part 'ai_assistant_event.dart';
 part 'ai_assistant_state.dart';

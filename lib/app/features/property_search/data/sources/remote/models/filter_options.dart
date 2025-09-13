@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:nawy_app/app/features/property_search/data/sources/remote/models/property_type_dto.dart';
+import 'package:nawy_ai_app/app/features/property_search/data/sources/remote/models/property_type_dto.dart';
 
 part 'filter_options.g.dart';
 
