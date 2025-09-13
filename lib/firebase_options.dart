@@ -47,30 +47,29 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyAgz2J-xuxc8DHSxJ4D_SkownlBdoxTqLA',
-    appId: '1:485173601243:web:e10e7e2a73e24f72ef7dfe',
-    messagingSenderId: '485173601243',
-    projectId: 'nawy-7ee29',
-    authDomain: 'nawy-7ee29.firebaseapp.com',
-    storageBucket: 'nawy-7ee29.firebasestorage.app',
-    measurementId: 'G-ZT2FKLRVB0',
+    apiKey: String.fromEnvironment('FIREBASE_WEB_API_KEY', defaultValue: 'AIzaSyAgz2J-xuxc8DHSxJ4D_SkownlBdoxTqLA'),
+    appId: String.fromEnvironment('FIREBASE_WEB_APP_ID', defaultValue: '1:485173601243:web:e10e7e2a73e24f72ef7dfe'),
+    messagingSenderId: String.fromEnvironment('FIREBASE_MESSAGING_SENDER_ID', defaultValue: '485173601243'),
+    projectId: String.fromEnvironment('FIREBASE_PROJECT_ID', defaultValue: 'nawy-7ee29'),
+    authDomain: String.fromEnvironment('FIREBASE_AUTH_DOMAIN', defaultValue: 'nawy-7ee29.firebaseapp.com'),
+    storageBucket: String.fromEnvironment('FIREBASE_STORAGE_BUCKET', defaultValue: 'nawy-7ee29.firebasestorage.app'),
+    measurementId: String.fromEnvironment('FIREBASE_MEASUREMENT_ID', defaultValue: 'G-ZT2FKLRVB0'),
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyATv-gN84MiNRctHzgHTK7dEGZdoDlHJ4I',
-    appId: '1:485173601243:android:c5aac0f4dd8ec05cef7dfe',
-    messagingSenderId: '485173601243',
-    projectId: 'nawy-7ee29',
-    storageBucket: 'nawy-7ee29.firebasestorage.app',
+    apiKey: String.fromEnvironment('FIREBASE_ANDROID_API_KEY', defaultValue: 'demo-api-key'),
+    appId: String.fromEnvironment('FIREBASE_ANDROID_APP_ID', defaultValue: 'demo-app-id'),
+    messagingSenderId: String.fromEnvironment('FIREBASE_MESSAGING_SENDER_ID', defaultValue: 'demo-sender-id'),
+    projectId: String.fromEnvironment('FIREBASE_PROJECT_ID', defaultValue: 'demo-project'),
+    storageBucket: String.fromEnvironment('FIREBASE_STORAGE_BUCKET', defaultValue: 'demo-project.firebasestorage.app'),
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyD7Q3xwhBxPVdz29jTDHlar6yoKcYO9zOM',
-    appId: '1:485173601243:ios:9e0cec5ed95addebef7dfe',
-    messagingSenderId: '485173601243',
-    projectId: 'nawy-7ee29',
-    storageBucket: 'nawy-7ee29.firebasestorage.app',
-    iosBundleId: 'com.example.nawyApp',
+    apiKey: String.fromEnvironment('FIREBASE_IOS_API_KEY', defaultValue: 'demo-api-key'),
+    appId: String.fromEnvironment('FIREBASE_IOS_APP_ID', defaultValue: 'demo-app-id'),
+    messagingSenderId: String.fromEnvironment('FIREBASE_MESSAGING_SENDER_ID', defaultValue: 'demo-sender-id'),
+    projectId: String.fromEnvironment('FIREBASE_PROJECT_ID', defaultValue: 'demo-project'),
+    storageBucket: String.fromEnvironment('FIREBASE_STORAGE_BUCKET', defaultValue: 'demo-project.firebasestorage.app'),
+    iosBundleId: String.fromEnvironment('FIREBASE_IOS_BUNDLE_ID', defaultValue: 'com.example.nawyApp'),
   );
-
 }
