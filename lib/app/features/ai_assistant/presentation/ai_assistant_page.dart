@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:nawy_ai_app/app/core/injection/injection.dart';
+import 'package:nawy_ai_app/app/core/network/network_cubit.dart';
 import 'package:nawy_ai_app/app/features/ai_assistant/domain/ai_service.dart';
 import 'package:nawy_ai_app/app/features/ai_assistant/presentation/bloc/ai_assistant_bloc.dart';
 import 'package:nawy_ai_app/app/features/ai_assistant/presentation/models/assistant_message.dart';
@@ -39,10 +40,35 @@ class _AiAssistantViewState extends State<_AiAssistantView> {
     super.dispose();
   }
 
-  void _sendMessage() {
+  Future<void> _sendMessage() async {
     final message = _messageController.text.trim();
+    if (message.isEmpty) return;
+
+    // Store context in a local variable before any async operations
+    final currentContext = context;
+
+    // Check network connection
+    final networkCubit = currentContext.read<NetworkCubit>();
+    final isConnected = await networkCubit.checkConnection();
+
+    // Check if widget is still mounted after async operation
+    if (!mounted) return;
+
+    if (!isConnected) {
+      if (!currentContext.mounted) return;
+      ScaffoldMessenger.of(currentContext).showSnackBar(
+        const SnackBar(
+          content: Text('Please check your internet connection and try again'),
+          behavior: SnackBarBehavior.floating,
+          duration: Duration(seconds: 3),
+        ),
+      );
+      return;
+    }
+
     if (message.isNotEmpty) {
-      context.read<AiAssistantBloc>().add(SendMessageEvent(message));
+      if (!mounted) return;
+      currentContext.read<AiAssistantBloc>().add(SendMessageEvent(message));
       _messageController.clear();
       // Keep focus on the text field after sending
       _messageFocusNode.requestFocus();
@@ -174,14 +200,14 @@ class _AiAssistantViewState extends State<_AiAssistantView> {
                         maxLines: null,
                         textInputAction: TextInputAction.done,
                         onSubmitted: (_) {
-                          // Close the keyboard when done is pressed
+                          _sendMessage();
                           FocusScope.of(context).unfocus();
                         },
                       ),
                     ),
                     const SizedBox(width: 8),
                     GestureDetector(
-                      onTap: _sendMessage,
+                      onTap: () => _sendMessage(),
                       child: Container(
                         width: 48,
                         height: 48,
@@ -330,10 +356,7 @@ class _AssistantBubble extends StatelessWidget {
               child: MarkdownBody(
                 data: message.text,
                 styleSheet: MarkdownStyleSheet(
-                  p: TextStyle(
-                    color: message.isUser ? Colors.white : Colors.black87,
-                    fontSize: 16,
-                  ),
+                  p: TextStyle(color: message.isUser ? Colors.white : Colors.black87, fontSize: 16),
                   strong: TextStyle(
                     color: message.isUser ? Colors.white : Colors.black87,
                     fontWeight: FontWeight.bold,
