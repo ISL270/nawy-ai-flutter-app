@@ -59,7 +59,7 @@ class AiService {
 
     // Initialize Gemini 2.5 Pro with function declarations
     _model = FirebaseAI.googleAI().generativeModel(
-      model: 'gemini-2.5-pro',
+      model: 'gemini-2.5-flash',
       tools: [
         Tool.functionDeclarations([
           searchPropertiesFunction,
