@@ -171,8 +171,11 @@ class _AiAssistantViewState extends State<_AiAssistantView> {
                           contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
                         ),
                         maxLines: null,
-                        textInputAction: TextInputAction.send,
-                        onSubmitted: (_) => _sendMessage(),
+                        textInputAction: TextInputAction.done,
+                        onSubmitted: (_) {
+                          // Close the keyboard when done is pressed
+                          FocusScope.of(context).unfocus();
+                        },
                       ),
                     ),
                     const SizedBox(width: 8),
