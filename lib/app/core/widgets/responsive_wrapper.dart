@@ -29,9 +29,15 @@ class _DesktopLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
-    final scale = (screenSize.height * 0.85) / 812; // Use 85% of screen height
-    final phoneWidth = 375 * scale;
-    final phoneHeight = 812 * scale;
+
+    // iPhone 16 Pro dimensions: 393 x 852 logical pixels
+    const iphoneWidth = 393.0;
+    const iphoneHeight = 852.0;
+
+    // Calculate scale based on screen height, but cap it to ensure the phone isn't too large
+    final scale = ((screenSize.height * 0.95) / iphoneHeight).clamp(0.5, 1.0);
+    final phoneWidth = iphoneWidth * scale;
+    final phoneHeight = iphoneHeight * scale;
 
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.primary, // Primary color background
