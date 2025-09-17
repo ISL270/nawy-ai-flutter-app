@@ -14,11 +14,11 @@ void main() async {
   // Configure dependency injection and await async dependencies
   await configureDependencies();
 
-  runApp(const MyApp());
+  runApp(const NawyAI());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class NawyAI extends StatelessWidget {
+  const NawyAI({super.key});
 
   @override
   Widget build(BuildContext context) {
