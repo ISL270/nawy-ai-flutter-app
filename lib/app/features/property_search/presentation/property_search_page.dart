@@ -20,12 +20,17 @@ class PropertySearchPage extends StatelessWidget {
       create: (context) => PropertySearchBloc(getIt<PropertySearchRepository>())
         ..add(const LoadInitialDataEvent())
         ..add(const SearchPropertiesEvent(PropertyFilters())),
-      child: NetworkAwareWidget(
-        child: const _PropertySearchPageContent(),
-        onRetry: () {
-          // Trigger a refresh of the property search when retrying
-          context.read<PropertySearchBloc>().add(const LoadInitialDataEvent());
-          context.read<PropertySearchBloc>().add(const SearchPropertiesEvent(PropertyFilters()));
+      child: Builder(
+        builder: (context) {
+          return NetworkAwareWidget(
+            child: const _PropertySearchPageContent(),
+            onRetry: () {
+              // Access the bloc from the current context
+              final bloc = context.read<PropertySearchBloc>();
+              bloc.add(const LoadInitialDataEvent());
+              bloc.add(const SearchPropertiesEvent(PropertyFilters()));
+            },
+          );
         },
       ),
     );
