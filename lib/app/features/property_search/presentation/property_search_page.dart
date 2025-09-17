@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nawy_ai_app/app/core/injection/injection.dart';
+import 'package:nawy_ai_app/app/core/network/network_aware_widget.dart';
 import 'package:nawy_ai_app/app/features/favorites/presentation/bloc/favorites_bloc_exports.dart';
 import 'package:nawy_ai_app/app/features/property_search/domain/models/property_filters.dart';
 import 'package:nawy_ai_app/app/features/property_search/domain/property_search_repository.dart';
@@ -19,7 +20,14 @@ class PropertySearchPage extends StatelessWidget {
       create: (context) => PropertySearchBloc(getIt<PropertySearchRepository>())
         ..add(const LoadInitialDataEvent())
         ..add(const SearchPropertiesEvent(PropertyFilters())),
-      child: const _PropertySearchPageContent(),
+      child: NetworkAwareWidget(
+        child: const _PropertySearchPageContent(),
+        onRetry: () {
+          // Trigger a refresh of the property search when retrying
+          context.read<PropertySearchBloc>().add(const LoadInitialDataEvent());
+          context.read<PropertySearchBloc>().add(const SearchPropertiesEvent(PropertyFilters()));
+        },
+      ),
     );
   }
 }
