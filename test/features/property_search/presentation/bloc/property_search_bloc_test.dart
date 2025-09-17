@@ -253,34 +253,97 @@ void main() {
 
     group('UpdateFiltersEvent', () {
       blocTest<PropertySearchBloc, PropertySearchState>(
-        'updates filters without triggering search',
+        'with active search query updates filters and searches',
         build: () => searchBloc,
-        act: (bloc) => bloc.add(const UpdateFiltersEvent(testFilters)),
-        expect: () => [PropertySearchState.initial().copyWith(currentFilters: testFilters)],
-        verify: (_) {
-          verifyNever(
-            () => mockRepository.searchProperties(
-              areaIds: any(named: 'areaIds'),
-              compoundIds: any(named: 'compoundIds'),
-              minPrice: any(named: 'minPrice'),
-              maxPrice: any(named: 'maxPrice'),
-              minBedrooms: any(named: 'minBedrooms'),
-              maxBedrooms: any(named: 'maxBedrooms'),
-              propertyTypeIds: any(named: 'propertyTypeIds'),
-            ),
-          );
-        },
+        seed: () => PropertySearchState.initial().copyWith(
+          searchQuery: 'test',
+          currentFilters: const PropertyFilters(),
+        ),
+        act: (bloc) => bloc.add(UpdateFiltersEvent(testFilters)),
+        expect: () => [
+          // Loading state with new filters
+          isA<PropertySearchState>()
+              .having((s) => s.status, 'status', isA<Loading>())
+              .having((s) => s.searchQuery, 'searchQuery', 'test')
+              .having((s) => s.currentFilters, 'currentFilters', testFilters),
+          // Failure state because we didn't mock the repository
+          isA<PropertySearchState>()
+              .having((s) => s.status, 'status', isA<Failure>())
+              .having((s) => s.searchQuery, 'searchQuery', 'test')
+              .having((s) => s.currentFilters, 'currentFilters', testFilters),
+        ],
+      );
+
+      blocTest<PropertySearchBloc, PropertySearchState>(
+        'without search query updates filters and searches',
+        build: () => searchBloc,
+        seed: () => PropertySearchState.initial().copyWith(
+          searchQuery: null,
+          currentFilters: const PropertyFilters(),
+        ),
+        act: (bloc) => bloc.add(UpdateFiltersEvent(testFilters)),
+        expect: () => [
+          // Loading state with new filters
+          isA<PropertySearchState>()
+              .having((s) => s.status, 'status', isA<Loading>())
+              .having((s) => s.searchQuery, 'searchQuery', isNull)
+              .having((s) => s.currentFilters, 'currentFilters', testFilters),
+          // Failure state because we didn't mock the repository
+          isA<PropertySearchState>()
+              .having((s) => s.status, 'status', isA<Failure>())
+              .having((s) => s.searchQuery, 'searchQuery', isNull)
+              .having((s) => s.currentFilters, 'currentFilters', testFilters),
+        ],
       );
     });
 
     group('ClearFiltersEvent', () {
       blocTest<PropertySearchBloc, PropertySearchState>(
-        'clears all filters',
+        'with active search query clears filters and searches',
         build: () => searchBloc,
-        seed: () => PropertySearchState.initial().copyWith(currentFilters: testFilters),
+        seed: () => PropertySearchState.initial().copyWith(
+          searchQuery: 'test',
+          currentFilters: testFilters,
+        ),
         act: (bloc) => bloc.add(const ClearFiltersEvent()),
         expect: () => [
-          PropertySearchState.initial().copyWith(currentFilters: const PropertyFilters()),
+          // Loading state with cleared filters
+          isA<PropertySearchState>()
+              .having((s) => s.status, 'status', isA<Loading>())
+              .having((s) => s.searchQuery, 'searchQuery', 'test')
+              .having((s) => s.currentFilters, 'currentFilters', const PropertyFilters()),
+          // Failure state because we didn't mock the repository
+          isA<PropertySearchState>()
+              .having((s) => s.status, 'status', isA<Failure>())
+              .having((s) => s.searchQuery, 'searchQuery', 'test')
+              .having((s) => s.currentFilters, 'currentFilters', const PropertyFilters()),
+        ],
+      );
+
+      blocTest<PropertySearchBloc, PropertySearchState>(
+        'without search query clears filters and searches',
+        build: () => searchBloc,
+        seed: () => PropertySearchState.initial().copyWith(
+          searchQuery: null,
+          currentFilters: testFilters,
+        ),
+        act: (bloc) => bloc.add(const ClearFiltersEvent()),
+        expect: () => [
+          // Updates the state with cleared filters
+          isA<PropertySearchState>()
+              .having((s) => s.status, 'status', isA<Initial>())
+              .having((s) => s.searchQuery, 'searchQuery', isNull)
+              .having((s) => s.currentFilters, 'currentFilters', const PropertyFilters()),
+          // Loading state for the search
+          isA<PropertySearchState>()
+              .having((s) => s.status, 'status', isA<Loading>())
+              .having((s) => s.searchQuery, 'searchQuery', isNull)
+              .having((s) => s.currentFilters, 'currentFilters', const PropertyFilters()),
+          // Failure state because we didn't mock the repository
+          isA<PropertySearchState>()
+              .having((s) => s.status, 'status', isA<Failure>())
+              .having((s) => s.searchQuery, 'searchQuery', isNull)
+              .having((s) => s.currentFilters, 'currentFilters', const PropertyFilters()),
         ],
       );
     });

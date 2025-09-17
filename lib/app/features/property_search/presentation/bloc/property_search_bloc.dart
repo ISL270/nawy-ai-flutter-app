@@ -151,14 +151,32 @@ class PropertySearchBloc extends Bloc<PropertySearchEvent, PropertySearchState> 
     }
   }
 
-  /// Handles updating search filters without triggering search
+  /// Handles updating search filters and triggers a new search with the updated filters
   void _onUpdateFilters(UpdateFiltersEvent event, Emitter<PropertySearchState> emit) {
-    emit(state.copyWith(currentFilters: event.filters));
+    // Preserve the current search query if it exists
+    final currentQuery = state.searchQuery;
+    
+    // If there's an active search query, trigger a new search with updated filters
+    if (currentQuery != null && currentQuery.isNotEmpty) {
+      add(SearchWithQueryEvent(currentQuery, event.filters));
+    } else {
+      // If no search query, just update the filters and trigger a regular search
+      add(SearchPropertiesEvent(event.filters));
+    }
   }
 
-  /// Handles clearing all filters
+  /// Handles clearing all filters while preserving the search query
   void _onClearFilters(ClearFiltersEvent event, Emitter<PropertySearchState> emit) {
-    emit(state.copyWith(currentFilters: const PropertyFilters()));
+    final currentQuery = state.searchQuery;
+    
+    if (currentQuery != null && currentQuery.isNotEmpty) {
+      // If there's an active search, trigger a new search with cleared filters
+      add(SearchWithQueryEvent(currentQuery, const PropertyFilters()));
+    } else {
+      // If no search query, just clear the filters and trigger a regular search
+      emit(state.copyWith(currentFilters: const PropertyFilters()));
+      add(SearchPropertiesEvent(const PropertyFilters()));
+    }
   }
 
   /// Handles resetting the entire search state
