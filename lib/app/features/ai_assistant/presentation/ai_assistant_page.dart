@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:nawy_ai_app/app/core/injection/injection.dart';
 import 'package:nawy_ai_app/app/features/ai_assistant/domain/ai_service.dart';
 import 'package:nawy_ai_app/app/features/ai_assistant/presentation/bloc/ai_assistant_bloc.dart';
@@ -326,12 +327,32 @@ class _AssistantBubble extends StatelessWidget {
                     : Theme.of(context).colorScheme.surfaceContainerHighest,
                 borderRadius: BorderRadius.circular(16),
               ),
-              child: Text(
-                message.text,
-                style: TextStyle(
-                  color: message.isUser ? Colors.white : Colors.black87,
-                  fontSize: 16,
+              child: MarkdownBody(
+                data: message.text,
+                styleSheet: MarkdownStyleSheet(
+                  p: TextStyle(
+                    color: message.isUser ? Colors.white : Colors.black87,
+                    fontSize: 16,
+                  ),
+                  strong: TextStyle(
+                    color: message.isUser ? Colors.white : Colors.black87,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  em: TextStyle(
+                    color: message.isUser ? Colors.white : Colors.black87,
+                    fontStyle: FontStyle.italic,
+                  ),
+                  a: TextStyle(
+                    color: message.isUser ? Colors.blue[200] : Colors.blue[700],
+                    decoration: TextDecoration.underline,
+                  ),
                 ),
+                onTapLink: (text, href, title) {
+                  if (href != null) {
+                    // Handle link taps here if needed
+                  }
+                },
+                selectable: true,
               ),
             ),
           ),
