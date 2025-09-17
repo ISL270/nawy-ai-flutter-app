@@ -272,6 +272,127 @@ void main() {
     });
 
     group('searchProperties', () {
+      test('should handle search keyword with filters', () async {
+        // Test case: Search keyword with area and price filters
+        final result = await remoteSource.searchProperties(
+          searchQuery: 'luxury',
+          areaIds: [1], // El Sheikh Zayed
+          minPrice: 1000000,
+          maxPrice: 10000000,
+        );
+
+        // Assert
+        expect(result.properties, isNotEmpty);
+        
+        // Verify all properties match the search criteria
+        for (final property in result.properties) {
+          // Check search keyword in relevant fields (case insensitive)
+          final searchLower = 'luxury'.toLowerCase();
+          final matchesSearch = 
+              property.name.toLowerCase().contains(searchLower) ||
+              (property.compound?.name.toLowerCase().contains(searchLower) ?? false);
+          
+          expect(matchesSearch, isTrue, 
+            reason: 'Property ${property.id} does not match search keyword');
+          
+          // Verify filters are still applied
+          expect(property.area?.id, equals(1));
+          expect(property.minPrice, greaterThanOrEqualTo(1000000));
+          expect(property.maxPrice, lessThanOrEqualTo(10000000));
+        }
+      });
+      
+      test('should handle empty search results with filters', () async {
+        // Test case: Search with a keyword that doesn't match any properties
+        final result = await remoteSource.searchProperties(
+          searchQuery: 'nonexistentkeyword123',
+          areaIds: [1],
+          minPrice: 1000000,
+        );
+        
+        // Should return empty results but still respect the structure
+        expect(result.properties, isEmpty);
+        expect(result.totalProperties, equals(0));
+      });
+      
+      test('should handle partial matches in search keyword', () async {
+        // Test case: Partial word matching
+        final result = await remoteSource.searchProperties(
+          searchQuery: 'lux', // Should match 'luxury' in property names
+          propertyTypeIds: [1], // Apartments
+        );
+        
+        expect(result.properties, isNotEmpty);
+        
+        // At least one property should contain the partial match
+        final hasPartialMatch = result.properties.any((property) {
+          final searchLower = 'lux';
+          return property.name.toLowerCase().contains(searchLower);
+        });
+        
+        expect(hasPartialMatch, isTrue);
+      });
+      test('should handle multiple filter combinations correctly', () async {
+        // Test case 1: Area + Price Range
+        final areaPriceResult = await remoteSource.searchProperties(
+          areaIds: [1], // El Sheikh Zayed
+          minPrice: 2000000,
+          maxPrice: 8000000,
+        );
+        expect(areaPriceResult.properties, isNotEmpty);
+        for (final property in areaPriceResult.properties) {
+          expect(property.area?.id, equals(1));
+          expect(property.minPrice, greaterThanOrEqualTo(2000000));
+          expect(property.maxPrice, lessThanOrEqualTo(8000000));
+        }
+
+        // Test case 2: Bedrooms + Property Type
+        final bedroomTypeResult = await remoteSource.searchProperties(
+          minBedrooms: 2,
+          maxBedrooms: 4,
+          propertyTypeIds: [1], // Assuming 1 is for Apartments
+        );
+        expect(bedroomTypeResult.properties, isNotEmpty);
+        for (final property in bedroomTypeResult.properties) {
+          if (property.numberOfBedrooms != null) {
+            expect(property.numberOfBedrooms!, greaterThanOrEqualTo(2));
+            expect(property.numberOfBedrooms!, lessThanOrEqualTo(4));
+          }
+          expect(property.propertyType?.id, equals(1));
+        }
+
+        // Test case 3: All filters combined
+        final allFiltersResult = await remoteSource.searchProperties(
+          areaIds: [1, 2], // Multiple areas
+          compoundIds: [1, 2], // Multiple compounds
+          minPrice: 1000000,
+          maxPrice: 10000000,
+          minBedrooms: 1,
+          maxBedrooms: 5,
+          propertyTypeIds: [1, 2], // Multiple property types
+        );
+        expect(allFiltersResult.properties, isNotEmpty);
+        
+        // Verify all filters are applied
+        for (final property in allFiltersResult.properties) {
+          // Area filter
+          expect([1, 2].contains(property.area?.id), isTrue);
+          
+          // Price filter
+          expect(property.minPrice, greaterThanOrEqualTo(1000000));
+          expect(property.maxPrice, lessThanOrEqualTo(10000000));
+          
+          // Bedroom filter
+          if (property.numberOfBedrooms != null) {
+            expect(property.numberOfBedrooms!, greaterThanOrEqualTo(1));
+            expect(property.numberOfBedrooms!, lessThanOrEqualTo(5));
+          }
+          
+          // Property type filter
+          expect([1, 2].contains(property.propertyType?.id), isTrue);
+        }
+      });
+
       test('should return filtered search response with properties', () async {
         // Act - Test with area filter
         final allProperties = await remoteSource.searchProperties();
